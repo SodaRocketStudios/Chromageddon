@@ -25,7 +25,6 @@ namespace SodaRocket.CharacterController
 			moveAction = controls.AvatarControls.Move;
 			lookAction = controls.AvatarControls.Look;
 			attackAction = controls.AvatarControls.Attack;
-
 		}
 
 		private void Update()
@@ -38,7 +37,7 @@ namespace SodaRocket.CharacterController
 		private Vector2 HandleLookInput(Vector2 pointerPosition)
 		{
 			// Controller and mouse input need to be handled differently.
-			return pointerPosition;
+			return Camera.main.ScreenToWorldPoint(pointerPosition);
 		}
 
 		private void OnDisable()
