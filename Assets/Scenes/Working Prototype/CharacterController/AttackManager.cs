@@ -58,7 +58,7 @@ namespace SodaRocket.CharacterControllerSystemProto
 			
 			if(Time.time >= nextAttackTime)
 			{
-				attack.Attack();
+				attack.Attack(transform);
 				nextAttackTime = Time.time + attackDelay;
 			}
 			

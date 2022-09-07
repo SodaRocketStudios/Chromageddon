@@ -4,7 +4,7 @@ namespace SodaRocket.AttackProto
 {
 	public class RangedAttackProto : AttackTypeProto
 	{
-        public override void Attack()
+        public override void Attack(Transform origin)
         {
 			// fire a projectile with a random angle determine by spread
 			// also need to add in the player's speed.

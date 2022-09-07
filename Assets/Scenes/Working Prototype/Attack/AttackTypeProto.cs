@@ -4,6 +4,6 @@ namespace SodaRocket.AttackProto
 {
 	public abstract class AttackTypeProto
 	{
-		public abstract void Attack();
+		public abstract void Attack(Transform origin);
 	}
 }
