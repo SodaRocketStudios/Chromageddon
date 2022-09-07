@@ -1,19 +1,35 @@
 using UnityEngine;
 
-namespace SodaRocket.Health
+namespace SodaRocket.HealthProto
 {
-	public class HealthManager : MonoBehaviour
+	public class HealthManagerProto : MonoBehaviour
 	{
-		private HealthPool healthPool = new HealthPool(100);
+		public int MaxHealth{get; private set;}
+		
+		public int CurrentHealth {get; private set;}
 
-		private void Damage(int amount)
+
+		public delegate void EventHandler();
+		public event EventHandler OnDeath;
+
+		public void Damage(int amount)
 		{
-			healthPool.alterHealth(-amount);
+			AlterHealth(-amount);
 		}
 
-		private void Heal(int amount)
+		public void Heal(int amount)
 		{
-			healthPool.alterHealth(amount);
+			AlterHealth(amount);
+		}
+
+		private void AlterHealth(int amount)
+		{
+			CurrentHealth += amount;
+
+			if(CurrentHealth <= 0)
+			{
+				OnDeath.Invoke();
+			}
 		}
 	}
 }

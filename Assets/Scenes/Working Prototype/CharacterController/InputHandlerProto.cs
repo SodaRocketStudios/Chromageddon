@@ -6,7 +6,7 @@ namespace SodaRocket.CharacterControllerSystemProto
 	[RequireComponent(typeof(InputInterfaceProto))]
 	public class InputHandlerProto : MonoBehaviour
 	{
-		private InputInterfaceProto inputInterface;
+		private InputInterfaceProto input;
 
 		private Controls controls;
 		private InputAction moveAction;
@@ -15,7 +15,7 @@ namespace SodaRocket.CharacterControllerSystemProto
 
 		private void Start()
 		{
-			inputInterface = GetComponent<InputInterfaceProto>();
+			input = GetComponent<InputInterfaceProto>();
 		}
 
 		private void OnEnable()
@@ -29,9 +29,9 @@ namespace SodaRocket.CharacterControllerSystemProto
 
 		private void Update()
 		{
-			inputInterface.MoveDirection = moveAction.ReadValue<Vector2>();
-			inputInterface.LookTarget = HandleLookInput(lookAction.ReadValue<Vector2>());
-			inputInterface.IsAttacking = attackAction.IsPressed();
+			input.MoveDirection = moveAction.ReadValue<Vector2>();
+			input.LookTarget = HandleLookInput(lookAction.ReadValue<Vector2>());
+			input.IsAttacking = attackAction.IsPressed();
 		}
 
 		private Vector2 HandleLookInput(Vector2 pointerPosition)
