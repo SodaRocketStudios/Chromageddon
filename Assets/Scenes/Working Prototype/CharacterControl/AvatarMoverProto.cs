@@ -1,19 +1,19 @@
 using UnityEngine;
 
-namespace SodaRocket.CharacterControllerSystem
+namespace SodaRocket.CharacterControllerSystemProto
 {
 	[RequireComponent(typeof(InputInterfaceProto))]
 	public class AvatarMoverProto : MonoBehaviour
 	{
 		private InputInterfaceProto input;
-		private CharacterController2D characterController;
+		private CharacterController2DProto characterController;
 
 		private float moveSpeed = 10;
 
 		void Start()
 		{
 			input = GetComponent<InputInterfaceProto>();
-			characterController = GetComponent<CharacterController2D>();
+			characterController = GetComponent<CharacterController2DProto>();
 		}
 
 		void Update()

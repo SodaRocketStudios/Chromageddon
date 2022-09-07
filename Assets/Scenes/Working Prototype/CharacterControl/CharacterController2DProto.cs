@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SodaRocket
 {
-	public class CharacterController2D : MonoBehaviour
+	public class CharacterController2DProto : MonoBehaviour
 	{
 		// Raycast in the direction of movement
 		// Translate the character based on velocity as long as it isn't colliding.
