@@ -4,9 +4,6 @@ namespace SodaRocket
 {
 	public class CharacterController2DProto : MonoBehaviour
 	{
-		// Raycast in the direction of movement
-		// Translate the character based on velocity as long as it isn't colliding.
-
 		public Vector2 Velocity{get; set;}
 
 		[SerializeField] private LayerMask mask;
@@ -16,7 +13,6 @@ namespace SodaRocket
 		private void Start()
 		{
 			bounds = GetComponent<SpriteRenderer>().bounds;
-			Debug.Log(bounds);
 		}
 
 
@@ -35,7 +31,7 @@ namespace SodaRocket
 			}
 
 			Vector2 origin = (Vector2)transform.position + Vector2.right*bounds.extents.x*Mathf.Sign(Velocity.x);
-			Vector2 size = new Vector2(0.1f, bounds.extents.y*2);
+			Vector2 size = new Vector2(0.1f, bounds.extents.y);
 
 			RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0, Vector2.right*Mathf.Sign(Velocity.x), 0, mask);
 			Debug.DrawLine(origin, origin + Vector2.right*size.x*Mathf.Sign(Velocity.x));
@@ -54,7 +50,7 @@ namespace SodaRocket
 			}
 
 			Vector2 origin = (Vector2)transform.position + Vector2.up*bounds.extents.y*Mathf.Sign(Velocity.y);
-			Vector2 size = new Vector2(bounds.extents.x*2, 0.1f);
+			Vector2 size = new Vector2(bounds.extents.x, 0.1f);
 
 			RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0, Vector2.up*Mathf.Sign(Velocity.y), 0, mask);
 			Debug.DrawLine(origin, origin + Vector2.up*size.y*Mathf.Sign(Velocity.y));
@@ -67,7 +63,6 @@ namespace SodaRocket
 
 		private void Move()
 		{
-			// Need to stop movement on collisions
 			transform.Translate(Velocity*Time.deltaTime, Space.World);
 		}
 	}

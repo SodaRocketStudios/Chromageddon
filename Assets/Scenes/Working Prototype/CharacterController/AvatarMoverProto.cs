@@ -8,7 +8,7 @@ namespace SodaRocket.CharacterControllerSystemProto
 		private InputInterfaceProto input;
 		private CharacterController2DProto characterController;
 
-		private float moveSpeed = 10;
+		private float moveSpeed = 5;
 
 		void Start()
 		{
