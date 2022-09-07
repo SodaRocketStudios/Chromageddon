@@ -2,7 +2,8 @@
     "name": "CharacterController",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:da8c0087f636a934784c6b7ea73e8d29"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

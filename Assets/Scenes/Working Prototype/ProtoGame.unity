@@ -695,6 +695,8 @@ GameObject:
   - component: {fileID: 1600948672}
   - component: {fileID: 1600948675}
   - component: {fileID: 1600948668}
+  - component: {fileID: 1600948676}
+  - component: {fileID: 1600948677}
   m_Layer: 3
   m_Name: Player Avatar
   m_TagString: Untagged
@@ -847,6 +849,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867c158e919ee024da6548526954c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1600948676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600948667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557ee190da1b6e045b6556ea99c11cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1600948677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600948667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc222e9b36f9ea44aa1c9b53c033c33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType: 1
 --- !u!1 &1631681913
 GameObject:
   m_ObjectHideFlags: 0

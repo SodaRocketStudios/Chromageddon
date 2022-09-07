@@ -2,10 +2,11 @@ using UnityEngine;
 
 namespace SodaRocket.AttackProto
 {
-	public class RangedAttackProto
+	public class RangedAttackProto : AttackTypeProto
 	{
-		public void Attack()
-		{
-		}
-	}
+        public override void Attack()
+        {
+			Debug.Log("Attack with a ranged attack.");
+        }
+    }
 }
