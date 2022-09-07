@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SodaRocket.CharacterController
+namespace SodaRocket.CharacterControllerSystem
 {
 	[RequireComponent(typeof(InputInterfaceProto))]
 	public class AvatarRotaterProto : MonoBehaviour

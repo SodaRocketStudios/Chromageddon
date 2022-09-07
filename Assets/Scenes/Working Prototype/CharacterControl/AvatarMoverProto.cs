@@ -1,20 +1,19 @@
 using UnityEngine;
 
-namespace SodaRocket.CharacterController
+namespace SodaRocket.CharacterControllerSystem
 {
 	[RequireComponent(typeof(InputInterfaceProto))]
-	[RequireComponent(typeof(Rigidbody2D))]
 	public class AvatarMoverProto : MonoBehaviour
 	{
-		private Rigidbody2D rigidbody2;
 		private InputInterfaceProto input;
+		private CharacterController2D characterController;
 
 		private float moveSpeed = 10;
 
 		void Start()
 		{
-			rigidbody2 = GetComponent<Rigidbody2D>();
 			input = GetComponent<InputInterfaceProto>();
+			characterController = GetComponent<CharacterController2D>();
 		}
 
 		void Update()
@@ -24,7 +23,8 @@ namespace SodaRocket.CharacterController
 
 		private void Move(Vector2 direction)
 		{
-			rigidbody2.velocity = moveSpeed*direction;
+			characterController.Velocity = moveSpeed*direction;
+			// transform.position += (Vector3)(moveSpeed*direction*Time.deltaTime);
 		}
 	}
 }

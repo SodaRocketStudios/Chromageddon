@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 50758218}
   - component: {fileID: 50758220}
-  - component: {fileID: 50758219}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -155,27 +154,6 @@ Transform:
   m_Father: {fileID: 446525250}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50758219
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50758217}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &50758220
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -304,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 434410148}
   - component: {fileID: 434410149}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +401,7 @@ GameObject:
   - component: {fileID: 605478006}
   - component: {fileID: 605478005}
   - component: {fileID: 605478004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,11 +657,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
+  m_BindingMode: 3
   m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 2
-  m_YDamping: 2
-  m_ZDamping: 2
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -712,39 +690,33 @@ GameObject:
   - component: {fileID: 1600948671}
   - component: {fileID: 1600948670}
   - component: {fileID: 1600948669}
-  - component: {fileID: 1600948668}
   - component: {fileID: 1600948674}
   - component: {fileID: 1600948673}
   - component: {fileID: 1600948672}
   - component: {fileID: 1600948675}
-  m_Layer: 0
+  - component: {fileID: 1600948668}
+  m_Layer: 3
   m_Name: Player Avatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &1600948668
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &1600948668
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600948667}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7384407467d56040bbfee218dfc6b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!58 &1600948669
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -887,7 +859,7 @@ GameObject:
   - component: {fileID: 1631681917}
   - component: {fileID: 1631681916}
   - component: {fileID: 1631681915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +990,7 @@ GameObject:
   - component: {fileID: 1913670738}
   - component: {fileID: 1913670737}
   - component: {fileID: 1913670736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1149,7 +1121,7 @@ GameObject:
   - component: {fileID: 1947541188}
   - component: {fileID: 1947541187}
   - component: {fileID: 1947541186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
