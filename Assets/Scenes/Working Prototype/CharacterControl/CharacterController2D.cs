@@ -11,6 +11,14 @@ namespace SodaRocket
 
 		[SerializeField] private LayerMask mask;
 
+		private Bounds bounds;
+
+		private void Start()
+		{
+			bounds = GetComponent<SpriteRenderer>().bounds;
+			Debug.Log(bounds);
+		}
+
 
 		private void Update()
 		{
@@ -26,8 +34,11 @@ namespace SodaRocket
 				return;
 			}
 
-			RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one, 0, Vector2.right*Mathf.Sign(Velocity.x), 1, mask);
-			Debug.DrawLine(transform.position, (Vector2)transform.position + Vector2.right*Mathf.Sign(Velocity.x));
+			Vector2 origin = (Vector2)transform.position + Vector2.right*bounds.extents.x*Mathf.Sign(Velocity.x);
+			Vector2 size = new Vector2(0.1f, bounds.extents.y*2);
+
+			RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0, Vector2.right*Mathf.Sign(Velocity.x), 0, mask);
+			Debug.DrawLine(origin, origin + Vector2.right*size.x*Mathf.Sign(Velocity.x));
 
 			if(hit.collider != null)
 			{
@@ -42,8 +53,11 @@ namespace SodaRocket
 				return;
 			}
 
-			RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one, 0, Vector2.up*Mathf.Sign(Velocity.y), 0, mask);
-			Debug.DrawLine(transform.position, (Vector2)transform.position + Vector2.up*Mathf.Sign(Velocity.y));
+			Vector2 origin = (Vector2)transform.position + Vector2.up*bounds.extents.y*Mathf.Sign(Velocity.y);
+			Vector2 size = new Vector2(bounds.extents.x*2, 0.1f);
+
+			RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0, Vector2.up*Mathf.Sign(Velocity.y), 0, mask);
+			Debug.DrawLine(origin, origin + Vector2.up*size.y*Mathf.Sign(Velocity.y));
 
 			if(hit.collider != null)
 			{
