@@ -1415,7 +1415,7 @@ MonoBehaviour:
   attackType: 1
   attackMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!114 &2016504219
 MonoBehaviour:
   m_ObjectHideFlags: 0
