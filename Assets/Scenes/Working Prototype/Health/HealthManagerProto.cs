@@ -12,6 +12,12 @@ namespace SodaRocket.HealthProto
 		public delegate void EventHandler();
 		public event EventHandler OnDeath;
 
+		private void Start()
+		{
+			MaxHealth = 100;
+			CurrentHealth = MaxHealth;
+		}
+
 		public void Damage(int amount)
 		{
 			AlterHealth(-amount);
@@ -28,7 +34,7 @@ namespace SodaRocket.HealthProto
 
 			if(CurrentHealth <= 0)
 			{
-				OnDeath.Invoke();
+				OnDeath?.Invoke();
 			}
 		}
 	}

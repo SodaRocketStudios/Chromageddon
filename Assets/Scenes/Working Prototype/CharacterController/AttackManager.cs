@@ -22,6 +22,8 @@ namespace SodaRocket.CharacterControllerSystemProto
 
 		[SerializeField] private AttackType attackType;
 
+		[SerializeField] private LayerMask attackMask;
+
 		private AttackTypeProto attack;
 		private InputInterfaceProto input;
 
@@ -58,7 +60,7 @@ namespace SodaRocket.CharacterControllerSystemProto
 			
 			if(Time.time >= nextAttackTime)
 			{
-				attack.Attack(transform);
+				attack.Attack(transform, attackMask);
 				nextAttackTime = Time.time + attackDelay;
 			}
 			

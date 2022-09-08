@@ -623,7 +623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 924278593}
   - component: {fileID: 924278594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -956,7 +956,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc222e9b36f9ea44aa1c9b53c033c33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackType: 1
+  attackType: 0
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!50 &1600948678
 Rigidbody2D:
   serializedVersion: 4
@@ -1390,7 +1393,7 @@ GameObject:
   - component: {fileID: 2016504220}
   - component: {fileID: 2016504219}
   - component: {fileID: 2016504218}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Follower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1410,6 +1413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: 1
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2016504219
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
     "name": "Attack",
     "rootNamespace": "",
     "references": [
-        ""
+        "Health"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
