@@ -31,7 +31,8 @@ namespace SodaRocket.HealthProto
 		private void AlterHealth(int amount)
 		{
 			CurrentHealth += amount;
-			Debug.Log($"Health altered by {amount}. Current health is {CurrentHealth}.");
+
+			Debug.Log($"Health is now {CurrentHealth}.");
 
 			if(CurrentHealth <= 0)
 			{

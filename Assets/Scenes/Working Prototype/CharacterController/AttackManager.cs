@@ -24,6 +24,8 @@ namespace SodaRocket.CharacterControllerSystemProto
 
 		[SerializeField] private LayerMask attackMask;
 
+		[SerializeField] private GameObject projectile;
+
 		private AttackTypeProto attack;
 		private InputInterfaceProto input;
 
@@ -39,7 +41,7 @@ namespace SodaRocket.CharacterControllerSystemProto
 			}
 			else if(attackType == AttackType.ranged)
 			{
-				attack = new RangedAttackProto();
+				attack = new RangedAttackProto(projectile);
 			}
 		}
 

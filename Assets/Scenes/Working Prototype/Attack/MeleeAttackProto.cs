@@ -18,7 +18,6 @@ namespace SodaRocket.AttackProto
             if(hit.collider != null)
             {
                 float hitAngle = Vector2.Angle(origin.right, hit.transform.position - origin.position);
-                Debug.Log($"{hitAngle} deg");
                 
                 if(hitAngle <= arcAngle)
                 {
