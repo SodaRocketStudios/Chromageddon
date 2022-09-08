@@ -9,7 +9,7 @@ namespace SodaRocket.HealthProto
 		public int CurrentHealth {get; private set;}
 
 
-		public delegate void EventHandler();
+		public delegate void EventHandler(GameObject character);
 		public event EventHandler OnDeath;
 
 		private void Start()
@@ -36,7 +36,7 @@ namespace SodaRocket.HealthProto
 
 			if(CurrentHealth <= 0)
 			{
-				OnDeath?.Invoke();
+				OnDeath?.Invoke(gameObject);
 			}
 		}
 	}

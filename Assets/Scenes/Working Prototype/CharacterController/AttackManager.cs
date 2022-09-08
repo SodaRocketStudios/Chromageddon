@@ -33,7 +33,7 @@ namespace SodaRocket.CharacterControllerSystemProto
 
 		private void Start()
 		{
-			AttackSpeed = 2;
+			AttackSpeed = 30;
 			input = GetComponent<InputInterfaceProto>();
 			if(attackType == AttackType.melee)
 			{
