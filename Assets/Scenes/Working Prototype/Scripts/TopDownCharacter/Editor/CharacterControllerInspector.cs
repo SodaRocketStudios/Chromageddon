@@ -3,12 +3,12 @@ using UnityEditor;
 
 namespace SodaRocket.TopDownCharacterController
 {
-	[CustomEditor(typeof(CharacterController2D))]
+	[CustomEditor(typeof(TopDownCharacterController))]
 	public class CharacterControllerInspector : Editor
 	{
 		private void OnSceneGUI()
 		{
-			CharacterController2D script = (CharacterController2D)target;
+			TopDownCharacterController script = (TopDownCharacterController)target;
 
 			Bounds bounds = script.gameObject.GetComponent<CircleCollider2D>().bounds;
 			Vector2 position = script.transform.position;

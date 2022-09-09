@@ -6,14 +6,14 @@ namespace SodaRocket.TopDownCharacterController
 	public class TopDownAvatarMover : MonoBehaviour
 	{
 		private TopDownInputInterface input;
-		private CharacterController2D characterController;
+		private TopDownCharacterController characterController;
 
 		private float moveSpeed = 5;
 
 		void Start()
 		{
 			input = GetComponent<TopDownInputInterface>();
-			characterController = GetComponent<CharacterController2D>();
+			characterController = GetComponent<TopDownCharacterController>();
 		}
 
 		void Update()

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SodaRocket.TopDownCharacterController
 {
 	[RequireComponent(typeof(CircleCollider2D))]
-	public class CharacterController2D : MonoBehaviour
+	public class TopDownCharacterController : MonoBehaviour
 	{
 		public Vector2 Velocity{get; set;}
 
