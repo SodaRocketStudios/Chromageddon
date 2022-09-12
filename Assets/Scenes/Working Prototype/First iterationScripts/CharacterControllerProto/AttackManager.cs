@@ -33,8 +33,10 @@ namespace SodaRocket.CharacterControllerSystemProto
 
 		private void Start()
 		{
-			AttackSpeed = 30;
+			AttackSpeed = 100;
+
 			input = GetComponent<InputInterfaceProto>();
+
 			if(attackType == AttackType.melee)
 			{
 				attack = new MeleeAttackProto();
@@ -51,6 +53,10 @@ namespace SodaRocket.CharacterControllerSystemProto
 			{
 				Attack();
 			}
+			else if(Time.time > nextAttackTime)
+			{
+				nextAttackTime = Time.time;
+			}
 		}
 
 		private void Attack()
@@ -63,7 +69,7 @@ namespace SodaRocket.CharacterControllerSystemProto
 			if(Time.time >= nextAttackTime)
 			{
 				attack.Attack(transform, attackMask);
-				nextAttackTime = Time.time + attackDelay;
+				nextAttackTime += attackDelay;
 			}
 			
 		}
