@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace SodaRocket.TopDownCharacterController
 {
-	[RequireComponent(typeof(TopDownInputHandler))]
+	[RequireComponent(typeof(TopDownInputInterface))]
 	public class TopDownInputHandler : MonoBehaviour
 	{
 		private TopDownInputInterface input;
@@ -21,10 +21,10 @@ namespace SodaRocket.TopDownCharacterController
 		private void OnEnable()
 		{
 			controls = new Controls();
-			controls.AvatarControls.Enable();
-			moveAction = controls.AvatarControls.Move;
-			lookAction = controls.AvatarControls.Look;
-			attackAction = controls.AvatarControls.Attack;
+			controls.Avatar.Enable();
+			moveAction = controls.Avatar.Move;
+			lookAction = controls.Avatar.Look;
+			attackAction = controls.Avatar.Attack;
 		}
 
 		private void Update()
@@ -41,7 +41,7 @@ namespace SodaRocket.TopDownCharacterController
 
 		private void OnDisable()
 		{
-			controls.AvatarControls.Disable();
+			controls.Avatar.Disable();
 		}
 	}
 }

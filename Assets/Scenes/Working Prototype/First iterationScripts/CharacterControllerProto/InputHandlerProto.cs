@@ -8,7 +8,7 @@ namespace SodaRocket.CharacterControllerSystemProto
 	{
 		private InputInterfaceProto input;
 
-		private Controls controls;
+		private ControlsProto controls;
 		private InputAction moveAction;
 		private InputAction lookAction;
 		private InputAction attackAction;
@@ -20,7 +20,7 @@ namespace SodaRocket.CharacterControllerSystemProto
 
 		private void OnEnable()
 		{
-			controls = new Controls();
+			controls = new ControlsProto();
 			controls.AvatarControls.Enable();
 			moveAction = controls.AvatarControls.Move;
 			lookAction = controls.AvatarControls.Look;
