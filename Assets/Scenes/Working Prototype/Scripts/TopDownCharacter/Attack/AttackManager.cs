@@ -1,9 +1,8 @@
 using UnityEngine;
-using SodaRocket.AttackProto;
 
-namespace SodaRocket.CharacterControllerSystemProto
+namespace SodaRocket.TopDownCharacterController.AttackSystem
 {
-	[RequireComponent(typeof(InputInterfaceProto))]
+	[RequireComponent(typeof(TopDownInputInterface))]
 	public class AttackManager : MonoBehaviour
 	{
 		public bool AttackBlocked{get; set;}
@@ -20,30 +19,29 @@ namespace SodaRocket.CharacterControllerSystemProto
 
 		private float attackDelay;
 
-		[SerializeField] private AttackType attackType;
-
 		[SerializeField] private LayerMask attackMask;
 
+		[Tooltip("If left empty, the character will use melee attacks instead.")]
 		[SerializeField] private GameObject projectile;
 
-		private AttackTypeProto attack;
-		private InputInterfaceProto input;
+		private AttackType attack;
+		private TopDownInputInterface input;
 
 		private float nextAttackTime = 0;
 
 		private void Start()
 		{
-			AttackSpeed = 100;
+			AttackSpeed = 1;
 
-			input = GetComponent<InputInterfaceProto>();
+			input = GetComponent<TopDownInputInterface>();
 
-			if(attackType == AttackType.melee)
+			if(projectile == null)
 			{
-				attack = new MeleeAttackProto();
+				attack = new MeleeAttack(20, 60);
 			}
-			else if(attackType == AttackType.ranged)
+			else
 			{
-				attack = new RangedAttackProto(projectile);
+				attack = new RangedAttack(projectile, 30);
 			}
 		}
 
@@ -72,12 +70,6 @@ namespace SodaRocket.CharacterControllerSystemProto
 				nextAttackTime += attackDelay;
 			}
 			
-		}
-
-		private enum AttackType
-		{
-			melee,
-			ranged
 		}
 	}
 }

@@ -695,6 +695,8 @@ GameObject:
   - component: {fileID: 1600948674}
   - component: {fileID: 1600948672}
   - component: {fileID: 1600948673}
+  - component: {fileID: 1600948675}
+  - component: {fileID: 1600948676}
   m_Layer: 3
   m_Name: Player Avatar
   m_TagString: Untagged
@@ -836,6 +838,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad75613109f1fe54088a7fc9d1196a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1600948675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600948667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe054bb71d0cd6c449f3dea875e36283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1600948676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600948667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a4a80531f384542b6d1153b97413d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 128
+  projectile: {fileID: 0}
 --- !u!50 &1600948678
 Rigidbody2D:
   serializedVersion: 4
