@@ -11,11 +11,9 @@ namespace SodaRocket.TopDownCharacterController.AttackSystem
 		{
 			set
 			{
-				attackSpeed = value;
-				attackDelay = 1/attackSpeed;
+				attackDelay = 1/value;
 			}
 		}
-		private float attackSpeed;
 
 		private float attackDelay;
 
@@ -31,7 +29,7 @@ namespace SodaRocket.TopDownCharacterController.AttackSystem
 
 		private void Start()
 		{
-			AttackSpeed = 1;
+			AttackSpeed = 200;
 
 			input = GetComponent<TopDownInputInterface>();
 
@@ -63,8 +61,15 @@ namespace SodaRocket.TopDownCharacterController.AttackSystem
 			{
 				return;
 			}
+
+			int numOfAttacks = 0;
+
+			while(Time.time - numOfAttacks*attackDelay > nextAttackTime)
+			{
+				numOfAttacks++;
+			}
 			
-			if(Time.time >= nextAttackTime)
+			for(int i = 0; i < numOfAttacks; i++)
 			{
 				attack.Attack(transform, attackMask);
 				nextAttackTime += attackDelay;
