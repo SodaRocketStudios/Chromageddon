@@ -865,7 +865,7 @@ MonoBehaviour:
   attackMask:
     serializedVersion: 2
     m_Bits: 128
-  projectile: {fileID: 0}
+  projectile: {fileID: 8209696437095727103, guid: a81d1c7515d8a234ba1562a6ad6fd0b9, type: 3}
 --- !u!50 &1600948678
 Rigidbody2D:
   serializedVersion: 4

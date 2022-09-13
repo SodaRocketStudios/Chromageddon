@@ -29,7 +29,7 @@ namespace SodaRocket.TopDownCharacterController.AttackSystem
 
 		private void Start()
 		{
-			AttackSpeed = 200;
+			AttackSpeed = 100;
 
 			input = GetComponent<TopDownInputInterface>();
 
