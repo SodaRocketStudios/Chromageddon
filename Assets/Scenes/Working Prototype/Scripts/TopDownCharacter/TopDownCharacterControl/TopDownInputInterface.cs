@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SodaRocket.TopDownCharacterController
+namespace SRS.TopDownCharacterController
 {
 	public class TopDownInputInterface : MonoBehaviour
 	{

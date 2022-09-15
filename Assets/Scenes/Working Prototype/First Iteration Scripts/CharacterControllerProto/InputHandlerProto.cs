@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace SodaRocket.CharacterControllerSystemProto
+namespace SRS.CharacterControllerSystemProto
 {
 	[RequireComponent(typeof(InputInterfaceProto))]
 	public class InputHandlerProto : MonoBehaviour

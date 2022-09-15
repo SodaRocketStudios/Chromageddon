@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SodaRocket.CharacterControllerSystemProto
+namespace SRS.CharacterControllerSystemProto
 {
 	[RequireComponent(typeof(InputInterfaceProto))]
 	public class AvatarMoverProto : MonoBehaviour

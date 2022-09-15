@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SodaRocket.AttackProto
+namespace SRS.AttackProto
 {
 	public abstract class AttackTypeProto
 	{

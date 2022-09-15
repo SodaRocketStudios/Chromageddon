@@ -1,7 +1,7 @@
 using UnityEngine;
-using SodaRocket.HealthProto;
+using SRS.HealthProto;
 
-namespace SodaRocket
+namespace SRS
 {
 	public class EnemySpawner : MonoBehaviour
 	{

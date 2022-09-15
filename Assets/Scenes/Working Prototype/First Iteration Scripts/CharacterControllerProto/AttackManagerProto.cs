@@ -1,7 +1,7 @@
 using UnityEngine;
-using SodaRocket.AttackProto;
+using SRS.AttackProto;
 
-namespace SodaRocket.CharacterControllerSystemProto
+namespace SRS.CharacterControllerSystemProto
 {
 	[RequireComponent(typeof(InputInterfaceProto))]
 	public class AttackManagerProto : MonoBehaviour

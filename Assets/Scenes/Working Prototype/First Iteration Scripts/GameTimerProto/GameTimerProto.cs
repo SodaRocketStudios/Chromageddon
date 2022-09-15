@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SodaRocket.GameTimeProto
+namespace SRS.GameTimeProto
 {
 	public class GameTimerProto : MonoBehaviour
 	{

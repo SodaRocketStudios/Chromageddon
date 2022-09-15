@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SodaRocket.HealthProto
+namespace SRS.HealthProto
 {
 	public class HealthManagerProto : MonoBehaviour
 	{

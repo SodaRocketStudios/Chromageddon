@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SodaRocket.TopDownCharacterController.AttackSystem
+namespace SRS.TopDownCharacterController.AttackSystem
 {
 	public class MeleeAttack : AttackType
 	{

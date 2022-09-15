@@ -1,7 +1,7 @@
 using UnityEngine;
-using SodaRocket.HealthProto;
+using SRS.HealthProto;
 
-namespace SodaRocket.AttackProto
+namespace SRS.AttackProto
 {
 	public class ProjectileProto : MonoBehaviour
 	{

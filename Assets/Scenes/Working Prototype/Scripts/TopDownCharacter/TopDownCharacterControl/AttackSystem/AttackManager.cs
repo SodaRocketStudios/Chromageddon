@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SodaRocket.TopDownCharacterController.AttackSystem
+namespace SRS.TopDownCharacterController.AttackSystem
 {
 	[RequireComponent(typeof(TopDownInputInterface))]
 	public class AttackManager : MonoBehaviour

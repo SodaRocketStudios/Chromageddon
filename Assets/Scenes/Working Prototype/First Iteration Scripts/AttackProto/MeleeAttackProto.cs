@@ -1,8 +1,8 @@
 using UnityEngine;
-using SodaRocket.HealthProto;
+using SRS.HealthProto;
 using UnityEditor;
 
-namespace SodaRocket.AttackProto
+namespace SRS.AttackProto
 {
 	public class MeleeAttackProto : AttackTypeProto
 	{

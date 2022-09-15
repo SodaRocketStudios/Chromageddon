@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SodaRocket
+namespace SRS
 {
 	public class CharacterController2DProto : MonoBehaviour
 	{
