@@ -1,4 +1,5 @@
 using UnityEngine;
+using SRS.Stats;
 
 namespace SRS.TopDownCharacterController
 {
@@ -8,12 +9,13 @@ namespace SRS.TopDownCharacterController
 		private TopDownInputInterface input;
 		private TopDownCharacterController characterController;
 
-		private float moveSpeed = 5;
+		private float moveSpeed;
 
 		void Start()
 		{
 			input = GetComponent<TopDownInputInterface>();
 			characterController = GetComponent<TopDownCharacterController>();
+			moveSpeed = GetComponent<CharacterData>().CharacterStats["MoveSpeed"].Value;
 		}
 
 		void Update()
