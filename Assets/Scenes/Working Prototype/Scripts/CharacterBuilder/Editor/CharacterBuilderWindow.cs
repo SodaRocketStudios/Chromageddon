@@ -1,17 +1,18 @@
 using UnityEngine;
 using UnityEditor;
+using SRS.Stats;
 
 namespace SRS.CharacterBuilder
 {	
 	public class CharacterBuilderWindow : EditorWindow
 	{
-		private string characterName;
+		private string characterName = "New Character Data";
 
-		private string saveLocation = "";
+		private string saveLocation;
 
-		private string characterStatFile = "";
+		private string characterStatFile;
 
-		private string attackStatFile = "";
+		private string attackStatFile;
 
 		[MenuItem("Character Builder/Create New Character")]
 		private static void ShowWindow()
@@ -19,7 +20,7 @@ namespace SRS.CharacterBuilder
 			var window = GetWindow<CharacterBuilderWindow>();
 			window.titleContent = new GUIContent("Character Builder");
 			window.Show();
-			window.maxSize = new Vector2(400, 250);
+			window.maxSize = new Vector2(407, 310);
 			window.minSize = window.maxSize;
 		}
 	
@@ -39,16 +40,30 @@ namespace SRS.CharacterBuilder
 			characterStatFile = EditorGUILayout.TextField("File Location", characterStatFile);
 
 			EditorGUILayout.BeginHorizontal();
-
 			if(GUILayout.Button("Open stat file"))
 			{
 				characterStatFile = EditorUtility.OpenFilePanel("Open stat file", Application.dataPath, "csv");
 			}
-			if(GUILayout.Button("Create New Character Stat File"))
+			if(GUILayout.Button("Create new character stats"))
 			{
-				PopupWindow.Show(new Rect(), new NewFilePopup());
+				PopupWindow.Show(new Rect(), new NewCharacterStatPopup());
 			}
+			EditorGUILayout.EndHorizontal();
 
+			GUILayout.Space(20);
+			GUILayout.Label("Attack Stats");
+
+			characterStatFile = EditorGUILayout.TextField("File Location", attackStatFile);
+
+			EditorGUILayout.BeginHorizontal();
+			if(GUILayout.Button("Open stat file"))
+			{
+				attackStatFile = EditorUtility.OpenFilePanel("Open stat file", Application.dataPath, "csv");
+			}
+			if(GUILayout.Button("Create new attack stats"))
+			{
+				PopupWindow.Show(new Rect(), new NewAttackStatPopup());
+			}
 			EditorGUILayout.EndHorizontal();
 
 			GUILayout.Space(20);			
@@ -56,8 +71,21 @@ namespace SRS.CharacterBuilder
 			if(GUILayout.Button("Generate Character", new GUILayoutOption[] {GUILayout.Width(400), GUILayout.Height(50)}))
 			{
 				// Check for missing information
-				Debug.Log($"New character created at Assets/{saveLocation}/{characterName}.");
-				// Generate the character
+
+				if(string.IsNullOrEmpty(characterName)) characterName = "New Character Data";
+
+				CharacterDataObject statObject = ScriptableObject.CreateInstance<CharacterDataObject>();
+
+				// statObject.AttackStats;
+
+				AssetDatabase.CreateAsset(statObject, $"Assets/{saveLocation}/{characterName}");
+				AssetDatabase.SaveAssets();
+				AssetDatabase.Refresh();
+
+				EditorUtility.FocusProjectWindow();
+				Selection.activeObject = statObject;
+
+				Debug.Log($"New character data created at {AssetDatabase.GetAssetPath(statObject)}");
 			}
 		}
 	}
