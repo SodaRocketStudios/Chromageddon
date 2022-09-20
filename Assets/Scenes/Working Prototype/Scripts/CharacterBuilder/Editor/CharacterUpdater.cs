@@ -13,7 +13,6 @@ namespace SRS.CharacterBuilder
 
 			foreach(string guid in guids)
 			{
-				Debug.Log(guid);
 				string assetPath = AssetDatabase.GUIDToAssetPath(guid);
 				BaseCharacterData baseCharacterData = AssetDatabase.LoadAssetAtPath<BaseCharacterData>(assetPath);
 				baseCharacterData.PopulateStats();
