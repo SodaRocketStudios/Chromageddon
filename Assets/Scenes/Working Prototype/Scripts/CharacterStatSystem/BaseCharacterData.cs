@@ -4,16 +4,26 @@ using SRS.DataReader;
 
 namespace SRS.Stats
 {
-	[CreateAssetMenu(fileName = "New Character Stats", menuName = "Character Data/Character Data Object")]
+	[CreateAssetMenu(fileName = "New Base Character Data", menuName = "Character Data/Character Base Data")]
 	public class BaseCharacterData : ScriptableObject
 	{
 		public Dictionary<string, Stat> CharacterStats = new Dictionary<string, Stat>();
 		public Dictionary<string, Stat> AttackStats = new Dictionary<string, Stat>();
 
+		[SerializeField]
 		private string characterStatFile;
+		[SerializeField]
 		private string attackStatFile;
 
-		public void PopulateStats(string characterStatFile, string attackStatFile)
+		public void PopulateStats(string _characterStatFile, string _attackStatFile)
+		{
+			characterStatFile = _characterStatFile;
+			attackStatFile = _attackStatFile;
+
+			PopulateStats();
+		}
+
+		public void PopulateStats()
 		{
 			Dictionary<string, Stat> stats = new Dictionary<string, Stat>();
 
