@@ -76,7 +76,7 @@ namespace SRS.CharacterBuilder
 
 				if(string.IsNullOrEmpty(characterName)) characterName = "New Character Data";
 
-				CharacterDataObject characterDataObject = CreateCharacterDataObject();
+				BaseCharacterData characterDataObject = CreateCharacterDataObject();
 
 				AssetDatabase.CreateAsset(characterDataObject, $"Assets/{saveLocation}/{characterName}");
 				AssetDatabase.SaveAssets();
@@ -88,9 +88,9 @@ namespace SRS.CharacterBuilder
 				Debug.Log($"New character data created at {AssetDatabase.GetAssetPath(characterDataObject)}");
 			}
 		}
-		private CharacterDataObject CreateCharacterDataObject()
+		private BaseCharacterData CreateCharacterDataObject()
 		{
-			CharacterDataObject characterDataObject = ScriptableObject.CreateInstance<CharacterDataObject>();
+			BaseCharacterData characterDataObject = ScriptableObject.CreateInstance<BaseCharacterData>();
 
 			Dictionary<string, Stat> stats = new Dictionary<string, Stat>();
 
