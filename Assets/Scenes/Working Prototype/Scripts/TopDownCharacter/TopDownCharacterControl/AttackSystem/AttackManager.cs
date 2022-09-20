@@ -12,11 +12,14 @@ namespace SRS.TopDownCharacterController.AttackSystem
 		{
 			set
 			{
-				attackDelay = 1/value;
+				if(value != 0)
+				{
+					attackDelay = 1/value;
+				}
 			}
 		}
 
-		private float attackDelay;
+		private float attackDelay = 1;
 
 		private float attackArc;
 

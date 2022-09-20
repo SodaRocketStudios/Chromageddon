@@ -10,7 +10,6 @@ namespace SRS.Stats
 
 		[SerializeField]
 		private BaseCharacterData baseData;
-
 		private void Awake()
 		{
 			InitializeStats();
@@ -20,7 +19,7 @@ namespace SRS.Stats
 		{
 			foreach(KeyValuePair<string, Stat> stat in baseData.CharacterStats)
 			{
-				Debug.Log(stat.Value.Name);
+				Debug.Log(stat.Key);
 			}
 
 			CharacterStats = new Dictionary<string, Stat>(baseData.CharacterStats);
