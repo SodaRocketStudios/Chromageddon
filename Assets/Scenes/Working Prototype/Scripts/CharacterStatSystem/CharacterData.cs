@@ -1,19 +1,30 @@
 using UnityEngine;
 using System.Collections.Generic;
-using SRS.DataReader;
 
 namespace SRS.Stats
 {
 	public class CharacterData : MonoBehaviour
 	{
-		public string DataLocation = "Test.csv";
 		public Dictionary<string, Stat> CharacterStats = new Dictionary<string, Stat>();
 		public Dictionary<string, Stat> AttackStats = new Dictionary<string, Stat>();
 
+		[SerializeField]
+		private BaseCharacterData baseData;
+
 		private void Awake()
 		{
-			Debug.Log(CSVReader.Read(DataLocation));
-			CharacterStats["MoveSpeed"] = new Stat("MoveSpeed", 5);
+			InitializeStats();
+		}
+
+		private void InitializeStats()
+		{
+			foreach(KeyValuePair<string, Stat> stat in baseData.CharacterStats)
+			{
+				Debug.Log(stat.Value.Name);
+			}
+
+			CharacterStats = new Dictionary<string, Stat>(baseData.CharacterStats);
+			AttackStats = new Dictionary<string, Stat>(baseData.AttackStats);
 		}
 	}
 }

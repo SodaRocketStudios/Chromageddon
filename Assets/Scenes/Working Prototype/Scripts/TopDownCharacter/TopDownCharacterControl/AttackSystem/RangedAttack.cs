@@ -8,10 +8,10 @@ namespace SRS.TopDownCharacterController.AttackSystem
 
 		private GameObject projectile;
 
-		public RangedAttack(GameObject _projectile, float spreadAngle)
+		public RangedAttack(GameObject _projectile, float _spreadAngle)
 		{
 			projectile = _projectile;
-			SpreadAngle = spreadAngle;
+			SpreadAngle = _spreadAngle;
 		}
 
         public override void Attack(Transform origin, LayerMask mask)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using SRS.Stats;
 
 namespace SRS.TopDownCharacterController.AttackSystem
 {
@@ -17,6 +18,8 @@ namespace SRS.TopDownCharacterController.AttackSystem
 
 		private float attackDelay;
 
+		private float attackArc;
+
 		[SerializeField] private LayerMask attackMask;
 
 		[Tooltip("If left empty, the character will use melee attacks instead.")]
@@ -25,21 +28,25 @@ namespace SRS.TopDownCharacterController.AttackSystem
 		private AttackType attack;
 		private TopDownInputInterface input;
 
+		private CharacterData characterData;
+
 		private float nextAttackTime = 0;
 
 		private void Start()
 		{
-			AttackSpeed = 100;
+			characterData = GetComponent<CharacterData>();
+			// AttackSpeed = characterData.CharacterStats["AttackSpeed"].Value;
+			// attackArc = characterData.CharacterStats["AttackArc"].Value;
 
 			input = GetComponent<TopDownInputInterface>();
 
 			if(projectile == null)
 			{
-				attack = new MeleeAttack(20, 60);
+				attack = new MeleeAttack(20, attackArc);
 			}
 			else
 			{
-				attack = new RangedAttack(projectile, 30);
+				attack = new RangedAttack(projectile, attackArc);
 			}
 		}
 

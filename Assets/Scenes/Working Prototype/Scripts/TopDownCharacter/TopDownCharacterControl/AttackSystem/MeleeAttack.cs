@@ -7,10 +7,10 @@ namespace SRS.TopDownCharacterController.AttackSystem
 		public float Range{get; set;}
 		public float ArcAngle{get; set;}
 		
-		public MeleeAttack(float range, float arcAngle)
+		public MeleeAttack(float _range, float _arcAngle)
 		{
-			Range = range;
-			ArcAngle = arcAngle;
+			Range = _range;
+			ArcAngle = _arcAngle;
 		}
 
         public override void Attack(Transform origin, LayerMask mask)
