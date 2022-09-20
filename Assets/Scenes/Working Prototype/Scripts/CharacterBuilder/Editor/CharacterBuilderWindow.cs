@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 using SRS.Stats;
+using SRS.DataReader;
 
 namespace SRS.CharacterBuilder
 {	
@@ -53,7 +55,7 @@ namespace SRS.CharacterBuilder
 			GUILayout.Space(20);
 			GUILayout.Label("Attack Stats");
 
-			characterStatFile = EditorGUILayout.TextField("File Location", attackStatFile);
+			attackStatFile = EditorGUILayout.TextField("File Location", attackStatFile);
 
 			EditorGUILayout.BeginHorizontal();
 			if(GUILayout.Button("Open stat file"))
@@ -76,6 +78,17 @@ namespace SRS.CharacterBuilder
 
 				CharacterDataObject statObject = ScriptableObject.CreateInstance<CharacterDataObject>();
 
+				List<Dictionary<string, object>> stats = CSVReader.Read(characterStatFile);
+
+				foreach(Dictionary<string, object> dict in stats)
+				{
+					foreach(KeyValuePair<string, object> entry in dict)
+					{
+						// Each dictionary is a stat
+						Debug.Log($"{entry.Key}, {entry.Value}");
+					}
+				}
+				
 				// statObject.AttackStats;
 
 				AssetDatabase.CreateAsset(statObject, $"Assets/{saveLocation}/{characterName}");

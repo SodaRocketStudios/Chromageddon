@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEditor;
+using System.IO;
 
 namespace SRS.DataReader
 {
@@ -14,10 +15,13 @@ namespace SRS.DataReader
 		public static List<Dictionary<string, object>> Read(string file)
 		{
 			var list = new List<Dictionary<string, object>>();
-			TextAsset data = Resources.Load (file) as TextAsset;
 			// TextAsset data = AssetDatabase.LoadAssetAtPath(file, typeof(TextAsset)) as TextAsset;
 
-			var lines = Regex.Split (data.text, LINE_SPLIT);
+			string[] lines = File.ReadAllLines(file);
+
+			
+
+			// var lines = Regex.Split (data.text, LINE_SPLIT);
 
 			if(lines.Length <= 1) return list;
 

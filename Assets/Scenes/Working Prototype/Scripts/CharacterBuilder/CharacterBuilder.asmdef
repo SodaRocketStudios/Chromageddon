@@ -2,7 +2,8 @@
     "name": "CharacterBuilder",
     "rootNamespace": "",
     "references": [
-        "GUID:c13dd715b8d691d46a082b62b2c28be7"
+        "GUID:c13dd715b8d691d46a082b62b2c28be7",
+        "GUID:bc0bd8d213440e74abd82f8bb19fc4f3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
