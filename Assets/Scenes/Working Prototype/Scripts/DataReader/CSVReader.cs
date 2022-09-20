@@ -1,7 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using UnityEditor;
 using System.IO;
 
 namespace SRS.DataReader
@@ -9,19 +7,13 @@ namespace SRS.DataReader
 	public class CSVReader
 	{
 		static string DATA_SPLIT = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
-		static string LINE_SPLIT = @"\r\n|\n\r|\n|\r";
 		static char[] TRIM_CHARACTERS  = { '\"' };
 
 		public static List<Dictionary<string, object>> Read(string file)
 		{
 			var list = new List<Dictionary<string, object>>();
-			// TextAsset data = AssetDatabase.LoadAssetAtPath(file, typeof(TextAsset)) as TextAsset;
 
 			string[] lines = File.ReadAllLines(file);
-
-			
-
-			// var lines = Regex.Split (data.text, LINE_SPLIT);
 
 			if(lines.Length <= 1) return list;
 

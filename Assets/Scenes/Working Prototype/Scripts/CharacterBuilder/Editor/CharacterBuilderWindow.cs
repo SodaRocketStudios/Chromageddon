@@ -80,13 +80,17 @@ namespace SRS.CharacterBuilder
 
 				List<Dictionary<string, object>> stats = CSVReader.Read(characterStatFile);
 
-				foreach(Dictionary<string, object> dict in stats)
+				foreach(Dictionary<string, object> stat in stats)
 				{
-					foreach(KeyValuePair<string, object> entry in dict)
-					{
-						// Each dictionary is a stat
-						Debug.Log($"{entry.Key}, {entry.Value}");
-					}
+					string statName = stat["Name"].ToString();
+					float baseValue = float.Parse(stat["Base Value"].ToString());
+					float additive = float.Parse(stat["Additive Modifier"].ToString());
+					float multiplicative = float.Parse(stat["Multiplicative Modifier"].ToString());
+					float flat = float.Parse(stat["Flat Modifier"].ToString());
+
+					Stat newStat = new Stat(statName, baseValue, additive, multiplicative, flat);
+
+					statObject.CharacterStats[stat["Name"].ToString()] = newStat;
 				}
 				
 				// statObject.AttackStats;
