@@ -76,34 +76,55 @@ namespace SRS.CharacterBuilder
 
 				if(string.IsNullOrEmpty(characterName)) characterName = "New Character Data";
 
-				CharacterDataObject statObject = ScriptableObject.CreateInstance<CharacterDataObject>();
+				CharacterDataObject characterDataObject = CreateCharacterDataObject();
 
-				List<Dictionary<string, object>> stats = CSVReader.Read(characterStatFile);
-
-				foreach(Dictionary<string, object> stat in stats)
-				{
-					string statName = stat["Name"].ToString();
-					float baseValue = float.Parse(stat["Base Value"].ToString());
-					float additive = float.Parse(stat["Additive Modifier"].ToString());
-					float multiplicative = float.Parse(stat["Multiplicative Modifier"].ToString());
-					float flat = float.Parse(stat["Flat Modifier"].ToString());
-
-					Stat newStat = new Stat(statName, baseValue, additive, multiplicative, flat);
-
-					statObject.CharacterStats[stat["Name"].ToString()] = newStat;
-				}
-				
-				// statObject.AttackStats;
-
-				AssetDatabase.CreateAsset(statObject, $"Assets/{saveLocation}/{characterName}");
+				AssetDatabase.CreateAsset(characterDataObject, $"Assets/{saveLocation}/{characterName}");
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 
 				EditorUtility.FocusProjectWindow();
-				Selection.activeObject = statObject;
+				Selection.activeObject = characterDataObject;
 
-				Debug.Log($"New character data created at {AssetDatabase.GetAssetPath(statObject)}");
+				Debug.Log($"New character data created at {AssetDatabase.GetAssetPath(characterDataObject)}");
 			}
+		}
+		private CharacterDataObject CreateCharacterDataObject()
+		{
+			CharacterDataObject characterDataObject = ScriptableObject.CreateInstance<CharacterDataObject>();
+
+			Dictionary<string, Stat> stats = new Dictionary<string, Stat>();
+
+			List<Dictionary<string, object>> characterStats = CSVReader.Read(characterStatFile);
+
+			foreach(Dictionary<string, object> stat in characterStats)
+			{
+				string statName = stat["Name"].ToString();
+				float baseValue = float.Parse(stat["Base Value"].ToString());
+				float additive = float.Parse(stat["Additive Modifier"].ToString());
+				float multiplicative = float.Parse(stat["Multiplicative Modifier"].ToString());
+				float flat = float.Parse(stat["Flat Modifier"].ToString());
+
+				Stat newStat = new Stat(statName, baseValue, additive, multiplicative, flat);
+
+				characterDataObject.CharacterStats[stat["Name"].ToString()] = newStat;
+			}
+
+			List<Dictionary<string, object>> attackStats = CSVReader.Read(attackStatFile);
+
+			foreach(Dictionary<string, object> stat in attackStats)
+			{
+				string statName = stat["Name"].ToString();
+				float baseValue = float.Parse(stat["Base Value"].ToString());
+				float additive = float.Parse(stat["Additive Modifier"].ToString());
+				float multiplicative = float.Parse(stat["Multiplicative Modifier"].ToString());
+				float flat = float.Parse(stat["Flat Modifier"].ToString());
+
+				Stat newStat = new Stat(statName, baseValue, additive, multiplicative, flat);
+
+				characterDataObject.AttackStats[stat["Name"].ToString()] = newStat;
+			}
+
+			return characterDataObject;
 		}
 	}
 }
