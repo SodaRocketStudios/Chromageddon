@@ -96,7 +96,7 @@ namespace SRS.Stats
 		private void OnValueChange()
 		{
 			Value = (BaseValue + AdditiveModifier)*MultiplicativeModifier + FlatModifier;
-			OnValueChanged.Invoke(Value);
+			OnValueChanged?.Invoke(Value);
 		}
 	}
 }

@@ -14,14 +14,12 @@ namespace SRS.TopDownCharacterController.AttackSystem
 			projectile = _projectile;
 		}
 
-        public override void Attack(Transform origin, LayerMask mask)
+        public override void Attack(Transform origin, float attackAngle, LayerMask mask)
         {
-			float spreadAngle = attackStats["AttackArc"].Value;
-
-			Quaternion direction = Quaternion.Euler(0, 0, origin.eulerAngles.z+Random.Range(-spreadAngle/2, spreadAngle/2));
+			Quaternion direction = Quaternion.Euler(0, 0, origin.eulerAngles.z+Random.Range(-attackAngle/2, attackAngle/2));
 			GameObject newProjectile = GameObject.Instantiate(projectile, origin.position, direction);
 
-			// TO DO -- Set projectile collider mask.
+			// TO DO -- Set projectile stats and collider mask.
         }
 	}
 }

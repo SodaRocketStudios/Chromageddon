@@ -11,7 +11,7 @@ namespace SRS.TopDownCharacterController.AttackSystem
 			UpdateStats(stats);
 		}
 
-        public override void Attack(Transform origin, LayerMask mask)
+        public override void Attack(Transform origin, float attackAngle, LayerMask mask)
         {
             float range = attackStats["Speed"].Value * attackStats["Lifetime"].Value;
 
@@ -22,7 +22,7 @@ namespace SRS.TopDownCharacterController.AttackSystem
             {
                 float hitAngle = Vector2.Angle(origin.right, hit.transform.position - origin.position);
                 
-                if(hitAngle <= attackStats["AttackArc"].Value/2)
+                if(hitAngle <= attackAngle/2)
                 {
                     // TO DO -- Implement damage
                 }

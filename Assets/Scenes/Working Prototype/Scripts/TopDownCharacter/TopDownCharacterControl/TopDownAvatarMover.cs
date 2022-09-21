@@ -15,7 +15,10 @@ namespace SRS.TopDownCharacterController
 		{
 			input = GetComponent<TopDownInputInterface>();
 			characterController = GetComponent<TopDownCharacterController>();
-			moveSpeed = GetComponent<CharacterData>().CharacterStats["MoveSpeed"].Value;
+
+			Stat speedStat = GetComponent<CharacterData>().CharacterStats["MoveSpeed"];
+			speedStat.OnValueChanged += UpdateMoveSpeed;
+			UpdateMoveSpeed(speedStat.Value);
 		}
 
 		void Update()
@@ -26,6 +29,11 @@ namespace SRS.TopDownCharacterController
 		private void Move(Vector2 direction)
 		{
 			characterController.Velocity = moveSpeed*direction;
+		}
+
+		private void UpdateMoveSpeed(float value)
+		{
+			moveSpeed = value;
 		}
 	}
 }

@@ -10,7 +10,7 @@ namespace SRS.TopDownCharacterController.AttackSystem
 
 		private float attackDelay = 1;
 
-		private float attackArc;
+		private float attackAngle;
 
 		[SerializeField] private LayerMask attackMask;
 
@@ -29,11 +29,6 @@ namespace SRS.TopDownCharacterController.AttackSystem
 			input = GetComponent<TopDownInputInterface>();
 
 			characterData = GetComponent<CharacterData>();
-			characterData.OnStatChanged += UpdateAttackStats;
-			UpdateAttackStats();
-
-			characterData.CharacterStats["AttackSpeed"].OnValueChanged += UpdateAttackSpeed;
-			UpdateAttackSpeed(characterData.CharacterStats["AttackSpeed"].Value);
 			
 			if(projectile == null)
 			{
@@ -43,6 +38,19 @@ namespace SRS.TopDownCharacterController.AttackSystem
 			{
 				attack = new RangedAttack(characterData.AttackStats, projectile);
 			}
+
+			characterData.OnAttackStatChanged += UpdateAttackStats;
+			UpdateAttackStats();
+
+			Stat attackSpeed = characterData.CharacterStats["AttackSpeed"];
+
+			attackSpeed.OnValueChanged += UpdateAttackSpeed;
+			UpdateAttackSpeed(attackSpeed.Value);
+			
+			Stat attackArc = characterData.CharacterStats["AttackArc"];
+			attackAngle = attackArc.Value;
+			attackArc.OnValueChanged += value => attackAngle = value;
+
 		}
 
 		private void Update()
@@ -73,7 +81,7 @@ namespace SRS.TopDownCharacterController.AttackSystem
 			
 			for(int i = 0; i < numOfAttacks; i++)
 			{
-				attack.Attack(transform, attackMask);
+				attack.Attack(transform, attackAngle, attackMask);
 				nextAttackTime += attackDelay;
 			}
 		}
