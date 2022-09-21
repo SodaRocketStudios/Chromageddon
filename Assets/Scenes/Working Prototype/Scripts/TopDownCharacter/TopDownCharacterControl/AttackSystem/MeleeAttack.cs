@@ -6,8 +6,6 @@ namespace SRS.TopDownCharacterController.AttackSystem
 {
 	public class MeleeAttack : AttackType
 	{
-		public float Range{get; set;}
-		
 		public MeleeAttack(Dictionary<string, Stat> stats)
 		{
 			UpdateStats(stats);
@@ -15,8 +13,10 @@ namespace SRS.TopDownCharacterController.AttackSystem
 
         public override void Attack(Transform origin, LayerMask mask)
         {
+            float range = attackStats["Speed"].Value * attackStats["Lifetime"].Value;
+
 			// Need to find all enemies within an attack zone.
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(origin.position, Range, origin.forward, 0, mask);
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(origin.position, range, origin.forward, 0, mask);
 
             foreach(RaycastHit2D hit in hits)
             {

@@ -5,6 +5,9 @@ namespace SRS.Stats
 {
 	public class CharacterData : MonoBehaviour
 	{
+		public delegate void UpdateStat();
+		public event UpdateStat OnStatChanged;
+
 		public Dictionary<string, Stat> CharacterStats = new Dictionary<string, Stat>();
 		public Dictionary<string, Stat> AttackStats = new Dictionary<string, Stat>();
 
@@ -27,6 +30,11 @@ namespace SRS.Stats
 			{
 				AttackStats[stat.Name] = stat;
 			}
+		}
+
+		private void OnStatChange()
+		{
+			OnStatChanged?.Invoke();
 		}
 	}
 }

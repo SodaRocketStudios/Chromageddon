@@ -8,9 +8,10 @@ namespace SRS.TopDownCharacterController.AttackSystem
 	{
 		private GameObject projectile;
 
-		public RangedAttack(Dictionary<string, Stat> stats)
+		public RangedAttack(Dictionary<string, Stat> stats, GameObject _projectile)
 		{
 			UpdateStats(stats);
+			projectile = _projectile;
 		}
 
         public override void Attack(Transform origin, LayerMask mask)

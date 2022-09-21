@@ -8,17 +8,6 @@ namespace SRS.TopDownCharacterController.AttackSystem
 	{
 		public bool AttackBlocked{get; set;}
 
-		private float attackSpeed
-		{
-			set
-			{
-				if(value != 0)
-				{
-					attackDelay = 1/value;
-				}
-			}
-		}
-
 		private float attackDelay = 1;
 
 		private float attackArc;
@@ -37,20 +26,22 @@ namespace SRS.TopDownCharacterController.AttackSystem
 
 		private void Start()
 		{
-			characterData = GetComponent<CharacterData>();
-			characterData.CharacterStats["AttackSpeed"].OnValueChanged += UpdateStats;
-			
-			UpdateStats();
-
 			input = GetComponent<TopDownInputInterface>();
 
+			characterData = GetComponent<CharacterData>();
+			characterData.OnStatChanged += UpdateAttackStats;
+			UpdateAttackStats();
+
+			characterData.CharacterStats["AttackSpeed"].OnValueChanged += UpdateAttackSpeed;
+			UpdateAttackSpeed(characterData.CharacterStats["AttackSpeed"].Value);
+			
 			if(projectile == null)
 			{
 				attack = new MeleeAttack(characterData.AttackStats);
 			}
 			else
 			{
-				attack = new RangedAttack(characterData.AttackStats);
+				attack = new RangedAttack(characterData.AttackStats, projectile);
 			}
 		}
 
@@ -87,11 +78,17 @@ namespace SRS.TopDownCharacterController.AttackSystem
 			}
 		}
 
-		private void UpdateStats()
+		private void UpdateAttackStats()
 		{
 			attack.UpdateStats(characterData.AttackStats);
+		}
 
-			attackSpeed = characterData.CharacterStats["AttackSpeed"].Value;
+		private void UpdateAttackSpeed(float attackSpeed)
+		{
+			if(attackSpeed > 0)
+			{
+				attackDelay = 1/attackSpeed;
+			}
 		}
 	}
 }
