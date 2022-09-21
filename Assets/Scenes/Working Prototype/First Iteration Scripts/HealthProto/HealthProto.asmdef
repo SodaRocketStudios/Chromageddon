@@ -1,9 +1,7 @@
 {
-    "name": "Attack",
+    "name": "HealthProto",
     "rootNamespace": "",
-    "references": [
-        "HealthProto"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

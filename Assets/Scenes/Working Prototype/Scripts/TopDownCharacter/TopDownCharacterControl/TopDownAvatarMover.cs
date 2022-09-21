@@ -15,7 +15,7 @@ namespace SRS.TopDownCharacterController
 		{
 			input = GetComponent<TopDownInputInterface>();
 			characterController = GetComponent<TopDownCharacterController>();
-			// moveSpeed = GetComponent<CharacterData>().CharacterStats["MoveSpeed"].Value;
+			moveSpeed = GetComponent<CharacterData>().CharacterStats["MoveSpeed"].Value;
 		}
 
 		void Update()

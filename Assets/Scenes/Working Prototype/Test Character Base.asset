@@ -12,8 +12,118 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3768d82b003b10d4f83f66459c8ef9a0, type: 3}
   m_Name: Test Character Base
   m_EditorClassIdentifier: 
-  CharacterStats: []
-  AttackStats: []
+  CharacterStats:
+  - name: MoveSpeed
+    baseValue: 5
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: AttackSpeed
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: CooldownSpeed
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: Health
+    baseValue: 100
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: HealthRegen
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: Armor
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: Shields
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: NumProjectiles
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: AttackArc
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  AttackStats:
+  - name: Damage
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: Lifetime
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: Speed
+    baseValue: 10
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: LifeSteal
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: BleedChance
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: BurnChance
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: StunChance
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: FreezeChance
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: ShockChance
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: SlowChance
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: PoisonChance
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: ChainChance
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: CriticalChance
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
   characterStatFile: E:/Projects/Project Primitives/Project Primitives/Assets/Editor
     Default Resources/CharacterStatTemplate.csv
   attackStatFile: E:/Projects/Project Primitives/Project Primitives/Assets/Editor

@@ -1,8 +1,8 @@
 {
-    "name": "Attack",
+    "name": "Health",
     "rootNamespace": "",
     "references": [
-        "HealthProto"
+        "GUID:c13dd715b8d691d46a082b62b2c28be7"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

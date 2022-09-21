@@ -1,12 +1,27 @@
+using UnityEngine;
+
 namespace SRS.Stats
 {
 	[System.Serializable]
 	public class Stat
 	{
-		public string Name{get; set;}
+		[SerializeField]
+		private string name;
+		public string Name
+		{
+			get
+			{
+				return name;
+			}
+			set
+			{
+				name = value;
+			}
+		}
 
 		public float Value {get; private set;}
 
+		[SerializeField]
 		private float baseValue;
 		public float BaseValue
 		{
@@ -21,7 +36,7 @@ namespace SRS.Stats
 			}
 		}
 
-
+		[SerializeField]
 		private float additiveModifier;
 		public float AdditiveModifier
 		{
@@ -36,6 +51,7 @@ namespace SRS.Stats
 			}
 		}
 
+		[SerializeField]
 		private float multiplicativeModifier;
 		public float MultiplicativeModifier
 		{
@@ -50,6 +66,7 @@ namespace SRS.Stats
 			}
 		}
 
+		[SerializeField]
 		private float flatModifier;
 		public float FlatModifier
 		{

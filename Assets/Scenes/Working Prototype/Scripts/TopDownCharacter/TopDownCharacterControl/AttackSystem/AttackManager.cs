@@ -38,8 +38,8 @@ namespace SRS.TopDownCharacterController.AttackSystem
 		private void Start()
 		{
 			characterData = GetComponent<CharacterData>();
-			// AttackSpeed = characterData.CharacterStats["AttackSpeed"].Value;
-			// attackArc = characterData.CharacterStats["AttackArc"].Value;
+			AttackSpeed = characterData.CharacterStats["AttackSpeed"].Value;
+			attackArc = characterData.CharacterStats["AttackArc"].Value;
 
 			input = GetComponent<TopDownInputInterface>();
 
