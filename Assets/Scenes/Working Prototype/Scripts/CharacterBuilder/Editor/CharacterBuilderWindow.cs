@@ -77,11 +77,10 @@ namespace SRS.CharacterBuilder
 				if(string.IsNullOrEmpty(characterName)) characterName = "New Character Data";
 
 				BaseCharacterData baseCharacterData = ScriptableObject.CreateInstance(typeof(BaseCharacterData)) as BaseCharacterData;
-				baseCharacterData.PopulateStats(characterStatFile, attackStatFile);
-
 				AssetDatabase.CreateAsset(baseCharacterData, $"Assets/{saveLocation}/{characterName}.asset");
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
+				baseCharacterData.PopulateStats(characterStatFile, attackStatFile);
 
 				EditorUtility.FocusProjectWindow();
 				Selection.activeObject = baseCharacterData;

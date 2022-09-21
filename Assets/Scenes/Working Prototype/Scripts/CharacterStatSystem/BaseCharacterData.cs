@@ -7,8 +7,8 @@ namespace SRS.Stats
 	[CreateAssetMenu(fileName = "New Base Character Data", menuName = "Character Data/Character Base Data")]
 	public class BaseCharacterData : ScriptableObject
 	{
-		public Dictionary<string, Stat> CharacterStats = new Dictionary<string, Stat>();
-		public Dictionary<string, Stat> AttackStats = new Dictionary<string, Stat>();
+		public List<Stat> CharacterStats = new List<Stat>();
+		public List<Stat> AttackStats = new List<Stat>();
 
 		[SerializeField]
 		private string characterStatFile;
@@ -29,6 +29,8 @@ namespace SRS.Stats
 
 			List<Dictionary<string, object>> characterStats = CSVReader.Read(characterStatFile);
 
+			CharacterStats.Clear();
+
 			foreach(Dictionary<string, object> stat in characterStats)
 			{
 				string statName = stat["Name"].ToString();
@@ -39,10 +41,12 @@ namespace SRS.Stats
 
 				Stat newStat = new Stat(statName, baseValue, additive, multiplicative, flat);
 
-				CharacterStats[stat["Name"].ToString()] = newStat;
+				CharacterStats.Add(newStat);
 			}
 
 			List<Dictionary<string, object>> attackStats = CSVReader.Read(attackStatFile);
+
+			AttackStats.Clear();
 
 			foreach(Dictionary<string, object> stat in attackStats)
 			{
@@ -54,7 +58,7 @@ namespace SRS.Stats
 
 				Stat newStat = new Stat(statName, baseValue, additive, multiplicative, flat);
 
-				AttackStats[stat["Name"].ToString()] = newStat;
+				AttackStats.Add(newStat);
 			}
 		}
 	}
