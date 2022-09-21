@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-using System.Collections.Generic;
 using SRS.Stats;
-using SRS.DataReader;
 
 namespace SRS.CharacterBuilder
 {	
