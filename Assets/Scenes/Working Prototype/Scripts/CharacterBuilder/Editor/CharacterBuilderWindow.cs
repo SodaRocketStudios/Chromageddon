@@ -16,6 +16,9 @@ namespace SRS.CharacterBuilder
 
 		private string attackStatFile;
 
+		private static string lastSaveLocation = "Assets";
+		private static string lastStatLocation = "Assets";
+
 		[MenuItem("Character Builder/Create New Character")]
 		private static void ShowWindow()
 		{
@@ -33,7 +36,13 @@ namespace SRS.CharacterBuilder
 			saveLocation = EditorGUILayout.TextField("Save Location", saveLocation);
 			if(GUILayout.Button("Browse"))
 			{
-				saveLocation = EditorUtility.OpenFolderPanel("Choose save location", Application.dataPath, "");
+				string temp = EditorUtility.OpenFolderPanel("Choose save location", lastSaveLocation, "");
+				if(string.IsNullOrEmpty(temp) == false)
+				{
+					saveLocation = temp;
+					lastSaveLocation = temp;
+				}
+				
 			}
 
 			GUILayout.Space(20);
@@ -44,7 +53,14 @@ namespace SRS.CharacterBuilder
 			EditorGUILayout.BeginHorizontal();
 			if(GUILayout.Button("Open stat file"))
 			{
-				characterStatFile = EditorUtility.OpenFilePanel("Open stat file", Application.dataPath, "csv");
+				string temp = EditorUtility.OpenFilePanel("Open stat file", lastStatLocation, "csv");
+				if(string.IsNullOrEmpty(temp) == false)
+				{
+					Debug.Log(temp);
+					characterStatFile = temp;
+					lastStatLocation = temp;
+				}
+				
 			}
 			if(GUILayout.Button("Create new character stats"))
 			{
@@ -60,7 +76,12 @@ namespace SRS.CharacterBuilder
 			EditorGUILayout.BeginHorizontal();
 			if(GUILayout.Button("Open stat file"))
 			{
-				attackStatFile = EditorUtility.OpenFilePanel("Open stat file", Application.dataPath, "csv");
+				string temp = EditorUtility.OpenFilePanel("Open stat file", lastStatLocation, "csv");
+				if(string.IsNullOrEmpty(temp) == false)
+				{
+					attackStatFile = temp;
+					lastStatLocation = temp;
+				}
 			}
 			if(GUILayout.Button("Create new attack stats"))
 			{
