@@ -5,6 +5,9 @@ namespace SRS.Stats
 	[System.Serializable]
 	public class Stat
 	{
+		public delegate void UpdateValue();
+		public event UpdateValue OnValueChanged;
+
 		[SerializeField]
 		private string name;
 		public string Name

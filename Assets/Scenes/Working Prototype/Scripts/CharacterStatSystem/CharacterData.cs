@@ -20,13 +20,11 @@ namespace SRS.Stats
 		{
 			foreach(Stat stat in baseData.CharacterStats)
 			{
-				Debug.Log(stat.Name);
 				CharacterStats[stat.Name] = stat;
 			}
 			
 			foreach(Stat stat in baseData.AttackStats)
 			{
-				Debug.Log(stat.Name);
 				AttackStats[stat.Name] = stat;
 			}
 		}

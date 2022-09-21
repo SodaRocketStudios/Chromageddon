@@ -1,22 +1,23 @@
 using UnityEngine;
+using System.Collections.Generic;
+using SRS.Stats;
 
 namespace SRS.TopDownCharacterController.AttackSystem
 {
 	public class RangedAttack : AttackType
 	{
-		public float SpreadAngle{get; set;}
-
 		private GameObject projectile;
 
-		public RangedAttack(GameObject _projectile, float _spreadAngle)
+		public RangedAttack(Dictionary<string, Stat> stats)
 		{
-			projectile = _projectile;
-			SpreadAngle = _spreadAngle;
+			UpdateStats(stats);
 		}
 
         public override void Attack(Transform origin, LayerMask mask)
         {
-			Quaternion direction = Quaternion.Euler(0, 0, origin.eulerAngles.z+Random.Range(-SpreadAngle/2, SpreadAngle/2));
+			float spreadAngle = attackStats["AttackArc"].Value;
+
+			Quaternion direction = Quaternion.Euler(0, 0, origin.eulerAngles.z+Random.Range(-spreadAngle/2, spreadAngle/2));
 			GameObject newProjectile = GameObject.Instantiate(projectile, origin.position, direction);
 
 			// TO DO -- Set projectile collider mask.

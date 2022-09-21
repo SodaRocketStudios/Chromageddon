@@ -8,7 +8,7 @@ namespace SRS.TopDownCharacterController.AttackSystem
 	{
 		public bool AttackBlocked{get; set;}
 
-		public float AttackSpeed
+		private float attackSpeed
 		{
 			set
 			{
@@ -38,18 +38,19 @@ namespace SRS.TopDownCharacterController.AttackSystem
 		private void Start()
 		{
 			characterData = GetComponent<CharacterData>();
-			AttackSpeed = characterData.CharacterStats["AttackSpeed"].Value;
-			attackArc = characterData.CharacterStats["AttackArc"].Value;
+			characterData.CharacterStats["AttackSpeed"].OnValueChanged += UpdateStats;
+			
+			UpdateStats();
 
 			input = GetComponent<TopDownInputInterface>();
 
 			if(projectile == null)
 			{
-				attack = new MeleeAttack(20, attackArc);
+				attack = new MeleeAttack(characterData.AttackStats);
 			}
 			else
 			{
-				attack = new RangedAttack(projectile, attackArc);
+				attack = new RangedAttack(characterData.AttackStats);
 			}
 		}
 
@@ -84,7 +85,13 @@ namespace SRS.TopDownCharacterController.AttackSystem
 				attack.Attack(transform, attackMask);
 				nextAttackTime += attackDelay;
 			}
-			
+		}
+
+		private void UpdateStats()
+		{
+			attack.UpdateStats(characterData.AttackStats);
+
+			attackSpeed = characterData.CharacterStats["AttackSpeed"].Value;
 		}
 	}
 }

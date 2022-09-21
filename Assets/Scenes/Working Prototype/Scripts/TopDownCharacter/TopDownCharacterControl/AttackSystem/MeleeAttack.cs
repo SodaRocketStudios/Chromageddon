@@ -1,16 +1,16 @@
 using UnityEngine;
+using System.Collections.Generic;
+using SRS.Stats;
 
 namespace SRS.TopDownCharacterController.AttackSystem
 {
 	public class MeleeAttack : AttackType
 	{
 		public float Range{get; set;}
-		public float ArcAngle{get; set;}
 		
-		public MeleeAttack(float _range, float _arcAngle)
+		public MeleeAttack(Dictionary<string, Stat> stats)
 		{
-			Range = _range;
-			ArcAngle = _arcAngle;
+			UpdateStats(stats);
 		}
 
         public override void Attack(Transform origin, LayerMask mask)
@@ -22,7 +22,7 @@ namespace SRS.TopDownCharacterController.AttackSystem
             {
                 float hitAngle = Vector2.Angle(origin.right, hit.transform.position - origin.position);
                 
-                if(hitAngle <= ArcAngle/2)
+                if(hitAngle <= attackStats["AttackArc"].Value/2)
                 {
                     // TO DO -- Implement damage
                 }

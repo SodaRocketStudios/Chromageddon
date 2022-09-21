@@ -12,9 +12,15 @@ namespace SRS.Health
 		public delegate void EventHandler(GameObject character);
 		public event EventHandler OnDeath;
 
+		private CharacterData characterData;
+
 		private void Start()
 		{
-			MaxHealth = (int)GetComponent<CharacterData>().CharacterStats["Health"].Value;
+			characterData = GetComponent<CharacterData>();
+			UpdateMaxHealth();
+			
+			characterData.CharacterStats["Health"].OnValueChanged += UpdateMaxHealth;
+			
 			CurrentHealth = MaxHealth;
 		}
 
@@ -32,12 +38,15 @@ namespace SRS.Health
 		{
 			CurrentHealth += amount;
 
-			Debug.Log($"Health is now {CurrentHealth}.");
-
 			if(CurrentHealth <= 0)
 			{
 				OnDeath?.Invoke(gameObject);
 			}
+		}
+
+		private void UpdateMaxHealth()
+		{
+			MaxHealth = (int)characterData.CharacterStats["Health"].Value;
 		}
 	}
 }
