@@ -6,11 +6,47 @@ namespace SRS.TopDownCharacterController.AttackSystem
 {
 	public class Projectile : MonoBehaviour
 	{
-		private Dictionary<string, Stat> attackStats = new Dictionary<string, Stat>();
+		private Dictionary<string, Stat> attackStats;
+		private LayerMask mask;
 
-		public void SetStats(Dictionary<string, Stat> stats)
+		private float speed;
+		private float lifetime;
+		private float spawnTime;
+
+		public void Initialize(Dictionary<string, Stat> stats, LayerMask collisionMask)
 		{
 			attackStats = new Dictionary<string, Stat>(stats);
+			mask = collisionMask;
+
+			speed = attackStats["Speed"].Value;
+			lifetime = attackStats["Lifetime"].Value;
+
+			spawnTime = Time.time;
+		}
+
+		void Update()
+		{
+			if(Time.time > spawnTime + lifetime)
+			{
+				Despawn();
+			}
+
+			transform.Translate(transform.right*Time.deltaTime*speed, Space.World);
+		}
+
+		private void OnCollisionEnter2D(Collision2D other)
+		{
+			if((mask.value & (1 << other.gameObject.layer)) > 0)
+			{
+				// TO DO -- Perform on hit logic. This is where an IDamageable interface could be useful.
+				Despawn();
+			}
+		}
+
+		private void Despawn()
+		{
+			// TO DO -- Switch to an object pooling solution for projectiles.
+			Destroy(gameObject);
 		}
 	}
 }

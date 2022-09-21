@@ -17,9 +17,8 @@ namespace SRS.TopDownCharacterController.AttackSystem
         public override void Attack(Transform origin, float attackAngle, LayerMask mask)
         {
 			Quaternion direction = Quaternion.Euler(0, 0, origin.eulerAngles.z+Random.Range(-attackAngle/2, attackAngle/2));
-			GameObject newProjectile = GameObject.Instantiate(projectile, origin.position, direction);
-
-			// TO DO -- Set projectile stats and collider mask.
+			Projectile newProjectile = GameObject.Instantiate(projectile, origin.position, direction).GetComponent<Projectile>();
+			newProjectile.Initialize(attackStats, mask);
         }
 	}
 }

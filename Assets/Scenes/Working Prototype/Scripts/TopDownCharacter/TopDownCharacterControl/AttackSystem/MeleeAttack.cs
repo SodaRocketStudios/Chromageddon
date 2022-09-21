@@ -24,7 +24,7 @@ namespace SRS.TopDownCharacterController.AttackSystem
                 
                 if(hitAngle <= attackAngle/2)
                 {
-                    // TO DO -- Implement damage
+                    // TO DO -- perform all on hit logic. This is where an IDamageable interface could be useful.
                 }
             }
         }
