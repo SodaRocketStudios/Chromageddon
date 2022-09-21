@@ -70,7 +70,7 @@ namespace SRS.CharacterBuilder
 
 			GUILayout.Space(20);			
 
-			if(GUILayout.Button("Generate Character", new GUILayoutOption[] {GUILayout.Width(400), GUILayout.Height(50)}))
+			if(GUILayout.Button("Generate Character", new GUILayoutOption[] {GUILayout.Height(50), GUILayout.ExpandWidth(true)}))
 			{
 				// Check for missing information
 
