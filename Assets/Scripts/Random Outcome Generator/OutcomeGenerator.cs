@@ -19,7 +19,7 @@ namespace SRS.RandomOutcomeGenerator
 			{
 				probability += outcome.Probability;
 
-				if(randomNumber <= probability)
+				if(randomNumber < probability)
 				{
 					return outcome;
 				}
@@ -38,11 +38,11 @@ namespace SRS.RandomOutcomeGenerator
 			int maxDecimalPlaces = 0;
 			foreach(Outcome outcome in distribution.outcomes)
 			{
-				int decimalsPlaces = CountDecimalPlaces(outcome.Probability);
+				int decimalPlaces = CountDecimalPlaces(outcome.Probability);
 
-				if(decimalsPlaces > maxDecimalPlaces)
+				if(decimalPlaces > maxDecimalPlaces)
 				{
-					maxDecimalPlaces = decimalsPlaces;
+					maxDecimalPlaces = decimalPlaces;
 				}
 			}
 
@@ -51,7 +51,14 @@ namespace SRS.RandomOutcomeGenerator
 
 		private static int CountDecimalPlaces(float value)
 		{
-			return (value % 1).ToString().Length;
+			string[] digits = value.ToString().Split('.');
+
+			if(digits.Length < 2)
+			{
+				return 0;
+			}
+			
+			return digits[1].Length;
 		}
 	}
 }
