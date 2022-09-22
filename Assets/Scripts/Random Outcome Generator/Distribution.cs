@@ -10,6 +10,7 @@ namespace SRS.RandomOutcomeGenerator
 		public void populateOutcomes(List<Outcome> _outcomes)
 		{
 			outcomes = new List<Outcome>(_outcomes);
+			outcomes.Sort((o1, o2) => o1.Probability.CompareTo(o2.Probability));
 		}
 	}
 }
