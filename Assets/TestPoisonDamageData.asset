@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26761385a8a0776479bca6eae2ca57aa, type: 3}
-  m_Name: Test Distribution
+  m_Script: {fileID: 11500000, guid: ad7246bd56b5e424294bcf5189c1f01c, type: 3}
+  m_Name: TestPoisonDamageData
   m_EditorClassIdentifier: 
-  outcomes:
-  - Name: Thing 3
-    Probability: 15
-  - Name: Thing 2
-    Probability: 35
-  - Name: Thing 1
-    Probability: 50
+  Name: Damage
+  Intensity: 1
+  IsTicking: 1
+  TickDelay: 0.5
+  AffectsStat: 0
+  AffectedStat: 
+  AffectedModifier: 0
