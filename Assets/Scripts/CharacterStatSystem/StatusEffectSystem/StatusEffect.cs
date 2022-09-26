@@ -6,28 +6,28 @@ namespace SRS.StatusEffects
 {
 	public abstract class StatusEffect : MonoBehaviour
 	{
-		private StatusEffectObject statusEffect;
+		protected List<EffectDataObject> effectData;
+		protected float endTime;
 
 		private Coroutine coroutine;
-
-		private float endTime;
-
-		public StatusEffect()
+		
+		protected StatusEffect(float duration, List<EffectDataObject> data)
 		{
-			Apply();
+			effectData = new List<EffectDataObject>(data);
+			coroutine = Apply(duration);
 		}
 
-		protected virtual void Apply()
+		private Coroutine Apply(float duration)
 		{
-			endTime = Time.time + statusEffect.Duration;
-			coroutine = StartCoroutine(EffectCoroutine());
+			return StartCoroutine(EffectCoroutine(duration));
 		}
 
-		public virtual void Remove()
+		public void Remove()
 		{
-			StopCoroutine(coroutine);
+			endTime = Time.time;
+			// StopCoroutine(coroutine);
 		}
 
-		protected abstract IEnumerator EffectCoroutine();
+		protected abstract IEnumerator EffectCoroutine(float duration);
 	}
 }

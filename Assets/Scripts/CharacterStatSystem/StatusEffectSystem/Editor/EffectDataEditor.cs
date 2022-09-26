@@ -11,7 +11,7 @@ namespace SRS.StatusEffects
 		private SerializedProperty intensity;
 		private SerializedProperty isTicking;
 		private SerializedProperty tickDelay;
-		private SerializedProperty affectsStat;
+		private SerializedProperty modifiesStat;
 		private SerializedProperty affectedStat;
 		private SerializedProperty affectedModifier;
 
@@ -21,7 +21,7 @@ namespace SRS.StatusEffects
 			intensity = serializedObject.FindProperty("Intensity");
 			isTicking = serializedObject.FindProperty("IsTicking");
 			tickDelay = serializedObject.FindProperty("TickDelay");
-			affectsStat = serializedObject.FindProperty("AffectsStat");
+			modifiesStat = serializedObject.FindProperty("ModifiesStat");
 			affectedStat = serializedObject.FindProperty("AffectedStat");
 			affectedModifier = serializedObject.FindProperty("AffectedModifier");
 		}
@@ -37,8 +37,10 @@ namespace SRS.StatusEffects
 			{
 				EditorGUILayout.PropertyField(tickDelay);
 			}
-			EditorGUILayout.PropertyField(affectsStat);
-			if(affectsStat.boolValue)
+
+
+			EditorGUILayout.PropertyField(modifiesStat);
+			if(modifiesStat.boolValue)
 			{
 				EditorGUILayout.PropertyField(affectedStat);
 				EditorGUILayout.PropertyField(affectedModifier);
