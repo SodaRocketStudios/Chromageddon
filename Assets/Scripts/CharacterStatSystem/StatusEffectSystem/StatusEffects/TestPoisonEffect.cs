@@ -6,7 +6,7 @@ namespace SRS.StatusEffects
 {
 	public class TestPoisonEffect : StatusEffectBehavior
 	{
-		public TestPoisonEffect(float duration) : base(duration){}
+		public TestPoisonEffect() : base(){}
 
 		protected override IEnumerator EffectCoroutine()
 		{

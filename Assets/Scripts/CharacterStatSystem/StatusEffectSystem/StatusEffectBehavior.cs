@@ -8,16 +8,18 @@ namespace SRS.StatusEffects
 	{
 		protected float endTime;
 
+		protected StatusEffectObject effect;
+
 		private Coroutine coroutine;
-		
-		protected StatusEffectBehavior(float duration)
+
+		protected StatusEffectBehavior()
 		{
-			coroutine = Apply(duration);
+			coroutine = Apply();
 		}
 
-		private Coroutine Apply(float duration)
+		private Coroutine Apply()
 		{
-			endTime = Time.time + duration;
+			endTime = Time.time + effect.Duration;
 			return StartCoroutine(EffectCoroutine());
 		}
 

@@ -8,24 +8,8 @@ namespace SRS.StatusEffects
 	{
 		public string Name;
 
-		[SerializeField]
-		private float duration;
+		public float Duration;
 
-		[SerializeField]
-		private StatusEffectBehavior effect;
-
-		[SerializeField]
-		private List<EffectDataObject> data;
-
-		private Coroutine coroutine;
-
-		public void Apply()
-		{
-		}
-
-		public void Remove()
-		{
-			effect.Remove();
-		}
+		public List<EffectDataObject> data;
 	}
 }
