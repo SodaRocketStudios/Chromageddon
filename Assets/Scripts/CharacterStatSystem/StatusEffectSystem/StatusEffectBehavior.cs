@@ -6,14 +6,12 @@ namespace SRS.StatusEffects
 {
 	public abstract class StatusEffectBehavior : MonoBehaviour
 	{
-		protected List<EffectDataObject> effectData;
 		protected float endTime;
 
 		private Coroutine coroutine;
 		
-		protected StatusEffectBehavior(float duration, List<EffectDataObject> data)
+		protected StatusEffectBehavior(float duration)
 		{
-			effectData = new List<EffectDataObject>(data);
 			coroutine = Apply(duration);
 		}
 
