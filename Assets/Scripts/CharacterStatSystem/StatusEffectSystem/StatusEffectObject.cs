@@ -12,13 +12,10 @@ namespace SRS.StatusEffects
 		private float duration;
 
 		[SerializeField]
-		private EffectBehavior effectBehavior;
+		private StatusEffectBehavior effect;
 
 		[SerializeField]
 		private List<EffectDataObject> data;
-
-		[SerializeField]
-		private string ProcStat;
 
 		private Coroutine coroutine;
 
@@ -28,7 +25,7 @@ namespace SRS.StatusEffects
 
 		public void Remove()
 		{
-			effectBehavior.Remove();
+			effect.Remove();
 		}
 	}
 }

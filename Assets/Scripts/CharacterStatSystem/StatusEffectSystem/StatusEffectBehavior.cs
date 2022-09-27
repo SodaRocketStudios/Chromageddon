@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace SRS.StatusEffects
 {
-	public abstract class StatusEffect : MonoBehaviour
+	public abstract class StatusEffectBehavior : MonoBehaviour
 	{
 		protected List<EffectDataObject> effectData;
 		protected float endTime;
 
 		private Coroutine coroutine;
 		
-		protected StatusEffect(float duration, List<EffectDataObject> data)
+		protected StatusEffectBehavior(float duration, List<EffectDataObject> data)
 		{
 			effectData = new List<EffectDataObject>(data);
 			coroutine = Apply(duration);
@@ -19,7 +19,8 @@ namespace SRS.StatusEffects
 
 		private Coroutine Apply(float duration)
 		{
-			return StartCoroutine(EffectCoroutine(duration));
+			endTime = Time.time + duration;
+			return StartCoroutine(EffectCoroutine());
 		}
 
 		public void Remove()
@@ -28,6 +29,6 @@ namespace SRS.StatusEffects
 			// StopCoroutine(coroutine);
 		}
 
-		protected abstract IEnumerator EffectCoroutine(float duration);
+		protected abstract IEnumerator EffectCoroutine();
 	}
 }

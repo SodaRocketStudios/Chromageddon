@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68c3f1fa2c3b7043aefe07706074dc3, type: 3}
   m_Name: TestPoisonEffect
   m_EditorClassIdentifier: 
-  Duration: 2
-  Data: []
+  Name: Poison
+  duration: 2
+  effect: {fileID: 0}
+  data:
+  - {fileID: 11400000, guid: 907c50a8c3a04364a83c19a877059bc5, type: 2}

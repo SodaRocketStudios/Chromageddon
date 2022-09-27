@@ -17,5 +17,5 @@ MonoBehaviour:
   IsTicking: 1
   TickDelay: 0.5
   AffectedStat: 
-  ModifiesStat: 1
+  ModifiesStat: 0
   AffectedModifier: 0
