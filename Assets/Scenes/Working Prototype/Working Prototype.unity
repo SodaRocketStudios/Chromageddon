@@ -863,28 +863,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1201317103}
-  - component: {fileID: 1201317102}
   m_Layer: 0
-  m_Name: StatusEffectDatabase
+  m_Name: StatusEffectFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1201317102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201317101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75085daa2f9413a44aa9120d4db468c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectsList:
-  - {fileID: 11400000, guid: 159831d882a2dec4ca20f405b4c85031, type: 2}
 --- !u!4 &1201317103
 Transform:
   m_ObjectHideFlags: 0

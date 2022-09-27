@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRS.StatusEffects
 {
-	public class TestPoisonEffect : StatusEffectBehavior
+	public class TestPoisonEffect : StatusEffect
 	{
-		public TestPoisonEffect() : base(){}
+		public TestPoisonEffect(GameObject target) : base(target){}
 
 		protected override IEnumerator EffectCoroutine()
 		{
