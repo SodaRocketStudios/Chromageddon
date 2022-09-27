@@ -2,36 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SRS.Stats;
+using SRS.Health;
 
 namespace SRS.StatusEffects
 {
-	public abstract class StatusEffect : ScriptableObject
+	public abstract class StatusEffect
 	{
+		protected abstract float duration{get; set;}
 		protected float endTime;
 
-		protected StatusEffectObject effect;
+		protected StatusEffectTracker targetEffectTracker;
+		protected CharacterData targetData;
+		protected HealthManager targetHealth;
 
-		private Coroutine coroutine;
+		private bool isAffectable = true;
 
-		private StatusEffectTracker targetEffectTracker;
-		private CharacterData targetData;
+		public StatusEffect(){}
 
-		public StatusEffect(GameObject target)
+		public Coroutine Apply(GameObject target)
 		{
-			targetEffectTracker = target.GetComponent<StatusEffectTracker>();
-			targetData = target.GetComponent<CharacterData>();
-			Apply();
-		}
+			isAffectable &= target.TryGetComponent<StatusEffectTracker>(out targetEffectTracker);
+			isAffectable &= target.TryGetComponent<CharacterData>(out targetData);
+			isAffectable &= target.TryGetComponent<HealthManager>(out targetHealth);
 
-		private Coroutine Apply()
-		{
-			if(targetEffectTracker == null || targetData == null)
+			if(isAffectable)
 			{
-				return null;
+				endTime = Time.time + duration;
+				return targetEffectTracker.StartCoroutine(EffectCoroutine());
 			}
 
-			endTime = Time.time + effect.Duration;
-			return targetEffectTracker.StartCoroutine(EffectCoroutine());
+			return null;
 		}
 
 		public void Remove()
@@ -39,6 +39,9 @@ namespace SRS.StatusEffects
 			endTime = Time.time;
 		}
 
-		protected abstract IEnumerator EffectCoroutine();
+		protected virtual IEnumerator EffectCoroutine()
+		{
+			yield return null;
+		}
 	}
 }

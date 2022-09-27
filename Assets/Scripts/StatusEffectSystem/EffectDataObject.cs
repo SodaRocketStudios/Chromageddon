@@ -11,8 +11,8 @@ namespace SRS.StatusEffects
 		public bool IsTicking;
 		public float TickDelay;
 
-		public string AffectedStat;
 		public bool ModifiesStat;
+		public string AffectedStat;
 		public ModifierType AffectedModifier;
 	}
 

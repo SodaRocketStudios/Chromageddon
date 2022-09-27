@@ -5,9 +5,12 @@ namespace SRS.StatusEffects
 {
 	public class TestPoisonEffect : StatusEffect
 	{
-		public TestPoisonEffect(GameObject target) : base(target){}
+        protected override float duration {get; set;} = 2;
 
-		protected override IEnumerator EffectCoroutine()
+		public TestPoisonEffect() : base(){}
+
+
+        protected override IEnumerator EffectCoroutine()
 		{
 			// Apply slow
 

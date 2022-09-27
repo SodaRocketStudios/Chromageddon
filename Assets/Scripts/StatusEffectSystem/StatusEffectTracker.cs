@@ -7,8 +7,11 @@ namespace SRS.StatusEffects
 	{
 		private List<StatusEffect> activeEffects;
 
-		public void ApplyEffect(StatusEffect effect)
+		public void ApplyEffect<effectType>()
+		where effectType : StatusEffect, new()
 		{
+			StatusEffect effect = new effectType();
+			effect.Apply(gameObject);
 			activeEffects.Add(effect);
 		}
 
