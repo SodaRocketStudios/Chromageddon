@@ -7,7 +7,7 @@ namespace SRS.StatusEffects
 	{
 		public void ApplyPoisonToPlayer(GameObject target)
 		{
-			target.GetComponent<StatusEffectTracker>().TryApplyEffect<TestPoisonEffect>(target.GetComponent<CharacterData>().AttackStats);
+			// target.GetComponent<StatusEffectTracker>().ApplyEffect();
 		}
 	}
 }

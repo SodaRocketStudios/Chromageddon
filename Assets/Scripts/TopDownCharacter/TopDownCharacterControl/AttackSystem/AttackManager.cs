@@ -94,7 +94,6 @@ namespace SRS.TopDownCharacterController.AttackSystem
 		{
 			if(attackSpeed > 0)
 			{
-				Debug.Log(attackSpeed);
 				attackDelay = 1/attackSpeed;
 			}
 		}

@@ -9,29 +9,15 @@ namespace SRS.StatusEffects
 	{
 		private List<StatusEffect> activeEffects;
 
-		private System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
-
-		public void TryApplyEffect<effectType>(Dictionary<string, Stat> attackStats)
-		where effectType : StatusEffect, new()
+		public void ApplyEffect(StatusEffect effect)
 		{
-			StatusEffect effect = new effectType();
-			float procChance = attackStats[effect.procStat].Value;
-
-			if(randomGenerator.Next(DetermineRandomRange(procChance)) < procChance)
-			{
-				effect.Apply(gameObject);
-				return;
-			}
+			effect.Apply(gameObject);
+			Debug.Log("Applied effect");
 		}
 
 		public void RemoveEffect(StatusEffect effect)
 		{
-			activeEffects.Remove(effect);
-		}
-
-		private static int DetermineRandomRange(float probability)
-		{
-			return 100 * (int)Mathf.Pow(10, probability.DecimalPlaces());
+			// activeEffects.Remove(effect);
 		}
 	}
 }
