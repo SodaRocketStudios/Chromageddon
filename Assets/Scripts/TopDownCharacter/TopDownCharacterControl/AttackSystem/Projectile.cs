@@ -12,13 +12,13 @@ namespace SRS.TopDownCharacterController.AttackSystem
 		private Dictionary<string, Stat> attackStats;
 		private LayerMask mask;
 
-		private List<Type> effects = new List<Type>(){typeof(TestPoisonEffect)};
+		private static List<Type> effects = new List<Type>(){typeof(TestPoisonEffect)};
 
 		private float speed;
 		private float lifetime;
 		private float despawnTime;
 
-		private System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
+		private static System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
 
 		public void Initialize(Dictionary<string, Stat> stats, LayerMask collisionMask)
 		{
@@ -56,9 +56,11 @@ namespace SRS.TopDownCharacterController.AttackSystem
 						float procChance = attackStats[effect.procStat].Value;
 
 						int randomRange = DetermineRandomRange(procChance);
-						Debug.Log(procChance);
+						float randomNumber = 1.0f*randomGenerator.Next(randomRange)/randomRange;
+						Debug.Log("Hit");
+						
 
-						if(1.0f*randomGenerator.Next(randomRange)/randomRange < procChance)
+						if(randomNumber < procChance)
 						{
 							targetEffectTracker.ApplyEffect(effect);
 						}
