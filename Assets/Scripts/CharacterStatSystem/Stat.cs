@@ -28,7 +28,7 @@ namespace SRS.Stats
 		private float baseValue;
 		public float BaseValue
 		{
-			private get
+			get
 			{
 				return baseValue;
 			}
@@ -43,7 +43,7 @@ namespace SRS.Stats
 		private float additiveModifier;
 		public float AdditiveModifier
 		{
-			private get
+			get
 			{
 				return additiveModifier;
 			}
@@ -58,7 +58,7 @@ namespace SRS.Stats
 		private float multiplicativeModifier;
 		public float MultiplicativeModifier
 		{
-			private get
+			get
 			{
 				return multiplicativeModifier;
 			}
@@ -73,7 +73,7 @@ namespace SRS.Stats
 		private float flatModifier;
 		public float FlatModifier
 		{
-			private get
+			get
 			{
 				return flatModifier;
 			}

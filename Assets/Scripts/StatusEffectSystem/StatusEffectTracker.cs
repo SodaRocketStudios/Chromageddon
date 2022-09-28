@@ -12,7 +12,7 @@ namespace SRS.StatusEffects
 		{
 			StatusEffect effect = new effectType();
 			effect.Apply(gameObject);
-			activeEffects.Add(effect);
+			// activeEffects.Add(effect);
 		}
 
 		public void RemoveEffect(StatusEffect effect)
