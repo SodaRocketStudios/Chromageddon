@@ -7,6 +7,8 @@ namespace SRS.StatusEffects
 	{
         protected override float duration {get; set;} = 2;
 
+		public override string procStat {get; protected set;} = "PoisonChance";
+
 		private float slowAmount = .75f;
 
 		private float tickDelay = 0.5f;

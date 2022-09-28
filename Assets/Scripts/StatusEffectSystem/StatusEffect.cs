@@ -11,6 +11,8 @@ namespace SRS.StatusEffects
 		protected abstract float duration{get; set;}
 		protected float endTime;
 
+		public abstract string procStat{get; protected set;}
+
 		protected StatusEffectTracker targetEffectTracker;
 		protected CharacterData targetData;
 		protected HealthManager targetHealth;
@@ -31,6 +33,7 @@ namespace SRS.StatusEffects
 				return targetEffectTracker.StartCoroutine(EffectCoroutine());
 			}
 
+			targetEffectTracker.RemoveEffect(this);
 			return null;
 		}
 

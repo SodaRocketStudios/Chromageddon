@@ -1,12 +1,13 @@
 using UnityEngine;
+using SRS.Stats;
 
 namespace SRS.StatusEffects
 {
 	public class TestAffectApplicator : MonoBehaviour
 	{
-		public void ApplyPoisonToPlayer(StatusEffectTracker tracker)
+		public void ApplyPoisonToPlayer(GameObject target)
 		{
-			tracker.ApplyEffect<TestPoisonEffect>();
+			target.GetComponent<StatusEffectTracker>().TryApplyEffect<TestPoisonEffect>(target.GetComponent<CharacterData>().AttackStats);
 		}
 	}
 }
