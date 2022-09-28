@@ -11,7 +11,7 @@ namespace SRS.TopDownCharacterController.AttackSystem
 
 		private float speed;
 		private float lifetime;
-		private float spawnTime;
+		private float despawnTime;
 
 		public void Initialize(Dictionary<string, Stat> stats, LayerMask collisionMask)
 		{
@@ -21,12 +21,13 @@ namespace SRS.TopDownCharacterController.AttackSystem
 			speed = attackStats["Speed"].Value;
 			lifetime = attackStats["Lifetime"].Value;
 
-			spawnTime = Time.time;
+			despawnTime = Time.time + lifetime;
+			Debug.Log(lifetime);
 		}
 
 		void Update()
 		{
-			if(Time.time > spawnTime + lifetime)
+			if(Time.time > despawnTime)
 			{
 				Despawn();
 			}

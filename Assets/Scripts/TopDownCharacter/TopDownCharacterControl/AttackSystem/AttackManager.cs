@@ -43,7 +43,6 @@ namespace SRS.TopDownCharacterController.AttackSystem
 			UpdateAttackStats();
 
 			Stat attackSpeed = characterData.CharacterStats["AttackSpeed"];
-
 			attackSpeed.OnValueChanged += UpdateAttackSpeed;
 			UpdateAttackSpeed(attackSpeed.Value);
 			
@@ -95,6 +94,7 @@ namespace SRS.TopDownCharacterController.AttackSystem
 		{
 			if(attackSpeed > 0)
 			{
+				Debug.Log(attackSpeed);
 				attackDelay = 1/attackSpeed;
 			}
 		}

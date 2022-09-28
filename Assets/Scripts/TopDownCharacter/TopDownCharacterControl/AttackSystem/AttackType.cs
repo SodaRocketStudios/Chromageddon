@@ -12,7 +12,7 @@ namespace SRS.TopDownCharacterController.AttackSystem
 
 		public void UpdateStats(Dictionary<string, Stat> stats)
 		{
-			attackStats = stats;
+			attackStats = new Dictionary<string, Stat>(stats);
 		}
 	}
 }

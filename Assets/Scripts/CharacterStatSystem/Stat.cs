@@ -84,7 +84,7 @@ namespace SRS.Stats
 			}
 		}
 
-		public Stat(string _name, float _baseValue, float _additiveModifier = 0, float _multiplicativeModifier = 1, float _flatModifier = 0)
+		public Stat(string _name, float _baseValue = 1, float _additiveModifier = 0, float _multiplicativeModifier = 1, float _flatModifier = 0)
 		{
 			Name = _name;
 			BaseValue = _baseValue;
