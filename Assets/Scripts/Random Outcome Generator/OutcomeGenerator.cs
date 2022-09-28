@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using SRS.Extensions;
 
 namespace SRS.RandomOutcomeGenerator
 {
@@ -36,9 +37,10 @@ namespace SRS.RandomOutcomeGenerator
 		private static int DetermineRandomRange(Distribution distribution)
 		{
 			int maxDecimalPlaces = 0;
+			
 			foreach(Outcome outcome in distribution.outcomes)
 			{
-				int decimalPlaces = CountDecimalPlaces(outcome.Probability);
+				int decimalPlaces = outcome.Probability.DecimalPlaces();
 
 				if(decimalPlaces > maxDecimalPlaces)
 				{
@@ -47,18 +49,6 @@ namespace SRS.RandomOutcomeGenerator
 			}
 
 			return 100 * (int)Mathf.Pow(10, maxDecimalPlaces);
-		}
-
-		private static int CountDecimalPlaces(float value)
-		{
-			string[] digits = value.ToString().Split('.');
-
-			if(digits.Length < 2)
-			{
-				return 0;
-			}
-			
-			return digits[1].Length;
 		}
 	}
 }

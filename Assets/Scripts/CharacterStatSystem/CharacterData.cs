@@ -30,7 +30,6 @@ namespace SRS.Stats
 			
 			foreach(Stat stat in baseData.AttackStats)
 			{
-				Debug.Log($"{stat.Name}: {stat.Value}");
 				AttackStats[stat.Name] = stat;
 				AttackStats[stat.Name].OnValueChanged += OnAttackStatChange;
 			}
