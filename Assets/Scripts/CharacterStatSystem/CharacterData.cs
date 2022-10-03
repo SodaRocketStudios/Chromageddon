@@ -45,4 +45,11 @@ namespace SRS.Stats
 			OnAttackStatChanged?.Invoke();
 		}
 	}
+
+	public enum ModifierType
+	{
+		Additive,
+		Multiplicative,
+		Flat
+	}
 }
