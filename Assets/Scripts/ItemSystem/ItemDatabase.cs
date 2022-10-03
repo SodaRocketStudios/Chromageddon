@@ -24,9 +24,9 @@ namespace SRS.ItemSystem
 
 		// TO DO -- Use Linq to create functions to return items based on criteria.
 
-		// public List<Item> GetItemsOfRarity(ItemRarity rarity)
-		// {
-		// 	return from item in allItems where item.Rarity == rarity select item;
-		// }
+		public List<Item> GetItemsOfRarity(ItemRarity rarity)
+		{
+			return new List<Item>(allItems.Where(item => item.Rarity == rarity));
+		}
 	}
 }
