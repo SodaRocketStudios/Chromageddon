@@ -14,6 +14,5 @@ namespace SRS.ItemSystem
 		public ItemRarity Rarity;
 
 		public List<ItemEffectData> Data = new List<ItemEffectData>();
-		
 	}
 }
