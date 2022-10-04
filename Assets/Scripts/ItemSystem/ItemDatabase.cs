@@ -8,7 +8,9 @@ namespace SRS.ItemSystem
 	{
 		public static ItemDatabase Instance;
 
-		public static List<Item> allItems = new List<Item>();
+		[SerializeField]
+		private List<Item> items;
+		public static List<Item> allItems;
 
 		private void Awake()
 		{
@@ -20,6 +22,8 @@ namespace SRS.ItemSystem
 			{
 				Destroy(this);
 			}
+
+			allItems = new List<Item>(items);
 		}
 
 		// TO DO -- Use Linq to create functions to return items based on criteria.
@@ -27,6 +31,11 @@ namespace SRS.ItemSystem
 		public List<Item> GetItemsOfRarity(ItemRarity rarity)
 		{
 			return new List<Item>(allItems.Where(item => item.Rarity == rarity));
+		}
+
+		public Item GetItemByName(string name)
+		{
+			return allItems.Where(item => item.Name == name) as Item;
 		}
 	}
 }
