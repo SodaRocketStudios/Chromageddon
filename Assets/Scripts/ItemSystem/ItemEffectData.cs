@@ -45,4 +45,11 @@ namespace SRS.ItemSystem
 		Legendary,
 		Boss
 	}
+
+	public enum ItemCategory
+	{
+		Defensive,
+		Offensive,
+		ProcChance
+	}
 }
