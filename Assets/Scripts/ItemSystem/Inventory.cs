@@ -6,6 +6,8 @@ namespace SRS.ItemSystem
 {
 	public class Inventory : MonoBehaviour
 	{
+		[SerializeField]
+		private List<Item> starterItems;
 		private List<Item> items = new List<Item>();
 
 		private CharacterData characterData;
@@ -13,6 +15,11 @@ namespace SRS.ItemSystem
 		private void Awake()
 		{
 			characterData = GetComponent<CharacterData>();
+		}
+
+		private void Start()
+		{
+			AddStarterItems();
 		}
 
 		public void AddItem(Item item)
@@ -27,6 +34,8 @@ namespace SRS.ItemSystem
 
 		public void RemoveItem(Item item)
 		{
+			// TO DO - Remove item from the item list.
+
 			foreach(ItemEffectData effect in item.Data)
 			{
 				RemoveEffect(effect);
@@ -106,6 +115,14 @@ namespace SRS.ItemSystem
 					default:
 						break;
 				}
+			}
+		}
+
+		private void AddStarterItems()
+		{
+			foreach(Item item in starterItems)
+			{
+				AddItem(item);
 			}
 		}
 	}

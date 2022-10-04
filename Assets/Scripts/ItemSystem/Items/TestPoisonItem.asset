@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2764dfd4e1e0a4a49b9f9b225873dde7, type: 3}
   m_Name: TestPoisonItem
   m_EditorClassIdentifier: 
-  Name: 
+  name: Test Poison
   icon: {fileID: 0}
-  Rarity: 0
-  Data: []
+  rarity: 0
+  data:
+  - stat: PoisonChance
+    intensity: 0.5
+    modifier: 1

@@ -12,7 +12,6 @@ namespace SRS.StatusEffects
 		public void ApplyEffect(StatusEffect effect)
 		{
 			effect.Apply(gameObject);
-			Debug.Log("Applied effect");
 		}
 
 		public void RemoveEffect(StatusEffect effect)

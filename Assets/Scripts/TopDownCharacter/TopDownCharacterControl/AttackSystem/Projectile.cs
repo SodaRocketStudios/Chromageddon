@@ -57,8 +57,6 @@ namespace SRS.TopDownCharacterController.AttackSystem
 
 						int randomRange = DetermineRandomRange(procChance);
 						float randomNumber = 1.0f*randomGenerator.Next(randomRange)/randomRange;
-						Debug.Log("Hit");
-						
 
 						if(randomNumber < procChance)
 						{
