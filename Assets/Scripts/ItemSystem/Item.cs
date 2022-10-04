@@ -29,6 +29,15 @@ namespace SRS.ItemSystem
 			}
 		}
 
+		private ItemCategory category;
+		public ItemCategory Category
+		{
+			get
+			{
+				return category;
+			}
+		}
+
 		[SerializeField]
 		private List<ItemEffectData> data;
 		public List<ItemEffectData> Data
@@ -36,6 +45,16 @@ namespace SRS.ItemSystem
 			get
 			{
 				return data;
+			}
+		}
+
+		[SerializeField, TextArea(2, 4)]
+		private string description;
+		public string Description
+		{
+			get
+			{
+				return description;
 			}
 		}
 	}
