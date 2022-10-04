@@ -35,35 +35,35 @@ namespace SRS.ItemSystem
 
 		private void AddEffect(ItemEffectData effect)
 		{
-			if(characterData.CharacterStats.ContainsKey(effect.stat))
+			if(characterData.CharacterStats.ContainsKey(effect.Stat))
 			{
-				switch(effect.modifier)
+				switch(effect.Modifier)
 				{
 					case ModifierType.Additive:
-						characterData.CharacterStats[effect.stat].AdditiveModifier += effect.intensity;
+						characterData.CharacterStats[effect.Stat].AdditiveModifier += effect.Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						characterData.CharacterStats[effect.stat].MultiplicativeModifier += effect.intensity;
+						characterData.CharacterStats[effect.Stat].MultiplicativeModifier += effect.Intensity;
 						break;
 					case ModifierType.Flat:
-						characterData.CharacterStats[effect.stat].FlatModifier += effect.intensity;
+						characterData.CharacterStats[effect.Stat].FlatModifier += effect.Intensity;
 						break;
 					default:
 						break;
 				}
 			}
-			else if(characterData.AttackStats.ContainsKey(effect.stat))
+			else if(characterData.AttackStats.ContainsKey(effect.Stat))
 			{
-				switch(effect.modifier)
+				switch(effect.Modifier)
 				{
 					case ModifierType.Additive:
-						characterData.AttackStats[effect.stat].AdditiveModifier += effect.intensity;
+						characterData.AttackStats[effect.Stat].AdditiveModifier += effect.Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						characterData.AttackStats[effect.stat].MultiplicativeModifier += effect.intensity;
+						characterData.AttackStats[effect.Stat].MultiplicativeModifier += effect.Intensity;
 						break;
 					case ModifierType.Flat:
-						characterData.AttackStats[effect.stat].FlatModifier += effect.intensity;
+						characterData.AttackStats[effect.Stat].FlatModifier += effect.Intensity;
 						break;
 					default:
 						break;
@@ -73,35 +73,35 @@ namespace SRS.ItemSystem
 
 		private void RemoveEffect(ItemEffectData effect)
 		{
-			if(characterData.CharacterStats.ContainsKey(effect.stat))
+			if(characterData.CharacterStats.ContainsKey(effect.Stat))
 			{
-				switch(effect.modifier)
+				switch(effect.Modifier)
 				{
 					case ModifierType.Additive:
-						characterData.CharacterStats[effect.stat].AdditiveModifier -= effect.intensity;
+						characterData.CharacterStats[effect.Stat].AdditiveModifier -= effect.Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						characterData.CharacterStats[effect.stat].MultiplicativeModifier -= effect.intensity;
+						characterData.CharacterStats[effect.Stat].MultiplicativeModifier -= effect.Intensity;
 						break;
 					case ModifierType.Flat:
-						characterData.CharacterStats[effect.stat].FlatModifier -= effect.intensity;
+						characterData.CharacterStats[effect.Stat].FlatModifier -= effect.Intensity;
 						break;
 					default:
 						break;
 				}
 			}
-			else if(characterData.AttackStats.ContainsKey(effect.stat))
+			else if(characterData.AttackStats.ContainsKey(effect.Stat))
 			{
-				switch(effect.modifier)
+				switch(effect.Modifier)
 				{
 					case ModifierType.Additive:
-						characterData.AttackStats[effect.stat].AdditiveModifier -= effect.intensity;
+						characterData.AttackStats[effect.Stat].AdditiveModifier -= effect.Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						characterData.AttackStats[effect.stat].MultiplicativeModifier -= effect.intensity;
+						characterData.AttackStats[effect.Stat].MultiplicativeModifier -= effect.Intensity;
 						break;
 					case ModifierType.Flat:
-						characterData.AttackStats[effect.stat].FlatModifier -= effect.intensity;
+						characterData.AttackStats[effect.Stat].FlatModifier -= effect.Intensity;
 						break;
 					default:
 						break;

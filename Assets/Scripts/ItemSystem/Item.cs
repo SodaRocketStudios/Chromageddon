@@ -6,13 +6,37 @@ namespace SRS.ItemSystem
 	[CreateAssetMenu(fileName = "New Item", menuName = "Item System/Item")]
 	public class Item : ScriptableObject
 	{
-		public string Name;
+		[SerializeField]
+		new private string name;
+		public string Name
+		{
+			get
+			{
+				return name;
+			}
+		}
 
 		[SerializeField]
 		private Sprite icon;
 		
-		public ItemRarity Rarity;
+		[SerializeField]
+		private ItemRarity rarity;
+		public ItemRarity Rarity
+		{
+			get
+			{
+				return rarity;
+			}
+		}
 
-		public List<ItemEffectData> Data = new List<ItemEffectData>();
+		[SerializeField]
+		private List<ItemEffectData> data;
+		public List<ItemEffectData> Data
+		{
+			get
+			{
+				return data;
+			}
+		}
 	}
 }

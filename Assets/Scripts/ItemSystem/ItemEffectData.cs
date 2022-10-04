@@ -1,3 +1,4 @@
+using UnityEngine;
 using SRS.Stats;
 
 namespace SRS.ItemSystem
@@ -5,9 +6,35 @@ namespace SRS.ItemSystem
 	[System.Serializable]
 	public class ItemEffectData
 	{
-		public string stat;
-		public float intensity;
-		public ModifierType modifier;
+		[SerializeField]
+		private string stat;
+		public string Stat
+		{
+			get
+			{
+				return stat;
+			}
+		}
+
+		[SerializeField]
+		private float intensity;
+		public float Intensity
+		{
+			get
+			{
+				return intensity;
+			}
+		}
+
+		[SerializeField]
+		private ModifierType modifier;
+		public ModifierType Modifier
+		{
+			get
+			{
+				return modifier;
+			}
+		}
 	}
 	
 	public enum ItemRarity
