@@ -6,8 +6,8 @@ namespace SRS.Stats
 	public class CharacterData : MonoBehaviour
 	{
 		public delegate void UpdateStat();
-		public event UpdateStat OnAttackStatChanged;
-		public event UpdateStat OnCharacterStatChanged;
+		public event UpdateStat onAttackStatChanged;
+		public event UpdateStat onCharacterStatChanged;
 
 		public Dictionary<string, Stat> CharacterStats = new Dictionary<string, Stat>();
 		public Dictionary<string, Stat> AttackStats = new Dictionary<string, Stat>();
@@ -26,25 +26,25 @@ namespace SRS.Stats
 			{
 				Debug.Log($"{stat.Name}: {stat.Value}");
 				CharacterStats[stat.Name] = stat;
-				CharacterStats[stat.Name].OnValueChanged += OnCharacterStatChange;
+				CharacterStats[stat.Name].onValueChanged += OnCharacterStatChange;
 			}
 			
 			foreach(Stat stat in baseData.AttackStats)
 			{
 				Debug.Log($"{stat.Name}: {stat.Value}");
 				AttackStats[stat.Name] = stat;
-				AttackStats[stat.Name].OnValueChanged += OnAttackStatChange;
+				AttackStats[stat.Name].onValueChanged += OnAttackStatChange;
 			}
 		}
 
 		private void OnCharacterStatChange(float value)
 		{
-			OnCharacterStatChanged?.Invoke();
+			onCharacterStatChanged?.Invoke();
 		}
 
 		private void OnAttackStatChange(float value)
 		{
-			OnAttackStatChanged?.Invoke();
+			onAttackStatChanged?.Invoke();
 		}
 	}
 

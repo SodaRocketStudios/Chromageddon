@@ -39,16 +39,16 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 				attack = new RangedAttack(characterData.AttackStats, projectile);
 			}
 
-			characterData.OnAttackStatChanged += UpdateAttackStats;
+			characterData.onAttackStatChanged += UpdateAttackStats;
 			UpdateAttackStats();
 
 			Stat attackSpeed = characterData.CharacterStats["AttackSpeed"];
-			attackSpeed.OnValueChanged += UpdateAttackSpeed;
+			attackSpeed.onValueChanged += UpdateAttackSpeed;
 			UpdateAttackSpeed(attackSpeed.Value);
 			
 			Stat attackArc = characterData.CharacterStats["AttackArc"];
 			attackAngle = attackArc.Value;
-			attackArc.OnValueChanged += value => attackAngle = value;
+			attackArc.onValueChanged += value => attackAngle = value;
 
 		}
 

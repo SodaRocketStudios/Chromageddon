@@ -6,7 +6,7 @@ namespace SRS.Stats
 	public class Stat
 	{
 		public delegate void UpdateValue(float value);
-		public event UpdateValue OnValueChanged;
+		public event UpdateValue onValueChanged;
 
 		[SerializeField]
 		private string name;
@@ -96,7 +96,7 @@ namespace SRS.Stats
 		private void OnValueChange()
 		{
 			Value = (BaseValue + AdditiveModifier)*MultiplicativeModifier + FlatModifier;
-			OnValueChanged?.Invoke(Value);
+			onValueChanged?.Invoke(Value);
 		}
 	}
 }

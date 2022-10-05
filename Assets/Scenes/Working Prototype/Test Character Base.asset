@@ -43,13 +43,13 @@ MonoBehaviour:
     additiveModifier: 0
     multiplicativeModifier: 1
     flatModifier: 0
-  - name: Shields
-    baseValue: 0
+  - name: NumProjectiles
+    baseValue: 1
     additiveModifier: 0
     multiplicativeModifier: 1
     flatModifier: 0
-  - name: NumProjectiles
-    baseValue: 1
+  - name: Shields
+    baseValue: 0
     additiveModifier: 0
     multiplicativeModifier: 1
     flatModifier: 0
