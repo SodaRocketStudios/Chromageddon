@@ -26,14 +26,12 @@ namespace SRS.Stats
 			{
 				CharacterStats[stat.Name] = new Stat(stat);
 				CharacterStats[stat.Name].onValueChanged += OnCharacterStatChange;
-				Debug.Log($"{CharacterStats[stat.Name].Name}: {CharacterStats[stat.Name].Value}");
 			}
 			
 			foreach(Stat stat in baseData.AttackStats)
 			{
 				AttackStats[stat.Name] = new Stat(stat);
 				AttackStats[stat.Name].onValueChanged += OnAttackStatChange;
-				Debug.Log($"{CharacterStats[stat.Name].Name}: {CharacterStats[stat.Name].Value}");
 			}
 		}
 
