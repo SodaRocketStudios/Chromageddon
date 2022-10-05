@@ -91,6 +91,19 @@ namespace SRS.Stats
 			AdditiveModifier = _additiveModifier;
 			MultiplicativeModifier = _multiplicativeModifier;
 			FlatModifier = _flatModifier;
+
+			OnValueChange();
+		}
+
+		public Stat(Stat stat)
+		{
+			Name = stat.Name;
+			BaseValue = stat.BaseValue;
+			AdditiveModifier = stat.AdditiveModifier;
+			MultiplicativeModifier = stat.MultiplicativeModifier;
+			FlatModifier = stat.FlatModifier;
+
+			OnValueChange();
 		}
 
 		private void OnValueChange()
