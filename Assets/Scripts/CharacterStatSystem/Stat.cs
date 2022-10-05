@@ -22,7 +22,7 @@ namespace SRS.Stats
 			}
 		}
 
-		public float Value {get; private set;}
+		public float Value{get; private set;}
 
 		[SerializeField]
 		private float baseValue;
