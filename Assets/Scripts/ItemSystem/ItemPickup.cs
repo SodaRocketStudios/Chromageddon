@@ -16,6 +16,10 @@ namespace SRS.ItemSystem
                 List<Item> itemOptions = GetItemOptions(ItemRarity.Common);
                 // Pause the game and open the item selection screen with the item options.
                 ItemSelectionPanel.Instance.GenerateButtons(itemOptions);
+
+                // TO DO -- Replace destroy with object pooling solution
+
+                Destroy(gameObject);
             }
         }
 
