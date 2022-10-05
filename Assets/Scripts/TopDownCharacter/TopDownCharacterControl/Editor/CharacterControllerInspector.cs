@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace SRS.TopDownCharacterController
+namespace SRS.TopDownCharacterControl
 {
 	[CustomEditor(typeof(TopDownCharacterController))]
 	public class CharacterControllerInspector : Editor

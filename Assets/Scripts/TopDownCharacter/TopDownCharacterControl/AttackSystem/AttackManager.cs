@@ -1,7 +1,7 @@
 using UnityEngine;
 using SRS.Stats;
 
-namespace SRS.TopDownCharacterController.AttackSystem
+namespace SRS.TopDownCharacterControl.AttackSystem
 {
 	[RequireComponent(typeof(TopDownInputInterface))]
 	public class AttackManager : MonoBehaviour

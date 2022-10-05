@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SRS.TopDownCharacterController
+namespace SRS.TopDownCharacterControl
 {
 	[RequireComponent(typeof(CircleCollider2D))]
 	public class TopDownCharacterController : MonoBehaviour

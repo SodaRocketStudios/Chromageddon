@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SRS.TopDownCharacterController
+namespace SRS.TopDownCharacterControl
 {
 	[RequireComponent(typeof(TopDownInputInterface))]
 	public class TopDownAvatarRotater : MonoBehaviour

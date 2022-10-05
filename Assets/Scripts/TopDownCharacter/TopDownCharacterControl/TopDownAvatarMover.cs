@@ -1,7 +1,7 @@
 using UnityEngine;
 using SRS.Stats;
 
-namespace SRS.TopDownCharacterController
+namespace SRS.TopDownCharacterControl
 {
 	[RequireComponent(typeof(TopDownInputInterface))]
 	public class TopDownAvatarMover : MonoBehaviour

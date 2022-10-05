@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace SRS.TopDownCharacterController
+namespace SRS.TopDownCharacterControl
 {
 	[RequireComponent(typeof(TopDownInputInterface))]
 	public class TopDownInputHandler : MonoBehaviour

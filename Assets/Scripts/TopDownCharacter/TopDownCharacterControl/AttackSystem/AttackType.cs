@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using SRS.Stats;
 
-namespace SRS.TopDownCharacterController.AttackSystem
+namespace SRS.TopDownCharacterControl.AttackSystem
 {
 	public abstract class AttackType
 	{

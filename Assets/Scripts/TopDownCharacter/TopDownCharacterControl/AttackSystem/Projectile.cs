@@ -5,7 +5,7 @@ using SRS.Stats;
 using SRS.StatusEffects;
 using SRS.Extensions;
 
-namespace SRS.TopDownCharacterController.AttackSystem
+namespace SRS.TopDownCharacterControl.AttackSystem
 {
 	public class Projectile : MonoBehaviour
 	{

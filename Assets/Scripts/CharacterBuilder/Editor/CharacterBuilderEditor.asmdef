@@ -1,0 +1,36 @@
+{
+    "name": "CharacterBuilderEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:60abfaa676dfaba4890ddc90c15ce4a6",
+        "GUID:c13dd715b8d691d46a082b62b2c28be7"
+    ],
+    "includePlatforms": [
+        "Android",
+        "CloudRendering",
+        "GameCoreScarlett",
+        "GameCoreXboxOne",
+        "iOS",
+        "LinuxStandalone64",
+        "Lumin",
+        "macOSStandalone",
+        "PS4",
+        "PS5",
+        "Stadia",
+        "Switch",
+        "tvOS",
+        "WSA",
+        "WebGL",
+        "WindowsStandalone32",
+        "WindowsStandalone64",
+        "XboxOne"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

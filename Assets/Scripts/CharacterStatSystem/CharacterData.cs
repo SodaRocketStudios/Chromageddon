@@ -24,12 +24,14 @@ namespace SRS.Stats
 		{
 			foreach(Stat stat in baseData.CharacterStats)
 			{
+				Debug.Log($"{stat.Name}: {stat.Value}");
 				CharacterStats[stat.Name] = stat;
 				CharacterStats[stat.Name].OnValueChanged += OnCharacterStatChange;
 			}
 			
 			foreach(Stat stat in baseData.AttackStats)
 			{
+				Debug.Log($"{stat.Name}: {stat.Value}");
 				AttackStats[stat.Name] = stat;
 				AttackStats[stat.Name].OnValueChanged += OnAttackStatChange;
 			}
