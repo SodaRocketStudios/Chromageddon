@@ -16,16 +16,16 @@ namespace SRS.Stats
 			var indent = EditorGUI.indentLevel;
 			EditorGUI.indentLevel = 0;
 
-			Rect openParansRect = new Rect(container.x, container.y + 20, 5, 18);
-			Rect baseValueRect = new Rect(container.x + 10, container.y + 20, 30, 18);
-			Rect addRect1 = new Rect(container.x + 42, container.y + 20, 10, 18);
-			Rect additiveRect = new Rect(container.x + 54, container.y + 20, 30, 18);
-			Rect closeParansRect = new Rect(container.x + 89, container.y + 20, 5, 18);
-			Rect multiplyRect = new Rect(container.x + 96, container.y + 20, 10, 18);
-			Rect multiplicativeRect = new Rect(container.x + 108, container.y + 20, 30, 18);
-			Rect addRect2 = new Rect(container.x + 140, container.y + 20, 10, 18);
-			Rect flatRect = new Rect(container.x + 152, container.y + 20, 30, 18);
-			Rect equalRect = new Rect(container.x + 184, container.y + 20, 40, 18);
+			Rect openParansRect = new Rect(container.x - 20, container.y + 20, 5, 18);
+			Rect baseValueRect = new Rect(container.x -10, container.y + 20, 30, 18);
+			Rect addRect1 = new Rect(container.x + 22, container.y + 20, 10, 18);
+			Rect additiveRect = new Rect(container.x + 34, container.y + 20, 30, 18);
+			Rect closeParansRect = new Rect(container.x + 69, container.y + 20, 5, 18);
+			Rect multiplyRect = new Rect(container.x + 76, container.y + 20, 10, 18);
+			Rect multiplicativeRect = new Rect(container.x + 88, container.y + 20, 30, 18);
+			Rect addRect2 = new Rect(container.x + 120, container.y + 20, 10, 18);
+			Rect flatRect = new Rect(container.x + 132, container.y + 20, 30, 18);
+			Rect equalRect = new Rect(container.x + 164, container.y + 20, 40, 18);
 
 			var baseProperty = property.FindPropertyRelative("baseValue");
 			var additiveProperty = property.FindPropertyRelative("additiveModifier");
