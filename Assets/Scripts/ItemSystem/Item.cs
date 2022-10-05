@@ -29,6 +29,7 @@ namespace SRS.ItemSystem
 			}
 		}
 
+		[SerializeField]
 		private ItemCategory category;
 		public ItemCategory Category
 		{

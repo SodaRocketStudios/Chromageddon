@@ -73,6 +73,11 @@ namespace SRS.ItemSystem
 
 		private Item GetRandomItemFromList(List<Item> items)
 		{
+			if(items.Count < 1)
+			{
+				return null;
+			}
+
 			System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
 			return items[randomGenerator.Next(items.Count)];
 		}

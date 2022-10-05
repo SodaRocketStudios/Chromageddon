@@ -8,13 +8,14 @@ namespace SRS.ItemSystem
 	{
 		const int NUMBER_OF_OPTIONS = 3;
 
-		private void OnTriggerEnter(Collider other)
+		private void OnTriggerEnter2D(Collider2D other)
 		{
 			if(other.CompareTag("Player"))
             {
 				// Determine item rarity
                 List<Item> itemOptions = GetItemOptions(ItemRarity.Common);
                 // Pause the game and open the item selection screen with the item options.
+                ItemSelectionPanel.Instance.GenerateButtons(itemOptions);
             }
         }
 
