@@ -30,7 +30,7 @@ namespace SRS.ItemSystem
 			background = GetComponent<Image>();
 		}
 
-		public void GenerateButtons(List<Item> items)
+		public void GenerateSelectionPanel(List<Item> items, Inventory targetInventory)
 		{
 			background.enabled = true;
 
@@ -46,13 +46,14 @@ namespace SRS.ItemSystem
 
 				button.GetComponentInChildren<TextMeshProUGUI>().text = item.Name;
 
-				button.GetComponent<Button>().onClick.AddListener(OnSelection);
+				button.GetComponent<Button>().onClick.AddListener(DisableSelectionPanel);
+				button.GetComponent<Button>().onClick.AddListener(delegate{targetInventory.AddItem(item);});
 
 				buttons.Add(button);
 			}
 		}
 
-		private void OnSelection()
+		private void DisableSelectionPanel()
 		{
 			background.enabled = false;
 

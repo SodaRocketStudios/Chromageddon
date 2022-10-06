@@ -15,7 +15,7 @@ namespace SRS.ItemSystem
 				// Determine item rarity
                 List<Item> itemOptions = GetItemOptions(ItemRarity.Common);
                 // Pause the game and open the item selection screen with the item options.
-                ItemSelectionPanel.Instance.GenerateButtons(itemOptions);
+                ItemSelectionPanel.Instance.GenerateSelectionPanel(itemOptions, other.GetComponent<Inventory>());
 
                 // TO DO -- Replace destroy with object pooling solution
 
@@ -41,7 +41,7 @@ namespace SRS.ItemSystem
                 while (categories.Contains(category));
                 categories.Add(category);
 
-                itemOptions.Add(ItemDatabase.Instance.GetRandomItem(category));
+                itemOptions.Add(ItemDatabase.Instance.GetRandomItem(rarity, category));
             }
 
             return itemOptions;
