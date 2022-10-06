@@ -17,7 +17,7 @@ namespace SRS.ItemSystem
 			}
 			else if(Instance != this)
 			{
-				Destroy(gameObject);
+				Destroy(this);
 			}
 		}
 

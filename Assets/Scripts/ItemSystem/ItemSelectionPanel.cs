@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using SRS.GameManager;
 
 namespace SRS.ItemSystem
 {
@@ -32,6 +33,8 @@ namespace SRS.ItemSystem
 
 		public void GenerateSelectionPanel(List<Item> items, Inventory targetInventory)
 		{
+			Game.Instance.Pause();
+
 			background.enabled = true;
 
 			foreach(Item item in items)
@@ -64,6 +67,8 @@ namespace SRS.ItemSystem
 			}
 
 			buttons.Clear();
+
+			Game.Instance.Play();
 		}
 	}
 }

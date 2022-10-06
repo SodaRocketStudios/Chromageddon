@@ -1,4 +1,5 @@
 using UnityEngine;
+using SRS.GameManager;
 
 namespace SRS.TopDownCharacterControl
 {
@@ -14,6 +15,7 @@ namespace SRS.TopDownCharacterControl
 
 		void Update()
 		{
+			if(Game.Instance.Paused) return;
 			LookAtTarget(input.LookTarget);
 		}
 
