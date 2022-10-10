@@ -7,8 +7,8 @@ namespace SRS.Stats
 	[CreateAssetMenu(fileName = "New Base Character Data", menuName = "Character Data/Character Base Data")]
 	public class BaseCharacterData : ScriptableObject
 	{
-		public List<Stat> CharacterStats = new List<Stat>();
-		public List<Stat> AttackStats = new List<Stat>();
+		public List<Stat> CharacterStats;
+		public List<Stat> AttackStats;
 
 		[SerializeField]
 		private string characterStatFile;

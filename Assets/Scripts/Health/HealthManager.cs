@@ -17,7 +17,6 @@ namespace SRS.Health
 		private void Start()
 		{
 			characterData = GetComponent<CharacterData>();
-			characterData.CharacterStats["Health"].onValueChanged += UpdateMaxHealth;
 			
 			UpdateMaxHealth(characterData.CharacterStats["Health"].Value);
 			

@@ -17,7 +17,6 @@ namespace SRS.TopDownCharacterControl
 			characterController = GetComponent<TopDownCharacterController>();
 
 			Stat speedStat = GetComponent<CharacterData>().CharacterStats["MoveSpeed"];
-			speedStat.onValueChanged += UpdateMoveSpeed;
 			UpdateMoveSpeed(speedStat.Value);
 		}
 

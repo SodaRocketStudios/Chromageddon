@@ -5,9 +5,6 @@ namespace SRS.Stats
 	[System.Serializable]
 	public class Stat
 	{
-		public delegate void UpdateValue(float value);
-		public event UpdateValue onValueChanged;
-
 		[SerializeField]
 		private string name;
 		public string Name
@@ -22,7 +19,13 @@ namespace SRS.Stats
 			}
 		}
 
-		public float Value{get; private set;}
+		public float Value
+		{
+			get
+			{
+				return (BaseValue + AdditiveModifier)*MultiplicativeModifier + FlatModifier;
+			}
+		}
 
 		[SerializeField]
 		private float baseValue;
@@ -35,7 +38,6 @@ namespace SRS.Stats
 			set
 			{
 				baseValue = value;
-				OnValueChange();
 			}
 		}
 
@@ -50,7 +52,6 @@ namespace SRS.Stats
 			set
 			{
 				additiveModifier = value;
-				OnValueChange();
 			}
 		}
 
@@ -65,7 +66,6 @@ namespace SRS.Stats
 			set
 			{
 				multiplicativeModifier = value;
-				OnValueChange();
 			}
 		}
 
@@ -80,7 +80,6 @@ namespace SRS.Stats
 			set
 			{
 				flatModifier = value;
-				OnValueChange();
 			}
 		}
 
@@ -91,8 +90,6 @@ namespace SRS.Stats
 			AdditiveModifier = _additiveModifier;
 			MultiplicativeModifier = _multiplicativeModifier;
 			FlatModifier = _flatModifier;
-
-			OnValueChange();
 		}
 
 		public Stat(Stat stat)
@@ -102,14 +99,6 @@ namespace SRS.Stats
 			AdditiveModifier = stat.AdditiveModifier;
 			MultiplicativeModifier = stat.MultiplicativeModifier;
 			FlatModifier = stat.FlatModifier;
-
-			OnValueChange();
-		}
-
-		private void OnValueChange()
-		{
-			Value = (BaseValue + AdditiveModifier)*MultiplicativeModifier + FlatModifier;
-			onValueChanged?.Invoke(Value);
 		}
 	}
 }
