@@ -9,12 +9,12 @@ namespace SRS.GameTimeProto
 
 		private void Start()
 		{
-			text = GetComponent<TMP_Text>();	
+			text = GetComponent<TMP_Text>();
 		}
 
 		void Update()
 		{
-			text.text = GameTimerProto.instance.currentTime.ToString();
+			text.text = GameTimerProto.Instance.currentTime.ToString();
 		}
 	}
 }

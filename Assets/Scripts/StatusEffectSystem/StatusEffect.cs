@@ -27,6 +27,8 @@ namespace SRS.StatusEffects
 			isAffectable &= target.TryGetComponent<CharacterData>(out targetData);
 			isAffectable &= target.TryGetComponent<HealthManager>(out targetHealth);
 
+			Debug.Log(isAffectable);
+
 			if(isAffectable)
 			{
 				endTime = Time.time + duration;

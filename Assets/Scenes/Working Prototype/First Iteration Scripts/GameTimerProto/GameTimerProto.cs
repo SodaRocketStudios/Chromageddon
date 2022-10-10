@@ -4,10 +4,25 @@ namespace SRS.GameTimeProto
 {
 	public class GameTimerProto : MonoBehaviour
 	{
-		public static GameTimerProto instance;
+		public static GameTimerProto Instance;
 
 		public float currentTime{get; private set;}
 		private TimerState state;
+
+
+		private void Awake()
+		{
+			if(GameTimerProto.Instance == null)
+			{
+				Instance = this;
+			}
+			else if(GameTimerProto.Instance != this)
+			{
+				Destroy(gameObject);
+			}
+
+			state = TimerState.Stopped;
+		}
 
 		public void StartTimer()
 		{
@@ -23,21 +38,7 @@ namespace SRS.GameTimeProto
 		{
 			state = TimerState.Stopped;
 		}
-
-		private void Awake()
-		{
-			if(GameTimerProto.instance == null)
-			{
-				instance = this;
-			}
-			else if(GameTimerProto.instance != this)
-			{
-				Destroy(gameObject);
-			}
-
-			state = TimerState.Stopped;
-		}
-
+		
 		private void Update()
 		{
 			switch(state)
