@@ -60,7 +60,6 @@ namespace SRS.ItemSystem
 					default:
 						break;
 				}
-				Debug.Log($"{effect.Stat}: {characterData.CharacterStats[effect.Stat].Value}");
 			}
 			else if(characterData.AttackStats.ContainsKey(effect.Stat))
 			{
@@ -78,7 +77,6 @@ namespace SRS.ItemSystem
 					default:
 						break;
 				}
-				Debug.Log($"{effect.Stat}: {characterData.AttackStats[effect.Stat].Value}");
 			}
 		}
 
