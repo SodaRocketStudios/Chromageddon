@@ -25,8 +25,6 @@ namespace SRS.StatusEffects
 			// Apply slow
 			targetData.CharacterStats["MoveSpeed"].MultiplicativeModifier *= slowAmount;
 
-			Debug.Log("Apply Poison");
-
 			nextTickTime = Time.time;
 
 			while(Time.time < endTime)
@@ -42,7 +40,6 @@ namespace SRS.StatusEffects
 					for(int i = 0 ; i < damageTicks; i++)
 					{
 						targetHealth.Damage(tickDamage);
-						Debug.Log("Posion");
 					}
 
 					nextTickTime = Time.time + tickDelay;
