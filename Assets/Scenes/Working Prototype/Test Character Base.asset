@@ -112,7 +112,7 @@ MonoBehaviour:
   - name: PoisonChance
     baseValue: 1
     additiveModifier: 0
-    multiplicativeModifier: 1
+    multiplicativeModifier: 0
     flatModifier: 0
   - name: ChainChance
     baseValue: 1

@@ -16,5 +16,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   rarity: 0
   category: 2
-  data: []
+  data:
+  - stat: Armor
+    intensity: 1
+    modifier: 0
   description: 

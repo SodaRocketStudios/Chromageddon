@@ -16,5 +16,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   rarity: 0
   category: 4
-  data: []
+  data:
+  - stat: MoveSpeed
+    intensity: 0.05
+    modifier: 1
   description: 

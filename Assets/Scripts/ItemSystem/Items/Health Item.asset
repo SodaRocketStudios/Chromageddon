@@ -16,5 +16,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   rarity: 0
   category: 0
-  data: []
+  data:
+  - stat: Health
+    intensity: 0.1
+    modifier: 1
   description: 

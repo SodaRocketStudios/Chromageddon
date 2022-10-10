@@ -16,5 +16,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   rarity: 0
   category: 1
-  data: []
+  data:
+  - stat: Shield
+    intensity: 0.1
+    modifier: 1
   description: 
