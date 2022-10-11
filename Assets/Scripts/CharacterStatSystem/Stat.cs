@@ -19,11 +19,17 @@ namespace SRS.Stats
 			}
 		}
 
+		private float value;
 		public float Value
 		{
 			get
 			{
-				return (BaseValue + AdditiveModifier)*MultiplicativeModifier + FlatModifier;
+				if(isDirty)
+				{
+					value =  (BaseValue + AdditiveModifier)*MultiplicativeModifier + FlatModifier;
+					isDirty = false;
+				}
+				return value;
 			}
 		}
 
@@ -38,6 +44,7 @@ namespace SRS.Stats
 			set
 			{
 				baseValue = value;
+				isDirty = true;
 			}
 		}
 
@@ -52,6 +59,7 @@ namespace SRS.Stats
 			set
 			{
 				additiveModifier = value;
+				isDirty = true;
 			}
 		}
 
@@ -66,6 +74,7 @@ namespace SRS.Stats
 			set
 			{
 				multiplicativeModifier = value;
+				isDirty = true;
 			}
 		}
 
@@ -80,8 +89,11 @@ namespace SRS.Stats
 			set
 			{
 				flatModifier = value;
+				isDirty = true;
 			}
 		}
+
+		private bool isDirty = true;
 
 		public Stat(string _name, float _baseValue = 1, float _additiveModifier = 0, float _multiplicativeModifier = 1, float _flatModifier = 0)
 		{
