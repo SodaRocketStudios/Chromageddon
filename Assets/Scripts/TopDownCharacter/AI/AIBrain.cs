@@ -17,11 +17,11 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private AIState currentState;
 
-		private AIState roamState;
-		private AIState ChaseState;
-		private AIState AimState;
-		private AIState AttackState;
-		private AIState FleeState;
+		private AIState roamState = new RoamState();
+		private AIState chaseState = new ChaseState();
+		private AIState aimState = new AimState();
+		private AIState attackState = new AttackState();
+		private AIState fleeState = new FleeState();
 
 		private TopDownInputInterface input;
 
@@ -53,7 +53,40 @@ namespace SRS.TopDownCharacterControl.AI
 			if(other.CompareTag("Player"))
 			{
 				target = other.transform;
-				float distance = Vector3.Distance(transform.position, target.position);
+				
+				UpdateState();	
+			}
+		}
+
+		private void OnTriggerExit2D(Collider2D other)
+		{
+			if(other.CompareTag("Player"))
+			{
+				target = other.transform;
+				
+				UpdateState();	
+			}
+		}
+
+		private void UpdateState()
+		{
+			float distance = Vector3.Distance(transform.position, target.position);
+
+			if(distance <= fleeRange)
+			{
+				currentState = fleeState;
+			}
+			else if(distance <= aimRange)
+			{
+				currentState = aimState;
+			}
+			else if(distance <= detectionRange)
+			{
+				currentState = chaseState;
+			}
+			else
+			{
+				currentState = roamState;
 			}
 		}
 	}
