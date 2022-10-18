@@ -1,4 +1,5 @@
 using UnityEngine;
+using SRS.TopDownCharacterControl.AttackSystem;
 
 namespace SRS.TopDownCharacterControl.AI
 {
@@ -17,10 +18,11 @@ namespace SRS.TopDownCharacterControl.AI
 		private CircleCollider2D fleeRangeCollider;
 
 		private TopDownCharacterController characterController;
+		private AttackManager attackManager;
 
 		private Vector2 moveVector;
 		private Vector2 lookVector;
-		private Vector2 isAttacking;
+		private bool isAttacking;
 
 		private AIState currentState;
 		private AIState roamState = new RoamState();
@@ -31,20 +33,23 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private Transform target;
 
-
         private void Start()
 		{
 			detectionRangeCollider = new CircleCollider2D();
 			detectionRangeCollider.radius = detectionRange;
+			detectionRangeCollider.isTrigger = true;
 			aimRangeCollider = new CircleCollider2D();
 			aimRangeCollider.radius = aimRange;
+			aimRangeCollider.isTrigger = true;
 			if(fleeRange > 0)
 			{
 				fleeRangeCollider = new CircleCollider2D();
 				fleeRangeCollider.radius = fleeRange;
+				fleeRangeCollider.isTrigger = true;
 			}
 
 			characterController = GetComponent<TopDownCharacterController>();
+			attackManager = GetComponent<AttackManager>();
 
 			currentState = roamState;
 		}
@@ -52,6 +57,8 @@ namespace SRS.TopDownCharacterControl.AI
 		private void Update()
 		{
 			currentState.Execute();
+			MoveTowardTarget();
+			LookAtTarget();
 		}
 
 		private void MoveTowardTarget()
