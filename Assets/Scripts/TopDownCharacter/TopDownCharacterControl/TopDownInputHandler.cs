@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using SRS.TopDownCharacterControl.AttackSystem;
+using SRS.Stats;
 
 namespace SRS.TopDownCharacterControl
 {
-	[RequireComponent(typeof(TopDownInputInterface))]
+	[RequireComponent(typeof(TopDownCharacterController))]
 	public class TopDownInputHandler : MonoBehaviour
 	{
-		private TopDownInputInterface input;
+		private TopDownCharacterController characterController;
+		private AttackManager attackManager;
+		private CharacterData characterData;
 
 		private Controls controls;
 		private InputAction moveAction;
@@ -15,7 +19,9 @@ namespace SRS.TopDownCharacterControl
 
 		private void Start()
 		{
-			input = GetComponent<TopDownInputInterface>();
+			characterController = GetComponent<TopDownCharacterController>();
+			attackManager = GetComponent<AttackManager>();
+			characterData = GetComponent<CharacterData>();
 		}
 
 		private void OnEnable()
@@ -29,9 +35,9 @@ namespace SRS.TopDownCharacterControl
 
 		private void Update()
 		{
-			input.MoveDirection = moveAction.ReadValue<Vector2>();
-			input.LookTarget = HandleLookInput(lookAction.ReadValue<Vector2>());
-			input.IsAttacking = attackAction.IsPressed();
+			characterController.Velocity = moveAction.ReadValue<Vector2>()*characterData.CharacterStats["MoveSpeed"].Value;
+			characterController.LookTarget = HandleLookInput(lookAction.ReadValue<Vector2>());
+			attackManager.IsAttacking = attackAction.IsPressed();
 		}
 
 		private Vector2 HandleLookInput(Vector2 pointerPosition)

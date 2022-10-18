@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace SRS.TopDownCharacterControl.AI
 {
+	[RequireComponent(typeof(TopDownCharacterController))]
 	public class AIBrain : MonoBehaviour
 	{
 		[SerializeField]
@@ -15,19 +16,23 @@ namespace SRS.TopDownCharacterControl.AI
 		private CircleCollider2D aimRangeCollider;
 		private CircleCollider2D fleeRangeCollider;
 
-		private AIState currentState;
+		private TopDownCharacterController characterController;
 
+		private Vector2 moveVector;
+		private Vector2 lookVector;
+		private Vector2 isAttacking;
+
+		private AIState currentState;
 		private AIState roamState = new RoamState();
 		private AIState chaseState = new ChaseState();
 		private AIState aimState = new AimState();
 		private AIState attackState = new AttackState();
 		private AIState fleeState = new FleeState();
 
-		private TopDownInputInterface input;
-
 		private Transform target;
 
-		private void Start()
+
+        private void Start()
 		{
 			detectionRangeCollider = new CircleCollider2D();
 			detectionRangeCollider.radius = detectionRange;
@@ -39,13 +44,24 @@ namespace SRS.TopDownCharacterControl.AI
 				fleeRangeCollider.radius = fleeRange;
 			}
 
+			characterController = GetComponent<TopDownCharacterController>();
+
 			currentState = roamState;
-			input = GetComponent<TopDownInputInterface>();
 		}
 
 		private void Update()
 		{
 			currentState.Execute();
+		}
+
+		private void MoveTowardTarget()
+		{
+			characterController.Velocity = new Vector2();
+		}
+
+		private void LookAtTarget()
+		{
+			characterController.LookTarget = new Vector2();
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)

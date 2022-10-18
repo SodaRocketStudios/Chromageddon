@@ -7,6 +7,8 @@ namespace SRS.TopDownCharacterControl
 	{
 		public Vector2 Velocity{get; set;}
 
+		public Vector2 LookTarget{get; set;}
+
 		[SerializeField] private LayerMask collisionMask;
 
 		[SerializeField] private float boxWidth = 0.1f;
@@ -24,6 +26,7 @@ namespace SRS.TopDownCharacterControl
 			DetectCollisionsHorizontal();
 			DetectCollisionVertical();
 			Move();
+			LookAtTarget();
 		}
 
 		private void DetectCollisionsHorizontal()
@@ -71,6 +74,15 @@ namespace SRS.TopDownCharacterControl
 		private void Move()
 		{
 			transform.Translate(Velocity*Time.deltaTime, Space.World);
+		}
+
+		private void LookAtTarget()
+		{
+			Vector2 directionVector = LookTarget - (Vector2)transform.position;
+
+			float direction = Vector2.SignedAngle(Vector2.right, directionVector);
+
+			transform.eulerAngles = new Vector3(0, 0, direction);
 		}
 	}
 }

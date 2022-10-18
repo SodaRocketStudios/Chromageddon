@@ -3,10 +3,11 @@ using SRS.Stats;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
-	[RequireComponent(typeof(TopDownInputInterface))]
 	public class AttackManager : MonoBehaviour
 	{
 		public bool AttackBlocked{get; set;}
+
+		public bool IsAttacking = false;
 
 		private float attackDelay = 1;
 
@@ -18,7 +19,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		[SerializeField] private GameObject projectile;
 
 		private AttackType attack;
-		private TopDownInputInterface input;
 
 		private CharacterData characterData;
 
@@ -26,8 +26,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void Start()
 		{
-			input = GetComponent<TopDownInputInterface>();
-
 			characterData = GetComponent<CharacterData>();
 			
 			if(projectile == null)
@@ -51,7 +49,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void Update()
 		{
-			if(input.IsAttacking)
+			if(IsAttacking)
 			{
 				Attack();
 			}
