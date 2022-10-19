@@ -24,26 +24,41 @@ namespace SRS.TopDownCharacterControl.AI
 		private Vector2 lookVector;
 		private bool isAttacking;
 
-		private AIState currentState;
+		private AIState state;
+		private AIState currentState
+		{
+			get
+			{
+				return state;
+			}
+			set
+			{
+				if(currentState == value)
+				{
+					return;
+				}
+
+				state = value;
+				state.Enter(transform);
+			}
+		}
 		private AIState roamState = new RoamState();
 		private AIState chaseState = new ChaseState();
 		private AIState aimState = new AimState();
 		private AIState attackState = new AttackState();
 		private AIState fleeState = new FleeState();
 
-		private Transform target;
-
         private void Start()
 		{
-			detectionRangeCollider = new CircleCollider2D();
+			detectionRangeCollider = gameObject.AddComponent<CircleCollider2D>();
 			detectionRangeCollider.radius = detectionRange;
 			detectionRangeCollider.isTrigger = true;
-			aimRangeCollider = new CircleCollider2D();
+			aimRangeCollider = gameObject.AddComponent<CircleCollider2D>();
 			aimRangeCollider.radius = aimRange;
 			aimRangeCollider.isTrigger = true;
 			if(fleeRange > 0)
 			{
-				fleeRangeCollider = new CircleCollider2D();
+				fleeRangeCollider = gameObject.AddComponent<CircleCollider2D>();
 				fleeRangeCollider.radius = fleeRange;
 				fleeRangeCollider.isTrigger = true;
 			}
@@ -63,21 +78,20 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private void MoveTowardTarget()
 		{
-			characterController.Velocity = new Vector2();
+			Vector2 direction = (currentState.Target - (Vector2)transform.position).normalized;
+			characterController.Velocity = direction;
 		}
 
 		private void LookAtTarget()
 		{
-			characterController.LookTarget = new Vector2();
+			characterController.LookTarget = currentState.Target;
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
 			if(other.CompareTag("Player"))
 			{
-				target = other.transform;
-				
-				UpdateState();	
+				UpdateState(other.transform);	
 			}
 		}
 
@@ -85,13 +99,11 @@ namespace SRS.TopDownCharacterControl.AI
 		{
 			if(other.CompareTag("Player"))
 			{
-				target = other.transform;
-				
-				UpdateState();	
+				UpdateState(other.transform);	
 			}
 		}
 
-		private void UpdateState()
+		private void UpdateState(Transform target)
 		{
 			float distance = Vector3.Distance(transform.position, target.position);
 
