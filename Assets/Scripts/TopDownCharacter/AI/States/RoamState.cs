@@ -13,19 +13,17 @@ namespace SRS.TopDownCharacterControl.AI
 
         public override void Enter(Transform transform)
         {
-            base.Enter(transform);
+            this.transform = transform;
             startPosition = transform.position;
             Target = GetRandomLocation();
         }
 
         public override void Execute()
         {
-            // Need to detect with some margin of error
             float distance = ((Vector2)transform.position - Target).magnitude;
             if(distance <= MAX_DEVIATION)
             {
                 Target = GetRandomLocation();
-                Debug.Log(Target);
             }
         }
 

@@ -8,10 +8,7 @@ namespace SRS.TopDownCharacterControl.AI
 
 		protected Transform transform;
 
-		public virtual void Enter(Transform transform)
-		{
-			this.transform = transform;
-		}
+		public abstract void Enter(Transform transform);
 		public abstract void Execute();
 	}
 }

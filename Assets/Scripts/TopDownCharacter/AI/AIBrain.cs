@@ -7,11 +7,11 @@ namespace SRS.TopDownCharacterControl.AI
 	public class AIBrain : MonoBehaviour
 	{
 		[SerializeField]
-		private float detectionRange;
+		private float detectionRadius;
 		[SerializeField]
-		private float aimRange;
+		private float aimRadius;
 		[SerializeField]
-		private float fleeRange;
+		private float fleeRadius;
 
 		private CircleCollider2D detectionRangeCollider;
 		private CircleCollider2D aimRangeCollider;
@@ -24,24 +24,8 @@ namespace SRS.TopDownCharacterControl.AI
 		private Vector2 lookVector;
 		private bool isAttacking;
 
-		private AIState state;
-		private AIState currentState
-		{
-			get
-			{
-				return state;
-			}
-			set
-			{
-				if(currentState == value)
-				{
-					return;
-				}
+		private AIState currentState;
 
-				state = value;
-				state.Enter(transform);
-			}
-		}
 		private AIState roamState = new RoamState();
 		private AIState chaseState = new ChaseState();
 		private AIState aimState = new AimState();
@@ -51,15 +35,15 @@ namespace SRS.TopDownCharacterControl.AI
         private void Start()
 		{
 			detectionRangeCollider = gameObject.AddComponent<CircleCollider2D>();
-			detectionRangeCollider.radius = detectionRange;
+			detectionRangeCollider.radius = detectionRadius;
 			detectionRangeCollider.isTrigger = true;
 			aimRangeCollider = gameObject.AddComponent<CircleCollider2D>();
-			aimRangeCollider.radius = aimRange;
+			aimRangeCollider.radius = aimRadius;
 			aimRangeCollider.isTrigger = true;
-			if(fleeRange > 0)
+			if(fleeRadius > 0)
 			{
 				fleeRangeCollider = gameObject.AddComponent<CircleCollider2D>();
-				fleeRangeCollider.radius = fleeRange;
+				fleeRangeCollider.radius = fleeRadius;
 				fleeRangeCollider.isTrigger = true;
 			}
 
@@ -67,6 +51,7 @@ namespace SRS.TopDownCharacterControl.AI
 			attackManager = GetComponent<AttackManager>();
 
 			currentState = roamState;
+			currentState.Enter(transform);
 		}
 
 		private void Update()
@@ -91,7 +76,8 @@ namespace SRS.TopDownCharacterControl.AI
 		{
 			if(other.CompareTag("Player"))
 			{
-				UpdateState(other.transform);	
+				UpdateState(other);
+				Debug.Log(currentState);
 			}
 		}
 
@@ -99,29 +85,40 @@ namespace SRS.TopDownCharacterControl.AI
 		{
 			if(other.CompareTag("Player"))
 			{
-				UpdateState(other.transform);	
+				UpdateState(other);
+				Debug.Log(currentState);
 			}
 		}
 
-		private void UpdateState(Transform target)
+		private void UpdateState(Collider2D target)
 		{
-			float distance = Vector3.Distance(transform.position, target.position);
+			float distance = Vector3.Distance(transform.position, target.ClosestPoint(transform.position));
 
-			if(distance <= fleeRange)
+			Debug.Log(distance);
+
+			if(distance <= fleeRadius)
 			{
 				currentState = fleeState;
+				currentState.Enter(target.transform);
+				return;
 			}
-			else if(distance <= aimRange)
+			else if(distance <= aimRadius)
 			{
 				currentState = aimState;
+				currentState.Enter(target.transform);
+				return;
 			}
-			else if(distance <= detectionRange)
+			else if(distance <= detectionRadius)
 			{
 				currentState = chaseState;
+				currentState.Enter(target.transform);
+				return;
 			}
 			else
 			{
 				currentState = roamState;
+				currentState.Enter(transform);
+				return;
 			}
 		}
 	}

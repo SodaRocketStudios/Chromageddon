@@ -7,13 +7,10 @@ namespace SRS.TopDownCharacterControl.AI
 
         public override void Enter(Transform transform)
         {
-            base.Enter(transform);
-            throw new System.NotImplementedException();
         }
 
         public override void Execute()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

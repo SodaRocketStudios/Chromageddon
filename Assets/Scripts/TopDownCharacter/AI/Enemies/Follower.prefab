@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbac964c6364a304c85180dec37aea81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 10
+  detectionRange: 1
   aimRange: 0
   fleeRange: 0
 --- !u!114 &4680669863220353905
