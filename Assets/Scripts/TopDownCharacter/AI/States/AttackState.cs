@@ -13,6 +13,8 @@ namespace SRS.TopDownCharacterControl.AI
 
         public override void Execute()
         {
+            brain.MoveTowardTarget(brain.transform.position);
+            brain.LookAtTarget(brain.DetectedObject.position);
         }
 
         public override void Exit()

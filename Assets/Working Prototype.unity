@@ -2035,7 +2035,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4177619638805373418, guid: 2c0d032b9742cff4c9de410f64bee066, type: 3}
       propertyPath: fleeRadius
-      value: 0
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4177619638805373418, guid: 2c0d032b9742cff4c9de410f64bee066, type: 3}
+      propertyPath: attackRadius
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -4177619638805373418, guid: 2c0d032b9742cff4c9de410f64bee066, type: 3}
       propertyPath: detectionRange
@@ -2093,6 +2097,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8049000095740758476, guid: 2c0d032b9742cff4c9de410f64bee066, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 7002851084517604257, guid: 6c48f17e9b099fa45ac095a87e4a62fc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c0d032b9742cff4c9de410f64bee066, type: 3}
 --- !u!1001 &4235646727222114704

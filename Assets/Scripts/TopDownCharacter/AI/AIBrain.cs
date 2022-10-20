@@ -11,12 +11,12 @@ namespace SRS.TopDownCharacterControl.AI
 		[SerializeField]
 		private float detectionRadius;
 		[SerializeField]
-		private float aimRadius;
+		private float attackRadius;
 		[SerializeField]
 		private float fleeRadius;
 
 		private CircleCollider2D detectionRangeCollider;
-		private CircleCollider2D aimRangeCollider;
+		private CircleCollider2D attackRangeCollider;
 		private CircleCollider2D fleeRangeCollider;
 
 		private TopDownCharacterController characterController;
@@ -37,7 +37,8 @@ namespace SRS.TopDownCharacterControl.AI
 				{
 					return;
 				}
-
+				
+				state?.Exit();
 				state = value;
 				state.Enter(this);
 			}
@@ -54,9 +55,9 @@ namespace SRS.TopDownCharacterControl.AI
 			detectionRangeCollider = gameObject.AddComponent<CircleCollider2D>();
 			detectionRangeCollider.radius = detectionRadius;
 			detectionRangeCollider.isTrigger = true;
-			aimRangeCollider = gameObject.AddComponent<CircleCollider2D>();
-			aimRangeCollider.radius = aimRadius;
-			aimRangeCollider.isTrigger = true;
+			attackRangeCollider = gameObject.AddComponent<CircleCollider2D>();
+			attackRangeCollider.radius = attackRadius;
+			attackRangeCollider.isTrigger = true;
 			if(fleeRadius > 0)
 			{
 				fleeRangeCollider = gameObject.AddComponent<CircleCollider2D>();
@@ -115,9 +116,9 @@ namespace SRS.TopDownCharacterControl.AI
 				currentState = fleeState;
 				return;
 			}
-			else if(distance <= aimRadius)
+			else if(distance <= attackRadius)
 			{
-				currentState = aimState;
+				currentState = attackState;
 				return;
 			}
 			else if(distance <= detectionRadius)
