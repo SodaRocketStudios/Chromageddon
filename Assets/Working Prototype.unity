@@ -2031,7 +2031,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4177619638805373418, guid: 2c0d032b9742cff4c9de410f64bee066, type: 3}
       propertyPath: aimRadius
-      value: 1
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4177619638805373418, guid: 2c0d032b9742cff4c9de410f64bee066, type: 3}
+      propertyPath: fleeRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -4177619638805373418, guid: 2c0d032b9742cff4c9de410f64bee066, type: 3}
       propertyPath: detectionRange

@@ -11,20 +11,23 @@ namespace SRS.TopDownCharacterControl.AI
 
         private Vector2 startPosition;
 
-        public override void Enter(Transform transform)
+        public override void Enter(AIBrain brain)
         {
-            this.transform = transform;
-            startPosition = transform.position;
-            Target = GetRandomLocation();
+            base.Enter(brain);
+            startPosition = brain.transform.position;
+            target = GetRandomLocation();
         }
 
         public override void Execute()
         {
-            float distance = ((Vector2)transform.position - Target).magnitude;
+            float distance = ((Vector2)brain.transform.position - target).magnitude;
             if(distance <= MAX_DEVIATION)
             {
-                Target = GetRandomLocation();
+                target = GetRandomLocation();
+                Debug.Log(target);
             }
+
+            base.Execute();
         }
 
         private Vector2 GetRandomLocation()

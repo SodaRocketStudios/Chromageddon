@@ -4,11 +4,19 @@ namespace SRS.TopDownCharacterControl.AI
 {
 	public abstract class AIState
 	{
-		public Vector2 Target{get; protected set;}
+		protected AIBrain brain;
+		protected Vector2 target;
 
-		protected Transform transform;
 
-		public abstract void Enter(Transform transform);
-		public abstract void Execute();
+		virtual public void Enter(AIBrain brain)
+		{
+			this.brain = brain;
+		}
+
+		virtual public void Execute()
+		{
+			brain.MoveTowardTarget(target);
+            brain.LookAtTarget(target);
+		}
 	}
 }

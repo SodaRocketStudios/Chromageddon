@@ -5,15 +5,15 @@ namespace SRS.TopDownCharacterControl.AI
     public class ChaseState : AIState
     {
 
-        public override void Enter(Transform transform)
+        public override void Enter(AIBrain brain)
         {
-            Target = transform.position;
-            this.transform = transform;
+            base.Enter(brain);
         }
 
         public override void Execute()
         {
-            Target = transform.position;
+            target = brain.DetectedObject.position;
+            base.Execute();
         }
     }
 }

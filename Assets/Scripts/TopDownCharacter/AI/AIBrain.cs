@@ -6,6 +6,8 @@ namespace SRS.TopDownCharacterControl.AI
 	[RequireComponent(typeof(TopDownCharacterController))]
 	public class AIBrain : MonoBehaviour
 	{
+		public Transform DetectedObject{get; private set;}
+
 		[SerializeField]
 		private float detectionRadius;
 		[SerializeField]
@@ -24,7 +26,24 @@ namespace SRS.TopDownCharacterControl.AI
 		private Vector2 lookVector;
 		private bool isAttacking;
 
-		private AIState currentState;
+		private AIState state;
+		private AIState currentState
+		{
+			get
+			{
+				return state;
+			}
+			set
+			{
+				if(state == value)
+				{
+					return;
+				}
+
+				state = value;
+				state.Enter(this);
+			}
+		}
 
 		private AIState roamState = new RoamState();
 		private AIState chaseState = new ChaseState();
@@ -51,25 +70,23 @@ namespace SRS.TopDownCharacterControl.AI
 			attackManager = GetComponent<AttackManager>();
 
 			currentState = roamState;
-			currentState.Enter(transform);
 		}
 
 		private void Update()
 		{
 			currentState.Execute();
-			MoveTowardTarget();
-			LookAtTarget();
 		}
 
-		private void MoveTowardTarget()
+		public void MoveTowardTarget(Vector2 target)
 		{
-			Vector2 direction = (currentState.Target - (Vector2)transform.position).normalized;
+			// Need to include move speed.
+			Vector2 direction = (target - (Vector2)transform.position).normalized;
 			characterController.Velocity = direction;
 		}
 
-		private void LookAtTarget()
+		public void LookAtTarget(Vector2 target)
 		{
-			characterController.LookTarget = currentState.Target;
+			characterController.LookTarget = target;
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)
@@ -92,6 +109,8 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private void UpdateState(Collider2D target)
 		{
+			DetectedObject = target.transform;
+
 			float distance = Vector3.Distance(transform.position, target.ClosestPoint(transform.position));
 
 			Debug.Log(distance);
@@ -99,25 +118,21 @@ namespace SRS.TopDownCharacterControl.AI
 			if(distance <= fleeRadius)
 			{
 				currentState = fleeState;
-				currentState.Enter(target.transform);
 				return;
 			}
 			else if(distance <= aimRadius)
 			{
 				currentState = aimState;
-				currentState.Enter(target.transform);
 				return;
 			}
 			else if(distance <= detectionRadius)
 			{
 				currentState = chaseState;
-				currentState.Enter(target.transform);
 				return;
 			}
 			else
 			{
 				currentState = roamState;
-				currentState.Enter(transform);
 				return;
 			}
 		}
