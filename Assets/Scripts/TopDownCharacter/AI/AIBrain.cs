@@ -22,9 +22,7 @@ namespace SRS.TopDownCharacterControl.AI
 		private TopDownCharacterController characterController;
 		private AttackManager attackManager;
 
-		private Vector2 moveVector;
-		private Vector2 lookVector;
-		private bool isAttacking;
+		public bool IsAttacking;
 
 		private AIState state;
 		private AIState currentState
@@ -75,6 +73,7 @@ namespace SRS.TopDownCharacterControl.AI
 		private void Update()
 		{
 			currentState.Execute();
+			attackManager.IsAttacking = IsAttacking;
 		}
 
 		public void MoveTowardTarget(Vector2 target)
@@ -94,7 +93,6 @@ namespace SRS.TopDownCharacterControl.AI
 			if(other.CompareTag("Player"))
 			{
 				UpdateState(other);
-				Debug.Log(currentState);
 			}
 		}
 
@@ -103,7 +101,6 @@ namespace SRS.TopDownCharacterControl.AI
 			if(other.CompareTag("Player"))
 			{
 				UpdateState(other);
-				Debug.Log(currentState);
 			}
 		}
 
@@ -112,8 +109,6 @@ namespace SRS.TopDownCharacterControl.AI
 			DetectedObject = target.transform;
 
 			float distance = Vector3.Distance(transform.position, target.ClosestPoint(transform.position));
-
-			Debug.Log(distance);
 
 			if(distance <= fleeRadius)
 			{

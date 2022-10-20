@@ -18,5 +18,10 @@ namespace SRS.TopDownCharacterControl.AI
 			brain.MoveTowardTarget(target);
             brain.LookAtTarget(target);
 		}
+
+		virtual public void Exit()
+		{
+			target = brain.transform.position;
+		}
 	}
 }

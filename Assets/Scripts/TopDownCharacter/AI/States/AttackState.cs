@@ -7,11 +7,18 @@ namespace SRS.TopDownCharacterControl.AI
 
         public override void Enter(AIBrain brain)
         {
+            brain.IsAttacking = true;
             base.Enter(brain);
         }
 
         public override void Execute()
         {
+        }
+
+        public override void Exit()
+        {
+            brain.IsAttacking = false;
+            base.Exit();
         }
     }
 }
