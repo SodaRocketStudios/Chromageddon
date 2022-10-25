@@ -1,35 +1,44 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 
-namespace SRS
+namespace SRS.EnemySpawner
 {
 	public class SpawnManager : MonoBehaviour
 	{
 		[SerializeField]
-		private GameObject objectToPool;
+		private GameObject baseEnemy;
 
 		[SerializeField]
-		private List<GameObject> enemyTypes = new List<GameObject>();
+		private Transform player;
 
 		[SerializeField]
 		private int minEnemies;
+		[SerializeField]
 		private int maxEnemies;
 
-		private ObjectPool<GameObject> enemyPool;
+		private EnemyPool enemyPool;
+
+		private SpawnLocator spawnLocator;
+
+		private DynamicDifficultyManager difficultyManager;
 
 		private void Start()
 		{
-			enemyPool = new ObjectPool<GameObject>(
-				() => {return Instantiate(objectToPool);}
-				);
+			enemyPool = new EnemyPool(baseEnemy);
+			spawnLocator = new SpawnLocator(player);
+		}
 
-			SpawnEnemy();
+		private void Update()
+		{
+			if(enemyPool.Count < minEnemies)
+			{
+				SpawnEnemy();
+			}
 		}
 
 		private void SpawnEnemy()
 		{
-			enemyPool.Get();
+			enemyPool.Spawn();
 		}
 	}
 }

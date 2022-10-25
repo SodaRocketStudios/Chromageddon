@@ -29,7 +29,7 @@ MonoBehaviour:
     multiplicativeModifier: 1
     flatModifier: 0
   - name: Health
-    baseValue: 100
+    baseValue: 1
     additiveModifier: 0
     multiplicativeModifier: 1
     flatModifier: 0
