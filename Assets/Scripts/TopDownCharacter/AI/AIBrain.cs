@@ -67,7 +67,10 @@ namespace SRS.TopDownCharacterControl.AI
 
 			characterController = GetComponent<TopDownCharacterController>();
 			attackManager = GetComponent<AttackManager>();
+		}
 
+		private void OnEnable()
+		{
 			currentState = roamState;
 		}
 

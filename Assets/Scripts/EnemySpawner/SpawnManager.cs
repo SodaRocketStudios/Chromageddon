@@ -9,6 +9,8 @@ namespace SRS.EnemySpawner
 
 		[SerializeField] private Transform player;
 
+		[SerializeField] private Transform level;
+
 		[SerializeField] private int minEnemies;
 		[SerializeField] private int maxEnemies;
 
@@ -21,7 +23,7 @@ namespace SRS.EnemySpawner
 		private void Start()
 		{
 			enemyPool = new EnemyPool(baseEnemy);
-			spawnLocator = new SpawnLocator(player);
+			spawnLocator = new SpawnLocator(player, level);
 		}
 
 		private void Update()
@@ -34,7 +36,7 @@ namespace SRS.EnemySpawner
 
 		private void SpawnEnemy()
 		{
-			enemyPool.Spawn();
+			enemyPool.Spawn(spawnLocator.GetLocation());
 		}
 	}
 }

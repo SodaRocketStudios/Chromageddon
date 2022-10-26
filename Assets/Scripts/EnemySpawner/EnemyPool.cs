@@ -21,10 +21,11 @@ namespace SRS.EnemySpawner
             pool = new ObjectPool<GameObject>(Create);
         }
 
-        public GameObject Spawn()
+        public GameObject Spawn(Vector2 location)
         {
             // TO DO -- Set enemy data
             GameObject enemy = pool.Get();
+            enemy.transform.position = location;
             enemy.SetActive(true);
             return enemy;
         }

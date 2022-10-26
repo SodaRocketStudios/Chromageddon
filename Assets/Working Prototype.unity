@@ -1599,6 +1599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseEnemy: {fileID: 4462350641060120319, guid: 8700d7c419ac4d14b89665df706e083f, type: 3}
   player: {fileID: 1600948671}
+  level: {fileID: 50758218}
   minEnemies: 5
   maxEnemies: 10
 --- !u!1 &1912147306

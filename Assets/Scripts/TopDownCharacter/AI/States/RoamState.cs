@@ -24,7 +24,6 @@ namespace SRS.TopDownCharacterControl.AI
             if(distance <= MAX_DEVIATION)
             {
                 target = GetRandomLocation();
-                Debug.Log(target);
             }
 
             base.Execute();
