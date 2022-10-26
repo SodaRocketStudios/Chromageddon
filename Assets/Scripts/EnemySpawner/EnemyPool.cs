@@ -23,21 +23,23 @@ namespace SRS.EnemySpawner
 
         public GameObject Spawn()
         {
+            // TO DO -- Set enemy data
             GameObject enemy = pool.Get();
-            enemy.GetComponent<HealthManager>().OnDeath += Despawn;
+            enemy.SetActive(true);
             return enemy;
         }
 
         public void Despawn(GameObject enemy)
         {
-            Debug.Log("Dead");
-            enemy.GetComponent<HealthManager>().OnDeath -= Despawn;
+            enemy.SetActive(false);
             pool.Release(enemy);
         }
 
         private GameObject Create()
         {
-            return GameObject.Instantiate(baseEnemy);
+            GameObject enemy = GameObject.Instantiate(baseEnemy);
+            enemy.GetComponent<HealthManager>().OnDeath += Despawn;
+            return enemy;
         }
     }
 }

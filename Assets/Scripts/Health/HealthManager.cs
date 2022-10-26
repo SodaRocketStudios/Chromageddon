@@ -21,6 +21,7 @@ namespace SRS.Health
 			UpdateMaxHealth(characterData.CharacterStats["Health"].Value);
 			
 			CurrentHealth = MaxHealth;
+			
 		}
 
 		public void Damage(int amount)

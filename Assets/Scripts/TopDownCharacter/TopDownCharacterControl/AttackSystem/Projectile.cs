@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SRS.Stats;
 using SRS.StatusEffects;
 using SRS.Extensions;
+using SRS.Health;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
@@ -46,6 +47,13 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			if((mask.value & (1 << other.gameObject.layer)) > 0)
 			{
 				// TO DO -- Perform on hit logic. This is where an IDamageable interface could be useful.
+				HealthManager targetHealth;
+
+				if(other.gameObject.TryGetComponent<HealthManager>(out targetHealth))
+				{
+					targetHealth.Damage((int)attackStats["Damage"].Value);
+				}
+
 				StatusEffectTracker targetEffectTracker;
 				if(other.gameObject.TryGetComponent<StatusEffectTracker>(out targetEffectTracker))
 				{

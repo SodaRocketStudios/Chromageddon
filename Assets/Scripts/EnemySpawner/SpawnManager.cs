@@ -5,16 +5,12 @@ namespace SRS.EnemySpawner
 {
 	public class SpawnManager : MonoBehaviour
 	{
-		[SerializeField]
-		private GameObject baseEnemy;
+		[SerializeField] private GameObject baseEnemy;
 
-		[SerializeField]
-		private Transform player;
+		[SerializeField] private Transform player;
 
-		[SerializeField]
-		private int minEnemies;
-		[SerializeField]
-		private int maxEnemies;
+		[SerializeField] private int minEnemies;
+		[SerializeField] private int maxEnemies;
 
 		private EnemyPool enemyPool;
 
