@@ -7,7 +7,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 	{
 		public bool AttackBlocked{get; set;}
 
-		public bool IsAttacking = false;
+		public bool IsAttacking{get; set;}
 
 		private float attackDelay = 1;
 
@@ -15,10 +15,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		[SerializeField] private LayerMask attackMask;
 
-		[Tooltip("If left empty, the character will use melee attacks instead.")]
-		[SerializeField] private GameObject projectile;
-
-		private AttackType attack;
+		[SerializeField] private AttackType attack;
 
 		private CharacterData characterData;
 
@@ -27,15 +24,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		private void Start()
 		{
 			characterData = GetComponent<CharacterData>();
-			
-			if(projectile == null)
-			{
-				attack = new MeleeAttack(characterData.AttackStats);
-			}
-			else
-			{
-				attack = new RangedAttack(characterData.AttackStats, projectile);
-			}
 
 			UpdateAttackStats();
 

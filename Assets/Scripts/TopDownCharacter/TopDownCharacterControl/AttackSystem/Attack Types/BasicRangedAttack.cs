@@ -4,15 +4,10 @@ using SRS.Stats;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
-	public class RangedAttack : AttackType
+	[CreateAssetMenu(fileName = "Basic Ranged Attack", menuName = "Attacks/Basic Ranged Attack")]
+	public class BasicRangedAttack : AttackType
 	{
-		private GameObject projectile;
-
-		public RangedAttack(Dictionary<string, Stat> stats, GameObject _projectile)
-		{
-			UpdateStats(stats);
-			projectile = _projectile;
-		}
+		[SerializeField] private GameObject projectile;
 
         public override void Attack(Transform origin, float attackAngle, LayerMask mask)
         {

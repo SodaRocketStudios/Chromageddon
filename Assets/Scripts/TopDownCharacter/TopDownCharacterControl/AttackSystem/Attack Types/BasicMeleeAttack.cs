@@ -4,13 +4,9 @@ using SRS.Stats;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
-	public class MeleeAttack : AttackType
+    [CreateAssetMenu(fileName = "Basic Melee Attack", menuName = "Attacks/Basic Melee Attack")]
+	public class BasicMeleeAttack : AttackType
 	{
-		public MeleeAttack(Dictionary<string, Stat> stats)
-		{
-			UpdateStats(stats);
-		}
-
         public override void Attack(Transform origin, float attackAngle, LayerMask mask)
         {
             float range = attackStats["Speed"].Value * attackStats["Lifetime"].Value;

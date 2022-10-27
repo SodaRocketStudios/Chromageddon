@@ -4,11 +4,11 @@ using SRS.Stats;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
-	public abstract class AttackType
+	public class AttackType : ScriptableObject
 	{
 		protected Dictionary<string, Stat> attackStats;
 
-		public abstract void Attack(Transform origin, float attackAngle, LayerMask mask);
+		public virtual void Attack(Transform origin, float attackAngle, LayerMask mask){}
 
 		public void UpdateStats(Dictionary<string, Stat> stats)
 		{

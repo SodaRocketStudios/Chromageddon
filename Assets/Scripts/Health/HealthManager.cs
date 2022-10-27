@@ -19,11 +19,13 @@ namespace SRS.Health
 			characterData = GetComponent<CharacterData>();
 			
 			UpdateMaxHealth(characterData.CharacterStats["Health"].Value);
+
+			SetHealthToMax();
 		}
 
 		private void OnEnable()
 		{
-			CurrentHealth = MaxHealth;
+			SetHealthToMax();
 		}
 
 		public void Damage(int amount)
@@ -49,6 +51,11 @@ namespace SRS.Health
 		private void UpdateMaxHealth(float value)
 		{
 			MaxHealth = (int)value;
+		}
+
+		private void SetHealthToMax()
+		{
+			CurrentHealth = MaxHealth;
 		}
 	}
 }
