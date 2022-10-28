@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SRS.Stats;
+using SRS.StatSystem;
 using SRS.Extensions;
 
 namespace SRS.StatusEffects

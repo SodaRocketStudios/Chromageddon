@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SRS.Stats;
+using SRS.StatSystem;
 using SRS.Health;
 
 namespace SRS.StatusEffects
@@ -14,7 +14,7 @@ namespace SRS.StatusEffects
 		public abstract string procStat{get; protected set;}
 
 		protected StatusEffectTracker targetEffectTracker;
-		protected CharacterData targetData;
+		protected CharacterStats targetStats;
 		protected HealthManager targetHealth;
 
 		private bool isAffectable = true;
@@ -24,7 +24,7 @@ namespace SRS.StatusEffects
 		public Coroutine Apply(GameObject target)
 		{
 			isAffectable &= target.TryGetComponent<StatusEffectTracker>(out targetEffectTracker);
-			isAffectable &= target.TryGetComponent<CharacterData>(out targetData);
+			isAffectable &= target.TryGetComponent<CharacterStats>(out targetStats);
 			isAffectable &= target.TryGetComponent<HealthManager>(out targetHealth);
 
 			if(isAffectable)

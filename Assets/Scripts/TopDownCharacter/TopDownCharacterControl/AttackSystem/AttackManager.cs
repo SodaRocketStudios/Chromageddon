@@ -1,5 +1,5 @@
 using UnityEngine;
-using SRS.Stats;
+using SRS.StatSystem;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
@@ -17,20 +17,20 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		[SerializeField] private AttackType attack;
 
-		private CharacterData characterData;
+		private CharacterStats characterData;
 
 		private float nextAttackTime = 0;
 
 		private void Start()
 		{
-			characterData = GetComponent<CharacterData>();
+			characterData = GetComponent<CharacterStats>();
 
 			UpdateAttackStats();
 
-			Stat attackSpeed = characterData.CharacterStats["AttackSpeed"];
+			Stat attackSpeed = characterData.Character["AttackSpeed"];
 			UpdateAttackSpeed(attackSpeed.Value);
 			
-			Stat attackArc = characterData.CharacterStats["AttackArc"];
+			Stat attackArc = characterData.Character["AttackArc"];
 			attackAngle = attackArc.Value;
 
 		}
@@ -70,7 +70,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void UpdateAttackStats()
 		{
-			attack.UpdateStats(characterData.AttackStats);
+			attack.UpdateStats(characterData.Attack);
 		}
 
 		private void UpdateAttackSpeed(float attackSpeed)

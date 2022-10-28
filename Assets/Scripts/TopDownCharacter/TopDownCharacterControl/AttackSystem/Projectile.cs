@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
-using SRS.Stats;
+using SRS.StatSystem;
 using SRS.StatusEffects;
 using SRS.Extensions;
 using SRS.Health;

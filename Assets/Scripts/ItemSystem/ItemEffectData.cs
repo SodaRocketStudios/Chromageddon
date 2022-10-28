@@ -1,5 +1,5 @@
 using UnityEngine;
-using SRS.Stats;
+using SRS.StatSystem;
 
 namespace SRS.ItemSystem
 {

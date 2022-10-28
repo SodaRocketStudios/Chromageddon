@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace SRS.Stats
+namespace SRS.StatSystem
 {
-	[CustomEditor(typeof(BaseCharacterData))]
+	[CustomEditor(typeof(BaseCharacterStats))]
 	public class BaseCharacterDataEditor : Editor
 	{
 		public override void OnInspectorGUI()
@@ -11,7 +11,7 @@ namespace SRS.Stats
 			base.OnInspectorGUI();
 			if(GUILayout.Button("Populate Stats"))
 			{
-				(target as BaseCharacterData).PopulateStats();
+				(target as BaseCharacterStats).PopulateStats();
 			}
 		}
 	}

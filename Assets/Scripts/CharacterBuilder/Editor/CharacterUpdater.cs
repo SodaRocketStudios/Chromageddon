@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-using SRS.Stats;
+using SRS.StatSystem;
 
 namespace SRS.CharacterBuilder
 {
@@ -14,7 +14,7 @@ namespace SRS.CharacterBuilder
 			foreach(string guid in guids)
 			{
 				string assetPath = AssetDatabase.GUIDToAssetPath(guid);
-				BaseCharacterData baseCharacterData = AssetDatabase.LoadAssetAtPath<BaseCharacterData>(assetPath);
+				BaseCharacterStats baseCharacterData = AssetDatabase.LoadAssetAtPath<BaseCharacterStats>(assetPath);
 				baseCharacterData.PopulateStats();
 				Debug.Log($"Updated data for {baseCharacterData.name}.");
 			}

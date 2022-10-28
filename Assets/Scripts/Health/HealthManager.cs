@@ -1,5 +1,5 @@
 using UnityEngine;
-using SRS.Stats;
+using SRS.StatSystem;
 
 namespace SRS.Health
 {
@@ -12,13 +12,13 @@ namespace SRS.Health
 		public delegate void EventHandler(GameObject character);
 		public event EventHandler OnDeath;
 
-		private CharacterData characterData;
+		private CharacterStats characterStats;
 
 		private void Start()
 		{
-			characterData = GetComponent<CharacterData>();
+			characterStats = GetComponent<CharacterStats>();
 			
-			UpdateMaxHealth(characterData.CharacterStats["Health"].Value);
+			UpdateMaxHealth(characterStats.Character["Health"].Value);
 
 			SetHealthToMax();
 		}

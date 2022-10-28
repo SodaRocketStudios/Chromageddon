@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-using SRS.Stats;
+using SRS.StatSystem;
 
 namespace SRS.CharacterBuilder
 {	
@@ -95,7 +95,7 @@ namespace SRS.CharacterBuilder
 
 				if(string.IsNullOrEmpty(characterName)) characterName = "New Character Data";
 
-				BaseCharacterData baseCharacterData = ScriptableObject.CreateInstance(typeof(BaseCharacterData)) as BaseCharacterData;
+				BaseCharacterStats baseCharacterData = ScriptableObject.CreateInstance(typeof(BaseCharacterStats)) as BaseCharacterStats;
 				AssetDatabase.CreateAsset(baseCharacterData, $"Assets/{saveLocation}/{characterName}.asset");
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();

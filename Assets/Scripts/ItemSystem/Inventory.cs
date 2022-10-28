@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SRS.Stats;
+using SRS.StatSystem;
 
 namespace SRS.ItemSystem
 {
@@ -10,11 +10,11 @@ namespace SRS.ItemSystem
 		private List<Item> starterItems;
 		private List<Item> items = new List<Item>();
 
-		private CharacterData characterData;
+		private CharacterStats characterStats;
 
 		private void Awake()
 		{
-			characterData = GetComponent<CharacterData>();
+			characterStats = GetComponent<CharacterStats>();
 		}
 
 		private void Start()
@@ -44,35 +44,35 @@ namespace SRS.ItemSystem
 
 		private void AddEffect(ItemEffectData effect)
 		{
-			if(characterData.CharacterStats.ContainsKey(effect.Stat))
+			if(characterStats.Character.ContainsKey(effect.Stat))
 			{
 				switch(effect.Modifier)
 				{
 					case ModifierType.Additive:
-						characterData.CharacterStats[effect.Stat].AdditiveModifier += effect.Intensity;
+						characterStats.Character[effect.Stat].AdditiveModifier += effect.Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						characterData.CharacterStats[effect.Stat].MultiplicativeModifier += effect.Intensity;
+						characterStats.Character[effect.Stat].MultiplicativeModifier += effect.Intensity;
 						break;
 					case ModifierType.Flat:
-						characterData.CharacterStats[effect.Stat].FlatModifier += effect.Intensity;
+						characterStats.Character[effect.Stat].FlatModifier += effect.Intensity;
 						break;
 					default:
 						break;
 				}
 			}
-			else if(characterData.AttackStats.ContainsKey(effect.Stat))
+			else if(characterStats.Attack.ContainsKey(effect.Stat))
 			{
 				switch(effect.Modifier)
 				{
 					case ModifierType.Additive:
-						characterData.AttackStats[effect.Stat].AdditiveModifier += effect.Intensity;
+						characterStats.Attack[effect.Stat].AdditiveModifier += effect.Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						characterData.AttackStats[effect.Stat].MultiplicativeModifier += effect.Intensity;
+						characterStats.Attack[effect.Stat].MultiplicativeModifier += effect.Intensity;
 						break;
 					case ModifierType.Flat:
-						characterData.AttackStats[effect.Stat].FlatModifier += effect.Intensity;
+						characterStats.Attack[effect.Stat].FlatModifier += effect.Intensity;
 						break;
 					default:
 						break;
@@ -82,35 +82,35 @@ namespace SRS.ItemSystem
 
 		private void RemoveEffect(ItemEffectData effect)
 		{
-			if(characterData.CharacterStats.ContainsKey(effect.Stat))
+			if(characterStats.Character.ContainsKey(effect.Stat))
 			{
 				switch(effect.Modifier)
 				{
 					case ModifierType.Additive:
-						characterData.CharacterStats[effect.Stat].AdditiveModifier -= effect.Intensity;
+						characterStats.Character[effect.Stat].AdditiveModifier -= effect.Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						characterData.CharacterStats[effect.Stat].MultiplicativeModifier -= effect.Intensity;
+						characterStats.Character[effect.Stat].MultiplicativeModifier -= effect.Intensity;
 						break;
 					case ModifierType.Flat:
-						characterData.CharacterStats[effect.Stat].FlatModifier -= effect.Intensity;
+						characterStats.Character[effect.Stat].FlatModifier -= effect.Intensity;
 						break;
 					default:
 						break;
 				}
 			}
-			else if(characterData.AttackStats.ContainsKey(effect.Stat))
+			else if(characterStats.Attack.ContainsKey(effect.Stat))
 			{
 				switch(effect.Modifier)
 				{
 					case ModifierType.Additive:
-						characterData.AttackStats[effect.Stat].AdditiveModifier -= effect.Intensity;
+						characterStats.Attack[effect.Stat].AdditiveModifier -= effect.Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						characterData.AttackStats[effect.Stat].MultiplicativeModifier -= effect.Intensity;
+						characterStats.Attack[effect.Stat].MultiplicativeModifier -= effect.Intensity;
 						break;
 					case ModifierType.Flat:
-						characterData.AttackStats[effect.Stat].FlatModifier -= effect.Intensity;
+						characterStats.Attack[effect.Stat].FlatModifier -= effect.Intensity;
 						break;
 					default:
 						break;

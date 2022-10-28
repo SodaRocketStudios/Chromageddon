@@ -2,18 +2,16 @@ using UnityEngine;
 using System.Collections.Generic;
 using SRS.DataReader;
 
-namespace SRS.Stats
+namespace SRS.StatSystem
 {
 	[CreateAssetMenu(fileName = "New Base Character Data", menuName = "Character Data/Character Base Data")]
-	public class BaseCharacterData : ScriptableObject
+	public class BaseCharacterStats : ScriptableObject
 	{
+		[SerializeField] private string characterStatFile;
 		public List<Stat> CharacterStats;
-		public List<Stat> AttackStats;
 
-		[SerializeField]
-		private string characterStatFile;
-		[SerializeField]
-		private string attackStatFile;
+		[SerializeField] private string attackStatFile;
+		public List<Stat> AttackStats;
 
 		public void PopulateStats(string _characterStatFile, string _attackStatFile)
 		{

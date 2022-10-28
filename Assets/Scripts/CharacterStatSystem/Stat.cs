@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SRS.Stats
+namespace SRS.StatSystem
 {
 	[System.Serializable]
 	public class Stat
