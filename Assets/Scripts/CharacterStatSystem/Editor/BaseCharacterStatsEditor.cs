@@ -4,7 +4,7 @@ using UnityEditor;
 namespace SRS.StatSystem
 {
 	[CustomEditor(typeof(BaseCharacterStats))]
-	public class BaseCharacterDataEditor : Editor
+	public class BaseCharacterStatsEditor : Editor
 	{
 		public override void OnInspectorGUI()
 		{
