@@ -16,7 +16,7 @@ namespace SRS.RandomOutcomeGenerator
 
 				if(randomNumber < probability)
 				{
-					return outcome;
+					return outcome; 
 				}
 			}
 
