@@ -8,10 +8,10 @@ namespace SRS.StatSystem
 	public class BaseCharacterStats : ScriptableObject
 	{
 		[SerializeField] private string characterStatFile;
-		public List<Stat> CharacterStats;
+		public List<Stat> CharacterStats = new List<Stat>();
 
 		[SerializeField] private string attackStatFile;
-		public List<Stat> AttackStats;
+		public List<Stat> AttackStats = new List<Stat>();
 
 		public void PopulateStats(string _characterStatFile, string _attackStatFile)
 		{

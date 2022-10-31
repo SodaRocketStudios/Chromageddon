@@ -5,7 +5,7 @@ namespace SRS.StatSystem
 {
 	public class CharacterStats : MonoBehaviour
 	{
-		[SerializeField] private BaseCharacterStats baseData;
+		[SerializeField] private BaseCharacterStats baseStats;
 
 		public Dictionary<string, Stat> Character = new Dictionary<string, Stat>();
 		public Dictionary<string, Stat> Attack = new Dictionary<string, Stat>();
@@ -17,12 +17,12 @@ namespace SRS.StatSystem
 
 		private void InitializeStats()
 		{
-			foreach(Stat stat in baseData.CharacterStats)
+			foreach(Stat stat in baseStats.CharacterStats)
 			{
 				Character[stat.Name] = new Stat(stat);
 			}
 			
-			foreach(Stat stat in baseData.AttackStats)
+			foreach(Stat stat in baseStats.AttackStats)
 			{
 				Attack[stat.Name] = new Stat(stat);
 			}
