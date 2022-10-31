@@ -370,7 +370,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.9577922, y: 1}
+    m_SensorSize: {x: 1.7206107, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceec70f399219ca4d89b384b2caf577c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseData: {fileID: 11400000, guid: 0cca89a6df69799419401c0f3bd70c20, type: 2}
+  baseStats: {fileID: 11400000, guid: 28c16a0788bb3cb42bb2bbd977f46616, type: 2}
 --- !u!50 &1600948678
 Rigidbody2D:
   serializedVersion: 4
