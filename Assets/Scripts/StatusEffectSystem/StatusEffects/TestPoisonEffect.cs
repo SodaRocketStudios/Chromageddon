@@ -3,12 +3,9 @@ using UnityEngine;
 
 namespace SRS.StatusEffects
 {
+	[CreateAssetMenu(fileName = "Test Poison", menuName = "Status Effects/Test Poison")]
 	public class TestPoisonEffect : StatusEffect
 	{
-        protected override float duration {get; set;} = 2;
-
-		public override string procStat {get; protected set;} = "PoisonChance";
-
 		private float slowAmount = .75f;
 
 		private float tickDelay = 0.5f;
@@ -17,8 +14,6 @@ namespace SRS.StatusEffects
 		private float nextTickTime = 0;
 
 		private int maxTicks = 0;
-
-		public TestPoisonEffect() : base(){}
 
         protected override IEnumerator EffectCoroutine()
 		{

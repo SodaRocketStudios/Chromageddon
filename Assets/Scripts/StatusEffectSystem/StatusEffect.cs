@@ -6,20 +6,25 @@ using SRS.Health;
 
 namespace SRS.StatusEffects
 {
-	public abstract class StatusEffect
+	public abstract class StatusEffect : ScriptableObject
 	{
-		protected abstract float duration{get; set;}
-		protected float endTime;
+		[SerializeField] private string procStat;
+		public string ProcStat
+		{
+			get
+			{
+				return procStat;
+			}
+		}
 
-		public abstract string procStat{get; protected set;}
+		[SerializeField] protected float duration;
+		protected float endTime;
 
 		protected StatusEffectTracker targetEffectTracker;
 		protected CharacterStats targetStats;
 		protected HealthManager targetHealth;
 
 		private bool isAffectable = true;
-
-		public StatusEffect(){}
 
 		public Coroutine Apply(GameObject target)
 		{

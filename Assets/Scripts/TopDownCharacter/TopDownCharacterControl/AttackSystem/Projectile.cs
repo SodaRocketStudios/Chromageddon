@@ -53,7 +53,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 					{
 						StatusEffect effect = Activator.CreateInstance(effectType) as StatusEffect;
 
-						float procChance = attackStats[effect.procStat].Value;
+						float procChance = attackStats[effect.ProcStat].Value;
 
 						int randomRange = DetermineRandomRange(procChance);
 						float randomNumber = 1.0f*randomGenerator.Next(randomRange)/randomRange;
