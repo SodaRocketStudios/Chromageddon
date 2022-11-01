@@ -8,8 +8,9 @@ namespace SRS.ItemSystem
 	{
 		public static ItemDatabase Instance;
 
-		[SerializeField]
-		private List<Item> allItems;
+		[SerializeField] private List<Item> allItems;
+
+		System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
 
 		private void Awake()
 		{
@@ -78,7 +79,6 @@ namespace SRS.ItemSystem
 				return null;
 			}
 
-			System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
 			return items[randomGenerator.Next(items.Count)];
 		}
 	}
