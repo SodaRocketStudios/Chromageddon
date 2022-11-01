@@ -8,25 +8,24 @@ namespace SRS.ItemSystem
 	{
 		const int NUMBER_OF_OPTIONS = 3;
 
+        System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
+
 		private void OnTriggerEnter2D(Collider2D other)
 		{
 			if(other.CompareTag("Player"))
             {
-				// Determine item rarity
+				// To Do -- Determine item rarity. Probably needs to be set when item drops to change prefab.
                 List<Item> itemOptions = GetItemOptions(ItemRarity.Common);
-                // Pause the game and open the item selection screen with the item options.
+
                 ItemSelectionPanel.Instance.GenerateSelectionPanel(itemOptions, other.GetComponent<Inventory>());
 
-                // TO DO -- Replace destroy with object pooling solution
-
+                // To Do -- Replace destroy with object pooling solution
                 Destroy(gameObject);
             }
         }
 
         private List<Item> GetItemOptions(ItemRarity rarity)
         {
-			System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
-
 			List<Item> itemOptions = new List<Item>(NUMBER_OF_OPTIONS);
 			List<ItemCategory> categories = new List<ItemCategory>(NUMBER_OF_OPTIONS);
 

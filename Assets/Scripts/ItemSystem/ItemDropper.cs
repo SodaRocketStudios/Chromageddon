@@ -25,6 +25,8 @@ namespace SRS.ItemSystem
 		{
 			// To Do -- repalce this with object pooling
 			Instantiate(itemPickupPrefab, position, Quaternion.identity);
+
+			// To Do -- Determine item rarity and set it.
 		}
 	}
 }
