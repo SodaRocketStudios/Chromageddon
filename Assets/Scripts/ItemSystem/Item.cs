@@ -36,8 +36,8 @@ namespace SRS.ItemSystem
 			}
 		}
 
-		[SerializeField] private List<ItemEffectData> effects;
-		public List<ItemEffectData> Effects
+		[SerializeField] private List<ItemEffect> effects;
+		public List<ItemEffect> Effects
 		{
 			get
 			{
@@ -56,7 +56,7 @@ namespace SRS.ItemSystem
 
 		public void Apply(CharacterStats stats)
 		{
-			foreach(ItemEffectData effect in Effects)
+			foreach(ItemEffect effect in Effects)
 			{
 				effect.Apply(stats);
 			}
@@ -64,7 +64,7 @@ namespace SRS.ItemSystem
 
 		public void Remove(CharacterStats stats)
 		{
-			foreach(ItemEffectData effect in Effects)
+			foreach(ItemEffect effect in Effects)
 			{
 				effect.Apply(stats);
 			}

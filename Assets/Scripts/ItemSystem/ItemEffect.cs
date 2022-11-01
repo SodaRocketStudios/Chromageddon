@@ -4,10 +4,9 @@ using SRS.StatSystem;
 namespace SRS.ItemSystem
 {
 	[System.Serializable]
-	public class ItemEffectData
+	public class ItemEffect
 	{
-		[SerializeField]
-		private string stat;
+		[SerializeField] private string stat;
 		public string Stat
 		{
 			get
@@ -16,8 +15,7 @@ namespace SRS.ItemSystem
 			}
 		}
 
-		[SerializeField]
-		private float intensity;
+		[SerializeField] private float intensity;
 		public float Intensity
 		{
 			get
@@ -26,8 +24,7 @@ namespace SRS.ItemSystem
 			}
 		}
 
-		[SerializeField]
-		private ModifierType modifier;
+		[SerializeField] private ModifierType modifier;
 		public ModifierType Modifier
 		{
 			get
