@@ -12,30 +12,36 @@ namespace SRS.TopDownCharacterControl.AI
 
         private System.Random random = new System.Random();
 
-        private Vector2 startPosition;
-        private Vector2 moveTarget;
+        private Vector2 startPosition = new Vector2();
+        private Vector2 moveTarget = new Vector2();
         private float newTargetTime = 0;
 
-        public override void Enter()
+        public RoamState(GameObject self, GameObject target) : base(self, target)
         {
-            startPosition = self.transform.position;
-            moveTarget = startPosition;
         }
 
-        public override void Execute()
+        override protected void Enter()
+        {
+            startPosition = self.transform.position;
+            moveTarget = GetRandomLocation();
+        }
+
+        override public void Execute()
         {
             if(Vector2.Distance(self.transform.position, moveTarget) < MAX_DEVIATION || Time.time >= newTargetTime)
             {
                 moveTarget = GetRandomLocation();
                 newTargetTime = Time.time + MAX_TIME_FOR_TARGET;
             }
+
+            MoveTowardTarget(moveTarget);
+            LookAtTarget(moveTarget);
         }
 
-        public override AIState OnZoneChanged(GameObject target)
+        override public AIState OnZoneChanged(GameObject target)
         {
-            AIState newState = new ChaseState();
-            newState.Initialize(self, target);
-            return new ChaseState();
+            Debug.Log("Chase");
+            return new ChaseState(self, target);
         }
 
         private Vector2 GetRandomLocation()

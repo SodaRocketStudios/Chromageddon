@@ -4,22 +4,25 @@ namespace SRS.TopDownCharacterControl.AI
 {
     public class AttackState : AIState
     {
-
-        public override void Enter()
+        public AttackState(GameObject self, GameObject target) : base(self, target)
         {
         }
 
-        public override void Execute()
+        override protected void Enter()
         {
         }
 
-        public override void Exit()
+        override public void Execute()
         {
         }
 
-        public override AIState OnZoneChanged(GameObject target)
+        override protected void Exit()
         {
-            throw new System.NotImplementedException();
+        }
+
+        override public AIState OnZoneChanged(GameObject target)
+        {
+            return this;
         }
     }
 }

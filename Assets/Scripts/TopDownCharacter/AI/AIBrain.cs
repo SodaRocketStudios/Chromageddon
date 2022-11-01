@@ -7,9 +7,9 @@ namespace SRS.TopDownCharacterControl.AI
 	{
 		public Transform DetectedObject{get; private set;}
 
-		[SerializeField] private float detectionRadius;
-		[SerializeField] private float attackRadius;
-		[SerializeField] private float fleeRadius;
+		public float detectionRadius;
+		public float attackRadius;
+		public float fleeRadius;
 
 		private CircleCollider2D detectionRangeCollider;
 		private CircleCollider2D attackRangeCollider;
@@ -22,9 +22,11 @@ namespace SRS.TopDownCharacterControl.AI
 			detectionRangeCollider = gameObject.AddComponent<CircleCollider2D>();
 			detectionRangeCollider.radius = detectionRadius;
 			detectionRangeCollider.isTrigger = true;
+
 			attackRangeCollider = gameObject.AddComponent<CircleCollider2D>();
 			attackRangeCollider.radius = attackRadius;
 			attackRangeCollider.isTrigger = true;
+
 			if(fleeRadius > 0)
 			{
 				fleeRangeCollider = gameObject.AddComponent<CircleCollider2D>();
@@ -35,8 +37,7 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private void OnEnable()
 		{
-			currentState = new RoamState();
-			currentState.Initialize(gameObject, gameObject);
+			currentState = new RoamState(gameObject, gameObject);
 		}
 
 		private void Update()

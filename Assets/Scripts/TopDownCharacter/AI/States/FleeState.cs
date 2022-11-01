@@ -4,18 +4,21 @@ namespace SRS.TopDownCharacterControl.AI
 {
     public class FleeState : AIState
     {
-
-        public override void Enter()
+        public FleeState(GameObject self, GameObject target) : base(self, target)
         {
         }
 
-        public override void Execute()
+        override protected void Enter()
         {
         }
 
-        public override AIState OnZoneChanged(GameObject target)
+        override public void Execute()
         {
-            throw new System.NotImplementedException();
+        }
+
+        override public AIState OnZoneChanged(GameObject target)
+        {
+            return this;
         }
     }
 }
