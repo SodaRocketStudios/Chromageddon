@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using SRS.StatSystem;
 
 namespace SRS.ItemSystem
 {
 	[CreateAssetMenu(fileName = "New Item", menuName = "Item System/Item")]
 	public class Item : ScriptableObject
 	{
-		[SerializeField]
-		new private string name;
+		[SerializeField] new private string name;
 		public string Name
 		{
 			get
@@ -16,11 +16,9 @@ namespace SRS.ItemSystem
 			}
 		}
 
-		[SerializeField]
-		private Sprite icon;
+		[SerializeField] private Sprite icon;
 		
-		[SerializeField]
-		private ItemRarity rarity;
+		[SerializeField] private ItemRarity rarity;
 		public ItemRarity Rarity
 		{
 			get
@@ -29,8 +27,7 @@ namespace SRS.ItemSystem
 			}
 		}
 
-		[SerializeField]
-		private ItemCategory category;
+		[SerializeField] private ItemCategory category;
 		public ItemCategory Category
 		{
 			get
@@ -39,23 +36,37 @@ namespace SRS.ItemSystem
 			}
 		}
 
-		[SerializeField]
-		private List<ItemEffectData> data;
-		public List<ItemEffectData> Data
+		[SerializeField] private List<ItemEffectData> effects;
+		public List<ItemEffectData> Effects
 		{
 			get
 			{
-				return data;
+				return effects;
 			}
 		}
 
-		[SerializeField, TextArea(2, 4)]
-		private string description;
+		[SerializeField, TextArea(2, 4)] private string description;
 		public string Description
 		{
 			get
 			{
 				return description;
+			}
+		}
+
+		public void Apply(CharacterStats stats)
+		{
+			foreach(ItemEffectData effect in Effects)
+			{
+				effect.Apply(stats);
+			}
+		}
+
+		public void Remove(CharacterStats stats)
+		{
+			foreach(ItemEffectData effect in Effects)
+			{
+				effect.Apply(stats);
 			}
 		}
 	}

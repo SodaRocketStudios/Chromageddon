@@ -8,7 +8,7 @@ namespace SRS.ItemSystem
 	{
 		[SerializeField]
 		private List<Item> starterItems;
-		private List<Item> items = new List<Item>();
+		private Dictionary<string, int> items = new Dictionary<string, int>();
 
 		private CharacterStats characterStats;
 
@@ -24,98 +24,21 @@ namespace SRS.ItemSystem
 
 		public void AddItem(Item item)
 		{
-			items.Add(item);
-
-			foreach(ItemEffectData effect in item.Data)
+			if(!items.ContainsKey(item.Name))
 			{
-				AddEffect(effect);
+				items[item.name] = 0;
 			}
+
+			items[item.name]++;
+
+			item.Apply(characterStats);
 		}
 
 		public void RemoveItem(Item item)
 		{
-			// TO DO - Remove item from the item list.
+			items[item.name] --;
 
-			foreach(ItemEffectData effect in item.Data)
-			{
-				RemoveEffect(effect);
-			}
-		}
-
-		private void AddEffect(ItemEffectData effect)
-		{
-			if(characterStats.Character.ContainsKey(effect.Stat))
-			{
-				switch(effect.Modifier)
-				{
-					case ModifierType.Additive:
-						characterStats.Character[effect.Stat].AdditiveModifier += effect.Intensity;
-						break;
-					case ModifierType.Multiplicative:
-						characterStats.Character[effect.Stat].MultiplicativeModifier += effect.Intensity;
-						break;
-					case ModifierType.Flat:
-						characterStats.Character[effect.Stat].FlatModifier += effect.Intensity;
-						break;
-					default:
-						break;
-				}
-			}
-			else if(characterStats.Attack.ContainsKey(effect.Stat))
-			{
-				switch(effect.Modifier)
-				{
-					case ModifierType.Additive:
-						characterStats.Attack[effect.Stat].AdditiveModifier += effect.Intensity;
-						break;
-					case ModifierType.Multiplicative:
-						characterStats.Attack[effect.Stat].MultiplicativeModifier += effect.Intensity;
-						break;
-					case ModifierType.Flat:
-						characterStats.Attack[effect.Stat].FlatModifier += effect.Intensity;
-						break;
-					default:
-						break;
-				}
-			}
-		}
-
-		private void RemoveEffect(ItemEffectData effect)
-		{
-			if(characterStats.Character.ContainsKey(effect.Stat))
-			{
-				switch(effect.Modifier)
-				{
-					case ModifierType.Additive:
-						characterStats.Character[effect.Stat].AdditiveModifier -= effect.Intensity;
-						break;
-					case ModifierType.Multiplicative:
-						characterStats.Character[effect.Stat].MultiplicativeModifier -= effect.Intensity;
-						break;
-					case ModifierType.Flat:
-						characterStats.Character[effect.Stat].FlatModifier -= effect.Intensity;
-						break;
-					default:
-						break;
-				}
-			}
-			else if(characterStats.Attack.ContainsKey(effect.Stat))
-			{
-				switch(effect.Modifier)
-				{
-					case ModifierType.Additive:
-						characterStats.Attack[effect.Stat].AdditiveModifier -= effect.Intensity;
-						break;
-					case ModifierType.Multiplicative:
-						characterStats.Attack[effect.Stat].MultiplicativeModifier -= effect.Intensity;
-						break;
-					case ModifierType.Flat:
-						characterStats.Attack[effect.Stat].FlatModifier -= effect.Intensity;
-						break;
-					default:
-						break;
-				}
-			}
+			item.Remove(characterStats);
 		}
 
 		private void AddStarterItems()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using SRS.StatSystem;
 
 namespace SRS.ItemSystem
 {
@@ -33,6 +34,16 @@ namespace SRS.ItemSystem
 			{
 				return modifier;
 			}
+		}
+
+		public void Apply(CharacterStats stats)
+		{
+
+		}
+
+		public void Remove(CharacterStats stats)
+		{
+
 		}
 	}
 

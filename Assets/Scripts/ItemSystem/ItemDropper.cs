@@ -23,6 +23,7 @@ namespace SRS.ItemSystem
 
 		public void DropItem(Vector2 position)
 		{
+			// To Do -- repalce this with object pooling
 			Instantiate(itemPickupPrefab, position, Quaternion.identity);
 		}
 	}
