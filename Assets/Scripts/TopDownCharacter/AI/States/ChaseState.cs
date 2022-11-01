@@ -4,16 +4,17 @@ namespace SRS.TopDownCharacterControl.AI
 {
     public class ChaseState : AIState
     {
-
-        public override void Enter(AIBrain brain)
+        public override void Enter()
         {
-            base.Enter(brain);
         }
 
         public override void Execute()
         {
-            target = brain.DetectedObject.position;
-            base.Execute();
+        }
+
+        public override AIState OnZoneChanged()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

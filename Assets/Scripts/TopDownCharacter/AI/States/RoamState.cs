@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using SRS.Extensions;
 
 namespace SRS.TopDownCharacterControl.AI
 {
@@ -7,31 +8,35 @@ namespace SRS.TopDownCharacterControl.AI
 	{
         private const float MAX_DISTANCE = 5;
         private const float MAX_DEVIATION = .1f;
+        private const float MAX_TIME_FOR_TARGET = 5;
+
         private System.Random random = new System.Random();
 
         private Vector2 startPosition;
+        private Vector2 moveTarget;
 
-        public override void Enter(AIBrain brain)
+        public override void Enter()
         {
-            base.Enter(brain);
-            startPosition = brain.transform.position;
-            target = GetRandomLocation();
+            startPosition = self.transform.position;
+            moveTarget = startPosition;
         }
 
         public override void Execute()
         {
-            float distance = ((Vector2)brain.transform.position - target).magnitude;
-            if(distance <= MAX_DEVIATION)
+            if(Vector2.Distance(self.transform.position, moveTarget) < MAX_DEVIATION)
             {
-                target = GetRandomLocation();
+                moveTarget = GetRandomLocation();
             }
+        }
 
-            base.Execute();
+        public override AIState OnZoneChanged()
+        {
+            throw new NotImplementedException();
         }
 
         private Vector2 GetRandomLocation()
         {
-            return startPosition + new Vector2(random.Next(-10, 10), random.Next(-10, 10))*MAX_DISTANCE/10;
+            return startPosition + new Vector2(random.NextFloat(), random.NextFloat())*MAX_DISTANCE;
         }
 	}
 }

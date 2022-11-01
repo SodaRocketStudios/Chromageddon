@@ -1,27 +1,48 @@
 using UnityEngine;
+using SRS.TopDownCharacterControl.AttackSystem;
 
 namespace SRS.TopDownCharacterControl.AI
 {
 	public abstract class AIState
 	{
-		protected AIBrain brain;
-		protected Vector2 target;
+		protected GameObject self;
+		protected GameObject target;
 
+		protected TopDownCharacterController controller;
+		protected AttackManager attackManager;
 
-		virtual public void Enter(AIBrain brain)
+		virtual public void Initialize(GameObject self, GameObject target)
 		{
-			this.brain = brain;
+			this.self = self;
+			this.target = target;
+
+			Enter();
+		}
+
+		abstract public AIState OnZoneChanged();
+
+		virtual public void Enter()
+		{
 		}
 
 		virtual public void Execute()
 		{
-			brain.MoveTowardTarget(target);
-            brain.LookAtTarget(target);
 		}
 
 		virtual public void Exit()
 		{
-			target = brain.transform.position;
+		}
+
+		protected void MoveTowardTarget(Vector2 moveTarget)
+		{
+			// Need to include move speed.
+			Vector2 direction = (moveTarget - (Vector2)self.transform.position).normalized;
+			controller.Velocity = direction;
+		}
+
+		protected void LookAtTarget(Vector2 lookTarget)
+		{
+			controller.LookTarget = lookTarget;
 		}
 	}
 }

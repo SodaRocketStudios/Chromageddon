@@ -5,16 +5,17 @@ namespace SRS.TopDownCharacterControl.AI
     public class AimState : AIState
     {
 
-        public override void Enter(AIBrain brain)
+        public override void Enter()
         {
-            base.Enter(brain);
         }
 
         public override void Execute()
         {
-            target = brain.DetectedObject.position;
-            brain.LookAtTarget(target);
-            brain.MoveTowardTarget(brain.transform.position);
+        }
+
+        public override AIState OnZoneChanged()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
