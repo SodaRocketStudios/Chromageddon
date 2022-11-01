@@ -19,7 +19,7 @@ namespace SRS.TopDownCharacterControl.AI
 			Enter();
 		}
 
-		abstract public AIState OnZoneChanged();
+		abstract public AIState OnZoneChanged(GameObject target);
 
 		virtual public void Enter()
 		{

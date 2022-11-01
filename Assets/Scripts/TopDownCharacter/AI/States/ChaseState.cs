@@ -12,7 +12,7 @@ namespace SRS.TopDownCharacterControl.AI
         {
         }
 
-        public override AIState OnZoneChanged()
+        public override AIState OnZoneChanged(GameObject target)
         {
             throw new System.NotImplementedException();
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SRS.TopDownCharacterControl.AI
 {
 	[RequireComponent(typeof(TopDownCharacterController))]
-	public class GameObject : MonoBehaviour
+	public class AIBrain : MonoBehaviour
 	{
 		public Transform DetectedObject{get; private set;}
 
@@ -36,7 +36,7 @@ namespace SRS.TopDownCharacterControl.AI
 		private void OnEnable()
 		{
 			currentState = new RoamState();
-			currentState.Initialize(this, this);
+			currentState.Initialize(gameObject, gameObject);
 		}
 
 		private void Update()
@@ -46,12 +46,12 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			currentState = currentState.OnZoneChanged();
+			currentState = currentState.OnZoneChanged(other.gameObject);
 		}
 
 		private void OnTriggerExit2D(Collider2D other)
 		{
-			currentState = currentState.OnZoneChanged();
+			currentState = currentState.OnZoneChanged(other.gameObject);
 		}
 	}
 }

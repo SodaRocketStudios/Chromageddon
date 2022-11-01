@@ -14,6 +14,7 @@ namespace SRS.TopDownCharacterControl.AI
 
         private Vector2 startPosition;
         private Vector2 moveTarget;
+        private float newTargetTime = 0;
 
         public override void Enter()
         {
@@ -23,15 +24,18 @@ namespace SRS.TopDownCharacterControl.AI
 
         public override void Execute()
         {
-            if(Vector2.Distance(self.transform.position, moveTarget) < MAX_DEVIATION)
+            if(Vector2.Distance(self.transform.position, moveTarget) < MAX_DEVIATION || Time.time >= newTargetTime)
             {
                 moveTarget = GetRandomLocation();
+                newTargetTime = Time.time + MAX_TIME_FOR_TARGET;
             }
         }
 
-        public override AIState OnZoneChanged()
+        public override AIState OnZoneChanged(GameObject target)
         {
-            throw new NotImplementedException();
+            AIState newState = new ChaseState();
+            newState.Initialize(self, target);
+            return new ChaseState();
         }
 
         private Vector2 GetRandomLocation()
