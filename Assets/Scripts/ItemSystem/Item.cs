@@ -59,4 +59,23 @@ namespace SRS.ItemSystem
 			}
 		}
 	}
+
+	public enum ItemRarity
+	{
+		Common,
+		Uncommon,
+		Rare,
+		Legendary,
+		Boss
+	}
+
+	public enum ItemCategory
+	{
+		Health,
+		Shield,
+		Defense,
+		Offense,
+		Utility,
+		ProcChance
+	}
 }

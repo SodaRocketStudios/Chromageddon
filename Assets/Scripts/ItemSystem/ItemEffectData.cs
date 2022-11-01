@@ -1,5 +1,4 @@
 using UnityEngine;
-using SRS.StatSystem;
 
 namespace SRS.ItemSystem
 {
@@ -36,23 +35,11 @@ namespace SRS.ItemSystem
 			}
 		}
 	}
-	
-	public enum ItemRarity
-	{
-		Common,
-		Uncommon,
-		Rare,
-		Legendary,
-		Boss
-	}
 
-	public enum ItemCategory
+	public enum ModifierType
 	{
-		Health,
-		Shield,
-		Defense,
-		Offense,
-		Utility,
-		ProcChance
+		Additive,
+		Multiplicative,
+		Flat
 	}
 }

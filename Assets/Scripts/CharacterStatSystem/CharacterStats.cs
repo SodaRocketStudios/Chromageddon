@@ -28,11 +28,4 @@ namespace SRS.StatSystem
 			}
 		}
 	}
-
-	public enum ModifierType
-	{
-		Additive,
-		Multiplicative,
-		Flat
-	}
 }
