@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using SRS.StatSystem;
 using SRS.Health;
@@ -26,7 +25,7 @@ namespace SRS.StatusEffects
 
 		private bool isAffectable = true;
 
-		public Coroutine Apply(GameObject target)
+		public void Apply(GameObject target)
 		{
 			isAffectable &= target.TryGetComponent<StatusEffectTracker>(out targetEffectTracker);
 			isAffectable &= target.TryGetComponent<CharacterStats>(out targetStats);
@@ -35,21 +34,24 @@ namespace SRS.StatusEffects
 			if(isAffectable)
 			{
 				endTime = Time.time + duration;
-				return targetEffectTracker.StartCoroutine(EffectCoroutine());
+				targetEffectTracker.StartCoroutine(EffectCoroutine());
+				return;
 			}
 
-			targetEffectTracker.RemoveEffect(this);
-			return null;
+			if(targetEffectTracker != null) Remove();
 		}
 
-		public void Remove()
+		public void End()
 		{
 			endTime = Time.time;
 		}
 
-		protected virtual IEnumerator EffectCoroutine()
+		private void Remove()
 		{
-			yield return null;
+			targetEffectTracker.RemoveEffect(this);
 		}
+
+
+		protected abstract IEnumerator EffectCoroutine();
 	}
 }

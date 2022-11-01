@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SRS.StatSystem;
-using SRS.Extensions;
 
 namespace SRS.StatusEffects
 {
@@ -11,12 +9,14 @@ namespace SRS.StatusEffects
 
 		public void ApplyEffect(StatusEffect effect)
 		{
+			activeEffects.Add(effect);
 			effect.Apply(gameObject);
 		}
 
 		public void RemoveEffect(StatusEffect effect)
 		{
-			// activeEffects.Remove(effect);
+			effect.End();
+			activeEffects.Remove(effect);
 		}
 	}
 }
