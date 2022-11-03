@@ -5,7 +5,7 @@ namespace SRS.TopDownCharacterControl.AI
 	[RequireComponent(typeof(TopDownCharacterController))]
 	public class AIBrain : MonoBehaviour
 	{
-		public Transform DetectedObject{get; private set;}
+		public Transform DetectedObject {get; private set;}
 
 		public float detectionRadius;
 		public float attackRadius;
@@ -45,14 +45,36 @@ namespace SRS.TopDownCharacterControl.AI
 			currentState.Execute();
 		}
 
+		private void OnDisable()
+		{
+			currentState.Exit();
+		}
+
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			currentState = currentState.OnZoneChanged(other.gameObject);
+			if(other.CompareTag("Player"))
+			{
+				ChangeState(other);
+			}
 		}
 
 		private void OnTriggerExit2D(Collider2D other)
 		{
-			currentState = currentState.OnZoneChanged(other.gameObject);
+			if(other.CompareTag("Player"))
+			{
+				ChangeState(other);
+			}
+		}
+
+		private void ChangeState(Collider2D other)
+		{
+			AIState previousState = currentState;
+			currentState = currentState.OnZoneChanged(other);
+
+			if(currentState != previousState)
+			{
+				previousState.Exit();
+			}
 		}
 	}
 }

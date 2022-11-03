@@ -16,9 +16,7 @@ namespace SRS.TopDownCharacterControl.AI
         private Vector2 moveTarget = new Vector2();
         private float newTargetTime = 0;
 
-        public RoamState(GameObject self, GameObject target) : base(self, target)
-        {
-        }
+        public RoamState(GameObject self, GameObject target) : base(self, target) {}
 
         override protected void Enter()
         {
@@ -38,10 +36,21 @@ namespace SRS.TopDownCharacterControl.AI
             LookAtTarget(moveTarget);
         }
 
-        override public AIState OnZoneChanged(GameObject target)
+        override public void Exit()
         {
-            Debug.Log("Chase");
-            return new ChaseState(self, target);
+            base.Exit();
+        }
+
+        override public AIState OnZoneChanged(Collider2D other)
+        {
+            float distance = DistanceToOther(other);
+
+            if(distance < brain.detectionRadius)
+            {
+                return new ChaseState(self, other.gameObject);
+            }
+
+            return this;
         }
 
         private Vector2 GetRandomLocation()

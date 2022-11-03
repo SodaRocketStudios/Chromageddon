@@ -10,14 +10,33 @@ namespace SRS.TopDownCharacterControl.AI
 
         override protected void Enter()
         {
+            attackManager.IsAttacking = false;
         }
 
         override public void Execute()
         {
+            LookAtTarget(target.transform.position);
         }
 
-        override public AIState OnZoneChanged(GameObject target)
+        override public void Exit()
         {
+            base.Exit();
+        }
+
+        override public AIState OnZoneChanged(Collider2D other)
+        {
+            float distance = DistanceToOther(other);
+
+            if(distance > brain.attackRadius)
+            {
+                return new ChaseState(self, target);
+            }
+
+            if(distance < brain.fleeRadius)
+            {
+                return new FleeState(self, target);
+            }
+
             return this;
         }
     }

@@ -4,13 +4,7 @@ namespace SRS.TopDownCharacterControl.AI
 {
     public class ChaseState : AIState
     {
-        public ChaseState(GameObject self, GameObject target) : base(self, target)
-        {
-        }
-
-        override protected void Enter()
-        {
-        }
+        public ChaseState(GameObject self, GameObject target) : base(self, target){}
 
         override public void Execute()
         {
@@ -18,16 +12,21 @@ namespace SRS.TopDownCharacterControl.AI
             LookAtTarget(target.transform.position);
         }
 
-        override public AIState OnZoneChanged(GameObject target)
+        override public void Exit()
         {
-            if(Vector2.Distance(target.transform.position, self.transform.position) > brain.detectionRadius)
+            base.Exit();
+        }
+
+        override public AIState OnZoneChanged(Collider2D other)
+        {
+            float distance = DistanceToOther(other);
+
+            if(distance > brain.detectionRadius)
             {
-                Debug.Log("Roam");
                 return new RoamState(self, target);
             }
 
-            Debug.Log("Aim");
-            return new AimState(self, target);
+            return new AttackState(self, target);
         }
     }
 }
