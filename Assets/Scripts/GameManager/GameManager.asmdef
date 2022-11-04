@@ -1,6 +1,6 @@
 {
     "name": "GameManager",
-    "rootNamespace": "SRS",
+    "rootNamespace": "SRS.GameManager",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

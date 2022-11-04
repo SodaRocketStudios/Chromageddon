@@ -1,6 +1,6 @@
 {
     "name": "AI",
-    "rootNamespace": "SRS",
+    "rootNamespace": "SRS.TopDownCharacterControl.AI",
     "references": [
         "GUID:537cc8c216e09ce4cadd0d9d59829add",
         "GUID:efc6ad3f47b93f94eb192a74ec1b01c2",

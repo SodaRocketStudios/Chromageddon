@@ -1,6 +1,6 @@
 {
     "name": "TopDownCharacterControl",
-    "rootNamespace": "SRS",
+    "rootNamespace": "SRS.TopDownCharacterControl",
     "references": [
         "GUID:75469ad4d38634e559750d17036d5f7c",
         "GUID:c13dd715b8d691d46a082b62b2c28be7",

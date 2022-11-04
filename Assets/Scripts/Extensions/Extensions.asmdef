@@ -1,6 +1,6 @@
 {
     "name": "Extensions",
-    "rootNamespace": "SRS",
+    "rootNamespace": "SRS.Extensions",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

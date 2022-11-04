@@ -1,6 +1,6 @@
 {
     "name": "DataReader",
-    "rootNamespace": "SRS",
+    "rootNamespace": "SRS.DataReader",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

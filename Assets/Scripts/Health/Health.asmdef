@@ -1,6 +1,6 @@
 {
     "name": "Health",
-    "rootNamespace": "SRS",
+    "rootNamespace": "SRS.Health",
     "references": [
         "GUID:c13dd715b8d691d46a082b62b2c28be7"
     ],

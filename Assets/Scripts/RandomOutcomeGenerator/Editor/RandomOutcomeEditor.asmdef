@@ -1,6 +1,6 @@
 {
     "name": "RandomOutcomeEditor",
-    "rootNamespace": "",
+    "rootNamespace": "SRS.RandomOutcomeEditor",
     "references": [
         "GUID:1e2dba2102c0ef441a07d201bcde5129"
     ],

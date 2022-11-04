@@ -1,6 +1,6 @@
 {
     "name": "EnemySpawner",
-    "rootNamespace": "SRS",
+    "rootNamespace": "SRS.enemySpawner",
     "references": [
         "GUID:447e7cd4516158d48a5080202b88b604"
     ],
