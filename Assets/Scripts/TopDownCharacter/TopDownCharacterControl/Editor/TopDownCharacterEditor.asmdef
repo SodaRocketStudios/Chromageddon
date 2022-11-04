@@ -1,6 +1,6 @@
 {
     "name": "TopDownCharacterEditor",
-    "rootNamespace": "",
+    "rootNamespace": "SRS",
     "references": [
         "GUID:537cc8c216e09ce4cadd0d9d59829add"
     ],

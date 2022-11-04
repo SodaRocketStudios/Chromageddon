@@ -1,6 +1,6 @@
 {
     "name": "RandomOutcomeGenerator",
-    "rootNamespace": "",
+    "rootNamespace": "SRS",
     "references": [
         "GUID:585fb7ad954cbf0448b961d93b501b32"
     ],

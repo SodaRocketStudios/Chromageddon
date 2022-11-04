@@ -1,6 +1,6 @@
 {
     "name": "StatusEffects",
-    "rootNamespace": "",
+    "rootNamespace": "SRS",
     "references": [
         "GUID:c13dd715b8d691d46a082b62b2c28be7",
         "GUID:447e7cd4516158d48a5080202b88b604",
