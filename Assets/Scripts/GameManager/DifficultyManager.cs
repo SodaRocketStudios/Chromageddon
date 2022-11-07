@@ -4,7 +4,6 @@ namespace SRS.GameManager
 {
 	public class DifficultyManager : MonoBehaviour
 	{
-		// To Do -- need a reference to the game timer to get difficulty based on game time.
 		[SerializeField] AnimationCurve difficultyCurve;
 
 		[SerializeField] private float secondsToMaxDifficulty = 600;

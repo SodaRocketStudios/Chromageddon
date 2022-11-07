@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace SRS.ItemSystem
 {
@@ -6,8 +8,11 @@ namespace SRS.ItemSystem
 	{
 		public static ItemDropper Instance;
 
-		[SerializeField]
-		private GameObject itemPickupPrefab;
+		[SerializeField] private GameObject itemPickupPrefab;
+
+		[SerializeField] private List<Sprite> pickupSprites = new List<Sprite>(5);
+
+		private ObjectPool<ItemPickup> itemPickupPool;
 
 		private void Awake()
 		{
@@ -19,14 +24,41 @@ namespace SRS.ItemSystem
 			{
 				Destroy(this);
 			}
+
+			itemPickupPool = new ObjectPool<ItemPickup>(CreatePickup, OnRetrievePickup, OnReturnPickup);
 		}
 
 		public void DropItem(Vector2 position)
 		{
-			// To Do -- repalce this with object pooling
-			Instantiate(itemPickupPrefab, position, Quaternion.identity);
+			ItemPickup pickup = itemPickupPool.Get();
+			pickup.transform.position = position;
+		}
 
-			// To Do -- Determine item rarity and set it.
+		private ItemPickup CreatePickup()
+		{
+			return Instantiate(itemPickupPrefab, Vector3.zero, Quaternion.identity).GetComponent<ItemPickup>();
+		}
+
+		private void OnRetrievePickup(ItemPickup pickup)
+		{
+			pickup.gameObject.SetActive(true);
+
+			// To Do -- Pick the item rarity at random.
+			pickup.rarity = ItemRarity.Common;
+			
+			pickup.GetComponent<SpriteRenderer>().sprite = pickupSprites[(int)pickup.rarity];
+
+			pickup.OnPickup += ReturnPickup;
+		}
+
+		private void OnReturnPickup(ItemPickup pickup)
+		{
+			pickup.gameObject.SetActive(false);
+		}
+
+		private void ReturnPickup(ItemPickup pickup)
+		{
+			itemPickupPool.Release(pickup);
 		}
 	}
 }
