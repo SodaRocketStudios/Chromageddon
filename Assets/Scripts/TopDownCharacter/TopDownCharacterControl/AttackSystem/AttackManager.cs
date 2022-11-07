@@ -9,6 +9,14 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		public bool IsAttacking{get; set;}
 
+		public bool attackActive
+		{
+			get
+			{
+				return attack.attackActive;
+			}
+		}
+
 		private float attackDelay = 1;
 
 		private float attackAngle;

@@ -4,22 +4,37 @@ namespace SRS.TopDownCharacterControl.AI
 {
     public class AttackState : AIState
     {
+        private float aimTime = 5;
+        private float attackTime = 0;
+
         public AttackState(GameObject self, GameObject target) : base(self, target)
         {
         }
 
         override protected void Enter()
         {
-            attackManager.IsAttacking = true;
         }
 
         override public void Execute()
         {
+            if(attackManager.attackActive)
+            {
+                attackTime = Time.time + aimTime;
+                return;
+            }
+
+            if(Time.time >= attackTime)
+            {
+                Attack();
+                attackTime = Time.time + aimTime;
+                return;
+            }
+
+            Aim();
         }
 
         override public void Exit()
         {
-            attackManager.IsAttacking = false;
             base.Exit();
         }
 
@@ -38,6 +53,18 @@ namespace SRS.TopDownCharacterControl.AI
             }
 
             return this;
+        }
+
+        private void Attack()
+        {
+            attackManager.IsAttacking = true;
+        }
+
+        private void Aim()
+        {
+            attackManager.IsAttacking = false;
+
+            LookAtTarget(target.transform.position);
         }
     }
 }
