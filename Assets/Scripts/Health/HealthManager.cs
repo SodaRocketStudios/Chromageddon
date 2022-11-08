@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using SRS.StatSystem;
 
@@ -5,9 +6,9 @@ namespace SRS.Health
 {
 	public class HealthManager : MonoBehaviour
 	{
-		public int MaxHealth{get; private set;}
+		public float MaxHealth{get; private set;}
 		
-		public int CurrentHealth {get; private set;}
+		public float CurrentHealth {get; private set;}
 
 		public delegate void EventHandler(GameObject character);
 		public event EventHandler OnDeath;
@@ -28,17 +29,17 @@ namespace SRS.Health
 			SetHealthToMax();
 		}
 
-		public void Damage(int amount)
+		public void Damage(float amount)
 		{
 			AlterHealth(-amount);
 		}
 
-		public void Heal(int amount)
+		public void Heal(float amount)
 		{
 			AlterHealth(amount);
 		}
 
-		private void AlterHealth(int amount)
+		private void AlterHealth(float amount)
 		{
 			CurrentHealth += amount;
 
@@ -46,6 +47,8 @@ namespace SRS.Health
 			{
 				OnDeath?.Invoke(gameObject);
 			}
+
+			Debug.Log(CurrentHealth);
 		}
 
 		private void UpdateMaxHealth(float value)

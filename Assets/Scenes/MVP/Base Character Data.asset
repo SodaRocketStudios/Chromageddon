@@ -21,7 +21,7 @@ MonoBehaviour:
     multiplicativeModifier: 1
     flatModifier: 0
   - name: AttackSpeed
-    baseValue: 2
+    baseValue: 5
     additiveModifier: 0
     multiplicativeModifier: 1
     flatModifier: 0
@@ -31,7 +31,7 @@ MonoBehaviour:
     multiplicativeModifier: 1
     flatModifier: 0
   - name: Health
-    baseValue: 100
+    baseValue: 10
     additiveModifier: 0
     multiplicativeModifier: 1
     flatModifier: 0

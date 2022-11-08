@@ -13,6 +13,11 @@ namespace SRS.StatSystem
 		[SerializeField] private string attackStatFile;
 		public List<Stat> AttackStats = new List<Stat>();
 
+		// private void Awake()
+		// {
+		// 	PopulateStats();
+		// }
+
 		public void PopulateStats(string _characterStatFile, string _attackStatFile)
 		{
 			characterStatFile = _characterStatFile;
