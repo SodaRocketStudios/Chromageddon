@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
-using SRS.StatSystem;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
@@ -13,6 +11,8 @@ namespace SRS.TopDownCharacterControl.AttackSystem
         {
 			Quaternion direction = Quaternion.Euler(0, 0, origin.eulerAngles.z+Random.Range(-attackAngle/2, attackAngle/2));
 			Projectile newProjectile = GameObject.Instantiate(projectile, origin.position, direction).GetComponent<Projectile>();
+
+			// TODO -- Use Object pool
 			newProjectile.Initialize(attackStats, mask);
         }
 	}

@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
-using SRS.StatSystem;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
@@ -11,7 +9,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
         {
             float range = attackStats["Speed"].Value * attackStats["Lifetime"].Value;
 
-			// Need to find all enemies within an attack zone.
             RaycastHit2D[] hits = Physics2D.CircleCastAll(origin.position, range, origin.forward, 0, mask);
 
             foreach(RaycastHit2D hit in hits)
@@ -20,7 +17,11 @@ namespace SRS.TopDownCharacterControl.AttackSystem
                 
                 if(hitAngle <= attackAngle/2)
                 {
-                    // TO DO -- perform all on hit logic. This is where an IDamageable interface could be useful.
+                    HitHandler hitHandler;
+                    if(hit.transform.TryGetComponent<HitHandler>(out hitHandler))
+                    {
+                        hitHandler.HandleHit(attackStats);
+                    }
                 }
             }
         }

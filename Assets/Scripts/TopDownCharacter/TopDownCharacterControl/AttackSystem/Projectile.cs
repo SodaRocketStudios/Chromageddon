@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using SRS.StatSystem;
 using SRS.StatusEffects;
 using SRS.Extensions;
-using SRS.Health;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
@@ -46,31 +45,10 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		{
 			if((mask.value & (1 << other.gameObject.layer)) > 0)
 			{
-				// Status effects should be handled somewhere else
-				
-				// StatusEffectTracker targetEffectTracker;
-				// if(other.gameObject.TryGetComponent<StatusEffectTracker>(out targetEffectTracker))
-				// {
-				// 	foreach(Type effectType in effects)
-				// 	{
-				// 		StatusEffect effect = Activator.CreateInstance(effectType) as StatusEffect;
-
-				// 		float procChance = attackStats[effect.ProcStat].Value;
-
-				// 		int randomRange = DetermineRandomRange(procChance);
-				// 		float randomNumber = 1.0f*randomGenerator.Next(randomRange)/randomRange;
-
-				// 		if(randomNumber < procChance)
-				// 		{
-				// 			targetEffectTracker.ApplyEffect(effect);
-				// 		}
-				// 	}
-				// }
-
-				HealthManager targetHealth;
-				if(other.gameObject.TryGetComponent<HealthManager>(out targetHealth))
+				HitHandler hitHandler;
+				if(other.gameObject.TryGetComponent<HitHandler>(out hitHandler))
 				{
-					targetHealth.Damage((int)attackStats["Damage"].Value);
+					hitHandler.HandleHit(attackStats);
 				}
 
 				Despawn();
@@ -79,7 +57,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void Despawn()
 		{
-			// TO DO -- Switch to an object pooling solution for projectiles.
+			// TODO -- Switch to an object pooling solution for projectiles.
 			Destroy(gameObject);
 		}
 

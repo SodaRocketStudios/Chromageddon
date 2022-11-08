@@ -1704,6 +1704,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPickupPrefab: {fileID: 4235646727965326965, guid: 92a80b9d2d3d95746b8b152cac2cff1f, type: 3}
+  pickupSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1913670734
 GameObject:
   m_ObjectHideFlags: 0
