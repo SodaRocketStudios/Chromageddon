@@ -1,8 +1,6 @@
 using UnityEngine;
-using System;
 using System.Collections.Generic;
 using SRS.StatSystem;
-using SRS.StatusEffects;
 using SRS.Extensions;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
@@ -11,8 +9,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 	{
 		private Dictionary<string, Stat> attackStats;
 		private LayerMask mask;
-
-		private static List<Type> effects = new List<Type>(){typeof(TestPoisonEffect)};
 
 		private float speed;
 		private float lifetime;
