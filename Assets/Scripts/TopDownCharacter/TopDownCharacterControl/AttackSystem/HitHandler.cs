@@ -12,9 +12,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		public delegate void OnHitHandler(Dictionary<string, Stat> attackStats);
 		public event OnHitHandler OnHitEvent;
 
-		// TODO Determine a better way to populate the list of status effects
-		[SerializeField] private List<StatusEffect> effects;
-
 		private HealthManager health;
 
 		private System.Random random = new System.Random();
@@ -30,7 +27,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 			health.Damage(attackStats["Damage"].Value);
 
-			foreach(StatusEffect effect in effects)
+			foreach(StatusEffect effect in StatusEffectDatabase.Instance.StatusEffects())
 			{
 				if(random.NextFloat() <= attackStats[effect.ProcStat].Value)
 				{
