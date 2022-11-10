@@ -25,8 +25,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		{
 			OnHitEvent?.Invoke(attackStats);
 
-			health.Damage(attackStats["Damage"].Value);
-
 			foreach(StatusEffect effect in StatusEffectDatabase.Instance.StatusEffects())
 			{
 				if(random.NextFloat() <= attackStats[effect.ProcStat].Value)
@@ -34,6 +32,8 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 					effect.Apply(gameObject);
 				}
 			}
+
+			health.Damage(attackStats["Damage"].Value);
 		}
 	}
 }

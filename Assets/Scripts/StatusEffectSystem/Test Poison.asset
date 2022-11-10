@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f7bc21036134c4db706d6182fbfb8c, type: 3}
   m_Name: Test Poison
   m_EditorClassIdentifier: 
+  procStat: PoisonChance
+  duration: 2
