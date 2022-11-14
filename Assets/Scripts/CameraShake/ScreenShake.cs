@@ -5,32 +5,47 @@ namespace SRS.CameraShake
 {
 	public class ScreenShake : MonoBehaviour
 	{
+		[SerializeField] private AnimationCurve shakeCurve;
+		[SerializeField] private float decaySpeed;
+
 		private CinemachineVirtualCamera vCamera;
 		private CinemachineBasicMultiChannelPerlin noise;
-		[SerializeField] float decayValue;
 
+		private float maxTrauma;
 		private float trauma = 0;
+
+		private void Awake()
+		{
+			maxTrauma = shakeCurve.keys[shakeCurve.length-1].time;
+		}
 
 		private void Start()
 		{
 			vCamera = GetComponent<CinemachineVirtualCamera>();
 			noise = vCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+			AddTrauma(1);
 		}
 
 		private void Update()
-		{
-			if(trauma >= 0)
-			{
-				trauma -= decayValue;
-				trauma = Mathf.Clamp(trauma, 0, float.MaxValue);
-			}
+        {
+            UpdateTrauma();
 
-			noise.m_AmplitudeGain -= trauma;
-		}
+            noise.m_AmplitudeGain = shakeCurve.Evaluate(trauma);
+        }
 
-		public void AddTrauma(float amount)
+        public void AddTrauma(float amount)
 		{
 			trauma += amount;
 		}
+
+        private void UpdateTrauma()
+        {
+            if (trauma >= 0)
+            {
+                trauma -= decaySpeed * Time.deltaTime;
+                trauma = Mathf.Clamp(trauma, 0, maxTrauma);
+            }
+        }
 	}
 }
