@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3768d82b003b10d4f83f66459c8ef9a0, type: 3}
+  m_Name: Basic Follow
+  m_EditorClassIdentifier: 
+  characterStatFile: E:/Projects/Project Primitives/Project Primitives/Assets/Enemies/Stats/Defaults/Slow
+    Melee Character Stats.csv
+  CharacterStats:
+  - name: MoveSpeed
+    baseValue: 2
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: AttackSpeed
+    baseValue: 0.2
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: CooldownSpeed
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: Health
+    baseValue: 10
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: HealthRegen
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: Armor
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: Shields
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: NumProjectiles
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: AttackArc
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 30
+    flatModifier: 0
+  attackStatFile: E:/Projects/Project Primitives/Project Primitives/Assets/Enemies/Stats/Defaults/Basic
+    Melee Attack Stats.csv
+  AttackStats:
+  - name: Damage
+    baseValue: 10
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: Lifetime
+    baseValue: 0.1
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: Speed
+    baseValue: 10
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: LifeSteal
+    baseValue: 0
+    additiveModifier: 0
+    multiplicativeModifier: 1
+    flatModifier: 0
+  - name: BleedChance
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 0
+    flatModifier: 0
+  - name: BurnChance
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 0
+    flatModifier: 0
+  - name: StunChance
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 0
+    flatModifier: 0
+  - name: FreezeChance
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 0
+    flatModifier: 0
+  - name: ShockChance
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 0
+    flatModifier: 0
+  - name: SlowChance
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 0
+    flatModifier: 0
+  - name: PoisonChance
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 0
+    flatModifier: 0
+  - name: ChainChance
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 0
+    flatModifier: 0
+  - name: CriticalChance
+    baseValue: 1
+    additiveModifier: 0
+    multiplicativeModifier: 0
+    flatModifier: 0

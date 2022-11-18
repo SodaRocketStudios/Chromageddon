@@ -47,8 +47,6 @@ namespace SRS.Health
 			{
 				OnDeath?.Invoke(gameObject);
 			}
-
-			Debug.Log(CurrentHealth);
 		}
 
 		private void UpdateMaxHealth(float value)

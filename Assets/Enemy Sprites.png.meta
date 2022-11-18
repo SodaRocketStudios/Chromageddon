@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ab382fd5b230304bbe31f02897d3c26
+guid: 633188d6754abdf47b78b051db06736e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe20679f0a3c0ee46b2724da5c11b934
-      internalID: -14607720
+      spriteID: 0773850368d19374287bbce7ac83181c
+      internalID: 1649147078
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7535984d8bc6cf148a62fe5e928e71c9
-      internalID: -1092008134
+      spriteID: 8e1be411568f3434490406f0f920fec2
+      internalID: 761343014
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 881954660b249564891e7b9df8f307c7
-      internalID: 1327346927
+      spriteID: 9ba8bd3cd1c8e5443b464e086e4330a8
+      internalID: 1958448713
       vertices: []
       indices: 
       edges: []
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49f033a5101aeda47a46db9dda549d3d
-      internalID: 1190763011
+      spriteID: 8876eb6f8912d3d44b31da99a0172869
+      internalID: -1325774530
       vertices: []
       indices: 
       edges: []
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7f8b0125d9b8bf4cb09630989369d6f
-      internalID: 1603718322
+      spriteID: 2685523098e3fa544bdfd6b908ee2b76
+      internalID: -91069305
       vertices: []
       indices: 
       edges: []
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1426a278f2fa1d74382ee7cd63697845
-      internalID: -1405341421
+      spriteID: 61638567ec55a4e45ab64ec19df69c63
+      internalID: -2146474520
       vertices: []
       indices: 
       edges: []
@@ -245,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c661123db411c8b40a94ca763d5f0089
-      internalID: 854165948
+      spriteID: 4a626ad7f3b39f043ae693ee1217a972
+      internalID: 1793370877
       vertices: []
       indices: 
       edges: []
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10e44cffee3492d41bfb4e30b4299d1a
-      internalID: 840368117
+      spriteID: 319b44e6a65d7d943839c7001d77b1d9
+      internalID: 621053667
       vertices: []
       indices: 
       edges: []
@@ -287,14 +287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 124b78461fe5ee84d9c600d6eb9f46c2
-      internalID: 186644931
+      spriteID: 2b3a5216d36a60540b061ac5713bc34f
+      internalID: -1209677784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star
+      name: Star5
       rect:
         serializedVersion: 2
         x: 2304
@@ -308,8 +308,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 601531c1d6be9e9428bd4547e9b8eaae
-      internalID: -1752158689
+      spriteID: ce22f164198e8c44c8467185176f8c71
+      internalID: -973930448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TriangleThin
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1fc40ce7990df04b82f44e91e700193
+      internalID: 1415734981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TriangleThick
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e13ad953d1856684a96c0567e33c35a9
+      internalID: 2097375167
       vertices: []
       indices: 
       edges: []
@@ -317,7 +359,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1d46d1221d27201449d31d82fd94b89f
+    spriteID: 9db7da47004f93e4b995862275886ac6
     internalID: 0
     vertices: []
     indices: 
@@ -325,16 +367,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Pentagon: 1190763011
-      Heptagon: -1405341421
-      Circle: -14607720
-      Octagon: 854165948
-      Star: -1752158689
-      Decagon: 186644931
-      Square: 1327346927
-      Hexagon: 1603718322
-      Triangle: -1092008134
-      Nonagon: 840368117
+      Pentagon: -1325774530
+      Heptagon: -2146474520
+      TriangleThin: 1415734981
+      Circle: 1649147078
+      Star5: -973930448
+      TriangleThick: 2097375167
+      Octagon: 1793370877
+      Decagon: -1209677784
+      Square: 1958448713
+      Hexagon: -91069305
+      Triangle: 761343014
+      Nonagon: 621053667
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
