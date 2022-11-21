@@ -23,8 +23,6 @@ namespace SRS.CameraShake
 		{
 			vCamera = GetComponent<CinemachineVirtualCamera>();
 			noise = vCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-
-			AddTrauma(1);
 		}
 
 		private void Update()
