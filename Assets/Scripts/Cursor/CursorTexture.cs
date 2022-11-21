@@ -4,12 +4,12 @@ namespace SRS.CustomCursor
 {
 	public class CursorTexture : MonoBehaviour
 	{
-		public Texture2D cursorTexture;
-		public CursorMode cursorMode = CursorMode.Auto;
-		public Vector2 hotSpot = Vector2.zero;
+		[SerializeField] private Texture2D cursorTexture;
+		[SerializeField] private CursorMode cursorMode = CursorMode.Auto;
+
 		void Start()
 		{
-			hotSpot = new Vector2(cursorTexture.width/2, cursorTexture.height/2);
+			Vector2 hotSpot = new Vector2(cursorTexture.width/2, cursorTexture.height/2);
 			Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
 		}
 	}

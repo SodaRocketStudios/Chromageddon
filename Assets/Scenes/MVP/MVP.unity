@@ -371,7 +371,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.4122137, y: 1}
+    m_SensorSize: {x: 1.3389313, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -833,7 +833,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  secondsToMaxDifficulty: 900
+  secondsToMaxDifficulty: 2700
 --- !u!114 &1024486823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,9 +858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104c5e29fb4c9084693e7d13613eb888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorTexture: {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
+  cursorTexture: {fileID: 2800000, guid: 29e35d85149e9914eb93634a560c1de5, type: 3}
   cursorMode: 0
-  hotSpot: {x: 0.5, y: 0.5}
 --- !u!1 &1083716145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,7 +1269,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1649147078, guid: 633188d6754abdf47b78b051db06736e, type: 3}
   m_Color: {r: 0.4292453, g: 0.639, b: 1, a: 1}
   m_FlipX: 0
