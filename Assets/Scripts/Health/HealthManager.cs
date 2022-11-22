@@ -41,7 +41,6 @@ namespace SRS.Health
 
 		private void AlterHealth(float amount)
 		{
-			Debug.Log(amount);
 			CurrentHealth += amount;
 
 			if(CurrentHealth <= 0)
