@@ -62,7 +62,7 @@ MonoBehaviour:
   attackStatFile: Assets/Enemies/Stats/Defaults/Basic Ranged Attack Stats.csv
   AttackStats:
   - name: Damage
-    baseValue: 10
+    baseValue: 5
     additiveModifier: 0
     multiplicativeModifier: 1
     flatModifier: 0

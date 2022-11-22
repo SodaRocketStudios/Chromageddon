@@ -7,7 +7,8 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 	public class AttackType : ScriptableObject
 	{
 		public bool attackActive {get; protected set;}
-		protected Dictionary<string, Stat> attackStats;
+
+		protected Dictionary<string, Stat> attackStats = new Dictionary<string, Stat>();
 
 		public virtual void Attack(Transform origin, float attackAngle, LayerMask mask){}
 

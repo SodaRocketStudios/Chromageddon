@@ -56,10 +56,5 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			// TODO -- Switch to an object pooling solution for projectiles.
 			Destroy(gameObject);
 		}
-
-		private static int DetermineRandomRange(float probability)
-		{
-			return 100 * (int)Mathf.Pow(10, probability.DecimalPlaces());
-		}
 	}
 }

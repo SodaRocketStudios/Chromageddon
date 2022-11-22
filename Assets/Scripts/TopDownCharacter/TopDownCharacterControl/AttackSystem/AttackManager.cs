@@ -33,7 +33,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		{
 			characterData = GetComponent<CharacterStats>();
 
-			UpdateAttackStats();
+			attack = Instantiate(attack);
 
 			Stat attackSpeed = characterData.Character["AttackSpeed"];
 			UpdateAttackSpeed(attackSpeed.Value);
@@ -41,6 +41,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			Stat attackArc = characterData.Character["AttackArc"];
 			attackAngle = attackArc.Value;
 
+			UpdateAttackStats();
 		}
 
 		private void Update()
@@ -68,7 +69,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			{
 				numOfAttacks++;
 			}
-			
+
 			for(int i = 0; i < numOfAttacks; i++)
 			{
 				attack.Attack(transform, attackAngle, attackMask);
