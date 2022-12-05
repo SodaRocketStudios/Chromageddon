@@ -7,9 +7,9 @@ namespace SRS.ItemSystem
 	{
 		public static ItemDropper Instance;
 
-		[SerializeField] private GameObject itemPickupPrefab;
+		[SerializeField] private GameObject itemDropPrefab;
 
-		private ObjectPool<ItemPickup> itemPickupPool;
+		private ObjectPool<ItemDrop> itemDropPool;
 
 		private void Awake()
 		{
@@ -22,37 +22,37 @@ namespace SRS.ItemSystem
 				Destroy(this);
 			}
 
-			itemPickupPool = new ObjectPool<ItemPickup>(CreatePickup, OnRetrievePickup, OnReleasePickup);
+			itemDropPool = new ObjectPool<ItemDrop>(CreatePickup, OnRetrievePickup, OnReleasePickup);
 		}
 
 		public void DropItem(Vector2 position)
 		{
-			ItemPickup pickup = itemPickupPool.Get();
-			pickup.transform.position = position;
+			ItemDrop itemDrop = itemDropPool.Get();
+			itemDrop.transform.position = position;
 		}
 
-		private ItemPickup CreatePickup()
+		private ItemDrop CreatePickup()
 		{
-			return Instantiate(itemPickupPrefab, Vector3.zero, Quaternion.identity).GetComponent<ItemPickup>();
+			return Instantiate(itemDropPrefab, Vector3.zero, Quaternion.identity).GetComponent<ItemDrop>();
 		}
 
-		private void OnRetrievePickup(ItemPickup pickup)
+		private void OnRetrievePickup(ItemDrop itemDrop)
 		{
-			pickup.gameObject.SetActive(true);
+			itemDrop.gameObject.SetActive(true);
 
-			pickup.OnPickup += ReturnPickup;
+			itemDrop.OnPickup += ReturnPickup;
 		}
 
-		private void OnReleasePickup(ItemPickup pickup)
+		private void OnReleasePickup(ItemDrop itemDrop)
 		{
-			pickup.gameObject.SetActive(false);
+			itemDrop.gameObject.SetActive(false);
 		}
 
-		private void ReturnPickup(ItemPickup pickup)
+		private void ReturnPickup(ItemDrop itemDrop)
 		{
-			pickup.OnPickup -= ReturnPickup;
+			itemDrop.OnPickup -= ReturnPickup;
 
-			itemPickupPool.Release(pickup);
+			itemDropPool.Release(itemDrop);
 		}
 	}
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace SRS.ItemSystem
 {
-	public class ItemPickup : MonoBehaviour
+	public class ItemDrop : MonoBehaviour
 	{
 		const int NUMBER_OF_OPTIONS = 3;
 
-        public delegate void OnPickupHandler(ItemPickup pickup);
+        public delegate void OnPickupHandler(ItemDrop drop);
         public event OnPickupHandler OnPickup;
 
         [SerializeField] private RarityDistribution rarityDistribution;
