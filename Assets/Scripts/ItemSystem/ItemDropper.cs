@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -54,15 +53,6 @@ namespace SRS.ItemSystem
 			pickup.OnPickup -= ReturnPickup;
 
 			itemPickupPool.Release(pickup);
-		}
-
-		private void Update()
-		{
-			if(itemPickupPool.CountActive < 5)
-			{
-				ItemPickup pickup = itemPickupPool.Get();
-				pickup.transform.position = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
-			}
 		}
 	}
 }

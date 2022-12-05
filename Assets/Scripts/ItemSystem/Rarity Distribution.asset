@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9000fac7729cd8c4ab1a47f6f5128253, type: 3}
-  m_Name: Test Rarity Distribution
+  m_Name: Rarity Distribution
   m_EditorClassIdentifier: 
   distribution:
     outcomes:
     - Result: 0
-      DropRate: 4
+      DropRate: 1000
     - Result: 1
-      DropRate: 3
+      DropRate: 250
     - Result: 2
-      DropRate: 2
+      DropRate: 50
     - Result: 3
       DropRate: 1

@@ -15,7 +15,7 @@ namespace SRS.ItemSystem
 
         [SerializeField] private List<Color> rarityColors;
 
-        private System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
+        private System.Random randomGenerator = new System.Random(Guid.NewGuid().GetHashCode());
 
         private ItemRarity rarity;
 
