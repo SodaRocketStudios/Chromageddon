@@ -10,8 +10,6 @@ namespace SRS.ItemSystem
 
 		[SerializeField] private GameObject itemPickupPrefab;
 
-		[SerializeField] private List<Sprite> pickupSprites = new List<Sprite>(5);
-
 		private ObjectPool<ItemPickup> itemPickupPool;
 
 		private void Awake()
@@ -25,7 +23,7 @@ namespace SRS.ItemSystem
 				Destroy(this);
 			}
 
-			itemPickupPool = new ObjectPool<ItemPickup>(CreatePickup, OnRetrievePickup, OnReturnPickup);
+			itemPickupPool = new ObjectPool<ItemPickup>(CreatePickup, OnRetrievePickup, OnReleasePickup);
 		}
 
 		public void DropItem(Vector2 position)
@@ -43,22 +41,28 @@ namespace SRS.ItemSystem
 		{
 			pickup.gameObject.SetActive(true);
 
-			// To Do -- Pick the item rarity at random.
-			pickup.rarity = ItemRarity.Common;
-			
-			pickup.GetComponent<SpriteRenderer>().sprite = pickupSprites[(int)pickup.rarity];
-
 			pickup.OnPickup += ReturnPickup;
 		}
 
-		private void OnReturnPickup(ItemPickup pickup)
+		private void OnReleasePickup(ItemPickup pickup)
 		{
 			pickup.gameObject.SetActive(false);
 		}
 
 		private void ReturnPickup(ItemPickup pickup)
 		{
+			pickup.OnPickup -= ReturnPickup;
+
 			itemPickupPool.Release(pickup);
+		}
+
+		private void Update()
+		{
+			if(itemPickupPool.CountActive < 5)
+			{
+				ItemPickup pickup = itemPickupPool.Get();
+				pickup.transform.position = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
+			}
 		}
 	}
 }

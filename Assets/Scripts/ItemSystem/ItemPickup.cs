@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace SRS.ItemSystem
 {
@@ -9,12 +8,29 @@ namespace SRS.ItemSystem
 	{
 		const int NUMBER_OF_OPTIONS = 3;
 
-        public ItemRarity rarity;
-
         public delegate void OnPickupHandler(ItemPickup pickup);
         public event OnPickupHandler OnPickup;
 
+        [SerializeField] private RarityDistribution rarityDistribution;
+
+        [SerializeField] private List<Color> rarityColors;
+
         private System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
+
+        private ItemRarity rarity;
+
+        private SpriteRenderer spriteRenderer;
+
+        private void Awake()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void OnEnable()
+        {
+            rarity = rarityDistribution.GetRandom();
+            spriteRenderer.color = rarityColors[(int)rarity];
+        }
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{

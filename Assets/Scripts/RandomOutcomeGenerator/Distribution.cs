@@ -3,14 +3,30 @@ using System.Collections.Generic;
 
 namespace SRS.RandomOutcomeGenerator
 {
-	public class Distribution : ScriptableObject
+	[System.Serializable]
+	public class Distribution<T>
 	{
-		public List<Outcome> outcomes;
+		[SerializeField]private List<Outcome<T>> outcomes;
 
-		public void populateOutcomes(List<Outcome> _outcomes)
+		private float dropRateSum;
+
+		public void Add(Outcome<T> outcome)
 		{
-			outcomes = new List<Outcome>(_outcomes);
-			outcomes.Sort((o1, o2) => o1.Probability.CompareTo(o2.Probability));
+			outcomes.Add(outcome);
+
+			dropRateSum += outcome.DropRate;
+		}
+
+		public void Add(T result, float dropRate)
+		{
+			dropRateSum += dropRate;
+
+			outcomes.Add(new Outcome<T>(result, dropRate));
+		}
+
+		public T GetRandom()
+		{ 
+			return outcomes[0].Result;
 		}
 	}
 }

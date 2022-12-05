@@ -1,9 +1,15 @@
 namespace SRS.RandomOutcomeGenerator
 {
 	[System.Serializable]
-	public class Outcome
+	public class Outcome<T>
 	{
-		public string Name;
-		public float Probability;
+		public T Result;
+		public float DropRate;
+
+		public Outcome(T result, float dropRate)
+		{
+			Result = result;
+			DropRate = dropRate;
+		}
 	}
 }
