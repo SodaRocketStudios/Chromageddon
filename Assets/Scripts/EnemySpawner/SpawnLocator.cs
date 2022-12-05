@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace SRS.EnemySpawner
@@ -8,7 +7,7 @@ namespace SRS.EnemySpawner
 	{
 		private Transform playerTransform;
 
-		private System.Random random;
+		private System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
 
 		private int minDistance = 20;
 
@@ -17,7 +16,6 @@ namespace SRS.EnemySpawner
 		public SpawnLocator(Transform player, Transform level)
 		{
 			playerTransform = player;
-			random = new System.Random(System.DateTime.Now.Millisecond);
 
 			levelBounds.size = level.localScale - Vector3.one*5;
 			levelBounds.position = level.position;

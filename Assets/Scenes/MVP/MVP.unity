@@ -614,6 +614,7 @@ Transform:
   - {fileID: 605478003}
   - {fileID: 1947541185}
   - {fileID: 1913670735}
+  - {fileID: 770342396}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -750,6 +751,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &770342395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770342396}
+  m_Layer: 0
+  m_Name: Play Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &770342396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770342395}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 446525250}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1024486819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,7 +1301,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 1649147078, guid: 633188d6754abdf47b78b051db06736e, type: 3}
   m_Color: {r: 0.4292453, g: 0.639, b: 1, a: 1}
   m_FlipX: 0
@@ -1574,7 +1606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseEnemy: {fileID: 8254603096282425995, guid: e430164c705755444a111899f1d58023, type: 3}
   player: {fileID: 1600948671}
-  level: {fileID: 50758218}
+  level: {fileID: 770342396}
   minEnemies: 5
   maxEnemies: 10
 --- !u!1 &1912147306
@@ -1641,7 +1673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375481353d56cf84a9fa0228076de072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPickupPrefab: {fileID: 2294590734974863366, guid: b0459f06888546c45bd575da5391a7ff, type: 3}
+  itemDropPrefab: {fileID: 0}
 --- !u!1 &1913670734
 GameObject:
   m_ObjectHideFlags: 0

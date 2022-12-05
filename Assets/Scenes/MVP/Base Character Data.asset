@@ -69,12 +69,12 @@ MonoBehaviour:
     multiplicativeModifier: 1
     flatModifier: 0
   - name: Lifetime
-    baseValue: 2
+    baseValue: 1
     additiveModifier: 0
     multiplicativeModifier: 1
     flatModifier: 0
   - name: Speed
-    baseValue: 10
+    baseValue: 25
     additiveModifier: 0
     multiplicativeModifier: 1
     flatModifier: 0
