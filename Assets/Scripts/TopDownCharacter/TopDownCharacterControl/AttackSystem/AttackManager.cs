@@ -1,10 +1,13 @@
 using UnityEngine;
 using SRS.StatSystem;
+using UnityEngine.Events;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
 	public class AttackManager : MonoBehaviour
 	{
+		public UnityEvent OnAttack;
+
 		public bool AttackBlocked{get; set;}
 
 		public bool IsAttacking{get; set;}
@@ -68,6 +71,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			while(Time.time - numOfAttacks*attackDelay > nextAttackTime)
 			{
 				numOfAttacks++;
+				OnAttack.Invoke();
 			}
 
 			for(int i = 0; i < numOfAttacks; i++)

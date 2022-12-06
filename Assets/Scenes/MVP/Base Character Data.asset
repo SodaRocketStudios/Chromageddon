@@ -21,7 +21,7 @@ MonoBehaviour:
     multiplicativeModifier: 1
     flatModifier: 0
   - name: AttackSpeed
-    baseValue: 1
+    baseValue: 5
     additiveModifier: 0
     multiplicativeModifier: 1
     flatModifier: 0

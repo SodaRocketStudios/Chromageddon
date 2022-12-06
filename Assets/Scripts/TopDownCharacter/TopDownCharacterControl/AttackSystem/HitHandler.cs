@@ -4,13 +4,14 @@ using SRS.StatSystem;
 using SRS.Health;
 using SRS.StatusEffects;
 using SRS.Extensions;
+using UnityEngine.Events;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
 	public class HitHandler : MonoBehaviour
 	{
 		public delegate void OnHitHandler(Dictionary<string, Stat> attackStats);
-		public event OnHitHandler OnHitEvent;
+		public UnityEvent OnHitEvent;
 
 		private HealthManager health;
 
@@ -23,7 +24,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		public void HandleHit(Dictionary<string, Stat> attackStats)
 		{
-			OnHitEvent?.Invoke(attackStats);
+			OnHitEvent?.Invoke();
 
 			foreach(StatusEffect effect in StatusEffectDatabase.Instance.StatusEffects())
 			{
