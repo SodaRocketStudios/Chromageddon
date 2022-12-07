@@ -110,6 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a4a80531f384542b6d1153b97413d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
   attackMask:
     serializedVersion: 2
     m_Bits: 8
@@ -138,6 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67158c7c53f438f47af24e3989a5b4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &3484423876960464822
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -178,7 +184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1958448713, guid: 633188d6754abdf47b78b051db06736e, type: 3}
   m_Color: {r: 1, g: 0.39999998, b: 0.39999998, a: 1}
   m_FlipX: 0
