@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.Pool;
+using SRS.Extensions;
 
 namespace SRS.ItemSystem
 {
@@ -9,7 +11,11 @@ namespace SRS.ItemSystem
 
 		[SerializeField] private GameObject itemDropPrefab;
 
+		[SerializeField] private float dropChance;
+
 		private ObjectPool<ItemDrop> itemDropPool;
+
+		private System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
 
 		private void Awake()
 		{
@@ -27,7 +33,11 @@ namespace SRS.ItemSystem
 
 		public void TryDropItem(GameObject target)
 		{
-			DropItem(target.transform.position);
+			if(random.NextFloat()*100 < dropChance)
+			{
+				DropItem(target.transform.position);
+			}
+
 		}
 
 		public void DropItem(Vector2 position)
