@@ -6,12 +6,12 @@ namespace SRS.ItemSystem
 	[System.Serializable]
 	public class ItemEffect
 	{
-		[SerializeField] private string stat;
-		public string Stat
+		[SerializeField] private string statName;
+		public string StatName
 		{
 			get
 			{
-				return stat;
+				return statName;
 			}
 		}
 
@@ -35,36 +35,36 @@ namespace SRS.ItemSystem
 
 		public void Apply(CharacterStats stats)
 		{
-			if(stats.Character.ContainsKey(Stat))
+			if(stats.Character.ContainsKey(StatName))
 			{
 				switch(Modifier)
 				{
 					case ModifierType.Additive:
-						stats.Character[Stat].AdditiveModifier += Intensity;
+						stats.Character[StatName].AdditiveModifier += Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						stats.Character[Stat].MultiplicativeModifier += Intensity;
+						stats.Character[StatName].MultiplicativeModifier += Intensity;
 						break;
 					case ModifierType.Flat:
-						stats.Character[Stat].FlatModifier += Intensity;
+						stats.Character[StatName].FlatModifier += Intensity;
 						break;
 					default:
 						break;
 				}
 			}
 
-			if(stats.Attack.ContainsKey(Stat))
+			if(stats.Attack.ContainsKey(StatName))
 			{
 				switch(Modifier)
 				{
 					case ModifierType.Additive:
-						stats.Character[Stat].AdditiveModifier += Intensity;
+						stats.Attack[StatName].AdditiveModifier += Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						stats.Character[Stat].MultiplicativeModifier += Intensity;
+						stats.Attack[StatName].MultiplicativeModifier += Intensity;
 						break;
 					case ModifierType.Flat:
-						stats.Character[Stat].FlatModifier += Intensity;
+						stats.Attack[StatName].FlatModifier += Intensity;
 						break;
 					default:
 						break;
@@ -74,36 +74,36 @@ namespace SRS.ItemSystem
 
 		public void Remove(CharacterStats stats)
 		{
-			if(stats.Character.ContainsKey(Stat))
+			if(stats.Character.ContainsKey(StatName))
 			{
 				switch(Modifier)
 				{
 					case ModifierType.Additive:
-						stats.Character[Stat].AdditiveModifier -= Intensity;
+						stats.Character[StatName].AdditiveModifier -= Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						stats.Character[Stat].MultiplicativeModifier -= Intensity;
+						stats.Character[StatName].MultiplicativeModifier -= Intensity;
 						break;
 					case ModifierType.Flat:
-						stats.Character[Stat].FlatModifier -= Intensity;
+						stats.Character[StatName].FlatModifier -= Intensity;
 						break;
 					default:
 						break;
 				}
 			}
 
-			if(stats.Attack.ContainsKey(Stat))
+			if(stats.Attack.ContainsKey(StatName))
 			{
 				switch(Modifier)
 				{
 					case ModifierType.Additive:
-						stats.Character[Stat].AdditiveModifier -= Intensity;
+						stats.Character[StatName].AdditiveModifier -= Intensity;
 						break;
 					case ModifierType.Multiplicative:
-						stats.Character[Stat].MultiplicativeModifier -= Intensity;
+						stats.Character[StatName].MultiplicativeModifier -= Intensity;
 						break;
 					case ModifierType.Flat:
-						stats.Character[Stat].FlatModifier -= Intensity;
+						stats.Character[StatName].FlatModifier -= Intensity;
 						break;
 					default:
 						break;

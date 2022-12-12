@@ -25,6 +25,11 @@ namespace SRS.ItemSystem
 			itemDropPool = new ObjectPool<ItemDrop>(CreatePickup, OnRetrievePickup, OnReleasePickup);
 		}
 
+		public void TryDropItem(GameObject target)
+		{
+			DropItem(target.transform.position);
+		}
+
 		public void DropItem(Vector2 position)
 		{
 			ItemDrop itemDrop = itemDropPool.Get();

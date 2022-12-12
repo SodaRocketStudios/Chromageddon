@@ -28,8 +28,8 @@
      showgrid="false"
      units="in"
      inkscape:zoom="1.0809567"
-     inkscape:cx="444.05107"
-     inkscape:cy="308.06043"
+     inkscape:cx="333.96342"
+     inkscape:cy="308.06044"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -945,5 +945,29 @@
          x="160.60396"
          y="19.477289"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.6071px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';fill:#000000;fill-opacity:1;stroke-width:0.141741">Settings</tspan></text>
+    <rect
+       style="mix-blend-mode:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.68628;stroke-linejoin:round;filter:url(#filter10577)"
+       id="rect380"
+       width="58.230209"
+       height="21.83633"
+       x="3.7718999"
+       y="10.477499"
+       rx="3.2887003"
+       ry="3.2887003"
+       transform="matrix(0.96542696,0,0,0.96542696,0.53261927,25.808854)"
+       inkscape:export-filename="Back Button.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.6071px;line-height:1.25;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';mix-blend-mode:normal;fill:#000000;fill-opacity:1;stroke-width:0.141741"
+       x="8.6266689"
+       y="51.227291"
+       id="text384"><tspan
+         sodipodi:role="line"
+         id="tspan382"
+         x="8.6266689"
+         y="51.227291"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.6071px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';fill:#000000;fill-opacity:1;stroke-width:0.141741">Back</tspan></text>
   </g>
 </svg>

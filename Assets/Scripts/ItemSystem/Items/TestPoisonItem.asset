@@ -16,8 +16,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   rarity: 0
   category: 5
-  data:
-  - stat: PoisonChance
-    intensity: 0.5
+  effects:
+  - statName: PoisonChance
+    intensity: 0.01
     modifier: 1
   description: 

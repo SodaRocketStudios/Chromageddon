@@ -17,6 +17,8 @@ namespace SRS.EnemySpawner
 		[SerializeField] private int minEnemies;
 		[SerializeField] private int maxEnemies;
 
+		public GameObjectEvent OnEnemyDeath;
+
 		private SpawnLocator spawnLocator;
 
 		private DynamicDifficultyManager difficultyManager;
@@ -36,6 +38,11 @@ namespace SRS.EnemySpawner
 			{
 				SpawnEnemy();
 			}
+
+			if(enemyCount < maxEnemies)
+			{
+				// Spawn enemies after a delay.
+			}
 		}
 
 		private void SpawnEnemy()
@@ -47,8 +54,15 @@ namespace SRS.EnemySpawner
 			enemy.GetComponent<HealthManager>().OnDeath += Despawn;
 		}
 
+		private void GetEnemyType()
+		{
+
+		}
+
 		private void Despawn(GameObject enemy)
 		{
+			OnEnemyDeath.Invoke(enemy);
+
 			Destroy(enemy);
 			enemyCount--;
 		}
