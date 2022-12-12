@@ -18,6 +18,8 @@ namespace SRS.GameManager
 			{
 				Destroy(this);
 			}
+
+			Pause();
 		}
 
 		public void Pause()
@@ -30,6 +32,11 @@ namespace SRS.GameManager
 		{
 			Time.timeScale = 1;
 			Paused = false;
+		}
+
+		public void Quit()
+		{
+			Application.Quit();
 		}
 	}
 }
