@@ -51,7 +51,7 @@ namespace SRS.EnemySpawner
 
 			GameObject enemy = Instantiate(enemyTypes.GetRandom(), spawnLocator.GetLocation(), Quaternion.identity);
 			enemyCount++;
-			enemy.GetComponent<HealthManager>().OnDeath += Despawn;
+			enemy.GetComponent<HealthManager>().OnDeath.AddListener(Despawn);
 		}
 
 		private void GetEnemyType()
@@ -62,8 +62,8 @@ namespace SRS.EnemySpawner
 		private void Despawn(GameObject enemy)
 		{
 			OnEnemyDeath.Invoke(enemy);
+			enemy.GetComponent<HealthManager>().OnDeath.RemoveListener(Despawn);
 
-			Destroy(enemy);
 			enemyCount--;
 		}
 	}

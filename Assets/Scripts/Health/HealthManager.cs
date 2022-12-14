@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SRS.StatSystem;
+using SRS.Extensions;
 
 namespace SRS.Health
 {
@@ -10,8 +11,7 @@ namespace SRS.Health
 		
 		public float CurrentHealth {get; private set;}
 
-		public delegate void EventHandler(GameObject character);
-		public event EventHandler OnDeath;
+		public GameObjectEvent OnDeath;
 
 		private CharacterStats characterStats;
 
@@ -45,7 +45,8 @@ namespace SRS.Health
 
 			if(CurrentHealth <= 0)
 			{
-				OnDeath?.Invoke(gameObject);
+				OnDeath.Invoke(gameObject);
+				OnDeath.RemoveAllListeners();
 			}
 		}
 
