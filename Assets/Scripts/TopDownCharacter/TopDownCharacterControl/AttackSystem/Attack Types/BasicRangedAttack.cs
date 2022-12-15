@@ -10,10 +10,12 @@ namespace SRS.TopDownCharacterControl.AttackSystem
         public override void Attack(Transform origin, float attackAngle, LayerMask mask)
         {
 			Quaternion direction = Quaternion.Euler(0, 0, origin.eulerAngles.z+Random.Range(-attackAngle/2, attackAngle/2));
-			Projectile newProjectile = GameObject.Instantiate(projectile, origin.position, direction).GetComponent<Projectile>();
 
-			// TODO -- Use Object pool
-			newProjectile.Initialize(attackStats, mask);
+			GameObject projectile = ProjectileSpawner.Instance.Pool.Get();
+			projectile.transform.rotation = direction;
+			projectile.transform.position = origin.position;
+			
+			projectile.GetComponent<Projectile>().Initialize(attackStats, mask);
         }
 	}
 }

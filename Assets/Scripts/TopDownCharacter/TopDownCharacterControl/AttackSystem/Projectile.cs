@@ -53,8 +53,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void Despawn()
 		{
-			// TODO -- Switch to an object pooling solution for projectiles.
-			Destroy(gameObject);
+			ProjectileSpawner.Instance.Pool.Release(gameObject);
 		}
 	}
 }

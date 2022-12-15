@@ -5,13 +5,14 @@ namespace SRS.Particles
 {
 	public class ParticlePool : MonoBehaviour
 	{
+		public ObjectPool<ParticleSystem> Pool;
+
 		[SerializeField] private ParticleSystem particlePrefab;
 
-		private ObjectPool<ParticleSystem> pool;
 
 		private void Awake()
 		{
-			pool = new ObjectPool<ParticleSystem>(Create, OnGet, OnRelease);
+			Pool = new ObjectPool<ParticleSystem>(Create, OnGet, OnRelease);
 		}
 
 		private ParticleSystem Create()

@@ -74,6 +74,8 @@ namespace SRS.EnemySpawner
 			OnEnemyDeath.Invoke(enemy);
 			enemy.GetComponent<HealthManager>().OnDeath.RemoveListener(Despawn);
 
+			Destroy(enemy);
+
 			enemyCount--;
 		}
 	}
