@@ -14,11 +14,16 @@ namespace SRS.GameManager
 		{
 			get
 			{
-				return difficultyCurve.Evaluate(progress);
+				float progress = GameTimer.Instance.Time/secondsToMaxDifficulty;
+				
+				if(progress <= 0)
+				{
+					return 0.01f;
+				}
+
+				return difficultyCurve.Evaluate(Mathf.Clamp01(progress));
 			}
 		}
-
-		private float progress = 0;
 
 		private void Awake()
 		{
@@ -30,11 +35,6 @@ namespace SRS.GameManager
 			{
 				Destroy(gameObject);
 			}
-		}
-		
-		private void Update()
-		{
-			progress = Mathf.Clamp01(secondsToMaxDifficulty/GameTimer.Instance.Time);
 		}
 	}
 }

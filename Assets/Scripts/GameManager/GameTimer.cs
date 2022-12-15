@@ -21,7 +21,7 @@ namespace SRS.GameManager
 				Destroy(gameObject);
 			}
 
-			state = TimerState.Stopped;
+			state = TimerState.Running;
 		}
 
 		public void StartTimer()

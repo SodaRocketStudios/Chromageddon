@@ -46,7 +46,6 @@ namespace SRS.Health
 			if(CurrentHealth <= 0)
 			{
 				OnDeath.Invoke(gameObject);
-				OnDeath.RemoveAllListeners();
 			}
 		}
 

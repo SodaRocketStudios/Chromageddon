@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using SRS.Health;
 using SRS.Extensions;
+using SRS.GameManager;
+using System;
 
 namespace SRS.EnemySpawner
 {
@@ -17,11 +19,12 @@ namespace SRS.EnemySpawner
 		[SerializeField] private int minEnemies;
 		[SerializeField] private int maxEnemies;
 
+		[SerializeField] private float spawnDelay = 5;
+		private float nextSpawnTime;
+
 		public GameObjectEvent OnEnemyDeath;
 
 		private SpawnLocator spawnLocator;
-
-		private DynamicDifficultyManager difficultyManager;
 
 		private int enemyCount = 0;
 
@@ -32,20 +35,27 @@ namespace SRS.EnemySpawner
 
 		private void Update()
 		{
-			// TODO Spawn based on a timer and the current challenge rating.
-
-			if(enemyCount < minEnemies)
+			if(enemyCount < minEnemies*DifficultyManager.Instance.ChallengeRating)
 			{
 				SpawnEnemy();
 			}
 
-			if(enemyCount < maxEnemies)
+			if(enemyCount < maxEnemies*DifficultyManager.Instance.ChallengeRating)
 			{
-				// Spawn enemies after a delay.
+				TrySpawnEnemy();
 			}
 		}
 
-		private void SpawnEnemy()
+        private void TrySpawnEnemy()
+        {
+            if(Time.time > nextSpawnTime)
+			{
+				SpawnEnemy();
+				nextSpawnTime += spawnDelay/DifficultyManager.Instance.ChallengeRating;
+			}
+        }
+
+        private void SpawnEnemy()
 		{
 			// TODO -- Determine enemy type based on current challenge rating rather than randomly.
 
