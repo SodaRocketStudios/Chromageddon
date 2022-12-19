@@ -34,7 +34,7 @@ namespace SRS.TopDownCharacterControl.AI
 
 		virtual public void Exit()
 		{
-			controller.Velocity = Vector2.zero;
+			controller.MoveDirection = Vector2.zero;
 		}
 
 		abstract public AIState OnZoneChanged(Collider2D other);
@@ -42,7 +42,7 @@ namespace SRS.TopDownCharacterControl.AI
 		protected void MoveTowardTarget(Vector2 moveTarget)
 		{
 			Vector2 direction = (moveTarget - (Vector2)self.transform.position).normalized;
-			controller.Velocity = direction*stats.Character["MoveSpeed"].Value;
+			controller.MoveDirection = direction;
 		}
 
 		protected void LookAtTarget(Vector2 lookTarget)

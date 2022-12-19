@@ -12,7 +12,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		private LayerMask mask;
 
 		private float speed;
-		
+
 		private float lifetime;
 
 		private Rigidbody2D rb;
@@ -41,7 +41,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void FixedUpdate()
 		{
-			rb.MovePosition(transform.position + transform.right*Time.deltaTime*speed);
+			rb.MovePosition(rb.position + (Vector2)transform.right*Time.deltaTime*speed);
 		}
 
 		private void OnCollisionEnter2D(Collision2D other)
@@ -60,6 +60,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void Despawn()
 		{
+			StopAllCoroutines();
 			ProjectileSpawner.Instance.Pool.Release(gameObject);
 		}
 	}

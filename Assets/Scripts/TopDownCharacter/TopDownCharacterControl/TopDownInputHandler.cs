@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using SRS.TopDownCharacterControl.AttackSystem;
-using SRS.StatSystem;
 
 namespace SRS.TopDownCharacterControl
 {
@@ -10,7 +9,6 @@ namespace SRS.TopDownCharacterControl
 	{
 		private TopDownCharacterController characterController;
 		private AttackManager attackManager;
-		private CharacterStats characterStats;
 
 		private Controls controls;
 		private InputAction moveAction;
@@ -21,7 +19,6 @@ namespace SRS.TopDownCharacterControl
 		{
 			characterController = GetComponent<TopDownCharacterController>();
 			attackManager = GetComponent<AttackManager>();
-			characterStats = GetComponent<CharacterStats>();
 		}
 
 		private void OnEnable()
@@ -35,7 +32,7 @@ namespace SRS.TopDownCharacterControl
 
 		private void Update()
 		{
-			characterController.Velocity = moveAction.ReadValue<Vector2>()*characterStats.Character["MoveSpeed"].Value;
+			characterController.MoveDirection = moveAction.ReadValue<Vector2>();
 			characterController.LookTarget = HandleLookInput(lookAction.ReadValue<Vector2>());
 			attackManager.IsAttacking = attackAction.IsPressed();
 		}

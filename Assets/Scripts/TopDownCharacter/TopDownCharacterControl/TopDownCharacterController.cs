@@ -1,17 +1,21 @@
 using UnityEngine;
+using SRS.StatSystem;
 
 namespace SRS.TopDownCharacterControl
 {
 	public class TopDownCharacterController : MonoBehaviour
 	{
-		public Vector2 Velocity{get; set;}
+		public Vector2 MoveDirection{get; set;}
 
 		public Vector2 LookTarget{get; set;}
 
 		private Rigidbody2D rb;
 
-		private void Start()
+		private CharacterStats characterStats;
+
+		private void Awake()
 		{
+			characterStats = GetComponent<CharacterStats>();
 			rb = GetComponent<Rigidbody2D>();
 		}
 
@@ -27,7 +31,7 @@ namespace SRS.TopDownCharacterControl
 
 		private void Move()
 		{
-			rb.MovePosition((Vector2)transform.position + Velocity*Time.deltaTime);
+			rb.MovePosition(rb.position + MoveDirection*characterStats.Character["MoveSpeed"].Value*Time.deltaTime);
 		}
 
 		private void LookAtTarget()
