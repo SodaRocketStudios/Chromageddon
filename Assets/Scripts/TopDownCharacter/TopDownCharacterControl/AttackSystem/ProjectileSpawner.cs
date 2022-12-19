@@ -11,7 +11,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		[SerializeField] private GameObject projectilePrefab;
 
-
 		private void Awake()
 		{
 			Instance = this;
