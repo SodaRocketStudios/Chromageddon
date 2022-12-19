@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
 using SRS.StatSystem;
 using SRS.Extensions;
 
@@ -11,10 +12,15 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		private LayerMask mask;
 
 		private float speed;
+		
 		private float lifetime;
-		private float despawnTime;
 
-		private static System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
+		private Rigidbody2D rb;
+
+		private void Awake()
+		{
+			rb = GetComponent<Rigidbody2D>();
+		}
 
 		public void Initialize(Dictionary<string, Stat> stats, LayerMask collisionMask)
 		{
@@ -24,17 +30,18 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			speed = attackStats["Speed"].Value;
 			lifetime = attackStats["Lifetime"].Value;
 
-			despawnTime = Time.time + lifetime;
+			StartCoroutine(DespawnTimer());
 		}
 
-		void Update()
+		private IEnumerator DespawnTimer()
 		{
-			if(Time.time > despawnTime)
-			{
-				Despawn();
-			}
+			yield return new WaitForSeconds(lifetime);
+			Despawn();
+		}
 
-			transform.Translate(transform.right*Time.deltaTime*speed, Space.World);
+		private void FixedUpdate()
+		{
+			rb.MovePosition(transform.position + transform.right*Time.deltaTime*speed);
 		}
 
 		private void OnCollisionEnter2D(Collision2D other)
