@@ -6,7 +6,7 @@ namespace SRS.TopDownCharacterControl.AI
 {
 	public class RoamState : AIState
 	{
-        private const float MAX_DISTANCE = 5;
+        private const float MAX_DISTANCE = 10;
         private const float MAX_DEVIATION = .1f;
         private const float MAX_TIME_FOR_TARGET = 5;
 
