@@ -43,7 +43,7 @@ namespace SRS
 			mixer.SetFloat("VolumeMusic", level);
 		}
 
-		public void SeteffectsVolume(float level)
+		public void SetEffectsVolume(float level)
 		{
 			level = LinearToDecibel(level);
 			mixer.SetFloat("VolumeEffects", level);
