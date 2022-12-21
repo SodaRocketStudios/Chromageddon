@@ -6,8 +6,9 @@ namespace SRS
 	public class AudioManager : MonoBehaviour
 	{
 		public static AudioManager Instance;
-
-		[SerializeField] private AudioMixer mixer;
+		[SerializeField] private AudioMixerGroup masterGroup;
+		[SerializeField] private AudioMixerGroup musicGroup;
+		[SerializeField] private AudioMixerGroup effectsGroup;
 
 		private AudioSource MusicSource;
 		private AudioSource EffectSource;
@@ -16,8 +17,11 @@ namespace SRS
 		{
 			Instance = this;
 
-			MusicSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Music")[0];
-			EffectSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Effects")[0];
+			MusicSource = gameObject.AddComponent<AudioSource>();
+			EffectSource = gameObject.AddComponent<AudioSource>();
+
+			MusicSource.outputAudioMixerGroup = musicGroup;
+			EffectSource.outputAudioMixerGroup = effectsGroup;
 		}
 
 		public void PlayMusic(AudioClip clip)
@@ -34,19 +38,19 @@ namespace SRS
 		public void SetMasterVolume(float level)
 		{
 			level = LinearToDecibel(level);
-			mixer.SetFloat("VolumeMaster", level);
+			masterGroup.audioMixer.SetFloat("VolumeMaster", level);
 		}
 
 		public void SetMusicVolume(float level)
 		{
 			level = LinearToDecibel(level);
-			mixer.SetFloat("VolumeMusic", level);
+			masterGroup.audioMixer.SetFloat("VolumeMusic", level);
 		}
 
 		public void SetEffectsVolume(float level)
 		{
 			level = LinearToDecibel(level);
-			mixer.SetFloat("VolumeEffects", level);
+			masterGroup.audioMixer.SetFloat("VolumeEffects", level);
 		}
 
 		private float LinearToDecibel(float value)
