@@ -25,7 +25,7 @@ namespace SRS.TopDownCharacterControl.AI
 
         override public AIState OnZoneChanged(Collider2D other)
         {
-            float distance = DistanceToOther(other);
+            float distance = DistanceToOtherSquared(other);
 
             if(distance > brain.attackRadius)
             {

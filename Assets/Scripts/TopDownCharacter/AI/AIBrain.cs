@@ -33,6 +33,10 @@ namespace SRS.TopDownCharacterControl.AI
 				fleeRangeCollider.radius = fleeRadius;
 				fleeRangeCollider.isTrigger = true;
 			}
+
+			detectionRadius *= detectionRadius;
+			attackRadius *= attackRadius;
+			fleeRadius *= fleeRadius;
 		}
 
 		private void OnEnable()

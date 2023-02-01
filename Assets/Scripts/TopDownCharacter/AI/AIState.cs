@@ -50,9 +50,9 @@ namespace SRS.TopDownCharacterControl.AI
 			controller.LookTarget = lookTarget;
 		}
 
-		protected float DistanceToOther(Collider2D other)
+		protected float DistanceToOtherSquared(Collider2D other)
 		{
-			return Vector2.Distance(other.ClosestPoint(self.transform.position), self.transform.position);
+			return (other.ClosestPoint(self.transform.position) - (Vector2)self.transform.position).sqrMagnitude;
 		}
 	}
 }
