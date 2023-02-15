@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
-using SRS.Extensions;
+using SRS.Extensions.Random;
 
 namespace SRS.RandomOutcomeGenerator
 {

@@ -7,7 +7,7 @@ namespace SRS.TopDownCharacterControl.AI
         private float aimTime = 5;
         private float attackTime = 0;
 
-        public AttackState(GameObject self, GameObject target) : base(self, target)
+        public AttackState(GameObject self, Transform target, float radius) : base(self, target, radius)
         {
         }
 
@@ -31,28 +31,13 @@ namespace SRS.TopDownCharacterControl.AI
             }
 
             Aim();
+
+            return;
         }
 
         override public void Exit()
         {
             base.Exit();
-        }
-
-        override public AIState OnZoneChanged(Collider2D other)
-        {
-            float distance = DistanceToOtherSquared(other);
-
-            if(distance < brain.fleeRadius)
-            {
-                return new FleeState(self, target);
-            }
-
-            if(distance > brain.attackRadius)
-            {
-                return new ChaseState(self, target);
-            }
-
-            return this;
         }
 
         private void Attack()

@@ -3,7 +3,7 @@ using UnityEngine;
 using SRS.StatSystem;
 using SRS.Health;
 using SRS.StatusEffects;
-using SRS.Extensions;
+using SRS.Extensions.Random;
 using UnityEngine.Events;
 
 namespace SRS.TopDownCharacterControl.AttackSystem

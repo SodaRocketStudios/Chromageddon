@@ -1,6 +1,6 @@
 using UnityEngine;
-using System;
-using SRS.Extensions;
+using SRS.Extensions.Random;
+using SRS.Extensions.Vector;
 
 namespace SRS.TopDownCharacterControl.AI
 {
@@ -16,7 +16,7 @@ namespace SRS.TopDownCharacterControl.AI
         private Vector2 moveTarget = new Vector2();
         private float newTargetTime = 0;
 
-        public RoamState(GameObject self, GameObject target) : base(self, target) {}
+        public RoamState(GameObject self, Transform target, float radius) : base(self, target, radius) {}
 
         override protected void Enter()
         {
@@ -26,7 +26,7 @@ namespace SRS.TopDownCharacterControl.AI
 
         override public void Execute()
         {
-            if(Vector2.Distance(self.transform.position, moveTarget) < MAX_DEVIATION || Time.time >= newTargetTime)
+            if(VectorExtensions.SquareDistance(self.transform.position, moveTarget) < MAX_DEVIATION*MAX_DEVIATION || Time.time >= newTargetTime)
             {
                 moveTarget = GetRandomLocation();
                 newTargetTime = Time.time + MAX_TIME_FOR_TARGET;
@@ -34,23 +34,13 @@ namespace SRS.TopDownCharacterControl.AI
 
             MoveTowardTarget(moveTarget);
             LookAtTarget(moveTarget);
+
+            return;
         }
 
         override public void Exit()
         {
             base.Exit();
-        }
-
-        override public AIState OnZoneChanged(Collider2D other)
-        {
-            float distance = DistanceToOtherSquared(other);
-
-            if(distance < brain.detectionRadius)
-            {
-                return new ChaseState(self, other.gameObject);
-            }
-
-            return this;
         }
 
         private Vector2 GetRandomLocation()

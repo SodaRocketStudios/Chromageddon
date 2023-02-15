@@ -4,7 +4,7 @@ namespace SRS.TopDownCharacterControl.AI
 {
     public class AimState : AIState
     {
-        public AimState(GameObject self, GameObject target) : base(self, target)
+        public AimState(GameObject self, Transform target, float radius) : base(self, target, radius)
         {
         }
 
@@ -16,28 +16,13 @@ namespace SRS.TopDownCharacterControl.AI
         override public void Execute()
         {
             LookAtTarget(target.transform.position);
+
+            return;
         }
 
         override public void Exit()
         {
             base.Exit();
-        }
-
-        override public AIState OnZoneChanged(Collider2D other)
-        {
-            float distance = DistanceToOtherSquared(other);
-
-            if(distance > brain.attackRadius)
-            {
-                return new ChaseState(self, target);
-            }
-
-            if(distance < brain.fleeRadius)
-            {
-                return new FleeState(self, target);
-            }
-
-            return this;
         }
     }
 }

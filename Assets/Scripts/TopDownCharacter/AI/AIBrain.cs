@@ -5,15 +5,13 @@ namespace SRS.TopDownCharacterControl.AI
 	[RequireComponent(typeof(TopDownCharacterController))]
 	public class AIBrain : MonoBehaviour
 	{
-		public Transform DetectedObject {get; private set;}
+		[SerializeField] private float detectionRadius;
+		[SerializeField] private float attackRadius;
+		[SerializeField] private float fleeRadius;
 
-		public float detectionRadius;
-		public float attackRadius;
-		public float fleeRadius;
+		protected Transform detectedObject;
 
 		private CircleCollider2D detectionRangeCollider;
-		private CircleCollider2D attackRangeCollider;
-		private CircleCollider2D fleeRangeCollider;
 
 		private AIState currentState;
 
@@ -22,26 +20,11 @@ namespace SRS.TopDownCharacterControl.AI
 			detectionRangeCollider = gameObject.AddComponent<CircleCollider2D>();
 			detectionRangeCollider.radius = detectionRadius;
 			detectionRangeCollider.isTrigger = true;
-
-			attackRangeCollider = gameObject.AddComponent<CircleCollider2D>();
-			attackRangeCollider.radius = attackRadius;
-			attackRangeCollider.isTrigger = true;
-
-			if(fleeRadius > 0)
-			{
-				fleeRangeCollider = gameObject.AddComponent<CircleCollider2D>();
-				fleeRangeCollider.radius = fleeRadius;
-				fleeRangeCollider.isTrigger = true;
-			}
-
-			detectionRadius *= detectionRadius;
-			attackRadius *= attackRadius;
-			fleeRadius *= fleeRadius;
 		}
 
 		private void OnEnable()
 		{
-			currentState = new RoamState(gameObject, gameObject);
+			currentState = new RoamState(gameObject, transform, 0);
 		}
 
 		private void Update()
@@ -58,7 +41,8 @@ namespace SRS.TopDownCharacterControl.AI
 		{
 			if(other.CompareTag("Player"))
 			{
-				ChangeState(other);
+				detectedObject = other.transform;
+				currentState = new ChaseState(gameObject, detectedObject, detectionRadius);
 			}
 		}
 
@@ -66,18 +50,8 @@ namespace SRS.TopDownCharacterControl.AI
 		{
 			if(other.CompareTag("Player"))
 			{
-				ChangeState(other);
-			}
-		}
-
-		private void ChangeState(Collider2D other)
-		{
-			AIState previousState = currentState;
-			currentState = currentState.OnZoneChanged(other);
-
-			if(currentState != previousState)
-			{
-				previousState.Exit();
+				detectedObject = null;
+				currentState = new RoamState(gameObject, transform, 0);
 			}
 		}
 	}

@@ -1,9 +1,7 @@
 {
-    "name": "RandomOutcomeGenerator",
-    "rootNamespace": "SRS.RandomOutcomeGenerator",
-    "references": [
-        "GUID:a49059e9087001f4a9c62b42420121b0"
-    ],
+    "name": "Scalar",
+    "rootNamespace": "SRS.Extensions.Scalar",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

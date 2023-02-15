@@ -4,7 +4,9 @@ namespace SRS.TopDownCharacterControl.AI
 {
     public class FleeState : AIState
     {
-        public FleeState(GameObject self, GameObject target) : base(self, target)
+        private float maxFleeDistance = 1;
+
+        public FleeState(GameObject self, Transform target, float radius) : base(self, target, radius)
         {
         }
 
@@ -14,27 +16,17 @@ namespace SRS.TopDownCharacterControl.AI
 
         override public void Execute()
         {
-            Vector2 fleePosition = self.transform.position + (self.transform.position - target.transform.position).normalized*brain.fleeRadius;
+            Vector2 fleePosition = self.transform.position + (self.transform.position - target.transform.position).normalized*maxFleeDistance;
 
             MoveTowardTarget(fleePosition);
             LookAtTarget(fleePosition);
+
+            return;
         }
 
         override public void Exit()
         {
             base.Exit();
-        }
-
-        override public AIState OnZoneChanged(Collider2D other)
-        {
-            float distance = DistanceToOtherSquared(other);
-
-            if(distance > brain.fleeRadius)
-            {
-                return new AttackState(self, target);
-            }
-
-            return this;
         }
     }
 }

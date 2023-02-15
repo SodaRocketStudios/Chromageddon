@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Pool;
-using SRS.Extensions;
+using SRS.Extensions.Random;
 
 namespace SRS.ItemSystem
 {

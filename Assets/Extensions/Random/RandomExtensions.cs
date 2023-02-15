@@ -1,4 +1,4 @@
-namespace SRS.Extensions
+namespace SRS.Extensions.Random
 {
 	public static class RandomExtensions
 	{
