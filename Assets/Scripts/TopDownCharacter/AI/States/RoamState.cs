@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using SRS.Extensions.Random;
 using SRS.Extensions.Vector;
@@ -16,7 +17,7 @@ namespace SRS.TopDownCharacterControl.AI
         private Vector2 moveTarget = new Vector2();
         private float newTargetTime = 0;
 
-        public RoamState(GameObject self, Transform target, float radius) : base(self, target, radius) {}
+        public RoamState(GameObject self) : base(self) {}
 
         override protected void Enter()
         {
@@ -24,7 +25,7 @@ namespace SRS.TopDownCharacterControl.AI
             moveTarget = GetRandomLocation();
         }
 
-        override public void Execute()
+        override public Type Execute()
         {
             if(VectorExtensions.SquareDistance(self.transform.position, moveTarget) < MAX_DEVIATION*MAX_DEVIATION || Time.time >= newTargetTime)
             {
@@ -35,7 +36,7 @@ namespace SRS.TopDownCharacterControl.AI
             MoveTowardTarget(moveTarget);
             LookAtTarget(moveTarget);
 
-            return;
+            return typeof(RoamState);
         }
 
         override public void Exit()

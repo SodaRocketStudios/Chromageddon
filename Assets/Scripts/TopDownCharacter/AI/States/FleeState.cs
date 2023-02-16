@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using SRS.Extensions.Vector;
 
 namespace SRS.TopDownCharacterControl.AI
 {
@@ -6,7 +8,7 @@ namespace SRS.TopDownCharacterControl.AI
     {
         private float maxFleeDistance = 1;
 
-        public FleeState(GameObject self, Transform target, float radius) : base(self, target, radius)
+        public FleeState(GameObject self) : base(self)
         {
         }
 
@@ -14,14 +16,21 @@ namespace SRS.TopDownCharacterControl.AI
         {
         }
 
-        override public void Execute()
+        override public Type Execute()
         {
-            Vector2 fleePosition = self.transform.position + (self.transform.position - target.transform.position).normalized*maxFleeDistance;
+            float squareDistance = VectorExtensions.SquareDistance(self.transform.position, brain.Target.position);
+
+            if(squareDistance > brain.FleeRadius)
+            {
+                return typeof(AttackState);
+            }
+
+            Vector2 fleePosition = self.transform.position + (self.transform.position - brain.Target.position).normalized*maxFleeDistance;
 
             MoveTowardTarget(fleePosition);
             LookAtTarget(fleePosition);
 
-            return;
+            return typeof(FleeState);
         }
 
         override public void Exit()

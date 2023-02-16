@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
+using SRS.Extensions.Vector;
 
 namespace SRS.TopDownCharacterControl.AI
 {
     public class AimState : AIState
     {
-        public AimState(GameObject self, Transform target, float radius) : base(self, target, radius)
+        public AimState(GameObject self) : base(self)
         {
         }
 
@@ -13,11 +15,23 @@ namespace SRS.TopDownCharacterControl.AI
             attackManager.IsAttacking = false;
         }
 
-        override public void Execute()
+        override public Type Execute()
         {
-            LookAtTarget(target.transform.position);
+            LookAtTarget(brain.Target.position);
 
-            return;
+            float squareDistance = VectorExtensions.SquareDistance(self.transform.position, brain.Target.position);
+
+            if(squareDistance < brain.FleeRadius)
+            {
+                return typeof(FleeState);
+            }
+
+            if(squareDistance > brain.AttackRadius)
+            {
+                return typeof(ChaseState);
+            }
+
+            return typeof(AimState);
         }
 
         override public void Exit()

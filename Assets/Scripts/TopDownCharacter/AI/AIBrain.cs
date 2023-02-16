@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRS.TopDownCharacterControl.AI
@@ -6,14 +8,37 @@ namespace SRS.TopDownCharacterControl.AI
 	public class AIBrain : MonoBehaviour
 	{
 		[SerializeField] private float detectionRadius;
-		[SerializeField] private float attackRadius;
-		[SerializeField] private float fleeRadius;
+		public float DetectionRadius => detectionRadius;
 
-		protected Transform detectedObject;
+		[SerializeField] private float attackRadius;
+		public float AttackRadius => attackRadius;
+
+		[SerializeField] private float fleeRadius;
+		public float FleeRadius => fleeRadius;
+
+		private Transform target;
+		public Transform Target => target;
 
 		private CircleCollider2D detectionRangeCollider;
 
 		private AIState currentState;
+
+		private Dictionary<Type, AIState> states;
+
+		private void Awake()
+		{
+			states = new Dictionary<Type, AIState>()
+			{
+				{typeof(RoamState), new RoamState(gameObject)},
+				{typeof(ChaseState), new ChaseState(gameObject)},
+				{typeof(AttackState), new AttackState(gameObject)},
+				{typeof(FleeState), new FleeState(gameObject)}
+			};
+
+			detectionRadius *= detectionRadius;
+			attackRadius *= attackRadius;
+			fleeRadius *=fleeRadius;
+		}
 
         private void Start()
 		{
@@ -24,12 +49,19 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private void OnEnable()
 		{
-			currentState = new RoamState(gameObject, transform, 0);
+			currentState = states[typeof(RoamState)];
 		}
 
 		private void Update()
 		{
-			currentState.Execute();
+			Type nextState = currentState.Execute();
+
+			if(states[nextState] != currentState)
+			{
+				currentState.Exit();
+			}
+
+			currentState = states[nextState];
 		}
 
 		private void OnDisable()
@@ -41,8 +73,8 @@ namespace SRS.TopDownCharacterControl.AI
 		{
 			if(other.CompareTag("Player"))
 			{
-				detectedObject = other.transform;
-				currentState = new ChaseState(gameObject, detectedObject, detectionRadius);
+				target = other.transform;
+				currentState = states[typeof(ChaseState)];
 			}
 		}
 
@@ -50,8 +82,8 @@ namespace SRS.TopDownCharacterControl.AI
 		{
 			if(other.CompareTag("Player"))
 			{
-				detectedObject = null;
-				currentState = new RoamState(gameObject, transform, 0);
+				target = null;
+				currentState = states[typeof(RoamState)];
 			}
 		}
 	}
