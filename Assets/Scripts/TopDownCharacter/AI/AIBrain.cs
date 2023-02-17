@@ -8,18 +8,16 @@ namespace SRS.TopDownCharacterControl.AI
 	public class AIBrain : MonoBehaviour
 	{
 		[SerializeField] private float detectionRadius;
-		public float DetectionRadius => detectionRadius;
+		public float DetectionRadiusSquared => detectionRadius;
 
 		[SerializeField] private float attackRadius;
-		public float AttackRadius => attackRadius;
+		public float AttackRadiusSquared => attackRadius;
 
 		[SerializeField] private float fleeRadius;
-		public float FleeRadius => fleeRadius;
+		public float FleeRadiusSquared => fleeRadius;
 
 		private Transform target;
 		public Transform Target => target;
-
-		private CircleCollider2D detectionRangeCollider;
 
 		private AIState currentState;
 
@@ -40,13 +38,6 @@ namespace SRS.TopDownCharacterControl.AI
 			fleeRadius *=fleeRadius;
 		}
 
-        private void Start()
-		{
-			detectionRangeCollider = gameObject.AddComponent<CircleCollider2D>();
-			detectionRangeCollider.radius = detectionRadius;
-			detectionRangeCollider.isTrigger = true;
-		}
-
 		private void OnEnable()
 		{
 			currentState = states[typeof(RoamState)];
@@ -54,7 +45,7 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private void Update()
 		{
-			Type nextState = currentState.Execute();
+			Type nextState = currentState.Tick();
 
 			if(states[nextState] != currentState)
 			{
@@ -69,22 +60,14 @@ namespace SRS.TopDownCharacterControl.AI
 			currentState.Exit();
 		}
 
-		private void OnTriggerEnter2D(Collider2D other)
+		public void SetTarget(Transform target)
 		{
-			if(other.CompareTag("Player"))
-			{
-				target = other.transform;
-				currentState = states[typeof(ChaseState)];
-			}
+			this.target = target;
 		}
 
-		private void OnTriggerExit2D(Collider2D other)
+		public void ClearTarget()
 		{
-			if(other.CompareTag("Player"))
-			{
-				target = null;
-				currentState = states[typeof(RoamState)];
-			}
+			target = null;
 		}
 	}
 }

@@ -8,19 +8,13 @@ namespace SRS.TopDownCharacterControl.AI
     {
         private float maxFleeDistance = 1;
 
-        public FleeState(GameObject self) : base(self)
-        {
-        }
+        public FleeState(GameObject self) : base(self) {}
 
-        override protected void Enter()
-        {
-        }
-
-        override public Type Execute()
+        protected override Type Execute()
         {
             float squareDistance = VectorExtensions.SquareDistance(self.transform.position, brain.Target.position);
 
-            if(squareDistance > brain.FleeRadius)
+            if(squareDistance > brain.FleeRadiusSquared)
             {
                 return typeof(AttackState);
             }

@@ -27,11 +27,21 @@ namespace SRS.TopDownCharacterControl.AI
 			Enter();
 		}
 
-		virtual protected void Enter() {}
+		protected virtual void Enter() {}
 
-		abstract public Type Execute();
+		public Type Tick()
+		{
+			if(brain.Target == null)
+			{
+				return typeof(RoamState);
+			}
 
-		virtual public void Exit()
+			return Execute();
+		}
+
+		protected abstract Type Execute();
+
+		public virtual void Exit()
 		{
 			controller.MoveDirection = Vector2.zero;
 		}

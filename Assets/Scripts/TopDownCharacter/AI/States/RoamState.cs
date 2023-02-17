@@ -19,14 +19,20 @@ namespace SRS.TopDownCharacterControl.AI
 
         public RoamState(GameObject self) : base(self) {}
 
-        override protected void Enter()
+        protected override void Enter()
         {
             startPosition = self.transform.position;
             moveTarget = GetRandomLocation();
         }
 
-        override public Type Execute()
+        protected override Type Execute()
         {
+
+            if(VectorExtensions.SquareDistance(self.transform.position, brain.Target.position) < brain.DetectionRadiusSquared)
+            {
+                return typeof(ChaseState);
+            }
+
             if(VectorExtensions.SquareDistance(self.transform.position, moveTarget) < MAX_DEVIATION*MAX_DEVIATION || Time.time >= newTargetTime)
             {
                 moveTarget = GetRandomLocation();
@@ -39,7 +45,7 @@ namespace SRS.TopDownCharacterControl.AI
             return typeof(RoamState);
         }
 
-        override public void Exit()
+        public override void Exit()
         {
             base.Exit();
         }

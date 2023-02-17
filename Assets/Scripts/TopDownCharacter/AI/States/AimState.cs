@@ -6,27 +6,25 @@ namespace SRS.TopDownCharacterControl.AI
 {
     public class AimState : AIState
     {
-        public AimState(GameObject self) : base(self)
-        {
-        }
+        public AimState(GameObject self) : base(self) {}
 
-        override protected void Enter()
+        protected override void Enter()
         {
             attackManager.IsAttacking = false;
         }
 
-        override public Type Execute()
+        protected override Type Execute()
         {
             LookAtTarget(brain.Target.position);
 
             float squareDistance = VectorExtensions.SquareDistance(self.transform.position, brain.Target.position);
 
-            if(squareDistance < brain.FleeRadius)
+            if(squareDistance < brain.FleeRadiusSquared)
             {
                 return typeof(FleeState);
             }
 
-            if(squareDistance > brain.AttackRadius)
+            if(squareDistance > brain.AttackRadiusSquared)
             {
                 return typeof(ChaseState);
             }

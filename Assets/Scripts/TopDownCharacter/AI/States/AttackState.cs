@@ -9,24 +9,18 @@ namespace SRS.TopDownCharacterControl.AI
         private float aimTime = 5;
         private float attackTime = 0;
 
-        public AttackState(GameObject self) : base(self)
-        {
-        }
+        public AttackState(GameObject self) : base(self) {}
 
-        override protected void Enter()
-        {
-        }
-
-        override public Type Execute()
+        protected override Type Execute()
         {
             float squareDistance = VectorExtensions.SquareDistance(self.transform.position, brain.Target.position);
 
-            if(squareDistance < brain.FleeRadius)
+            if(squareDistance < brain.FleeRadiusSquared)
             {
                 return typeof(FleeState);
             }
 
-            if(squareDistance > brain.AttackRadius)
+            if(squareDistance > brain.AttackRadiusSquared)
             {
                 return typeof(ChaseState);
             }
@@ -49,7 +43,7 @@ namespace SRS.TopDownCharacterControl.AI
             return typeof(AttackState);
         }
 
-        override public void Exit()
+        public override void Exit()
         {
             base.Exit();
         }
