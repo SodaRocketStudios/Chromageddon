@@ -18,7 +18,7 @@ namespace SRS.StatusEffects
         protected override IEnumerator EffectCoroutine()
 		{
 			// Apply slow
-			targetStats.Character["MoveSpeed"].MultiplicativeModifier *= slowAmount;
+			// targetStats.Character["MoveSpeed"].MultiplicativeModifier *= slowAmount;
 
 			nextTickTime = Time.time;
 
@@ -44,7 +44,7 @@ namespace SRS.StatusEffects
 			}
 
 			// Remove slow
-			targetStats.Character["MoveSpeed"].MultiplicativeModifier /= slowAmount;
+			// targetStats.Character["MoveSpeed"].MultiplicativeModifier /= slowAmount;
 		}
 	}
 }

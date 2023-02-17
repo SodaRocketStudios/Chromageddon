@@ -1,6 +1,6 @@
 {
     "name": "StatSystem",
-    "rootNamespace": "SRS.Stats",
+    "rootNamespace": "SRS.StatSystem",
     "references": [
         "GUID:bc0bd8d213440e74abd82f8bb19fc4f3"
     ],

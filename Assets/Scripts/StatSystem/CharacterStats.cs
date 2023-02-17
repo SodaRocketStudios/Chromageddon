@@ -17,15 +17,15 @@ namespace SRS.StatSystem
 
 		private void InitializeStats()
 		{
-			foreach(Stat stat in baseStats.CharacterStats)
-			{
-				Character[stat.Name] = new Stat(stat);
-			}
+			// foreach(Stat stat in baseStats.CharacterStats)
+			// {
+			// 	Character[stat.Name] = new Stat(stat);
+			// }
 			
-			foreach(Stat stat in baseStats.AttackStats)
-			{
-				Attack[stat.Name] = new Stat(stat);
-			}
+			// foreach(Stat stat in baseStats.AttackStats)
+			// {
+			// 	Attack[stat.Name] = new Stat(stat);
+			// }
 		}
 	}
 }

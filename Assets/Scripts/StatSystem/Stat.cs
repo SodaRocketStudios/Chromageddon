@@ -5,19 +5,23 @@ namespace SRS.StatSystem
 	[System.Serializable]
 	public class Stat
 	{
-		[SerializeField]
-		private string name;
+		[SerializeField] private string name;
 		public string Name
 		{
 			get
 			{
 				return name;
 			}
-			set
+			private set
 			{
 				name = value;
 			}
 		}
+
+		[SerializeField] private float baseValue;
+		[SerializeField] private float additiveModifier;
+		[SerializeField] private float percentageModifier;
+		[SerializeField] private float flatModifier;
 
 		private float value;
 		public float Value
@@ -26,91 +30,69 @@ namespace SRS.StatSystem
 			{
 				if(isDirty)
 				{
-					value =  (BaseValue + AdditiveModifier)*MultiplicativeModifier + FlatModifier;
+					value = (baseValue + additiveModifier)*percentageModifier + flatModifier;
 					isDirty = false;
 				}
+
 				return value;
 			}
 		}
 
-		[SerializeField]
-		private float baseValue;
-		public float BaseValue
-		{
-			get
-			{
-				return baseValue;
-			}
-			set
-			{
-				baseValue = value;
-				isDirty = true;
-			}
-		}
-
-		[SerializeField]
-		private float additiveModifier;
-		public float AdditiveModifier
-		{
-			get
-			{
-				return additiveModifier;
-			}
-			set
-			{
-				additiveModifier = value;
-				isDirty = true;
-			}
-		}
-
-		[SerializeField]
-		private float multiplicativeModifier;
-		public float MultiplicativeModifier
-		{
-			get
-			{
-				return multiplicativeModifier;
-			}
-			set
-			{
-				multiplicativeModifier = value;
-				isDirty = true;
-			}
-		}
-
-		[SerializeField]
-		private float flatModifier;
-		public float FlatModifier
-		{
-			get
-			{
-				return flatModifier;
-			}
-			set
-			{
-				flatModifier = value;
-				isDirty = true;
-			}
-		}
 
 		private bool isDirty = true;
 
-		public Stat(string _name, float _baseValue = 1, float _additiveModifier = 0, float _multiplicativeModifier = 1, float _flatModifier = 0)
+		public Stat(string name, float baseValue = 1, float additiveModifier = 0, float percentageModifier = 0, float flatModifier = 0)
 		{
-			Name = _name;
-			BaseValue = _baseValue;
-			AdditiveModifier = _additiveModifier;
-			MultiplicativeModifier = _multiplicativeModifier;
-			FlatModifier = _flatModifier;
+			Name = name;
+			this.baseValue = baseValue;
+			this.additiveModifier = additiveModifier;
+			this.percentageModifier = percentageModifier;
+			this.flatModifier = flatModifier;
 		}
 
-		public Stat(Stat stat)
+		public void AddModifier(StatModifier modifier)
 		{
-			Name = stat.Name;
-			BaseValue = stat.BaseValue;
-			AdditiveModifier = stat.AdditiveModifier;
-			MultiplicativeModifier = stat.MultiplicativeModifier;
-			FlatModifier = stat.FlatModifier;
+			switch(modifier.Type)
+			{
+				case ModifierType.Additive:
+					additiveModifier += modifier.Value;
+					break;
+				case ModifierType.Percentage:
+					percentageModifier += modifier.Value*.01f;
+					break;
+				case ModifierType.Flat:
+					flatModifier += modifier.Value;
+					break;
+				default:
+					break;
+			}
+
+			isDirty = true;
+		}
+
+		public void RemoveModifier(StatModifier modifier)
+		{
+			switch(modifier.Type)
+			{
+				case ModifierType.Additive:
+					additiveModifier -= modifier.Value;
+					break;
+				case ModifierType.Percentage:
+					percentageModifier -= modifier.Value*.01f;
+					break;
+				case ModifierType.Flat:
+					flatModifier -= modifier.Value;
+					break;
+				default:
+					break;
+			}
+
+			isDirty = true;
+		}
+
+		public Stat DeepCopy()
+		{
+			return new Stat(name, baseValue, additiveModifier, percentageModifier, flatModifier);
 		}
 	}
 }
