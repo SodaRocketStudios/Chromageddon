@@ -13,10 +13,7 @@ namespace SRS.StatSystem
 		[SerializeField] private string attackStatFile;
 		public List<Stat> AttackStats = new List<Stat>();
 
-		// private void Awake()
-		// {
-		// 	PopulateStats();
-		// }
+		[SerializeField] List<Stat> _stats = new List<Stat>();
 
 		public void PopulateStats(string _characterStatFile, string _attackStatFile)
 		{
@@ -28,6 +25,8 @@ namespace SRS.StatSystem
 
 		public void PopulateStats()
 		{
+			Debug.Log($"{_stats[0].Name} : {_stats[0].Value}");
+
 			Dictionary<string, Stat> stats = new Dictionary<string, Stat>();
 
 			List<Dictionary<string, object>> characterStats = CSVReader.Read(characterStatFile);
@@ -39,10 +38,9 @@ namespace SRS.StatSystem
 				string statName = stat["Name"].ToString();
 				float baseValue = float.Parse(stat["Base Value"].ToString());
 				float additive = float.Parse(stat["Additive Modifier"].ToString());
-				float multiplicative = float.Parse(stat["Multiplicative Modifier"].ToString());
-				float flat = float.Parse(stat["Flat Modifier"].ToString());
+				float percentage = float.Parse(stat["Percentage Modifier"].ToString());
 
-				Stat newStat = new Stat(statName, baseValue, additive, multiplicative, flat);
+				Stat newStat = new Stat(statName, baseValue, additive, percentage);
 
 				CharacterStats.Add(newStat);
 			}
@@ -56,10 +54,9 @@ namespace SRS.StatSystem
 				string statName = stat["Name"].ToString();
 				float baseValue = float.Parse(stat["Base Value"].ToString());
 				float additive = float.Parse(stat["Additive Modifier"].ToString());
-				float multiplicative = float.Parse(stat["Multiplicative Modifier"].ToString());
-				float flat = float.Parse(stat["Flat Modifier"].ToString());
+				float percentage = float.Parse(stat["Percentage Modifier"].ToString());
 
-				Stat newStat = new Stat(statName, baseValue, additive, multiplicative, flat);
+				Stat newStat = new Stat(statName, baseValue, additive, percentage);
 
 				AttackStats.Add(newStat);
 			}

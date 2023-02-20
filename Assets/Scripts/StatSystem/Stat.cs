@@ -21,6 +21,8 @@ namespace SRS.StatSystem
 		[SerializeField] private float baseValue;
 		[SerializeField] private float additiveModifier;
 		[SerializeField] private float percentageModifier;
+		
+		private bool isDirty = true;
 
 		private float value;
 		public float Value
@@ -29,16 +31,13 @@ namespace SRS.StatSystem
 			{
 				if(isDirty)
 				{
-					value = (baseValue + additiveModifier)*percentageModifier;
+					value = (baseValue + additiveModifier)*percentageModifier*.01f;
 					isDirty = false;
 				}
 
 				return value;
 			}
 		}
-
-
-		private bool isDirty = true;
 
 		public Stat(string name, float baseValue = 1, float additiveModifier = 0, float percentageModifier = 0)
 		{
@@ -56,7 +55,7 @@ namespace SRS.StatSystem
 					additiveModifier += modifier.Value;
 					break;
 				case ModifierType.Percentage:
-					percentageModifier += modifier.Value*.01f;
+					percentageModifier += modifier.Value;
 					break;
 				default:
 					break;
@@ -73,7 +72,7 @@ namespace SRS.StatSystem
 					additiveModifier -= modifier.Value;
 					break;
 				case ModifierType.Percentage:
-					percentageModifier -= modifier.Value*.01f;
+					percentageModifier -= modifier.Value;
 					break;
 				default:
 					break;
