@@ -27,7 +27,6 @@ namespace SRS.StatSystem
 	public enum ModifierType
 	{
 		Additive,
-		Percentage,
-		Flat
+		Percentage
 	}
 }
