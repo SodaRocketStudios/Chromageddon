@@ -13,8 +13,6 @@ namespace SRS.StatSystem
 		[SerializeField] private string attackStatFile;
 		public List<Stat> AttackStats = new List<Stat>();
 
-		[SerializeField] List<Stat> _stats = new List<Stat>();
-
 		public void PopulateStats(string _characterStatFile, string _attackStatFile)
 		{
 			characterStatFile = _characterStatFile;
@@ -25,8 +23,6 @@ namespace SRS.StatSystem
 
 		public void PopulateStats()
 		{
-			Debug.Log($"{_stats[0].Name} : {_stats[0].Value}");
-
 			Dictionary<string, Stat> stats = new Dictionary<string, Stat>();
 
 			List<Dictionary<string, object>> characterStats = CSVReader.Read(characterStatFile);
