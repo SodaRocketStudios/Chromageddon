@@ -1,61 +1,36 @@
 using UnityEngine;
 using System.Collections.Generic;
-using SRS.DataReader;
 
 namespace SRS.StatSystem
 {
 	[CreateAssetMenu(fileName = "New Base Character Data", menuName = "Character Data/Character Base Data")]
 	public class BaseCharacterStats : ScriptableObject
 	{
-		[SerializeField] private string characterStatFile;
-		public List<Stat> CharacterStats = new List<Stat>();
-
-		[SerializeField] private string attackStatFile;
-		public List<Stat> AttackStats = new List<Stat>();
-
-		public void PopulateStats(string _characterStatFile, string _attackStatFile)
+		private static List<string> stats = new List<string>()
 		{
-			characterStatFile = _characterStatFile;
-			attackStatFile = _attackStatFile;
 
-			PopulateStats();
+		};
+
+		[SerializeField] private List<Stat> characterStats = new List<Stat>();
+		public List<Stat> CharacterStats {get { return characterStats;}}
+
+		private bool hasBeenInitialized = false;
+
+		private void Awake()
+		{
+			if(hasBeenInitialized) return;
+
+			Initialize();
 		}
 
-		public void PopulateStats()
+		private void Initialize()
 		{
-			Dictionary<string, Stat> stats = new Dictionary<string, Stat>();
-
-			List<Dictionary<string, object>> characterStats = CSVReader.Read(characterStatFile);
-
-			CharacterStats.Clear();
-
-			foreach(Dictionary<string, object> stat in characterStats)
+			foreach(string stat in stats)
 			{
-				string statName = stat["Name"].ToString();
-				float baseValue = float.Parse(stat["Base Value"].ToString());
-				float additive = float.Parse(stat["Additive Modifier"].ToString());
-				float percentage = float.Parse(stat["Percentage Modifier"].ToString());
-
-				Stat newStat = new Stat(statName, baseValue, additive, percentage);
-
-				CharacterStats.Add(newStat);
+				characterStats.Add(new Stat(stat));
 			}
 
-			List<Dictionary<string, object>> attackStats = CSVReader.Read(attackStatFile);
-
-			AttackStats.Clear();
-
-			foreach(Dictionary<string, object> stat in attackStats)
-			{
-				string statName = stat["Name"].ToString();
-				float baseValue = float.Parse(stat["Base Value"].ToString());
-				float additive = float.Parse(stat["Additive Modifier"].ToString());
-				float percentage = float.Parse(stat["Percentage Modifier"].ToString());
-
-				Stat newStat = new Stat(statName, baseValue, additive, percentage);
-
-				AttackStats.Add(newStat);
-			}
+			hasBeenInitialized = true;
 		}
 	}
 }

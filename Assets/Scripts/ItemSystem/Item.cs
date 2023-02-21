@@ -54,19 +54,19 @@ namespace SRS.ItemSystem
 			}
 		}
 
-		public void Apply(CharacterStats stats)
+		public void Apply(CharacterData data)
 		{
 			foreach(ItemEffect effect in Effects)
 			{
-				effect.Apply(stats);
+				effect.Apply(data);
 			}
 		}
 
-		public void Remove(CharacterStats stats)
+		public void Remove(CharacterData data)
 		{
 			foreach(ItemEffect effect in Effects)
 			{
-				effect.Apply(stats);
+				effect.Apply(data);
 			}
 		}
 	}

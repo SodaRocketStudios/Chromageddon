@@ -19,7 +19,6 @@ namespace SRS.StatSystem
 		}
 
 		[SerializeField] private float baseValue;
-		[SerializeField] private float additiveModifier;
 		[SerializeField] private float percentageModifier;
 		
 		private bool isDirty = true;
@@ -31,7 +30,7 @@ namespace SRS.StatSystem
 			{
 				if(isDirty)
 				{
-					value = (baseValue + additiveModifier)*percentageModifier*.01f;
+					value = baseValue*percentageModifier*.01f;
 					isDirty = false;
 				}
 
@@ -39,11 +38,10 @@ namespace SRS.StatSystem
 			}
 		}
 
-		public Stat(string name, float baseValue = 1, float additiveModifier = 0, float percentageModifier = 0)
+		public Stat(string name, float baseValue = 1, float percentageModifier = 0)
 		{
 			Name = name;
 			this.baseValue = baseValue;
-			this.additiveModifier = additiveModifier;
 			this.percentageModifier = percentageModifier;
 		}
 
@@ -52,7 +50,7 @@ namespace SRS.StatSystem
 			switch(modifier.Type)
 			{
 				case ModifierType.Additive:
-					additiveModifier += modifier.Value;
+					baseValue += modifier.Value;
 					break;
 				case ModifierType.Percentage:
 					percentageModifier += modifier.Value;
@@ -69,7 +67,7 @@ namespace SRS.StatSystem
 			switch(modifier.Type)
 			{
 				case ModifierType.Additive:
-					additiveModifier -= modifier.Value;
+					baseValue -= modifier.Value;
 					break;
 				case ModifierType.Percentage:
 					percentageModifier -= modifier.Value;
@@ -83,7 +81,7 @@ namespace SRS.StatSystem
 
 		public Stat DeepCopy()
 		{
-			return new Stat(name, baseValue, additiveModifier, percentageModifier);
+			return new Stat(name, baseValue, percentageModifier);
 		}
 	}
 }

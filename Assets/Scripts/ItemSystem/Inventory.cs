@@ -10,11 +10,11 @@ namespace SRS.ItemSystem
 		private List<Item> starterItems;
 		private Dictionary<string, int> items = new Dictionary<string, int>();
 
-		private CharacterStats characterStats;
+		private CharacterData characterData;
 
 		private void Awake()
 		{
-			characterStats = GetComponent<CharacterStats>();
+			characterData = GetComponent<CharacterData>();
 		}
 
 		private void Start()
@@ -31,14 +31,14 @@ namespace SRS.ItemSystem
 
 			items[item.name]++;
 
-			item.Apply(characterStats);
+			item.Apply(characterData);
 		}
 
 		public void RemoveItem(Item item)
 		{
 			items[item.name] --;
 
-			item.Remove(characterStats);
+			item.Remove(characterData);
 		}
 
 		private void AddStarterItems()

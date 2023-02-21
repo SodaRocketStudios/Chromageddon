@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using SRS.StatSystem;
 using SRS.Extensions;
@@ -13,13 +12,13 @@ namespace SRS.Health
 
 		public GameObjectEvent OnDeath;
 
-		private CharacterStats characterStats;
+		private CharacterData characterData;
 
 		private void Start()
 		{
-			characterStats = GetComponent<CharacterStats>();
+			characterData = GetComponent<CharacterData>();
 			
-			UpdateMaxHealth(characterStats.Character["Health"].Value);
+			UpdateMaxHealth(characterData.Stats["Health"].Value);
 
 			SetHealthToMax();
 		}

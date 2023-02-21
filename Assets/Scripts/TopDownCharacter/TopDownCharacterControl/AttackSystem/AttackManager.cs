@@ -28,20 +28,20 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		[SerializeField] private AttackType attack;
 
-		private CharacterStats characterData;
+		private CharacterData characterData;
 
 		private float nextAttackTime = 0;
 
 		private void Start()
 		{
-			characterData = GetComponent<CharacterStats>();
+			characterData = GetComponent<CharacterData>();
 
 			attack = Instantiate(attack);
 
-			Stat attackSpeed = characterData.Character["AttackSpeed"];
+			Stat attackSpeed = characterData.Stats["AttackSpeed"];
 			UpdateAttackSpeed(attackSpeed.Value);
 			
-			Stat attackArc = characterData.Character["AttackArc"];
+			Stat attackArc = characterData.Stats["AttackArc"];
 			attackAngle = attackArc.Value;
 
 			UpdateAttackStats();
@@ -83,7 +83,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void UpdateAttackStats()
 		{
-			attack.UpdateStats(characterData.Attack);
+			attack.UpdateStats(characterData.Stats);
 		}
 
 		private void UpdateAttackSpeed(float attackSpeed)

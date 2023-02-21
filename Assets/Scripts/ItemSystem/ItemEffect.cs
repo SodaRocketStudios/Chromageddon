@@ -10,16 +10,14 @@ namespace SRS.ItemSystem
 
 		[SerializeField] private StatModifier modifier;
 
-		public void Apply(CharacterStats stats)
+		public void Apply(CharacterData data)
 		{
-			stats.Character[statName]?.AddModifier(modifier);
-			stats.Attack[statName]?.AddModifier(modifier);
+			data.Stats[statName]?.AddModifier(modifier);
 		}
 
-		public void Remove(CharacterStats stats)
+		public void Remove(CharacterData data)
 		{
-			stats.Character[statName]?.RemoveModifier(modifier);
-			stats.Attack[statName]?.RemoveModifier(modifier);
+			data.Stats[statName]?.RemoveModifier(modifier);
 		}
 	}
 }
