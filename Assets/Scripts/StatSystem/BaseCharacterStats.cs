@@ -8,7 +8,13 @@ namespace SRS.StatSystem
 	{
 		private static List<string> stats = new List<string>()
 		{
-
+			"Health",
+			"Shield",
+			"Armor",
+			"Damage",
+			"MoveSpeed",
+			"AttackSpeed",
+			"AttackArc"
 		};
 
 		[SerializeField] private List<Stat> characterStats = new List<Stat>();
@@ -23,8 +29,11 @@ namespace SRS.StatSystem
 			Initialize();
 		}
 
+		[ContextMenu("Reinitialize")]
 		private void Initialize()
 		{
+			characterStats.Clear();
+			
 			foreach(string stat in stats)
 			{
 				characterStats.Add(new Stat(stat));

@@ -38,7 +38,7 @@ namespace SRS.StatSystem
 			}
 		}
 
-		public Stat(string name, float baseValue = 1, float percentageModifier = 0)
+		public Stat(string name, float baseValue = 1, float percentageModifier = 100)
 		{
 			Name = name;
 			this.baseValue = baseValue;
