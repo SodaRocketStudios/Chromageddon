@@ -29,14 +29,14 @@ namespace SRS.StatSystem
 			}
 		}
 
-		public void AddModifier(string stat, StatModifier modifier)
+		public void AddModifier(string key, StatModifier modifier)
 		{
-			stats[stat].AddModifier(modifier);
+			stats[key].AddModifier(modifier);
 		}
 
-		public void RemoveModifier(string stat, StatModifier modifier)
+		public void RemoveModifier(string key, StatModifier modifier)
 		{
-			stats[stat].RemoveModifier(modifier);
+			stats[key].RemoveModifier(modifier);
 		}
 	}
 }

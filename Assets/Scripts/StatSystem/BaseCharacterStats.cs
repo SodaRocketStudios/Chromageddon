@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace SRS.StatSystem
@@ -58,7 +57,7 @@ namespace SRS.StatSystem
 			foreach(string statName in stats)
 			{
 				bool createNew = true;
-				
+
 				foreach(Stat stat in characterStats)
 				{
 					if(stat.Name.CompareTo(statName) == 0)

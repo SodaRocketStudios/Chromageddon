@@ -1,8 +1,6 @@
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using SRS.StatSystem;
-using SRS.Extensions;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {

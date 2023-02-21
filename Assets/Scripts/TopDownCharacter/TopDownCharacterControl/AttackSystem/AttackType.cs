@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 using SRS.StatSystem;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
