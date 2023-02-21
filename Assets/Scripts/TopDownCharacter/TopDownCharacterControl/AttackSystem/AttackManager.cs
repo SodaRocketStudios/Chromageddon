@@ -20,31 +20,19 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			}
 		}
 
-		private float attackDelay = 1;
-
-		private float attackAngle;
-
 		[SerializeField] private LayerMask attackMask;
 
 		[SerializeField] private AttackType attack;
 
-		private CharacterData characterData;
+		private CharacterStats characterStats;
 
 		private float nextAttackTime = 0;
 
 		private void Start()
 		{
-			characterData = GetComponent<CharacterData>();
+			characterStats = GetComponent<CharacterStats>();
 
 			attack = Instantiate(attack);
-
-			Stat attackSpeed = characterData.Stats["AttackSpeed"];
-			UpdateAttackSpeed(attackSpeed.Value);
-			
-			Stat attackArc = characterData.Stats["AttackArc"];
-			attackAngle = attackArc.Value;
-
-			UpdateAttackStats();
 		}
 
 		private void Update()
@@ -68,6 +56,8 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 			int numOfAttacks = 0;
 
+			float attackDelay = 1.0f/characterStats["AttackSpeed"];
+
 			while(Time.time - numOfAttacks*attackDelay > nextAttackTime)
 			{
 				numOfAttacks++;
@@ -76,21 +66,8 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 			for(int i = 0; i < numOfAttacks; i++)
 			{
-				attack.Attack(transform, attackAngle, attackMask);
+				attack.Attack(transform, characterStats["AttackArc"], attackMask);
 				nextAttackTime += attackDelay;
-			}
-		}
-
-		private void UpdateAttackStats()
-		{
-			attack.UpdateStats(characterData.Stats);
-		}
-
-		private void UpdateAttackSpeed(float attackSpeed)
-		{
-			if(attackSpeed > 0)
-			{
-				attackDelay = 1/attackSpeed;
 			}
 		}
 	}

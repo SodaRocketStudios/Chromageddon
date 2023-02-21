@@ -13,7 +13,7 @@ namespace SRS.TopDownCharacterControl.AI
 		protected TopDownCharacterController controller;
 		protected AttackManager attackManager;
 
-		private CharacterData data;
+		private CharacterStats data;
 
 		public AIState(GameObject self)
 		{
@@ -22,7 +22,7 @@ namespace SRS.TopDownCharacterControl.AI
 			brain = self.GetComponent<AIBrain>();
 			controller = self.GetComponent<TopDownCharacterController>();
 			attackManager = self.GetComponent<AttackManager>();
-			data = self.GetComponent<CharacterData>();
+			data = self.GetComponent<CharacterStats>();
 
 			Enter();
 		}

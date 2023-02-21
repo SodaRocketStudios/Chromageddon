@@ -22,19 +22,19 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			health = GetComponent<HealthManager>();
 		}
 
-		public void HandleHit(Dictionary<string, Stat> attackStats)
+		public void HandleHit(CharacterStats characterStats)
 		{
 			OnHitEvent?.Invoke();
 
-			foreach(StatusEffect effect in StatusEffectDatabase.Instance.StatusEffects())
-			{
-				if(random.NextFloat() <= attackStats[effect.ProcStat].Value)
-				{
-					effect.Apply(gameObject);
-				}
-			}
+			// foreach(StatusEffect effect in StatusEffectDatabase.Instance.StatusEffects())
+			// {
+			// 	if(random.NextFloat() <= attackStats[effect.ProcStat].Value)
+			// 	{
+			// 		effect.Apply(gameObject);
+			// 	}
+			// }
 
-			health.Damage(attackStats["Damage"].Value);
+			health.Damage(characterStats["Damage"]);
 		}
 	}
 }

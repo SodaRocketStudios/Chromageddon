@@ -12,13 +12,13 @@ namespace SRS.Health
 
 		public GameObjectEvent OnDeath;
 
-		private CharacterData characterData;
+		private CharacterStats characterStats;
 
 		private void Start()
 		{
-			characterData = GetComponent<CharacterData>();
+			characterStats = GetComponent<CharacterStats>();
 			
-			UpdateMaxHealth(characterData.Stats["Health"].Value);
+			UpdateMaxHealth(characterStats["Health"]);
 
 			SetHealthToMax();
 		}

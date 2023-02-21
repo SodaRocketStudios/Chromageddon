@@ -7,7 +7,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 	{
         public override void Attack(Transform origin, float attackAngle, LayerMask mask)
         {
-            float range = attackStats["Speed"].Value * attackStats["Lifetime"].Value;
+            float range = characterStats["ProjectileSpeed"] * characterStats["ProjectileLifetime"];
 
             RaycastHit2D[] hits = Physics2D.CircleCastAll(origin.position, range, origin.forward, 0, mask);
 
@@ -20,7 +20,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
                     HitHandler hitHandler;
                     if(hit.transform.TryGetComponent<HitHandler>(out hitHandler))
                     {
-                        hitHandler.HandleHit(attackStats);
+                        hitHandler.HandleHit(characterStats);
                     }
                 }
             }

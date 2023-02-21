@@ -11,11 +11,11 @@ namespace SRS.TopDownCharacterControl
 
 		private Rigidbody2D rb;
 
-		private CharacterData characterData;
+		private CharacterStats characterStats;
 
 		private void Awake()
 		{
-			characterData = GetComponent<CharacterData>();
+			characterStats = GetComponent<CharacterStats>();
 			rb = GetComponent<Rigidbody2D>();
 		}
 
@@ -31,7 +31,7 @@ namespace SRS.TopDownCharacterControl
 
 		private void Move()
 		{
-			rb.MovePosition(rb.position + MoveDirection*characterData.Stats["MoveSpeed"].Value*Time.deltaTime);
+			rb.MovePosition(rb.position + MoveDirection*characterStats["MoveSpeed"]*Time.deltaTime);
 		}
 
 		private void LookAtTarget()

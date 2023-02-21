@@ -16,7 +16,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			projectile.transform.rotation = direction;
 			projectile.transform.position = origin.position + origin.right;
 			
-			projectile.GetComponent<Projectile>().Initialize(attackStats, mask);
+			projectile.GetComponent<Projectile>().Initialize(characterStats, mask);
         }
 	}
 }

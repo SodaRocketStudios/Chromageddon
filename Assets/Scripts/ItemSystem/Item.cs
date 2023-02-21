@@ -54,7 +54,7 @@ namespace SRS.ItemSystem
 			}
 		}
 
-		public void Apply(CharacterData data)
+		public void Apply(CharacterStats data)
 		{
 			foreach(ItemEffect effect in Effects)
 			{
@@ -62,7 +62,7 @@ namespace SRS.ItemSystem
 			}
 		}
 
-		public void Remove(CharacterData data)
+		public void Remove(CharacterStats data)
 		{
 			foreach(ItemEffect effect in Effects)
 			{
