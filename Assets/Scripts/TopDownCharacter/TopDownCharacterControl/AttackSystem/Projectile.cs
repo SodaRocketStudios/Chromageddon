@@ -6,7 +6,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 {
 	public class Projectile : MonoBehaviour
 	{
-		private CharacterStats charcaterStats;
+		private CharacterStats characterStats;
 		private LayerMask mask;
 
 		private float speed;
@@ -20,13 +20,13 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			rb = GetComponent<Rigidbody2D>();
 		}
 
-		public void Initialize(CharacterStats charcaterStats, LayerMask collisionMask)
+		public void Initialize(CharacterStats characterStats, LayerMask collisionMask)
 		{
-			this.charcaterStats = charcaterStats;
+			this.characterStats = characterStats;
 			mask = collisionMask;
 
-            speed = this.charcaterStats["ProjectileSpeed"];
-            lifetime = this.charcaterStats["ProjectileLifetime"];
+            speed = characterStats["ProjectileSpeed"];
+            lifetime = characterStats["ProjectileLifetime"];
 
 			StartCoroutine(DespawnTimer());
 		}
@@ -49,7 +49,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 				HitHandler hitHandler;
 				if(other.gameObject.TryGetComponent<HitHandler>(out hitHandler))
 				{
-					hitHandler.HandleHit(charcaterStats);
+					hitHandler.HandleHit(characterStats);
 				}
 
 				Despawn();

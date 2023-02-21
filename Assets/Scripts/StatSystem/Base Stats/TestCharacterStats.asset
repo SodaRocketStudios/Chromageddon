@@ -35,7 +35,7 @@ MonoBehaviour:
     baseValue: 1
     percentageModifier: 100
   - name: ProjectileSpeed
-    baseValue: 1
+    baseValue: 10
     percentageModifier: 100
   - name: Shield
     baseValue: 1

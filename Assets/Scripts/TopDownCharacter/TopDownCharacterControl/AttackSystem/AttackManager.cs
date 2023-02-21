@@ -33,6 +33,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			characterStats = GetComponent<CharacterStats>();
 
 			attack = Instantiate(attack);
+			attack.Initialize(characterStats);
 		}
 
 		private void Update()

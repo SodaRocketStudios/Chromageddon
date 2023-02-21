@@ -9,6 +9,11 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		protected CharacterStats characterStats;
 
+		public void Initialize(CharacterStats characterStats)
+		{
+			this. characterStats = characterStats;
+		}
+
 		public virtual void Attack(Transform origin, float attackAngle, LayerMask mask){}
 	}
 }
