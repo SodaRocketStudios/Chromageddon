@@ -14,7 +14,8 @@ namespace SRS.StatSystem
 			"Damage",
 			"Move Speed",
 			"Attack Speed",
-			"Attack Arc"
+			"Attack Arc",
+			"Range"
 		};
 
 		[SerializeField] private List<Stat> characterStats = new List<Stat>();

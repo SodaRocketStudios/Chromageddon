@@ -6,12 +6,12 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 {
 	public class Projectile : MonoBehaviour
 	{
-		private CharacterStats characterStats;
-		private LayerMask mask;
-
-		private float speed;
+		[SerializeField] private float speed;
 
 		private float lifetime;
+
+		private CharacterStats characterStats;
+		private LayerMask mask;
 
 		private Rigidbody2D rb;
 
@@ -25,8 +25,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			this.characterStats = characterStats;
 			mask = collisionMask;
 
-            speed = characterStats["Projectile Speed"];
-            lifetime = characterStats["Projectile Lifetime"];
+            lifetime = characterStats["Range"]/speed;
 
 			StartCoroutine(DespawnTimer());
 		}

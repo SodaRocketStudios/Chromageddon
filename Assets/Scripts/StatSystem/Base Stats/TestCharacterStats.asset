@@ -29,13 +29,10 @@ MonoBehaviour:
     baseValue: 1
     percentageModifier: 100
   - name: Move Speed
-    baseValue: 1
+    baseValue: 5
     percentageModifier: 100
-  - name: Projectile Lifetime
-    baseValue: 1
-    percentageModifier: 100
-  - name: Projectile Speed
-    baseValue: 50
+  - name: Range
+    baseValue: 20
     percentageModifier: 100
   - name: Shield
     baseValue: 1
