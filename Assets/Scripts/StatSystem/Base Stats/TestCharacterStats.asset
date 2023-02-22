@@ -17,10 +17,10 @@ MonoBehaviour:
     baseValue: 1
     percentageModifier: 100
   - name: Attack Arc
-    baseValue: 1
+    baseValue: 15
     percentageModifier: 100
   - name: Attack Speed
-    baseValue: 1
+    baseValue: 25
     percentageModifier: 100
   - name: Damage
     baseValue: 1
