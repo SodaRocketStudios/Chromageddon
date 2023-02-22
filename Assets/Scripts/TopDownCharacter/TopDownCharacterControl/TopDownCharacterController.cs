@@ -31,7 +31,7 @@ namespace SRS.TopDownCharacterControl
 
 		private void Move()
 		{
-			rb.MovePosition(rb.position + MoveDirection*characterStats["MoveSpeed"]*Time.deltaTime);
+			rb.MovePosition(rb.position + MoveDirection*characterStats["Move Speed"]*Time.deltaTime);
 		}
 
 		private void LookAtTarget()

@@ -12,11 +12,11 @@ namespace SRS.StatSystem
 			"Shield",
 			"Armor",
 			"Damage",
-			"MoveSpeed",
-			"AttackSpeed",
-			"AttackArc",
-			"ProjectileSpeed",
-			"ProjectileLifetime"
+			"Move Speed",
+			"Attack Speed",
+			"Attack Arc",
+			"Projectile Speed",
+			"Projectile Lifetime"
 		};
 
 		[SerializeField] private List<Stat> characterStats = new List<Stat>();

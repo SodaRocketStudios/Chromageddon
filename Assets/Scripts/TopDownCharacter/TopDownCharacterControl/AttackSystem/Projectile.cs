@@ -25,8 +25,8 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			this.characterStats = characterStats;
 			mask = collisionMask;
 
-            speed = characterStats["ProjectileSpeed"];
-            lifetime = characterStats["ProjectileLifetime"];
+            speed = characterStats["Projectile Speed"];
+            lifetime = characterStats["Projectile Lifetime"];
 
 			StartCoroutine(DespawnTimer());
 		}

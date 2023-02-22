@@ -57,7 +57,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 			int numOfAttacks = 0;
 
-			float attackDelay = 1.0f/characterStats["AttackSpeed"];
+			float attackDelay = 1.0f/characterStats["Attack Speed"];
 
 			while(Time.time - numOfAttacks*attackDelay > nextAttackTime)
 			{
@@ -67,7 +67,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 			for(int i = 0; i < numOfAttacks; i++)
 			{
-				attack.Attack(transform, characterStats["AttackArc"], attackMask);
+				attack.Attack(transform, characterStats["Attack Arc"], attackMask);
 				nextAttackTime += attackDelay;
 			}
 		}

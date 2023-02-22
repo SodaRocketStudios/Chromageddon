@@ -16,10 +16,10 @@ MonoBehaviour:
   - name: Armor
     baseValue: 1
     percentageModifier: 100
-  - name: AttackArc
+  - name: Attack Arc
     baseValue: 1
     percentageModifier: 100
-  - name: AttackSpeed
+  - name: Attack Speed
     baseValue: 1
     percentageModifier: 100
   - name: Damage
@@ -28,14 +28,14 @@ MonoBehaviour:
   - name: Health
     baseValue: 1
     percentageModifier: 100
-  - name: MoveSpeed
-    baseValue: 5
-    percentageModifier: 100
-  - name: ProjectileLifetime
+  - name: Move Speed
     baseValue: 1
     percentageModifier: 100
-  - name: ProjectileSpeed
-    baseValue: 10
+  - name: Projectile Lifetime
+    baseValue: 1
+    percentageModifier: 100
+  - name: Projectile Speed
+    baseValue: 50
     percentageModifier: 100
   - name: Shield
     baseValue: 1
