@@ -6,6 +6,7 @@ using SRS.Health;
 
 namespace SRS.StatusEffects
 {
+	[CreateAssetMenu(fileName = "New Status Effect", menuName = "StatusEffect/Status Effect")]
 	public class StatusEffect : ScriptableObject
 	{
 		[SerializeField] private string procStat;
@@ -23,13 +24,13 @@ namespace SRS.StatusEffects
 		[SerializeField] private List<StatEffect> statEffects = new List<StatEffect>();
 		[SerializeField] private List<TickEffect> tickEffects = new List<TickEffect>();
 
+		public bool HasEnded {get; private set;} = false;
+
 		private StatusEffectTracker targetEffectTracker;
 		private CharacterStats targetStats;
 		private HealthManager targetHealth;
 
 		private bool isAffectable = true;
-
-		private Task effectTask;
 
 		public bool Apply(GameObject target)
 		{
@@ -40,7 +41,7 @@ namespace SRS.StatusEffects
 			if(isAffectable)
 			{
 				endTime = Time.time + duration;
-				effectTask = RunEffect();
+				RunEffect();
 				return true;
 			}
 
@@ -52,7 +53,7 @@ namespace SRS.StatusEffects
 			endTime = Time.time;
 		}
 
-		private async Task RunEffect()
+		private async void RunEffect()
 		{
 			Start();
 
@@ -67,9 +68,16 @@ namespace SRS.StatusEffects
 
 		private void Start()
 		{
+			HasEnded = false;
+
 			foreach(StatEffect effect in statEffects)
 			{
 				targetStats.AddModifier(effect.Stat, effect.Modifier);
+			}
+
+			foreach(TickEffect effect in tickEffects)
+			{
+				effect.Initialize();
 			}
 		}
 
@@ -87,6 +95,8 @@ namespace SRS.StatusEffects
 			{
 				targetStats.RemoveModifier(effect.Stat, effect.Modifier);
 			}
+
+			HasEnded = true;
 		}
 	}
 }

@@ -7,9 +7,13 @@ namespace SRS.StatusEffects
 	{
 		private List<StatusEffect> activeEffects;
 
+		private void Update()
+		{
+			activeEffects.RemoveAll(e => e.HasEnded);
+		}
+
 		public void ApplyEffect(StatusEffect effect)
 		{
-
 			if(effect.Apply(gameObject))
 			{
 				activeEffects.Add(effect);

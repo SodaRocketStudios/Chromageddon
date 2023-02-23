@@ -55,6 +55,9 @@ namespace SRS.StatSystem
 				case ModifierType.Percentage:
 					percentageModifier += modifier.Value;
 					break;
+				case ModifierType.Multiplier:
+					percentageModifier *= modifier.Value;
+					break;
 				default:
 					break;
 			}
@@ -71,6 +74,9 @@ namespace SRS.StatSystem
 					break;
 				case ModifierType.Percentage:
 					percentageModifier -= modifier.Value;
+					break;
+				case ModifierType.Multiplier:
+					percentageModifier /= modifier.Value;
 					break;
 				default:
 					break;
