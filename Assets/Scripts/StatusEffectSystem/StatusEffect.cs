@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using SRS.StatSystem;
-using SRS.Health;
 
 namespace SRS.StatusEffects
 {
