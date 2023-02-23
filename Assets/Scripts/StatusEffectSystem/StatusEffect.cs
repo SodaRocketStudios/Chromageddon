@@ -1,11 +1,12 @@
-using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using SRS.StatSystem;
 using SRS.Health;
 
 namespace SRS.StatusEffects
 {
-	public abstract class StatusEffect : ScriptableObject
+	public class StatusEffect : ScriptableObject
 	{
 		[SerializeField] private string procStat;
 		public string ProcStat
@@ -16,16 +17,21 @@ namespace SRS.StatusEffects
 			}
 		}
 
-		[SerializeField] protected float duration;
-		protected float endTime;
+		[SerializeField] private float duration;
+		private float endTime;
 
-		protected StatusEffectTracker targetEffectTracker;
-		protected CharacterStats targetStats;
-		protected HealthManager targetHealth;
+		[SerializeField] private List<StatEffect> statEffects = new List<StatEffect>();
+		[SerializeField] private List<TickEffect> tickEffects = new List<TickEffect>();
+
+		private StatusEffectTracker targetEffectTracker;
+		private CharacterStats targetStats;
+		private HealthManager targetHealth;
 
 		private bool isAffectable = true;
 
-		public void Apply(GameObject target)
+		private Task effectTask;
+
+		public bool Apply(GameObject target)
 		{
 			isAffectable &= target.TryGetComponent<StatusEffectTracker>(out targetEffectTracker);
 			isAffectable &= target.TryGetComponent<CharacterStats>(out targetStats);
@@ -34,23 +40,53 @@ namespace SRS.StatusEffects
 			if(isAffectable)
 			{
 				endTime = Time.time + duration;
-				targetEffectTracker.StartCoroutine(EffectCoroutine());
-				return;
+				effectTask = RunEffect();
+				return true;
 			}
 
-			if(targetEffectTracker != null) Remove();
+			return false;
 		}
 
-		public void End()
+		public void Cancel()
 		{
 			endTime = Time.time;
 		}
 
-		private void Remove()
+		private async Task RunEffect()
 		{
-			targetEffectTracker.RemoveEffect(this);
+			Start();
+
+			while(Time.time < endTime)
+			{
+				Tick();
+				await Task.Yield();
+			}
+
+			End();
 		}
 
-		protected abstract IEnumerator EffectCoroutine();
+		private void Start()
+		{
+			foreach(StatEffect effect in statEffects)
+			{
+				targetStats.AddModifier(effect.Stat, effect.Modifier);
+			}
+		}
+
+		private void Tick()
+		{
+			foreach(TickEffect effect in tickEffects)
+			{
+				effect.Tick();
+			}
+		}
+
+		private void End()
+		{
+			foreach(StatEffect effect in statEffects)
+			{
+				targetStats.RemoveModifier(effect.Stat, effect.Modifier);
+			}
+		}
 	}
 }

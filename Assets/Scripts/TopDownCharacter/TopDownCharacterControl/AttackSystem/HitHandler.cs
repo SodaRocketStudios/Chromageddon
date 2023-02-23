@@ -14,12 +14,14 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		public UnityEvent OnHitEvent;
 
 		private HealthManager healthManager;
+		private StatusEffectTracker effectTracker;
 
 		private System.Random random = new System.Random();
 
 		private void Awake()
 		{
 			healthManager = GetComponent<HealthManager>();
+			effectTracker = GetComponent<StatusEffectTracker>();
 		}
 
 		public void HandleHit(CharacterStats characterStats)

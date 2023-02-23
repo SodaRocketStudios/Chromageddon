@@ -9,13 +9,16 @@ namespace SRS.StatusEffects
 
 		public void ApplyEffect(StatusEffect effect)
 		{
-			activeEffects.Add(effect);
-			effect.Apply(gameObject);
+
+			if(effect.Apply(gameObject))
+			{
+				activeEffects.Add(effect);
+			}
 		}
 
 		public void RemoveEffect(StatusEffect effect)
 		{
-			effect.End();
+			effect.Cancel();
 			activeEffects.Remove(effect);
 		}
 	}
