@@ -26,19 +26,11 @@ namespace SRS.StatusEffects
 
 		public bool HasEnded {get; private set;} = false;
 
-		private StatusEffectTracker targetEffectTracker;
 		private CharacterStats targetStats;
-		private HealthManager targetHealth;
-
-		private bool isAffectable = true;
 
 		public bool Apply(GameObject target)
 		{
-			isAffectable &= target.TryGetComponent<StatusEffectTracker>(out targetEffectTracker);
-			isAffectable &= target.TryGetComponent<CharacterStats>(out targetStats);
-			isAffectable &= target.TryGetComponent<HealthManager>(out targetHealth);
-
-			if(isAffectable)
+			if(target.TryGetComponent<CharacterStats>(out targetStats))
 			{
 				endTime = Time.time + duration;
 				RunEffect();
@@ -77,7 +69,7 @@ namespace SRS.StatusEffects
 
 			foreach(TickEffect effect in tickEffects)
 			{
-				effect.Initialize();
+				effect.Initialize(targetStats.gameObject);
 			}
 		}
 

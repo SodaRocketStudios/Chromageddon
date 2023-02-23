@@ -12,6 +12,16 @@ namespace SRS.StatusEffects
 			activeEffects.RemoveAll(e => e.HasEnded);
 		}
 
+		private void OnDisable()
+		{
+			foreach(StatusEffect effect in activeEffects)
+			{
+				effect.Cancel();
+			}
+			
+			activeEffects.Clear();
+		}
+
 		public void ApplyEffect(StatusEffect effect)
 		{
 			if(effect.Apply(gameObject))
