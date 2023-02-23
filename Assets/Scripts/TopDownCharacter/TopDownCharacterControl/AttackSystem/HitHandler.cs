@@ -13,17 +13,19 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		public delegate void OnHitHandler(Dictionary<string, Stat> attackStats);
 		public UnityEvent OnHitEvent;
 
-		private HealthManager health;
+		private HealthManager healthManager;
 
 		private System.Random random = new System.Random();
 
 		private void Awake()
 		{
-			health = GetComponent<HealthManager>();
+			healthManager = GetComponent<HealthManager>();
 		}
 
 		public void HandleHit(CharacterStats characterStats)
 		{
+			float Damage = characterStats["Damage"];
+
 			OnHitEvent?.Invoke();
 
 			// foreach(StatusEffect effect in StatusEffectDatabase.Instance.StatusEffects())
@@ -34,7 +36,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			// 	}
 			// }
 
-			health.Damage(characterStats["Damage"]);
+			healthManager.Damage(Damage);
 		}
 	}
 }

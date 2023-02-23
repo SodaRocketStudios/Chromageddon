@@ -20,7 +20,7 @@ namespace SRS.StatusEffects
 		protected float endTime;
 
 		protected StatusEffectTracker targetEffectTracker;
-		protected CharacterStats characterStats;
+		protected CharacterStats targetStats;
 		protected HealthManager targetHealth;
 
 		private bool isAffectable = true;
@@ -28,7 +28,7 @@ namespace SRS.StatusEffects
 		public void Apply(GameObject target)
 		{
 			isAffectable &= target.TryGetComponent<StatusEffectTracker>(out targetEffectTracker);
-			isAffectable &= target.TryGetComponent<CharacterStats>(out characterStats);
+			isAffectable &= target.TryGetComponent<CharacterStats>(out targetStats);
 			isAffectable &= target.TryGetComponent<HealthManager>(out targetHealth);
 
 			if(isAffectable)

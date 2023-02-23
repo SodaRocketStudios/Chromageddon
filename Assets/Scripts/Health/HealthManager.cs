@@ -6,7 +6,7 @@ namespace SRS.Health
 {
 	public class HealthManager : MonoBehaviour
 	{
-		public float MaxHealth{get; private set;}
+		public float MaxHealth{get {return characterStats["Health"];}}
 		
 		public float CurrentHealth {get; private set;}
 
@@ -17,8 +17,6 @@ namespace SRS.Health
 		private void Start()
 		{
 			characterStats = GetComponent<CharacterStats>();
-			
-			UpdateMaxHealth(characterStats["Health"]);
 
 			SetHealthToMax();
 		}
@@ -48,14 +46,9 @@ namespace SRS.Health
 			}
 		}
 
-		private void UpdateMaxHealth(float value)
-		{
-			MaxHealth = (int)value;
-		}
-
 		private void SetHealthToMax()
 		{
-			CurrentHealth = MaxHealth;
+			CurrentHealth = characterStats["Health"];
 		}
 	}
 }
