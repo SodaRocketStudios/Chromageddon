@@ -5,7 +5,7 @@ namespace SRS.StatusEffects
 {
 	public class StatusEffectTracker : MonoBehaviour
 	{
-		private List<StatusEffect> activeEffects;
+		private List<StatusEffect> activeEffects = new List<StatusEffect>();
 
 		private void Update()
 		{

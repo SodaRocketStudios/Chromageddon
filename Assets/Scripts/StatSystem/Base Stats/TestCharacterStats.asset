@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3768d82b003b10d4f83f66459c8ef9a0, type: 3}
   m_Name: TestCharacterStats
   m_EditorClassIdentifier: 
-  characterStats:
+  baseStats:
   - name: Armor
     baseValue: 1
     percentageModifier: 100
   - name: Attack Arc
-    baseValue: 15
+    baseValue: 1
     percentageModifier: 100
   - name: Attack Speed
-    baseValue: 25
+    baseValue: 1
     percentageModifier: 100
   - name: Damage
     baseValue: 1
@@ -32,7 +32,7 @@ MonoBehaviour:
     baseValue: 5
     percentageModifier: 100
   - name: Range
-    baseValue: 20
+    baseValue: 25
     percentageModifier: 100
   - name: Shield
     baseValue: 1

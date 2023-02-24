@@ -23,7 +23,7 @@ namespace SRS.StatSystem
 
 		private void InitializeStats()
 		{
-			foreach(Stat stat in baseStats.CharacterStats)
+			foreach(Stat stat in baseStats.BaseStats)
 			{
 				stats[stat.Name] = stat.DeepCopy();
 			}

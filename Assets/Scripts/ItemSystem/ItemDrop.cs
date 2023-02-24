@@ -36,6 +36,8 @@ namespace SRS.ItemSystem
 		{
 			if(other.CompareTag("Player"))
             {
+                if(other.isTrigger) return;
+                
                 List<Item> itemOptions = GetItemOptions();
 
                 ItemSelectionPanel.Instance.GenerateSelectionPanel(itemOptions, other.GetComponent<Inventory>());

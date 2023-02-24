@@ -48,7 +48,10 @@ namespace SRS.Health
 
 		private void SetHealthToMax()
 		{
-			CurrentHealth = characterStats["Health"];
+			if(characterStats != null)
+			{
+				CurrentHealth = characterStats["Health"];
+			}
 		}
 	}
 }

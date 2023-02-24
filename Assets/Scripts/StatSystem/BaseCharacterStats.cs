@@ -18,8 +18,8 @@ namespace SRS.StatSystem
 			"Range"
 		};
 
-		[SerializeField] private List<Stat> characterStats = new List<Stat>();
-		public List<Stat> CharacterStats {get { return characterStats;}}
+		[SerializeField] private List<Stat> baseStats = new List<Stat>();
+		public List<Stat> BaseStats {get { return baseStats;}}
 
 		private bool hasBeenInitialized = false;
 
@@ -32,14 +32,14 @@ namespace SRS.StatSystem
 
 		private void Initialize()
 		{
-			characterStats.Clear();
+			baseStats.Clear();
 
 			foreach(string statName in stats)
 			{
-				characterStats.Add(new Stat(statName));
+				baseStats.Add(new Stat(statName));
 			}
 
-			characterStats.Sort((n1, n2) => n1.Name.CompareTo(n2.Name));
+			baseStats.Sort((n1, n2) => n1.Name.CompareTo(n2.Name));
 
 			hasBeenInitialized = true;
 		}
@@ -47,7 +47,7 @@ namespace SRS.StatSystem
 		[ContextMenu("Update")]
 		private void AddNewStats()
 		{
-			if(characterStats.Count < 1)
+			if(baseStats.Count < 1)
 			{
 				Initialize();
 				return;
@@ -57,7 +57,7 @@ namespace SRS.StatSystem
 			{
 				bool createNew = true;
 
-				foreach(Stat stat in characterStats)
+				foreach(Stat stat in baseStats)
 				{
 					if(stat.Name.CompareTo(statName) == 0)
 					{
@@ -68,11 +68,11 @@ namespace SRS.StatSystem
 
 				if(createNew)
 				{
-					characterStats.Add(new Stat(statName));
+					baseStats.Add(new Stat(statName));
 				}
 			}
 
-			characterStats.Sort((n1, n2) => n1.Name.CompareTo(n2.Name));
+			baseStats.Sort((n1, n2) => n1.Name.CompareTo(n2.Name));
 		}
 	}
 }
