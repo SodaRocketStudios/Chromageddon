@@ -57,8 +57,11 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void Despawn()
 		{
-			StopAllCoroutines();
-			ProjectileSpawner.Instance.Pool.Release(gameObject);
+			if(isActiveAndEnabled)
+			{
+				StopAllCoroutines();
+				ProjectileSpawner.Instance.Pool.Release(gameObject);
+			}
 		}
 	}
 }
