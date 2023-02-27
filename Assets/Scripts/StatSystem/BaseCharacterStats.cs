@@ -21,11 +21,9 @@ namespace SRS.StatSystem
 		[SerializeField] private List<Stat> baseStats = new List<Stat>();
 		public List<Stat> BaseStats {get { return baseStats;}}
 
-		private bool hasBeenInitialized = false;
-
 		private void Awake()
 		{
-			if(hasBeenInitialized) return;
+			if(baseStats.Count > 0) return;
 
 			Initialize();
 		}
@@ -40,8 +38,6 @@ namespace SRS.StatSystem
 			}
 
 			baseStats.Sort((n1, n2) => n1.Name.CompareTo(n2.Name));
-
-			hasBeenInitialized = true;
 		}
 
 		[ContextMenu("Update")]

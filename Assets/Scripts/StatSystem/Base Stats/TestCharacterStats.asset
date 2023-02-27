@@ -32,7 +32,7 @@ MonoBehaviour:
     baseValue: 5
     percentageModifier: 100
   - name: Range
-    baseValue: 25
+    baseValue: 1
     percentageModifier: 100
   - name: Shield
     baseValue: 1
