@@ -1,13 +1,15 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using SRS.StatSystem;
 using SRS.Health;
 using SRS.StatusEffects;
 using SRS.Extensions.Random;
-using UnityEngine.Events;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
+
 	public class HitHandler : MonoBehaviour
 	{
 		public delegate void OnHitHandler(Dictionary<string, Stat> attackStats);
@@ -15,8 +17,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private HealthManager healthManager;
 		private StatusEffectTracker effectTracker;
-
-		private System.Random random = new System.Random();
+		private System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
 
 		private void Awake()
 		{
@@ -28,6 +29,12 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		{
 			float Damage = characterStats["Damage"];
 
+			Damage *= random.NextFloat() <= characterStats["Critical Chance"] ? characterStats["Critical Damage"] : 1;
+
+			healthManager.Damage(Damage);
+
+			if(healthManager.CurrentHealth <= 0) return;
+
 			OnHitEvent?.Invoke();
 
 			// foreach(StatusEffect effect in StatusEffectDatabase.Instance.StatusEffects())
@@ -38,7 +45,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			// 	}
 			// }
 
-			healthManager.Damage(Damage);
 		}
 	}
 }

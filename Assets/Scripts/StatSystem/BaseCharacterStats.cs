@@ -15,7 +15,9 @@ namespace SRS.StatSystem
 			"Move Speed",
 			"Attack Speed",
 			"Attack Arc",
-			"Range"
+			"Range",
+			"Critical Chance",
+			"Critical Damage"
 		};
 
 		[SerializeField] private List<Stat> baseStats = new List<Stat>();
