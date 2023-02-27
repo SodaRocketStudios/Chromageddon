@@ -14,6 +14,8 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		private LayerMask mask;
 
 		private Rigidbody2D rb;
+		
+		private bool isExpended = false;
 
 		private void Awake()
 		{
@@ -26,6 +28,8 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			mask = collisionMask;
 
             lifetime = characterStats["Range"]/speed;
+
+			isExpended = false;
 
 			StartCoroutine(DespawnTimer());
 		}
@@ -43,6 +47,8 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void OnCollisionEnter2D(Collision2D other)
 		{
+			if(isExpended) return;
+
 			if((mask.value & (1 << other.gameObject.layer)) > 0)
 			{
 				HitHandler hitHandler;
@@ -57,11 +63,9 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		private void Despawn()
 		{
-			if(isActiveAndEnabled)
-			{
-				StopAllCoroutines();
-				ProjectileSpawner.Instance.Pool.Release(gameObject);
-			}
+			isExpended = true;
+			StopAllCoroutines();
+			ProjectileSpawner.Instance.Pool.Release(gameObject);
 		}
 	}
 }
