@@ -8,6 +8,10 @@ namespace SRS.StatusEffects
 		public static StatusEffectDatabase Instance;
 
 		[SerializeField] private List<StatusEffect> effects = new List<StatusEffect>();
+		public List<StatusEffect> Effects
+		{
+			get {return effects;}
+		}
 
 		private void Awake()
 		{
@@ -19,11 +23,6 @@ namespace SRS.StatusEffects
 			{
 				Destroy(gameObject);
 			}
-		}
-
-		public List<StatusEffect> StatusEffects()
-		{
-			return effects;
 		}
 	}
 }

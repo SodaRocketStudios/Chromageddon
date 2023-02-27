@@ -34,8 +34,6 @@ namespace SRS.StatusEffects
 				endTime = Time.time + duration;
 				RunEffect();
 
-				// instantiate all scriptable objects
-
 				int i = 0;
 
 				foreach(StatEffect effect in statEffects)
