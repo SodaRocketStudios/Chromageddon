@@ -24,7 +24,7 @@ MonoBehaviour:
     percentageModifier: 100
   - name: Critical Chance
     baseValue: 1
-    percentageModifier: 100
+    percentageModifier: 0
   - name: Critical Damage
     baseValue: 1
     percentageModifier: 200

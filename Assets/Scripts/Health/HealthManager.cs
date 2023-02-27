@@ -28,6 +28,7 @@ namespace SRS.Health
 
 		public void Damage(float amount)
 		{
+			// TO DO handle armor
 			AlterHealth(-amount);
 		}
 

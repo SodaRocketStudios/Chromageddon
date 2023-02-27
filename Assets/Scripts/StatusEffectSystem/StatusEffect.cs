@@ -33,6 +33,25 @@ namespace SRS.StatusEffects
 			{
 				endTime = Time.time + duration;
 				RunEffect();
+
+				// instantiate all scriptable objects
+
+				int i = 0;
+
+				foreach(StatEffect effect in statEffects)
+				{
+					statEffects[i] = Instantiate(effect);
+					i++;
+				}
+
+				i = 0;
+
+				foreach(TickEffect effect in tickEffects)
+				{
+					tickEffects[i] = Instantiate(effect);
+					i++;
+				}
+
 				return true;
 			}
 
