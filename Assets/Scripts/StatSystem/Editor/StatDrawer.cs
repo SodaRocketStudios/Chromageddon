@@ -34,12 +34,27 @@ namespace SRS.StatSystem
 			EditorGUI.PropertyField(percentageRect, percentageProperty, GUIContent.none);
 			EditorGUI.LabelField(equalRect, $"% = {finalValue}");
 
+			var hasCapProperty = property.FindPropertyRelative("hasCap");
+			var capProperty = property.FindPropertyRelative("cap");
+
+			Rect hasCapTextRect = new Rect(container.x, container.y + 60, 95, 18);
+			Rect hasCapRect = new Rect(container.x + 97, container.y + 60, 18, 18);
+			Rect capRect = new Rect(container.x + 122, container.y + 60, 50, 18);
+
+			EditorGUI.LabelField(hasCapTextRect, "Has a value cap");
+			EditorGUI.PropertyField(hasCapRect, hasCapProperty, GUIContent.none);
+
+			if(hasCapProperty.boolValue)
+			{
+				EditorGUI.PropertyField(capRect, capProperty, GUIContent.none);
+			}
+
 			EditorGUI.EndProperty();
 		}
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
-			return 60;
+			return 80;
 		}
 	}
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
   - name: Armor
-    baseValue: 1
+    baseValue: 0
     percentageModifier: 100
   - name: Attack Arc
     baseValue: 1
@@ -41,5 +41,5 @@ MonoBehaviour:
     baseValue: 20
     percentageModifier: 100
   - name: Shield
-    baseValue: 1
+    baseValue: 0
     percentageModifier: 100

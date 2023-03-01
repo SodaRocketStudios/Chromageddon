@@ -20,7 +20,11 @@ namespace SRS.StatSystem
 
 		[SerializeField] private float baseValue;
 		[SerializeField] private float percentageModifier;
-		
+
+		[SerializeField] private bool hasCap = false;
+
+		[SerializeField] private float cap = 0;
+
 		private bool isDirty = true;
 
 		private float value;
@@ -31,6 +35,12 @@ namespace SRS.StatSystem
 				if(isDirty)
 				{
 					value = baseValue*percentageModifier*.01f;
+
+					if(hasCap)
+					{
+						value = Mathf.Min(value, cap);
+					}
+
 					isDirty = false;
 				}
 
