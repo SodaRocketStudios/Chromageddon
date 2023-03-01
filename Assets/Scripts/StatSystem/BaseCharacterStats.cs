@@ -12,12 +12,16 @@ namespace SRS.StatSystem
 			"Shield",
 			"Armor",
 			"Damage",
-			"Move Speed",
+			"Speed",
 			"Attack Speed",
 			"Attack Arc",
 			"Range",
 			"Critical Chance",
-			"Critical Damage"
+			"Critical Damage",
+			"Poison Chance",
+			"Burn Chance",
+			"Freeze Chance",
+			"Health Regen"
 		};
 
 		[SerializeField] private List<Stat> baseStats = new List<Stat>();
