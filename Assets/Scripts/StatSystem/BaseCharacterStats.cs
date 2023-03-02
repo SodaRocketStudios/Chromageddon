@@ -9,7 +9,6 @@ namespace SRS.StatSystem
 		private static List<string> stats = new List<string>()
 		{
 			"Health",
-			"Shield",
 			"Armor",
 			"Damage",
 			"Speed",
