@@ -6,6 +6,7 @@ using SRS.StatSystem;
 using SRS.Health;
 using SRS.StatusEffects;
 using SRS.Extensions.Random;
+using SRS.Curves;
 
 namespace SRS.TopDownCharacterControl.AttackSystem
 {
@@ -19,32 +20,44 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		private StatusEffectTracker effectTracker;
 		private System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
 
+		private CharacterStats characterStats;
+
+		private SigmoidCurve armorCurve = new SigmoidCurve(2, 1, 1, .05f);
+
 		private void Awake()
 		{
 			healthManager = GetComponent<HealthManager>();
 			effectTracker = GetComponent<StatusEffectTracker>();
+			characterStats = GetComponent<CharacterStats>();
 		}
 
-		public void HandleHit(CharacterStats characterStats)
-		{
-			float Damage = characterStats["Damage"];
+		public void HandleHit(CharacterStats attackerStats)
+        {
+			healthManager.Damage(CalculateDamage(attackerStats));
 
-			Damage *= random.NextFloat() <= characterStats["Critical Chance"] ? characterStats["Critical Damage"] : 1;
+            if (healthManager.CurrentHealth <= 0) return;
 
-			healthManager.Damage(Damage);
+            OnHitEvent?.Invoke();
 
-			if(healthManager.CurrentHealth <= 0) return;
+            // foreach(StatusEffect effect in StatusEffectDatabase.Instance.StatusEffects())
+            // {
+            // 	if(random.NextFloat() <= attackStats[effect.ProcStat].Value)
+            // 	{
+            // 		effect.Apply(gameObject);
+            // 	}
+            // }
 
-			OnHitEvent?.Invoke();
+        }
 
-			// foreach(StatusEffect effect in StatusEffectDatabase.Instance.StatusEffects())
-			// {
-			// 	if(random.NextFloat() <= attackStats[effect.ProcStat].Value)
-			// 	{
-			// 		effect.Apply(gameObject);
-			// 	}
-			// }
+        private float CalculateDamage(CharacterStats attackerStats)
+        {
+            float Damage = attackerStats["Damage"];
+            float damageModifier = 1 - armorCurve.Sample(characterStats["Armor"]);
 
-		}
+            Damage *= random.NextFloat() <= attackerStats["Critical Chance"] ? attackerStats["Critical Damage"] : 1;
+            Damage *= damageModifier;
+
+            return Mathf.Min(Damage, 1);
+        }
 	}
 }

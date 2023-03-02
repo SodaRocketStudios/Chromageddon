@@ -3,8 +3,7 @@
     "rootNamespace": "SRS.Health",
     "references": [
         "GUID:c13dd715b8d691d46a082b62b2c28be7",
-        "GUID:585fb7ad954cbf0448b961d93b501b32",
-        "GUID:f990f83fa5906b846aee044f5b2bed57"
+        "GUID:585fb7ad954cbf0448b961d93b501b32"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
