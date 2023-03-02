@@ -10,8 +10,9 @@ namespace SRS.ItemSystem
 	{
 		public static ItemSelectionPanel Instance;
 
-		[SerializeField]
-		private GameObject buttonPrefab;
+		[SerializeField] private GameObject buttonPrefab;
+
+		[SerializeField] private GameObject skipButton;
 
 		private Image background;
 
@@ -28,7 +29,7 @@ namespace SRS.ItemSystem
 				Destroy(gameObject);
 			}
 
-			background = GetComponent<Image>();
+			background = GetComponentInParent<Image>();
 		}
 
 		public void GenerateSelectionPanel(List<Item> items, Inventory targetInventory)
@@ -36,6 +37,7 @@ namespace SRS.ItemSystem
 			Game.Instance.Pause();
 
 			background.enabled = true;
+			skipButton.SetActive(true);
 
 			foreach(Item item in items)
 			{
@@ -56,9 +58,10 @@ namespace SRS.ItemSystem
 			}
 		}
 
-		private void DisableSelectionPanel()
+		public void DisableSelectionPanel()
 		{
 			background.enabled = false;
+			skipButton.SetActive(false);
 
 			foreach(GameObject button in buttons)
 			{
