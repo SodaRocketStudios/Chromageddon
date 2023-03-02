@@ -1,6 +1,7 @@
 using UnityEngine;
 using SRS.StatSystem;
 using SRS.Extensions;
+using SRS.Curves;
 
 namespace SRS.Health
 {
@@ -13,6 +14,8 @@ namespace SRS.Health
 		public GameObjectEvent OnDeath;
 
 		private CharacterStats characterStats;
+
+		private SigmoidCurve armorCurve = new SigmoidCurve(2, 1, 1, .05f);
 
 		private void Start()
 		{
@@ -28,7 +31,11 @@ namespace SRS.Health
 
 		public void Damage(float amount)
 		{
-			// TO DO handle armor
+			float damageModifier = armorCurve.Sample(characterStats["Armor"]);
+			amount -= amount*damageModifier;
+
+			amount = Mathf.Min(amount, 1);
+
 			AlterHealth(-amount);
 		}
 
