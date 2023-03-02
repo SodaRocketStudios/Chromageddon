@@ -6,6 +6,14 @@ namespace SRS.StatSystem
 	public class CharacterStats : MonoBehaviour
 	{
 		[SerializeField] private BaseCharacterStats baseStats;
+		public BaseCharacterStats BaseStats
+		{
+			set
+			{
+				baseStats = value;
+				InitializeStats();
+			}
+		}
 
 		private Dictionary<string, Stat> stats = new Dictionary<string, Stat>();
 		public float this[string key]
