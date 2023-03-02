@@ -17,7 +17,7 @@ namespace SRS.Curves
 			this.k = growthRate;
 		}
 
-		public float Sample(float x)
+		public float Evaluate(float x)
 		{
 			return L/(1 + Mathf.Exp(-k * (x - x0))) - y0;
 		}

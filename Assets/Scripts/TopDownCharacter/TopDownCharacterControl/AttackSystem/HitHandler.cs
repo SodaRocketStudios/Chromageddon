@@ -52,7 +52,7 @@ namespace SRS.TopDownCharacterControl.AttackSystem
         private float CalculateDamage(CharacterStats attackerStats)
         {
             float Damage = attackerStats["Damage"];
-            float damageModifier = 1 - armorCurve.Sample(characterStats["Armor"]);
+            float damageModifier = 1 - armorCurve.Evaluate(characterStats["Armor"]);
 
             Damage *= random.NextFloat() <= attackerStats["Critical Chance"] ? attackerStats["Critical Damage"] : 1;
             Damage *= damageModifier;

@@ -1,7 +1,9 @@
 {
     "name": "GameManager",
     "rootNamespace": "SRS.GameManager",
-    "references": [],
+    "references": [
+        "GUID:f990f83fa5906b846aee044f5b2bed57"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
