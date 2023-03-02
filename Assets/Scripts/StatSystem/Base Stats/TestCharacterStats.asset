@@ -16,30 +16,70 @@ MonoBehaviour:
   - name: Armor
     baseValue: 0
     percentageModifier: 100
+    hasCap: 0
+    cap: 0
   - name: Attack Arc
     baseValue: 1
     percentageModifier: 100
+    hasCap: 0
+    cap: 0
   - name: Attack Speed
     baseValue: 1
     percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Burn Chance
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
   - name: Critical Chance
     baseValue: 1
     percentageModifier: 0
+    hasCap: 0
+    cap: 0
   - name: Critical Damage
     baseValue: 1
     percentageModifier: 200
+    hasCap: 0
+    cap: 0
   - name: Damage
     baseValue: 1
     percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Freeze Chance
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
   - name: Health
     baseValue: 1
     percentageModifier: 100
-  - name: Move Speed
-    baseValue: 5
+    hasCap: 0
+    cap: 0
+  - name: Health Regen
+    baseValue: 1
     percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Poison Chance
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
   - name: Range
     baseValue: 20
     percentageModifier: 100
+    hasCap: 0
+    cap: 0
   - name: Shield
     baseValue: 0
     percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Speed
+    baseValue: 5
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0

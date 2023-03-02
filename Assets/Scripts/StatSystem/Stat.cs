@@ -22,8 +22,10 @@ namespace SRS.StatSystem
 		[SerializeField] private float percentageModifier;
 
 		[SerializeField] private bool hasCap = false;
+		public bool HasCap { get {return hasCap;} }
 
 		[SerializeField] private float cap = 0;
+		public float ValueCap { get {return cap;} }
 
 		private bool isDirty = true;
 
