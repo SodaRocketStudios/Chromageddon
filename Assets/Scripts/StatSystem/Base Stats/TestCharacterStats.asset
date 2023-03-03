@@ -73,11 +73,6 @@ MonoBehaviour:
     percentageModifier: 100
     hasCap: 0
     cap: 0
-  - name: Shield
-    baseValue: 0
-    percentageModifier: 100
-    hasCap: 0
-    cap: 0
   - name: Speed
     baseValue: 5
     percentageModifier: 100
