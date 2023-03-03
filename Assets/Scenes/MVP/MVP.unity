@@ -1643,8 +1643,8 @@ GameObject:
   m_Component:
   - component: {fileID: 605478003}
   - component: {fileID: 605478006}
-  - component: {fileID: 605478005}
   - component: {fileID: 605478004}
+  - component: {fileID: 605478005}
   m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
@@ -1686,7 +1686,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &605478005
 BoxCollider2D:
@@ -2810,31 +2810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c5979785abd840853354f90f8bd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.1
-      inSlope: 0.0076767784
-      outSlope: 0.0076767784
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.18437153
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2.3957746
-      outSlope: 2.3957746
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.03248632
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  secondsToMaxDifficulty: 10
+  secondsToMaxDifficulty: 900
 --- !u!114 &1024486823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3752,7 +3728,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600948667}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -3764,7 +3740,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &1600948679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4503,8 +4479,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1913670735}
   - component: {fileID: 1913670738}
-  - component: {fileID: 1913670737}
   - component: {fileID: 1913670736}
+  - component: {fileID: 1913670737}
   m_Layer: 6
   m_Name: Wall (3)
   m_TagString: Untagged
@@ -4733,8 +4709,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1947541185}
   - component: {fileID: 1947541188}
-  - component: {fileID: 1947541187}
   - component: {fileID: 1947541186}
+  - component: {fileID: 1947541187}
   m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Untagged
