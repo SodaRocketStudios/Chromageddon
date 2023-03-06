@@ -19,6 +19,8 @@ namespace SRS.TopDownCharacterControl
 		[SerializeField] private Vector2 colliderOffset = Vector2.zero;
 		public Vector2 ColliderOffset { get { return colliderOffset; } }
 
+		private float skinWidth = .25f;
+
 		private void Awake()
 		{
 			characterStats = GetComponent<CharacterStats>();
@@ -60,9 +62,22 @@ namespace SRS.TopDownCharacterControl
 		{
 			RaycastHit2D[] hits = new RaycastHit2D[5];
 
-			if(collider2d.Cast(direction, hits, characterStats["Speed"]*Time.fixedDeltaTime) > 0)
+			if(collider2d.Cast(direction, hits, skinWidth) <= 0)
 			{
-				return true;
+				return false;
+			}
+
+			foreach(RaycastHit2D hit in hits)
+			{
+				if(hit.collider == null)
+				{
+					continue;
+				}
+
+				if(hit.collider.isTrigger == false)
+				{
+					return true;
+				}
 			}
 
 			return false;
