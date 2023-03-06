@@ -670,7 +670,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6429288, y: 1}
+    m_SensorSize: {x: 1.6389167, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3586,7 +3586,7 @@ GameObject:
   - component: {fileID: 1600948683}
   - component: {fileID: 1600948670}
   - component: {fileID: 1600948678}
-  - component: {fileID: 1600948669}
+  - component: {fileID: 1600948685}
   m_Layer: 3
   m_Name: Player Avatar
   m_TagString: Player
@@ -3606,22 +3606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282a2472f3917fb438f4440da4cc10fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &1600948669
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600948667}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.75
+  colliderRadius: 0.75
 --- !u!212 &1600948670
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3728,7 +3713,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600948667}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -3834,6 +3819,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats: {fileID: 11400000, guid: 6578a6e654f0b694b9730b7307a7f1f7, type: 2}
+--- !u!58 &1600948685
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600948667}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.75
 --- !u!1 &1631681913
 GameObject:
   m_ObjectHideFlags: 0

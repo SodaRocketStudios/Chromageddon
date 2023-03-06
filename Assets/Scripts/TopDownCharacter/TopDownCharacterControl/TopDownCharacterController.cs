@@ -9,14 +9,20 @@ namespace SRS.TopDownCharacterControl
 
 		public Vector2 LookTarget{get; set;}
 
-		private Rigidbody2D rb;
+		private Rigidbody2D body;
 
 		private CharacterStats characterStats;
+
+		private CircleCollider2D collider2d;
+		[SerializeField] private float colliderRadius = 1;
 
 		private void Awake()
 		{
 			characterStats = GetComponent<CharacterStats>();
-			rb = GetComponent<Rigidbody2D>();
+			body = GetComponent<Rigidbody2D>();
+
+			collider2d = gameObject.AddComponent<CircleCollider2D>();
+			collider2d.radius = colliderRadius;
 		}
 
 		private void Update()
@@ -31,8 +37,31 @@ namespace SRS.TopDownCharacterControl
 
 		private void Move()
 		{
-			rb.velocity = MoveDirection*characterStats["Speed"];
-			// rb.MovePosition(rb.position + MoveDirection*characterStats["Speed"]*Time.fixedDeltaTime);
+			Vector2 newPosition = MoveDirection*characterStats["Speed"]*Time.fixedDeltaTime;
+
+			if(CollisionCheck(Vector2.right*newPosition.x))
+			{
+				newPosition = new Vector2(0, newPosition.y);
+			}
+
+			if(CollisionCheck(Vector2.up*newPosition.y))
+			{
+				newPosition = new Vector2(newPosition.x, 0);
+			}
+
+			body.MovePosition(body.position + newPosition);
+		}
+
+		private bool CollisionCheck(Vector2 direction)
+		{
+			RaycastHit2D[] hits = new RaycastHit2D[5];
+
+			if(collider2d.Cast(direction, hits, characterStats["Speed"]*Time.fixedDeltaTime) > 0)
+			{
+				return true;
+			}
+
+			return false;
 		}
 
 		private void LookAtTarget()
