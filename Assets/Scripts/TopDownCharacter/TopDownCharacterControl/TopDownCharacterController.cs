@@ -15,6 +15,9 @@ namespace SRS.TopDownCharacterControl
 
 		private CircleCollider2D collider2d;
 		[SerializeField] private float colliderRadius = 1;
+		public float ColliderRadius { get { return colliderRadius; } }
+		[SerializeField] private Vector2 colliderOffset = Vector2.zero;
+		public Vector2 ColliderOffset { get { return colliderOffset; } }
 
 		private void Awake()
 		{
@@ -23,6 +26,7 @@ namespace SRS.TopDownCharacterControl
 
 			collider2d = gameObject.AddComponent<CircleCollider2D>();
 			collider2d.radius = colliderRadius;
+			collider2d.offset = colliderOffset;
 		}
 
 		private void Update()
