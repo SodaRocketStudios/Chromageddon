@@ -3,8 +3,9 @@
     "rootNamespace": "SRS.enemySpawner",
     "references": [
         "GUID:447e7cd4516158d48a5080202b88b604",
-        "GUID:585fb7ad954cbf0448b961d93b501b32",
-        "GUID:68a5a32df39178d45b4dac4f3ed7651c"
+        "GUID:a49059e9087001f4a9c62b42420121b0",
+        "GUID:68a5a32df39178d45b4dac4f3ed7651c",
+        "GUID:585fb7ad954cbf0448b961d93b501b32"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

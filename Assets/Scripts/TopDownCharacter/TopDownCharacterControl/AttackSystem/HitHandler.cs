@@ -39,8 +39,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
         {
             if(isInvincible) return;
 
-            Debug.Log("Hit");
-
 			healthManager.Damage(CalculateDamage(attackerStats));
 
             if (healthManager.CurrentHealth <= 0) return;

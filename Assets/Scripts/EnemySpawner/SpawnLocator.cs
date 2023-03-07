@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using SRS.Extensions.Random;
 
 namespace SRS.EnemySpawner
 {
@@ -9,33 +10,32 @@ namespace SRS.EnemySpawner
 
 		private System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
 
-		private int minDistance = 20;
+		private float minDistance = 1;
 
-		private Rect levelBounds;
+		private Bounds levelBounds;
 
-		public SpawnLocator(Transform player, Transform level)
+		public SpawnLocator(Bounds level, float distance)
 		{
-			playerTransform = player;
-
-			levelBounds.size = level.localScale - Vector3.one*5;
-			levelBounds.position = level.position;
+			levelBounds = level;
+			minDistance = distance;
 		}
 
 		public Vector2 GetLocation()
 		{
-			int randomX = random.Next((int)-levelBounds.width/2, (int)levelBounds.width/2) + (int)levelBounds.position.x;
-			int randomY = random.Next((int)-levelBounds.height/2, (int)levelBounds.height/2) + (int)levelBounds.position.y;
+			float randomX = (random.NextFloat() - 0.5f) * levelBounds.size.x + levelBounds.center.x;
+			float randomY = (random.NextFloat() - 0.5f) * levelBounds.size.y + levelBounds.center.y;
 
 			Vector2 position = new Vector2(randomX, randomY);
 
-			if(Vector2.Distance(playerTransform.position, position) < minDistance)
-			{
-				Vector2 direction = (position - (Vector2)playerTransform.position).normalized;
-				position += direction*minDistance;
-			}
+			Collider2D[] colliders = Physics2D.OverlapCircleAll(position, minDistance);
 
-			position.x = Mathf.Clamp(position.x, -levelBounds.width/2, levelBounds.width/2);
-			position.y = Mathf.Clamp(position.y, -levelBounds.height/2, levelBounds.height/2);
+			foreach(Collider2D collider in colliders)
+			{
+				if(collider.isTrigger == false)
+				{
+					position = GetLocation();
+				}
+			}
 
 			return position;
 		}
