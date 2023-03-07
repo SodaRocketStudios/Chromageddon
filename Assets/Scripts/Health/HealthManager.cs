@@ -11,13 +11,9 @@ namespace SRS.Health
 		
 		public float CurrentHealth {get; private set;}
 
-		[SerializeField] private float damagePauseTime;
-
 		public GameObjectEvent OnDeath;
 
 		private CharacterStats characterStats;
-
-		private bool isInvincible;
 
 		private void Start()
 		{
@@ -33,14 +29,7 @@ namespace SRS.Health
 
 		public void Damage(float amount)
 		{
-			if(isInvincible) return;
-
 			AlterHealth(-amount);
-
-			if(damagePauseTime > 0)
-			{
-				InvincibilityTime();
-			}
 		}
 
 		public void Heal(float amount)
@@ -64,15 +53,6 @@ namespace SRS.Health
 			{
 				CurrentHealth = characterStats["Health"];
 			}
-		}
-
-		private async void InvincibilityTime()
-		{
-			isInvincible = true; 
-
-			await Task.Delay((int)(damagePauseTime*1000));
-
-			isInvincible = false;
 		}
 	}
 }

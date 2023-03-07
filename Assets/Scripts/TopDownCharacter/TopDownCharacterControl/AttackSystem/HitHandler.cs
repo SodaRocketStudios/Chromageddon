@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using SRS.StatSystem;
@@ -15,6 +16,9 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 	{
 		public delegate void OnHitHandler(Dictionary<string, Stat> attackStats);
 		public UnityEvent OnHitEvent;
+
+        [SerializeField] private float damagePauseTime;
+        private bool isInvincible = false;
 
 		private HealthManager healthManager;
 		private StatusEffectTracker effectTracker;
@@ -33,6 +37,8 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		public void HandleHit(CharacterStats attackerStats)
         {
+            if(isInvincible) return;
+
 			healthManager.Damage(CalculateDamage(attackerStats));
 
             if (healthManager.CurrentHealth <= 0) return;
@@ -47,6 +53,10 @@ namespace SRS.TopDownCharacterControl.AttackSystem
             // 	}
             // }
 
+            if(damagePauseTime > 0)
+			{
+				InvincibilityTime();
+			}
         }
 
         private float CalculateDamage(CharacterStats attackerStats)
@@ -59,5 +69,14 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
             return Mathf.Min(Damage, 1);
         }
+
+        private async void InvincibilityTime()
+		{
+			isInvincible = true; 
+
+			await Task.Delay((int)(damagePauseTime*1000));
+
+			isInvincible = false;
+		}
 	}
 }
