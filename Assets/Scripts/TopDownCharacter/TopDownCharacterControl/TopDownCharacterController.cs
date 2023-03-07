@@ -75,7 +75,17 @@ namespace SRS.TopDownCharacterControl
 			return false;
 		}
 
-		private void LookAtTarget()
+		private void OnCollisionStay2D(Collision2D other)
+        {
+            Nudge(other.collider.ClosestPoint(body.position) - collider2d.ClosestPoint(other.rigidbody.position));
+        }
+
+        private void Nudge(Vector2 nudgeVector)
+        {
+            body.position += nudgeVector;
+        }
+
+        private void LookAtTarget()
 		{
 			Vector2 directionVector = LookTarget - (Vector2)transform.position;
 

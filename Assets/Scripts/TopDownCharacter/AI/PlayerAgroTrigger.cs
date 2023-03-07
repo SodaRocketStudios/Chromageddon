@@ -34,5 +34,5 @@ namespace SRS.TopDownCharacterControl.AI
 				brain.ClearTarget();
 			}
 		}
-	}
+    }
 }

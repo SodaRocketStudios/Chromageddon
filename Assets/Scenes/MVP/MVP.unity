@@ -3607,7 +3607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderRadius: 0.75
   colliderOffset: {x: 0, y: 0}
-  skinWidth: 0.5
+  skinWidth: 0.25
 --- !u!212 &1600948670
 SpriteRenderer:
   m_ObjectHideFlags: 0
