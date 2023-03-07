@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 346560713}
   - component: {fileID: 346560712}
   - component: {fileID: 346560714}
+  - component: {fileID: 346560715}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -732,6 +733,21 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   decaySpeed: 1
+--- !u!114 &346560715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346560711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoundingShape2D: {fileID: 770342397}
+  m_Damping: 5
+  m_MaxWindowSize: -1
 --- !u!1 &348155332
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,6 +2377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 770342396}
+  - component: {fileID: 770342397}
   m_Layer: 0
   m_Name: Play Area
   m_TagString: Untagged
@@ -2383,6 +2400,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &770342397
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770342395}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.5}
+      - {x: 0.5, y: 0.5}
+      - {x: 0.5, y: -0.5}
+      - {x: -0.5, y: -0.5}
 --- !u!1 &821680724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3794,6 +3840,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damagePauseTime: 0.2
 --- !u!114 &1600948683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4981,7 +5028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026122572}
   m_LocalRotation: {x: -0.0078098294, y: -0.0009020075, z: 0.0000070159294, w: -0.9999691}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.018036269, y: 0.15617259, z: -9.997528}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
