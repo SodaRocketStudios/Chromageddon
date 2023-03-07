@@ -18,8 +18,8 @@ namespace SRS.TopDownCharacterControl
 		public float ColliderRadius { get { return colliderRadius; } }
 		[SerializeField] private Vector2 colliderOffset = Vector2.zero;
 		public Vector2 ColliderOffset { get { return colliderOffset; } }
-
-		[SerializeField] private float skinWidth = .25f;
+ 
+		[SerializeField] private float skinWidth = 0.1f;
 
 		private void Awake()
 		{
