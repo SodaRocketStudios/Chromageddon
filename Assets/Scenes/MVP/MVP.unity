@@ -671,7 +671,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8547106, y: 1}
+    m_SensorSize: {x: 1.8526077, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2856,7 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c5979785abd840853354f90f8bd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsToMaxDifficulty: 900
+  secondsToMaxDifficulty: 10
 --- !u!114 &1024486823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3653,6 +3653,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderRadius: 0.75
   colliderOffset: {x: 0, y: 0}
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 127
   skinWidth: 0.25
 --- !u!212 &1600948670
 SpriteRenderer:
@@ -4264,8 +4267,8 @@ MonoBehaviour:
   enemyTypes:
   - {fileID: 8182654570200519838, guid: 11a5d54853f85be49ad73f7427a6a8df, type: 3}
   - {fileID: 8254603096282425995, guid: e430164c705755444a111899f1d58023, type: 3}
-  player: {fileID: 1600948671}
-  level: {fileID: 770342396}
+  level: {fileID: 770342397}
+  spawnDistance: 1
   minEnemies: 50
   maxEnemies: 200
   spawnDelay: 2

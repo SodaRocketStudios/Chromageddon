@@ -83,6 +83,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderRadius: 0.75
   colliderOffset: {x: 0, y: 0}
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 119
+  skinWidth: 0.1
 --- !u!114 &1478380300626305955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +148,7 @@ MonoBehaviour:
   OnHitEvent:
     m_PersistentCalls:
       m_Calls: []
+  damagePauseTime: 0
 --- !u!212 &3700749690390286755
 SpriteRenderer:
   m_ObjectHideFlags: 0

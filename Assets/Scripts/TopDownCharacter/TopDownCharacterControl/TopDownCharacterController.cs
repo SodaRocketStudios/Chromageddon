@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using SRS.StatSystem;
 
@@ -14,10 +15,15 @@ namespace SRS.TopDownCharacterControl
 		private CharacterStats characterStats;
 
 		private CircleCollider2D collider2d;
+
 		[SerializeField] private float colliderRadius = 1;
 		public float ColliderRadius { get { return colliderRadius; } }
+
 		[SerializeField] private Vector2 colliderOffset = Vector2.zero;
 		public Vector2 ColliderOffset { get { return colliderOffset; } }
+
+		[SerializeField] private LayerMask collisionMask;
+		private ContactFilter2D contactFilter;
  
 		[SerializeField] private float skinWidth = 0.1f;
 
@@ -29,6 +35,10 @@ namespace SRS.TopDownCharacterControl
 			collider2d = gameObject.AddComponent<CircleCollider2D>();
 			collider2d.radius = colliderRadius;
 			collider2d.offset = colliderOffset;
+
+			contactFilter.layerMask = collisionMask;
+			contactFilter.useLayerMask = true;
+			contactFilter.useTriggers = false;
 		}
 
 		private void Update()
@@ -60,16 +70,9 @@ namespace SRS.TopDownCharacterControl
 
 		private bool CollisionCheck(Vector2 direction)
 		{
-			RaycastHit2D[] hits = new RaycastHit2D[5];
-
-			int numberOfHits = collider2d.Cast(direction, hits, skinWidth);
-
-			for(int i = 0; i < numberOfHits; i++)
+			if(collider2d.Cast(direction, contactFilter, new RaycastHit2D[5], skinWidth) > 0)
 			{
-				if(hits[i].collider.isTrigger == false)
-				{
-					return true;
-				}
+				return true;
 			}
 
 			return false;
@@ -77,7 +80,13 @@ namespace SRS.TopDownCharacterControl
 
 		private void OnCollisionStay2D(Collision2D other)
         {
-            Nudge(other.collider.ClosestPoint(body.position) - collider2d.ClosestPoint(other.rigidbody.position));
+			List<ContactPoint2D> contacts = new List<ContactPoint2D>();
+			body.GetContacts(contactFilter, contacts);
+
+			foreach(ContactPoint2D contact in contacts)
+			{
+				Nudge(-contact.normal*contact.separation);
+			}
         }
 
         private void Nudge(Vector2 nudgeVector)
