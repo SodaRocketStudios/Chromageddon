@@ -13,17 +13,19 @@ namespace SRS.EnemySpawner
 		private float minDistance = 1;
 
 		private Bounds levelBounds;
+		private float buffer;
 
-		public SpawnLocator(Bounds level, float distance)
+		public SpawnLocator(Bounds levelBounds, float buffer, float distance)
 		{
-			levelBounds = level;
-			minDistance = distance;
+			this.levelBounds = levelBounds;
+			this.buffer = buffer;
+			this.minDistance = distance;
 		}
 
 		public Vector2 GetLocation()
 		{
-			float randomX = (random.NextFloat() - 0.5f) * levelBounds.size.x + levelBounds.center.x;
-			float randomY = (random.NextFloat() - 0.5f) * levelBounds.size.y + levelBounds.center.y;
+			float randomX = (random.NextFloat() - 0.5f) * (levelBounds.size.x + buffer) + levelBounds.center.x;
+			float randomY = (random.NextFloat() - 0.5f) * (levelBounds.size.y + buffer) + levelBounds.center.y;
 
 			Vector2 position = new Vector2(randomX, randomY);
 

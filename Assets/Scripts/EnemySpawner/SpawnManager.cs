@@ -13,6 +13,7 @@ namespace SRS.EnemySpawner
 		[SerializeField] private List<GameObject> enemyTypes;
 
 		[SerializeField] private Collider2D level;
+		[SerializeField] private float levelBuffer;
 		[SerializeField] private float spawnDistance;
 
 		[SerializeField] private int minEnemies;
@@ -29,7 +30,7 @@ namespace SRS.EnemySpawner
 
 		private void Start()
 		{
-			spawnLocator = new SpawnLocator(level.bounds, spawnDistance);
+			spawnLocator = new SpawnLocator(level.bounds, levelBuffer, spawnDistance);
 		}
 
 		private void Update()
