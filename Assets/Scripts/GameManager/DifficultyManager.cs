@@ -15,9 +15,9 @@ namespace SRS.GameManager
 		{
 			get
 			{
-				float progress = ChallengeRatingUnclamped;
+				float difficulty = ChallengeRatingUnclamped;
 
-				return difficultyCurve.Evaluate(Mathf.Clamp01(progress));
+				return Mathf.Clamp01(difficulty);
 			}
 		}
 
@@ -26,13 +26,10 @@ namespace SRS.GameManager
 			get
 			{
 				float progress = GameTimer.Instance.Time/secondsToMaxDifficulty;
-				
-				if(progress <= 0)
-				{
-					return 0.01f;
-				}
 
-				return progress;
+				float difficulty = difficultyCurve.Evaluate(progress);
+
+				return Mathf.Max(0.01f, difficulty);
 			}
 		}
 

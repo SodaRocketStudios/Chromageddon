@@ -40,13 +40,15 @@ namespace SRS.EnemySpawner
 			if(GameTimer.Instance.Time >= nextSpawnTime)
 			{
 				SpawnGroup();
-				Debug.Log($"Spawn: {GameTimer.Instance.Time}");
 			}
 		}
 
 		private void SpawnGroup()
 		{
 			int numberToSpawn = (int)Mathf.Min(minGroupSize, Mathf.Round(maxGroupSize*DifficultyManager.Instance.ChallengeRating));
+			Debug.Log(DifficultyManager.Instance.ChallengeRating);
+
+			Debug.Log($"Spawn: {numberToSpawn} at: {GameTimer.Instance.Time}");
 
 			for(int i = 0; i < numberToSpawn; i++)
 			{
