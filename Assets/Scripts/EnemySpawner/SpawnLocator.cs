@@ -29,7 +29,7 @@ namespace SRS.EnemySpawner
 
 			Vector2 position = new Vector2(randomX, randomY);
 
-			Collider2D[] colliders = Physics2D.OverlapCircleAll(position, minDistance);
+			Collider2D[] colliders = Physics2D.OverlapCircleAll(position, minDistance, LayerMask.NameToLayer("Player"));
 
 			foreach(Collider2D collider in colliders)
 			{

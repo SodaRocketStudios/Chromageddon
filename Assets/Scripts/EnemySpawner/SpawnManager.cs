@@ -1,9 +1,9 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using SRS.Health;
 using SRS.Extensions;
 using SRS.GameManager;
-using System;
 
 namespace SRS.EnemySpawner
 {
@@ -14,12 +14,14 @@ namespace SRS.EnemySpawner
 
 		[SerializeField] private Collider2D level;
 		[SerializeField] private float levelBuffer;
-		[SerializeField] private float spawnDistance;
+		[SerializeField] private float minDistanceFromPlayer;
 
-		[SerializeField] private int minEnemies;
+		[SerializeField] private int minGroupSize;
+		[SerializeField] private int maxGroupSize;
+
 		[SerializeField] private int maxEnemies;
 
-		[SerializeField] private float spawnDelay = 5;
+		[SerializeField] private float waveSpawnDelaySeconds = 5;
 		private float nextSpawnTime;
 
 		public GameObjectEvent OnEnemyDeath;
@@ -30,30 +32,20 @@ namespace SRS.EnemySpawner
 
 		private void Start()
 		{
-			spawnLocator = new SpawnLocator(level.bounds, levelBuffer, spawnDistance);
+			spawnLocator = new SpawnLocator(level.bounds, levelBuffer, minDistanceFromPlayer);
+			SpawnLoop();
 		}
 
-		private void Update()
+		private void SpawnGroup()
 		{
-			if(enemyCount < minEnemies*DifficultyManager.Instance.ChallengeRating)
+			int numberToSpawn = (int)Mathf.Min(minGroupSize, Mathf.Round(maxGroupSize*DifficultyManager.Instance.ChallengeRating));
+			Debug.Log(numberToSpawn);
+
+			for(int i = 0; i < numberToSpawn; i++)
 			{
 				SpawnEnemy();
-			}
-
-			if(enemyCount < maxEnemies*DifficultyManager.Instance.ChallengeRating)
-			{
-				TrySpawnEnemy();
 			}
 		}
-
-        private void TrySpawnEnemy()
-        {
-            if(Time.time > nextSpawnTime)
-			{
-				SpawnEnemy();
-				nextSpawnTime += spawnDelay/DifficultyManager.Instance.ChallengeRating;
-			}
-        }
 
         private void SpawnEnemy()
 		{
@@ -77,6 +69,19 @@ namespace SRS.EnemySpawner
 			Destroy(enemy);
 
 			enemyCount--;
+		}
+
+		private async void SpawnLoop()
+		{
+			while(true)
+			{
+				if(GameManager.Game.Instance.Paused)
+				{
+					 await Task.Yield();
+				}
+				await Task.Delay((int)waveSpawnDelaySeconds*1000);
+				SpawnGroup();
+			}
 		}
 	}
 }
