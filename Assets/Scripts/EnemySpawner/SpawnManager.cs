@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using SRS.Health;
 using SRS.Extensions;
@@ -21,7 +20,7 @@ namespace SRS.EnemySpawner
 
 		[SerializeField] private int maxEnemies;
 
-		[SerializeField] private float waveSpawnDelaySeconds = 5;
+		[SerializeField] private float spawnDelaySeconds = 5;
 		private float nextSpawnTime;
 
 		public GameObjectEvent OnEnemyDeath;
@@ -33,18 +32,28 @@ namespace SRS.EnemySpawner
 		private void Start()
 		{
 			spawnLocator = new SpawnLocator(level.bounds, levelBuffer, minDistanceFromPlayer);
-			SpawnLoop();
+			nextSpawnTime = GameTimer.Instance.Time;
+		}
+
+		private void Update()
+		{
+			if(GameTimer.Instance.Time >= nextSpawnTime)
+			{
+				SpawnGroup();
+				Debug.Log($"Spawn: {GameTimer.Instance.Time}");
+			}
 		}
 
 		private void SpawnGroup()
 		{
 			int numberToSpawn = (int)Mathf.Min(minGroupSize, Mathf.Round(maxGroupSize*DifficultyManager.Instance.ChallengeRating));
-			Debug.Log(numberToSpawn);
 
 			for(int i = 0; i < numberToSpawn; i++)
 			{
 				SpawnEnemy();
 			}
+
+			nextSpawnTime = GameTimer.Instance.Time + spawnDelaySeconds;
 		}
 
         private void SpawnEnemy()
@@ -69,19 +78,6 @@ namespace SRS.EnemySpawner
 			Destroy(enemy);
 
 			enemyCount--;
-		}
-
-		private async void SpawnLoop()
-		{
-			while(true)
-			{
-				if(GameManager.Game.Instance.Paused)
-				{
-					 await Task.Yield();
-				}
-				await Task.Delay((int)waveSpawnDelaySeconds*1000);
-				SpawnGroup();
-			}
 		}
 	}
 }
