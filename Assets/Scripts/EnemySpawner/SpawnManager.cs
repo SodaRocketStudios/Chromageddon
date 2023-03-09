@@ -45,7 +45,8 @@ namespace SRS.EnemySpawner
 
 		private void SpawnGroup()
 		{
-			int numberToSpawn = (int)Mathf.Min(minGroupSize, Mathf.Round(maxGroupSize*DifficultyManager.Instance.ChallengeRating));
+			Debug.Log(minGroupSize);
+			int numberToSpawn = (int)Mathf.Max(minGroupSize, Mathf.Round(maxGroupSize*DifficultyManager.Instance.ChallengeRating));
 			Debug.Log(DifficultyManager.Instance.ChallengeRating);
 
 			Debug.Log($"Spawn: {numberToSpawn} at: {GameTimer.Instance.Time}");
