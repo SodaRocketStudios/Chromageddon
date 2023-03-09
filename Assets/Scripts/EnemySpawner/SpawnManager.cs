@@ -21,6 +21,7 @@ namespace SRS.EnemySpawner
 		[SerializeField] private int maxEnemies;
 
 		[SerializeField] private float spawnDelaySeconds = 5;
+		[SerializeField] private float initialSpawnDelay = 1;
 		private float nextSpawnTime;
 
 		public GameObjectEvent OnEnemyDeath;
@@ -32,7 +33,7 @@ namespace SRS.EnemySpawner
 		private void Start()
 		{
 			spawnLocator = new SpawnLocator(level.bounds, levelBuffer, minDistanceFromPlayer);
-			nextSpawnTime = GameTimer.Instance.Time;
+			nextSpawnTime = GameTimer.Instance.Time + initialSpawnDelay;
 		}
 
 		private void Update()

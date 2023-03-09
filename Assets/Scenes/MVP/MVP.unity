@@ -671,7 +671,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8399546, y: 1}
+    m_SensorSize: {x: 1.8325791, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2856,7 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c5979785abd840853354f90f8bd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsToMaxDifficulty: 10
+  secondsToMaxDifficulty: 900
 --- !u!114 &1024486823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4273,7 +4273,8 @@ MonoBehaviour:
   minGroupSize: 4
   maxGroupSize: 25
   maxEnemies: 200
-  waveSpawnDelaySeconds: 5
+  spawnDelaySeconds: 5
+  initialSpawnDelay: 1
   OnEnemyDeath:
     m_PersistentCalls:
       m_Calls:
