@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
+using SRS.TopDownCharacterControl;
 
 namespace SRS.TopDownCharacterControl.AI
 {
@@ -10,57 +9,30 @@ namespace SRS.TopDownCharacterControl.AI
 		[SerializeField] private float challengeRating;
 		public float ChallengeRating { get {return challengeRating;} }
 
-		[SerializeField] private float detectionRadius;
-		public float DetectionRadiusSquared => detectionRadius;
-
 		[SerializeField] private float attackRadius;
-		public float AttackRadiusSquared => attackRadius;
+		public float AttackRadiusSquared { get; private set;}
 
-		[SerializeField] private float fleeRadius;
-		public float FleeRadiusSquared => fleeRadius;
+		private TopDownCharacterController controller;
 
 		private Transform target;
 		public Transform Target => target;
 
-		private AIState currentState;
-
-		private Dictionary<Type, AIState> states;
-
 		private void Awake()
 		{
-			states = new Dictionary<Type, AIState>()
-			{
-				{typeof(RoamState), new RoamState(gameObject)},
-				{typeof(ChaseState), new ChaseState(gameObject)},
-				{typeof(AttackState), new AttackState(gameObject)},
-				{typeof(FleeState), new FleeState(gameObject)}
-			};
+			controller = GetComponent<TopDownCharacterController>();
 
-			detectionRadius *= detectionRadius;
-			attackRadius *= attackRadius;
-			fleeRadius *=fleeRadius;
-		}
-
-		private void OnEnable()
-		{
-			currentState = states[typeof(RoamState)];
+			AttackRadiusSquared = Mathf.Pow(attackRadius, 2);
 		}
 
 		private void Update()
 		{
-			Type nextState = currentState.Tick();
-
-			if(states[nextState] != currentState)
+			if(target == null)
 			{
-				currentState.Exit();
+				return;
 			}
 
-			currentState = states[nextState];
-		}
-
-		private void OnDisable()
-		{
-			currentState.Exit();
+			MoveTowardTarget();
+			LookAtTarget();
 		}
 
 		public void SetTarget(Transform target)
@@ -71,6 +43,17 @@ namespace SRS.TopDownCharacterControl.AI
 		public void ClearTarget()
 		{
 			target = null;
+		}
+
+		private void MoveTowardTarget()
+		{
+			Vector2 direction = (target.position - transform.position).normalized;
+			controller.MoveDirection = direction;
+		}
+
+		protected void LookAtTarget()
+		{
+			controller.LookTarget = target.position;
 		}
 	}
 }
