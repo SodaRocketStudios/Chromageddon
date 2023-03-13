@@ -53,7 +53,7 @@ namespace SRS.TopDownCharacterControl
 
 		private void Move()
 		{
-			Vector2 newPosition = MoveDirection*characterStats["Speed"]*Time.fixedDeltaTime;
+			Vector2 newPosition = MoveDirection.normalized*characterStats["Speed"]*Time.fixedDeltaTime;
 
 			if(CollisionCheck(Vector2.right*newPosition.x))
 			{

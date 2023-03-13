@@ -47,7 +47,7 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private void MoveTowardTarget()
 		{
-			Vector2 direction = (target.position - transform.position).normalized;
+			Vector2 direction = (target.position - transform.position);
 			controller.MoveDirection = direction;
 		}
 
