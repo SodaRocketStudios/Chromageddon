@@ -65,10 +65,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbac964c6364a304c85180dec37aea81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  states:
+  - maxRange: 0
   challengeRating: 0
-  detectionRadius: 20
   attackRadius: 10
-  fleeRadius: 0
 --- !u!114 &5630012105992884220
 MonoBehaviour:
   m_ObjectHideFlags: 0
