@@ -25,8 +25,6 @@ namespace SRS.TopDownCharacterControl.AI
 		{
 			controller = GetComponent<TopDownCharacterController>();
 
-			AttackRadiusSquared = Mathf.Pow(attackRadius, 2);
-
 			attackManager = GetComponent<AttackManager>();
 		}
 
