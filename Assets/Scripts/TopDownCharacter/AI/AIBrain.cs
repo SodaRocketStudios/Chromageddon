@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
-using SRS.Extensions.Vector;
 using SRS.TopDownCharacterControl.AttackSystem;
+using SRS.Extensions.Vector;
 
 namespace SRS.TopDownCharacterControl.AI
 {
@@ -13,6 +14,8 @@ namespace SRS.TopDownCharacterControl.AI
 		[SerializeField] private float attackRadius;
 		public float AttackRadiusSquared { get; private set;}
 
+		[SerializeField] private List<State> states = new List<State>();
+
 		private TopDownCharacterController controller;
 		public TopDownCharacterController Controller => controller;
 
@@ -22,7 +25,7 @@ namespace SRS.TopDownCharacterControl.AI
 		private Transform target;
 		public Transform Target => target;
 
-		private State currentState;
+		private int currentStateIndex;
 
 		private void Awake()
 		{
@@ -35,16 +38,21 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private void Update()
 		{
-			if(currentState != null)
+			if(states[currentStateIndex] != null)
 			{
-				State nextState = currentState.Execute(this);
-
-				if(nextState != currentState)
+				float distanceToTarget = VectorExtensions.SquareDistance(target.position, transform.position);
+				if(distanceToTarget > states[currentStateIndex].SquaredRadius)
 				{
-					currentState.Exit(this);
-					currentState = nextState;
-					currentState.Enter(this);
+					currentStateIndex += -1;
+					currentStateIndex = Mathf.Max(0, currentStateIndex);
 				}
+				else if(distanceToTarget < states[currentStateIndex - 1].SquaredRadius)
+				{
+					currentStateIndex += 1;
+					currentStateIndex = Mathf.Min(states.Count - 1, currentStateIndex);
+				}
+
+				states[currentStateIndex].Execute(this);
 			}
 		}
 

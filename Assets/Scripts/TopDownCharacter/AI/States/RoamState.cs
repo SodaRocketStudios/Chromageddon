@@ -18,7 +18,7 @@ namespace SRS.TopDownCharacterControl.AI
             FindRandomTarget();
         }
 
-        public override State Execute(AIBrain brain)
+        public override int Execute(AIBrain brain)
         {
             if(VectorExtensions.SquareDistance(brain.transform.position, target) < maxDeviationSquared)
 			{
@@ -27,7 +27,7 @@ namespace SRS.TopDownCharacterControl.AI
 
 			brain.MoveToward(target);
 
-			return this;
+			return 0;
         }
 
         public override void Exit(AIBrain brain)
