@@ -7,13 +7,7 @@ namespace SRS.TopDownCharacterControl.AI
 {
 	[RequireComponent(typeof(TopDownCharacterController))]
 	public class AIBrain : MonoBehaviour
-	{	
-		[SerializeField] private float challengeRating;
-		public float ChallengeRating { get {return challengeRating;} }
-
-		[SerializeField] private float attackRadius;
-		public float AttackRadiusSquared { get; private set;}
-
+	{
 		[SerializeField] private List<State> states = new List<State>();
 
 		private TopDownCharacterController controller;
