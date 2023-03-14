@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using SRS.Extensions.Vector;
 using SRS.TopDownCharacterControl.AttackSystem;
@@ -8,10 +6,7 @@ namespace SRS.TopDownCharacterControl.AI
 {
 	[RequireComponent(typeof(TopDownCharacterController))]
 	public class AIBrain : MonoBehaviour
-	{
-		[SerializeField] private List<State> states = new List<State>();
-		private Dictionary<Type, State> stateDict = new Dictionary<Type, State>();
-		
+	{	
 		[SerializeField] private float challengeRating;
 		public float ChallengeRating { get {return challengeRating;} }
 
@@ -19,8 +14,10 @@ namespace SRS.TopDownCharacterControl.AI
 		public float AttackRadiusSquared { get; private set;}
 
 		private TopDownCharacterController controller;
+		public TopDownCharacterController Controller => controller;
 
 		private AttackManager attackManager;
+		public AttackManager AttackManager => attackManager;
 
 		private Transform target;
 		public Transform Target => target;
@@ -34,13 +31,21 @@ namespace SRS.TopDownCharacterControl.AI
 			AttackRadiusSquared = Mathf.Pow(attackRadius, 2);
 
 			attackManager = GetComponent<AttackManager>();
-
-			currentState = states[0];
 		}
 
 		private void Update()
 		{
-			currentState = stateDict[currentState.Execute(transform.position)];
+			if(currentState != null)
+			{
+				State nextState = currentState.Execute(this);
+
+				if(nextState != currentState)
+				{
+					currentState.Exit(this);
+					currentState = nextState;
+					currentState.Enter(this);
+				}
+			}
 		}
 
 		public void SetTarget(Transform target)
@@ -51,6 +56,16 @@ namespace SRS.TopDownCharacterControl.AI
 		public void ClearTarget()
 		{
 			target = null;
+		}
+
+		public void MoveToward(Vector2 position)
+		{
+			controller.MoveDirection = position - (Vector2)transform.position;
+		}
+
+		public void LookAt(Vector2 position)
+		{
+			controller.LookTarget = position;
 		}
 	}
 }

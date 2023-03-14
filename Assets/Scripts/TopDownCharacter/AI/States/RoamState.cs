@@ -9,37 +9,35 @@ namespace SRS.TopDownCharacterControl.AI
     {
 		[SerializeField] private float maxDeviationFromTarget;
 		private float maxDeviationSquared;
-		private Vector2 randomTarget;
+		private Vector2 target;
 
 		private System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
 
-		public override void Initiailize(TopDownCharacterController controller, Transform target)
+        public override void Enter(AIBrain brain)
+        {
+            FindRandomTarget();
+        }
+
+        public override State Execute(AIBrain brain)
+        {
+            if(VectorExtensions.SquareDistance(brain.transform.position, target) < maxDeviationSquared)
+			{
+				FindRandomTarget();
+			}
+
+			brain.MoveToward(target);
+
+			return this;
+        }
+
+        public override void Exit(AIBrain brain)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void FindRandomTarget()
 		{
-			base.Initiailize(controller, target);
-			maxDeviationSquared = Mathf.Pow(maxDeviationFromTarget, 2);
-		}
-
-        // protected override Type TickState(Vector2 position)
-        // {
-		// 	if(VectorExtensions.SquareDistance(position, target.position) < squaredRange)
-		// 	{
-		// 		return nextState.GetType();
-		// 	}
-
-		// 	if(VectorExtensions.SquareDistance(position, randomTarget) <= maxDeviationSquared)
-		// 	{
-		// 		FindRandomTarget();
-		// 	}
-
-		// 	MoveTowardTarget(position);
-		// 	LookAtTarget();
-
-        //     return this.GetType();
-        // }
-
-		private void FindRandomTarget()
-		{
-			randomTarget = new Vector2(random.NextFloat(), random.NextFloat());
+			target = new Vector2(random.NextFloat(), random.NextFloat());
 		}
     }
 }
