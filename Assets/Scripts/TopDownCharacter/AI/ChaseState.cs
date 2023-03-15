@@ -11,6 +11,11 @@ namespace SRS.TopDownCharacterControl.AI
 
         public override void Execute(AIBrain brain)
         {
+			if(brain.Target == null)
+			{
+				return;
+			}
+			
             brain.MoveToward(brain.Target.position);
 			brain.LookAt(brain.Target.position);
         }
