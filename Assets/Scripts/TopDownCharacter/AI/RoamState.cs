@@ -32,6 +32,7 @@ namespace SRS.TopDownCharacterControl.AI
 
         public override void Exit(AIBrain brain)
         {
+            brain.StopMoving();
         }
 
         private Vector2 FindRandomTarget()

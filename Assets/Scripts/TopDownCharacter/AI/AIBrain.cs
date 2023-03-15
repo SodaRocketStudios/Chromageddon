@@ -89,5 +89,10 @@ namespace SRS.TopDownCharacterControl.AI
 		{
 			controller.LookTarget = position;
 		}
+
+		public void StopMoving()
+		{
+			controller.MoveDirection = Vector2.zero;
+		}
 	}
 }

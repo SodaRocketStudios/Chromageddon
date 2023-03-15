@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace SRS.TopDownCharacterControl.AI
 {
-    [CreateAssetMenu(fileName = "New Chase State", menuName = "AI/State/Chase State")]
-    public class ChaseState : State
+	[CreateAssetMenu(fileName = "New Flee State", menuName = "AI/State/Flee State")]
+    public class FleeState : State
     {
         public override void Enter(AIBrain brain)
         {
@@ -11,13 +11,9 @@ namespace SRS.TopDownCharacterControl.AI
 
         public override void Execute(AIBrain brain)
         {
-			if(brain.Target == null)
-			{
-				return;
-			}
-
-            brain.MoveToward(brain.Target.position);
-			brain.LookAt(brain.Target.position);
+            Vector2 targetPosition = 2 * brain.transform.position - brain.Target.position;
+			brain.MoveToward(targetPosition);
+			brain.LookAt(targetPosition);
         }
 
         public override void Exit(AIBrain brain)
