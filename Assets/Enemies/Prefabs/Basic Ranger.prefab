@@ -66,9 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - maxRange: 0
-  challengeRating: 0
-  attackRadius: 10
+  - {fileID: 11400000, guid: 428960d234744c84b94b8a677902b397, type: 2}
+  - {fileID: 11400000, guid: 856c92e29b9ab0b49863def578362b82, type: 2}
 --- !u!114 &5630012105992884220
 MonoBehaviour:
   m_ObjectHideFlags: 0
