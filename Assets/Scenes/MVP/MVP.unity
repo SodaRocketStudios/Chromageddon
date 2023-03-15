@@ -4266,7 +4266,6 @@ MonoBehaviour:
   baseEnemy: {fileID: 4462350641060120319, guid: 8700d7c419ac4d14b89665df706e083f, type: 3}
   enemyTypes:
   - {fileID: 8182654570200519838, guid: 11a5d54853f85be49ad73f7427a6a8df, type: 3}
-  - {fileID: 8254603096282425995, guid: e430164c705755444a111899f1d58023, type: 3}
   level: {fileID: 770342397}
   levelBuffer: -1
   minDistanceFromPlayer: 5

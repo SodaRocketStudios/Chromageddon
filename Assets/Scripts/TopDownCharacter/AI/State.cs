@@ -4,10 +4,10 @@ using UnityEngine;
 namespace SRS.TopDownCharacterControl.AI
 {
 	[Serializable]
-	public abstract class State
+	public abstract class State : ScriptableObject
 	{
 		[SerializeField] private float radius;
-		public float SquaredRadius { get; private set; }
+		public float SquaredRadius => Mathf.Pow(radius, 2);
 
 		public abstract void Enter(AIBrain brain);
 
