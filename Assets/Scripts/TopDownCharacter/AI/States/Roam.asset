@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Roam
   m_EditorClassIdentifier: 
   radius: 0
-  maxDeviationFromTarget: 5
+  maxDeviationFromTarget: 1
+  environmentLayer:
+    serializedVersion: 2
+    m_Bits: 64

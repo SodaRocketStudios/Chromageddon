@@ -11,19 +11,27 @@ namespace SRS.TopDownCharacterControl.AI
 		[SerializeField] private float maxDeviationFromTarget;
 		private float maxDeviationSquared => Mathf.Pow(maxDeviationFromTarget, 2);
 
+        [SerializeField]private LayerMask environmentLayer;
+
 		private Vector2 target;
 		private System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
 
+        private void Start()
+        {
+            Debug.Log("Running");
+            // environmentLayer = LayerMask.NameToLayer("Environment");
+        }
+
         public override void Enter(AIBrain brain)
         {
-            target = FindRandomTarget()*10 + (Vector2)brain.transform.position;
+            FindRandomTarget(brain.transform.position);
         }
 
         public override void Execute(AIBrain brain)
         {
             if(VectorExtensions.SquareDistance(brain.transform.position, target) <= maxDeviationSquared)
 			{
-				target = FindRandomTarget()*10 + (Vector2)brain.transform.position;
+				FindRandomTarget(brain.transform.position);
 			}
 
 			brain.MoveToward(target);
@@ -35,10 +43,18 @@ namespace SRS.TopDownCharacterControl.AI
             brain.StopMoving();
         }
 
-        private Vector2 FindRandomTarget()
+        private void FindRandomTarget(Vector2 position)
 		{
-            // TODO -- limit to points within the play area.
-			return (new Vector2(random.NextFloat(), random.NextFloat()) - Vector2.one*0.5f) * 2;
+            Vector2 direction = (new Vector2(random.NextFloat(), random.NextFloat()) - Vector2.one*0.5f) * 2;
+            
+            target = position + direction * 10;
+
+            RaycastHit2D hit = Physics2D.Raycast(position, direction, Vector2.Distance(position, target), environmentLayer);
+
+            if(hit)
+            {
+                target = hit.point + hit.normal*hit.distance*(1-hit.fraction);
+            }
 		}
     }
 }
