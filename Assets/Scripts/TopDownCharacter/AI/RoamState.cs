@@ -11,16 +11,12 @@ namespace SRS.TopDownCharacterControl.AI
 		[SerializeField] private float maxDeviationFromTarget;
 		private float maxDeviationSquared => Mathf.Pow(maxDeviationFromTarget, 2);
 
-        [SerializeField]private LayerMask environmentLayer;
+        [SerializeField] private float maxTravelDistance;
+
+        [SerializeField] private LayerMask environmentLayer;
 
 		private Vector2 target;
 		private System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
-
-        private void Start()
-        {
-            Debug.Log("Running");
-            // environmentLayer = LayerMask.NameToLayer("Environment");
-        }
 
         public override void Enter(AIBrain brain)
         {
@@ -47,7 +43,7 @@ namespace SRS.TopDownCharacterControl.AI
 		{
             Vector2 direction = (new Vector2(random.NextFloat(), random.NextFloat()) - Vector2.one*0.5f) * 2;
             
-            target = position + direction * 10;
+            target = position + direction * maxTravelDistance;
 
             RaycastHit2D hit = Physics2D.Raycast(position, direction, Vector2.Distance(position, target), environmentLayer);
 
