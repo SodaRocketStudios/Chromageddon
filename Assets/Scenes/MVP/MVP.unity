@@ -3821,7 +3821,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  damagePauseTime: 0.2
+  invincibilityTime: 1
 --- !u!114 &1600948683
 MonoBehaviour:
   m_ObjectHideFlags: 0

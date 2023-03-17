@@ -41,11 +41,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 
 		public void HandleHit(CharacterStats attackerStats)
         {
-			if(gameObject.CompareTag("Player"))
-			{
-				Debug.Log("PlayerHit");
-			}
-
             if(isInvincible) return;
 
 			healthManager.Damage(CalculateDamage(attackerStats));
@@ -92,7 +87,6 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		{
 			if(enemyLayer.value == other.gameObject.layer)
 			{
-				Debug.Log("Handling Hit");
 				HandleHit(other.gameObject.GetComponent<CharacterStats>());
 			}	
 		}
