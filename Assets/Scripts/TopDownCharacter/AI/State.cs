@@ -7,7 +7,21 @@ namespace SRS.TopDownCharacterControl.AI
 	public abstract class State : ScriptableObject
 	{
 		[SerializeField] private float radius;
-		public float SquaredRadius => Mathf.Pow(radius, 2);
+		private float squaredRadius;
+		private bool isSquared = false;
+		public float SquaredRadius
+		{
+			get
+			{
+				if(isSquared == false)
+				{
+					squaredRadius = Mathf.Pow(radius, 2);
+					isSquared = true;
+				}
+				
+				return squaredRadius;
+			}
+		}
 
 		public abstract void Enter(AIBrain brain);
 
