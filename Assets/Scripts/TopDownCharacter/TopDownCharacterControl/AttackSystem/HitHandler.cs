@@ -1,6 +1,6 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using SRS.StatSystem;
@@ -17,8 +17,10 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 		public delegate void OnHitHandler(Dictionary<string, Stat> attackStats);
 		public UnityEvent OnHitEvent;
 
-        [SerializeField] private float damagePauseTime;
+        [SerializeField] private float invincibilityTime;
         private bool isInvincible = false;
+
+		private static LayerMask enemyLayer;
 
 		private HealthManager healthManager;
 		private StatusEffectTracker effectTracker;
@@ -33,10 +35,17 @@ namespace SRS.TopDownCharacterControl.AttackSystem
 			healthManager = GetComponent<HealthManager>();
 			effectTracker = GetComponent<StatusEffectTracker>();
 			characterStats = GetComponent<CharacterStats>();
+
+			enemyLayer = LayerMask.NameToLayer("Enemy");
 		}
 
 		public void HandleHit(CharacterStats attackerStats)
         {
+			if(gameObject.CompareTag("Player"))
+			{
+				Debug.Log("PlayerHit");
+			}
+
             if(isInvincible) return;
 
 			healthManager.Damage(CalculateDamage(attackerStats));
@@ -53,10 +62,11 @@ namespace SRS.TopDownCharacterControl.AttackSystem
             // 	}
             // }
 
-            if(damagePauseTime > 0)
+            if(invincibilityTime > 0)
 			{
-				InvincibilityTime();
+				StartCoroutine(InvincibilityTimer());
 			}
+
         }
 
         private float CalculateDamage(CharacterStats attackerStats)
@@ -70,13 +80,21 @@ namespace SRS.TopDownCharacterControl.AttackSystem
             return Mathf.Min(Damage, 1);
         }
 
-        private async void InvincibilityTime()
+        private IEnumerator InvincibilityTimer()
 		{
 			isInvincible = true; 
 
-			await Task.Delay((int)(damagePauseTime*1000));
+			yield return new WaitForSeconds(invincibilityTime);
 
 			isInvincible = false;
+		}
+		private void OnCollisionStay2D(Collision2D other)
+		{
+			if(enemyLayer.value == other.gameObject.layer)
+			{
+				Debug.Log("Handling Hit");
+				HandleHit(other.gameObject.GetComponent<CharacterStats>());
+			}	
 		}
 	}
 }
