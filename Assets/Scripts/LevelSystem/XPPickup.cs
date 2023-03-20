@@ -6,7 +6,7 @@ namespace SRS.LevelSystem
 	public class XPPickup : MonoBehaviour
 	{
 		[SerializeField] private float moveSpeed;
-		private float xpValue;
+		private int xpValue = 1;
 
 		public Transform Target;
 
@@ -14,19 +14,24 @@ namespace SRS.LevelSystem
 		{
 			if(Target != null)
 			{
-				// move toward target;
 				MoveToward(Target.position);
 			}
 		}
 
         private void MoveToward(Vector3 target)
         {
-			transform.Translate((target - transform.position)*moveSpeed*Time.deltaTime, Space.World);
+			transform.Translate((target - transform.position).normalized*moveSpeed*Time.deltaTime, Space.World);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
 		{
-			// if collide with player add xp
+			CharacterLevel characterLevel;
+
+			if(other.gameObject.TryGetComponent<CharacterLevel>(out characterLevel))
+			{
+				characterLevel.AddXP(xpValue);
+				Destroy(gameObject);
+			}
 		}
 	}
 }
