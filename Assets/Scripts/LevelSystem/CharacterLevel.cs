@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SRS.LevelSystem
 {
 	public class CharacterLevel : MonoBehaviour
 	{
 		[SerializeField] private int baseXPRequirement;
+
+		public UnityEvent OnLevelUp;
 
 		private int level = 1;
 		public int Level => level;
@@ -33,6 +36,7 @@ namespace SRS.LevelSystem
 			level++;
 			currentXP -= requiredXP;
 			requiredXP *= 2;
+			OnLevelUp.Invoke();
 		}
 	}
 }
