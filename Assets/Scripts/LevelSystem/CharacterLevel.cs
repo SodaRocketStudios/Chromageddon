@@ -4,22 +4,35 @@ namespace SRS.LevelSystem
 {
 	public class CharacterLevel : MonoBehaviour
 	{
-		private int level;
+		[SerializeField] private int baseXPRequirement;
+
+		private int level = 1;
 		public int Level => level;
 
 		private int requiredXP;
 		private int currentXP;
+		public int CurrentXP => currentXP;
 
-		private void OnLevelUp()
+		private void Awake()
 		{
-			level++;
-			currentXP = 0;
-			// calculate required xp;
+			requiredXP = baseXPRequirement;
 		}
 
-		private void OnCollisionEnter2D(Collision2D other)
+		public void AddXP(int amount)
 		{
-			if()
+			currentXP += amount;
+
+			if(currentXP >= requiredXP)
+			{
+				LevelUp();
+			}
+		}
+
+		private void LevelUp()
+		{
+			level++;
+			currentXP -= requiredXP;
+			requiredXP *= 2;
 		}
 	}
 }
