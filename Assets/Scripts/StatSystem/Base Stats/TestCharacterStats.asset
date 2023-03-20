@@ -63,6 +63,11 @@ MonoBehaviour:
     percentageModifier: 100
     hasCap: 0
     cap: 0
+  - name: Pickup Range
+    baseValue: 5
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
   - name: Poison Chance
     baseValue: 1
     percentageModifier: 100
