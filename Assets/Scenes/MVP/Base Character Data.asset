@@ -12,119 +12,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3768d82b003b10d4f83f66459c8ef9a0, type: 3}
   m_Name: Base Character Data
   m_EditorClassIdentifier: 
-  characterStatFile: E:/Projects/Project Primitives/Project Primitives/Assets/Editor
-    Default Resources/CharacterStatTemplate.csv
-  CharacterStats:
-  - name: MoveSpeed
-    baseValue: 5
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  - name: AttackSpeed
-    baseValue: 5
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  - name: CooldownSpeed
-    baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  - name: Health
-    baseValue: 10
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  - name: HealthRegen
-    baseValue: 0
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
+  baseStats:
   - name: Armor
-    baseValue: 0
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  - name: Shields
-    baseValue: 0
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  - name: NumProjectiles
     baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  - name: AttackArc
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Attack Arc
     baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  attackStatFile: E:/Projects/Project Primitives/Project Primitives/Assets/Editor
-    Default Resources/AttackStatTemplate.csv
-  AttackStats:
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Attack Speed
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Burn Chance
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Critical Chance
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Critical Damage
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
   - name: Damage
     baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  - name: Lifetime
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Freeze Chance
     baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Health
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Health Regen
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Pickup Range
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Poison Chance
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Range
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
   - name: Speed
-    baseValue: 25
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  - name: LifeSteal
-    baseValue: 0
-    additiveModifier: 0
-    multiplicativeModifier: 1
-    flatModifier: 0
-  - name: BleedChance
     baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 0
-    flatModifier: 0
-  - name: BurnChance
-    baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 0
-    flatModifier: 0
-  - name: StunChance
-    baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 0
-    flatModifier: 0
-  - name: FreezeChance
-    baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 0
-    flatModifier: 0
-  - name: ShockChance
-    baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 0
-    flatModifier: 0
-  - name: SlowChance
-    baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 0
-    flatModifier: 0
-  - name: PoisonChance
-    baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 0
-    flatModifier: 0
-  - name: ChainChance
-    baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 0
-    flatModifier: 0
-  - name: CriticalChance
-    baseValue: 1
-    additiveModifier: 0
-    multiplicativeModifier: 0
-    flatModifier: 0
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0

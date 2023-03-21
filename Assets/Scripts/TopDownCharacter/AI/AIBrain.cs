@@ -37,33 +37,29 @@ namespace SRS.TopDownCharacterControl.AI
 
 		private void Update()
 		{
-			if(states[currentStateIndex] == null)
+			if(states[currentStateIndex] == null) return;
+
+			if(target == null) return;
+			
+			float squaredDistanceToTarget = VectorExtensions.SquareDistance(target.position, transform.position);
+			
+			if(squaredDistanceToTarget > states[currentStateIndex].SquaredRadius)
 			{
-				return;
+				if(currentStateIndex != 0)
+				{
+					states[currentStateIndex].Exit(this);
+					currentStateIndex -= 1;
+					states[currentStateIndex].Enter(this);
+				}
 			}
 
-			if(target != null)
+			if(currentStateIndex < states.Count - 1)
 			{
-				float squaredDistanceToTarget = VectorExtensions.SquareDistance(target.position, transform.position);
-				
-				if(squaredDistanceToTarget > states[currentStateIndex].SquaredRadius)
+				if(squaredDistanceToTarget < states[currentStateIndex + 1].SquaredRadius)
 				{
-					if(currentStateIndex != 0)
-					{
-						states[currentStateIndex].Exit(this);
-						currentStateIndex -= 1;
-						states[currentStateIndex].Enter(this);
-					}
-				}
-
-				if(currentStateIndex < states.Count - 1)
-				{
-					if(squaredDistanceToTarget < states[currentStateIndex + 1].SquaredRadius)
-					{
-						states[currentStateIndex].Exit(this);
-						currentStateIndex += 1;
-						states[currentStateIndex].Enter(this);
-					}
+					states[currentStateIndex].Exit(this);
+					currentStateIndex += 1;
+					states[currentStateIndex].Enter(this);
 				}
 			}
 
