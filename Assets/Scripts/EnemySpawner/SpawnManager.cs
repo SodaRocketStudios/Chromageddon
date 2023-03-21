@@ -3,6 +3,7 @@ using UnityEngine;
 using SRS.Health;
 using SRS.Extensions;
 using SRS.GameManager;
+using SRS.LevelSystem;
 
 namespace SRS.EnemySpawner
 {
@@ -23,6 +24,8 @@ namespace SRS.EnemySpawner
 		[SerializeField] private float spawnDelaySeconds = 5;
 		[SerializeField] private float initialSpawnDelay = 1;
 		private float nextSpawnTime;
+
+		[SerializeField] private XPDropper xpDropper;
 
 		public GameObjectEvent OnEnemyDeath;
 
@@ -74,6 +77,8 @@ namespace SRS.EnemySpawner
 		{
 			OnEnemyDeath.Invoke(enemy);
 			enemy.GetComponent<HealthManager>().OnDeath.RemoveListener(Despawn);
+
+			xpDropper.SpawnXP(enemy.transform.position);
 
 			Destroy(enemy);
 
