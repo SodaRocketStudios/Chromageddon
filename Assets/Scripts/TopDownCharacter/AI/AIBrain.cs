@@ -40,7 +40,7 @@ namespace SRS.TopDownCharacterControl.AI
 			if(states[currentStateIndex] == null) return;
 
 			if(target == null) return;
-			
+
 			float squaredDistanceToTarget = VectorExtensions.SquareDistance(target.position, transform.position);
 			
 			if(squaredDistanceToTarget > states[currentStateIndex].SquaredRadius)
@@ -74,6 +74,8 @@ namespace SRS.TopDownCharacterControl.AI
 		public void ClearTarget()
 		{
 			target = null;
+			controller.MoveDirection = Vector2.zero;
+			attackManager.IsAttacking = false;
 		}
 
 		public void MoveToward(Vector2 position)
