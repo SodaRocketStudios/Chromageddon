@@ -23,12 +23,14 @@ namespace SRS.LevelSystem
 			transform.Translate((target - transform.position).normalized*moveSpeed*Time.deltaTime, Space.World);
         }
 
-        private void OnTriggerEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
 		{
 			CharacterLevel characterLevel;
 
 			if(other.gameObject.TryGetComponent<CharacterLevel>(out characterLevel))
 			{
+				if(other.isTrigger) return;
+
 				characterLevel.AddXP(xpValue);
 				Destroy(gameObject);
 			}
