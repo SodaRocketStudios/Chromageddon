@@ -1,7 +1,8 @@
-using UnityEngine;
+using System;
 
 namespace SRS.enemySpawner
 {
+	[Serializable]
 	public class SpawnTimeFrame
 	{
 		public float StartTime;
