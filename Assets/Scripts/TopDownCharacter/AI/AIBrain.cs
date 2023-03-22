@@ -9,8 +9,6 @@ namespace SRS.TopDownCharacterControl.AI
 	[RequireComponent(typeof(TopDownCharacterController))]
 	public class AIBrain : MonoBehaviour
 	{
-		[SerializeField] private List<TimeFrame> spawnTimes = new List<TimeFrame>();
-
 		[SerializeField] private List<State> states = new List<State>();
 
 		private TopDownCharacterController controller;

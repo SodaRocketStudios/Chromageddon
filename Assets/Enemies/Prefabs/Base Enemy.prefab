@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7054835449426266443}
   - component: {fileID: 8951183224474271191}
   - component: {fileID: 8049592361706580606}
+  - component: {fileID: -8477349312964573455}
   m_Layer: 7
   m_Name: Base Enemy
   m_TagString: Untagged
@@ -157,7 +158,7 @@ MonoBehaviour:
   OnHitEvent:
     m_PersistentCalls:
       m_Calls: []
-  damagePauseTime: 0
+  invincibilityTime: 0
 --- !u!212 &8951183224474271191
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -231,3 +232,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-8477349312964573455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462350641060120319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c489deae9b442478093143bb151c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTimes: []

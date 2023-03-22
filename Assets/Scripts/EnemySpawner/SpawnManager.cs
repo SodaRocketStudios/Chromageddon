@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using SRS.Health;
 using SRS.Extensions;
@@ -63,14 +64,14 @@ namespace SRS.EnemySpawner
 		{
 			// TODO -- Determine enemy type based on current challenge rating rather than randomly.
 
-			GameObject enemy = Instantiate(enemyTypes.GetRandom(), spawnLocator.GetLocation(), Quaternion.identity);
+			GameObject enemy = Instantiate(GetEnemyType(), spawnLocator.GetLocation(), Quaternion.identity);
 			enemyCount++;
 			enemy.GetComponent<HealthManager>().OnDeath.AddListener(Despawn);
 		}
 
-		private void GetEnemyType()
+		private GameObject GetEnemyType()
 		{
-
+			return enemyTypes.Where(enemy => enemy.GetComponent<SpawnData>().CanSpawn(GameTimer.Instance.Time)).ToList<GameObject>().GetRandom<GameObject>();
 		}
 
 		private void Despawn(GameObject enemy)

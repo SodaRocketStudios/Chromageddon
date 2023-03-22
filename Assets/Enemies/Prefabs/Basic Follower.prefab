@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3279777004920347434}
   - component: {fileID: 3484423876960464822}
   - component: {fileID: 2582305463493244959}
+  - component: {fileID: -3921711892424653427}
   m_Layer: 7
   m_Name: Basic Follower
   m_TagString: Untagged
@@ -146,7 +147,7 @@ MonoBehaviour:
   OnHitEvent:
     m_PersistentCalls:
       m_Calls: []
-  damagePauseTime: 0
+  invincibilityTime: 0
 --- !u!212 &3484423876960464822
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -220,3 +221,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-3921711892424653427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8182654570200519838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c489deae9b442478093143bb151c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTimes:
+  - StartTime: 0
+    EndTime: 300
+  - StartTime: 600
+    EndTime: 900
