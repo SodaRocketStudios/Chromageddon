@@ -1,14 +1,14 @@
 using System;
 
-namespace SRS.enemySpawner
+namespace SRS.EnemySpawner
 {
 	[Serializable]
-	public class SpawnTimeFrame
+	public class TimeFrame
 	{
 		public float StartTime;
 		public float EndTime;
 
-		public SpawnTimeFrame(float startTime, float endTime)
+		public TimeFrame(float startTime, float endTime)
 		{
 			this.StartTime = startTime;
 			this.EndTime = endTime;
