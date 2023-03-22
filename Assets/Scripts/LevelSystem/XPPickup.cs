@@ -23,7 +23,7 @@ namespace SRS.LevelSystem
 			transform.Translate((target - transform.position).normalized*moveSpeed*Time.deltaTime, Space.World);
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collision2D other)
 		{
 			CharacterLevel characterLevel;
 
