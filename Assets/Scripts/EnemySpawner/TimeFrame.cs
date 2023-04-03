@@ -16,7 +16,10 @@ namespace SRS.EnemySpawner
 
 		public bool IsInRange(float time)
 		{
-			return time >= StartTime && time <= EndTime;
+			if(time < StartTime) return false;
+			if(EndTime < 0) return true;
+			if(time <= EndTime) return true;
+			return false;
 		}
 	}
 }
