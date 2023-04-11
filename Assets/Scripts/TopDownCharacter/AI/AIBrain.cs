@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SRS.TopDownCharacterControl.AttackSystem;
+using SRS.AttackSystem;
 using SRS.Extensions.Vector;
 using SRS.EnemySpawner;
 

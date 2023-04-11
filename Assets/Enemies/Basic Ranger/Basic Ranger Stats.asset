@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3768d82b003b10d4f83f66459c8ef9a0, type: 3}
-  m_Name: TestCharacterStats
+  m_Name: Basic Ranger Stats
   m_EditorClassIdentifier: 
   baseStats:
   - name: Armor
@@ -19,28 +19,28 @@ MonoBehaviour:
     hasCap: 0
     cap: 0
   - name: Attack Arc
-    baseValue: 1
+    baseValue: 10
     percentageModifier: 100
     hasCap: 0
     cap: 0
   - name: Attack Speed
-    baseValue: 4
+    baseValue: 1
     percentageModifier: 100
     hasCap: 0
     cap: 0
   - name: Burn Chance
-    baseValue: 1
+    baseValue: 0
     percentageModifier: 100
     hasCap: 0
     cap: 0
   - name: Critical Chance
-    baseValue: 1
-    percentageModifier: 0
+    baseValue: 0
+    percentageModifier: 100
     hasCap: 0
     cap: 0
   - name: Critical Damage
-    baseValue: 1
-    percentageModifier: 200
+    baseValue: 0
+    percentageModifier: 100
     hasCap: 0
     cap: 0
   - name: Damage
@@ -49,12 +49,12 @@ MonoBehaviour:
     hasCap: 0
     cap: 0
   - name: Freeze Chance
-    baseValue: 1
+    baseValue: 0
     percentageModifier: 100
     hasCap: 0
     cap: 0
   - name: Health
-    baseValue: 10
+    baseValue: 2
     percentageModifier: 100
     hasCap: 0
     cap: 0
@@ -64,22 +64,22 @@ MonoBehaviour:
     hasCap: 0
     cap: 0
   - name: Pickup Range
-    baseValue: 5
-    percentageModifier: 100
-    hasCap: 0
-    cap: 0
-  - name: Poison Chance
     baseValue: 1
     percentageModifier: 100
     hasCap: 0
     cap: 0
+  - name: Poison Chance
+    baseValue: 0
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
   - name: Range
-    baseValue: 20
+    baseValue: 10
     percentageModifier: 100
     hasCap: 0
     cap: 0
   - name: Speed
-    baseValue: 10
+    baseValue: 8
     percentageModifier: 100
     hasCap: 0
     cap: 0

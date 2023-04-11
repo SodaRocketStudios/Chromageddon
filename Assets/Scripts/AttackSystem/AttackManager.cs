@@ -2,7 +2,7 @@ using UnityEngine;
 using SRS.StatSystem;
 using UnityEngine.Events;
 
-namespace SRS.TopDownCharacterControl.AttackSystem
+namespace SRS.AttackSystem
 {
 	public class AttackManager : MonoBehaviour
 	{

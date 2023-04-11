@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SRS.TopDownCharacterControl.AttackSystem
+namespace SRS.AttackSystem
 {
 	[CreateAssetMenu(fileName = "Basic Ranged Attack", menuName = "Attacks/Basic Ranged Attack")]
 	public class BasicRangedAttack : AttackType

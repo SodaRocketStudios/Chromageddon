@@ -1,6 +1,6 @@
 {
     "name": "AttackSystem",
-    "rootNamespace": "SRS.TopDownCharacterControl.AttackSystem",
+    "rootNamespace": "SRS.AttackSystem",
     "references": [
         "GUID:c13dd715b8d691d46a082b62b2c28be7",
         "GUID:8f97cff68f523af40abfc76012bd4c56",

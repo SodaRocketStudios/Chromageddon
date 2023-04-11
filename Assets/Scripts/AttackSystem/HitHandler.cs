@@ -9,7 +9,7 @@ using SRS.StatusEffects;
 using SRS.Extensions.Random;
 using SRS.Curves;
 
-namespace SRS.TopDownCharacterControl.AttackSystem
+namespace SRS.AttackSystem
 {
 
 	public class HitHandler : MonoBehaviour

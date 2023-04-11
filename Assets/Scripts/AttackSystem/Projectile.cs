@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using SRS.StatSystem;
 
-namespace SRS.TopDownCharacterControl.AttackSystem
+namespace SRS.AttackSystem
 {
 	public class Projectile : MonoBehaviour
 	{

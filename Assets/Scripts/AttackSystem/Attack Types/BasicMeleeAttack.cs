@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SRS.TopDownCharacterControl.AttackSystem
+namespace SRS.AttackSystem
 {
     [CreateAssetMenu(fileName = "Basic Melee Attack", menuName = "Attacks/Basic Melee Attack")]
 	public class BasicMeleeAttack : AttackType

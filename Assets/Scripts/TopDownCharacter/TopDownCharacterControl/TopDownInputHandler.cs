@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using SRS.TopDownCharacterControl.AttackSystem;
+using SRS.AttackSystem;
 
 namespace SRS.TopDownCharacterControl
 {
