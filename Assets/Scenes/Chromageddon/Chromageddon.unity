@@ -3727,6 +3727,7 @@ GameObject:
   - component: {fileID: 1632691810}
   - component: {fileID: 1632691809}
   - component: {fileID: 1632691808}
+  - component: {fileID: 1632691821}
   m_Layer: 3
   m_Name: Player Avatar
   m_TagString: Player
@@ -3742,7 +3743,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632691807}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -3955,12 +3956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282a2472f3917fb438f4440da4cc10fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderRadius: 0.75
-  colliderOffset: {x: 0, y: 0}
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 127
-  skinWidth: 0.25
 --- !u!114 &1632691817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4017,6 +4012,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1632691821
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632691807}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.75
 --- !u!1 &1647827909
 GameObject:
   m_ObjectHideFlags: 0
