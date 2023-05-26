@@ -4,8 +4,7 @@ using SRS.AttackSystem;
 
 namespace SRS.TopDownCharacterControl
 {
-	[RequireComponent(typeof(TopDownCharacterController))]
-	public class TopDownInputHandler : MonoBehaviour
+	public class InputHandler : MonoBehaviour
 	{
 		private TopDownCharacterController characterController;
 		private AttackManager attackManager;
