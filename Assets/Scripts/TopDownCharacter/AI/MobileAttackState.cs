@@ -7,7 +7,7 @@ namespace SRS.TopDownCharacterControl.AI
 	{
 		public override void Enter(AIBrain brain)
         {
-			brain.AttackManager.IsAttacking = true;
+			brain.IsAttacking = true;
         }
 
         public override void Execute(AIBrain brain)
@@ -18,7 +18,7 @@ namespace SRS.TopDownCharacterControl.AI
 
         public override void Exit(AIBrain brain)
         {
-			brain.AttackManager.IsAttacking = false;
+			brain.IsAttacking = false;
 			brain.StopMoving();
         }
 	}

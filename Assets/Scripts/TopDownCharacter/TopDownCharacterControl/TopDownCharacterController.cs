@@ -1,13 +1,12 @@
 using UnityEngine;
 using SRS.StatSystem;
+using SRS.Input;
 
 namespace SRS.TopDownCharacterControl
 {
 	public class TopDownCharacterController : MonoBehaviour
 	{
-		public Vector2 MoveDirection{get; set;}
-
-		public Vector2 LookTarget{get; set;}
+		private IInputProcessor inputProcessor;
 
 		private Rigidbody2D body;
 
@@ -17,6 +16,8 @@ namespace SRS.TopDownCharacterControl
 		{
 			characterStats = GetComponent<CharacterStats>();
 			body = GetComponent<Rigidbody2D>();
+
+			inputProcessor = GetComponent<IInputProcessor>();
 		}
 
 		private void Update()
@@ -31,14 +32,19 @@ namespace SRS.TopDownCharacterControl
 
 		private void Move()
 		{
-			Vector2 newPosition = body.position + MoveDirection.normalized*characterStats["Speed"]*Time.fixedDeltaTime;
+			Vector2 newPosition = body.position + inputProcessor.MoveDirection.normalized*characterStats["Speed"]*Time.fixedDeltaTime;
 
 			body.MovePosition(newPosition);
 		}
 
         private void LookAtTarget()
 		{
-			Vector2 directionVector = LookTarget - (Vector2)transform.position;
+			if(inputProcessor.LookTarget == null)
+			{
+				return;
+			}
+
+			Vector2 directionVector = inputProcessor.LookTarget - (Vector2)transform.position;
 
 			float direction = Vector2.SignedAngle(Vector2.right, directionVector);
 

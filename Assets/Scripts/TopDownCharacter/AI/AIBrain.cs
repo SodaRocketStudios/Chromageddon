@@ -2,32 +2,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using SRS.AttackSystem;
 using SRS.Extensions.Vector;
-using SRS.EnemySpawner;
+using SRS.Input;
 
 namespace SRS.TopDownCharacterControl.AI
 {
-	[RequireComponent(typeof(TopDownCharacterController))]
-	public class AIBrain : MonoBehaviour
+	public class AIBrain : MonoBehaviour, IInputProcessor
 	{
 		[SerializeField] private List<State> states = new List<State>();
-
-		private TopDownCharacterController controller;
-		public TopDownCharacterController Controller => controller;
-
-		private AttackManager attackManager;
-		public AttackManager AttackManager => attackManager;
 
 		private Transform target;
 		public Transform Target => target;
 
-		private int currentStateIndex = 0;
+        public Vector2 MoveDirection {get; set;}
+        public Vector2 LookTarget {get; set;}
+        public bool IsAttacking {get; set;}
+
+        private int currentStateIndex = 0;
 
 		private void Awake()
 		{
-			controller = GetComponent<TopDownCharacterController>();
-
-			attackManager = GetComponent<AttackManager>();
-
 			for(int i = 0; i < states.Count; i++)
 			{
 				states[i] = Object.Instantiate(states[i]);
@@ -75,23 +68,23 @@ namespace SRS.TopDownCharacterControl.AI
 		public void ClearTarget()
 		{
 			target = null;
-			controller.MoveDirection = Vector2.zero;
-			attackManager.IsAttacking = false;
+			MoveDirection = Vector2.zero;
+			IsAttacking = false;
 		}
 
 		public void MoveToward(Vector2 position)
 		{
-			controller.MoveDirection = position - (Vector2)transform.position;
+			MoveDirection = position - (Vector2)transform.position;
 		}
 
 		public void LookAt(Vector2 position)
 		{
-			controller.LookTarget = position;
+			LookTarget = position;
 		}
 
 		public void StopMoving()
 		{
-			controller.MoveDirection = Vector2.zero;
+			MoveDirection = Vector2.zero;
 		}
 	}
 }

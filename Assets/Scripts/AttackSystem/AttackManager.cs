@@ -1,6 +1,7 @@
 using UnityEngine;
 using SRS.StatSystem;
 using UnityEngine.Events;
+using SRS.Input;
 
 namespace SRS.AttackSystem
 {
@@ -24,6 +25,8 @@ namespace SRS.AttackSystem
 
 		[SerializeField] private AttackType attack;
 
+		private IInputProcessor inputProcessor;
+
 		private CharacterStats characterStats;
 
 		private float nextAttackTime = 0;
@@ -31,6 +34,7 @@ namespace SRS.AttackSystem
 		private void Start()
 		{
 			characterStats = GetComponent<CharacterStats>();
+			inputProcessor = GetComponent<IInputProcessor>();
 
 			attack = Instantiate(attack);
 			attack.Initialize(characterStats);
@@ -38,6 +42,8 @@ namespace SRS.AttackSystem
 
 		private void Update()
 		{
+			IsAttacking = inputProcessor.IsAttacking;
+			
 			if(IsAttacking)
 			{
 				Attack();
