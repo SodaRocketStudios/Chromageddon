@@ -7,7 +7,7 @@ namespace SRS.AttackSystem
 	{
 		public static ProjectileSpawner Instance;
 
-		public ObjectPool<GameObject> Pool;
+		private ObjectPool<GameObject> pool;
 
 		[SerializeField] private GameObject projectilePrefab;
 
@@ -15,7 +15,17 @@ namespace SRS.AttackSystem
 		{
 			Instance = this;
 			
-			Pool = new ObjectPool<GameObject>(Create, OnGet, OnReturn, defaultCapacity: 50);
+			pool = new ObjectPool<GameObject>(Create, OnGet, OnReturn, defaultCapacity: 50);
+		}
+
+		public GameObject Spawn(Vector3 position, Quaternion direction)
+		{
+			GameObject projectile = pool.Get();
+
+			projectile.transform.rotation = direction;
+			projectile.transform.position = position;
+
+			return projectile;
 		}
 
 		private GameObject Create()

@@ -83,6 +83,8 @@ namespace SRS.AttackSystem
 
 			isInvincible = false;
 		}
+
+		// This should probably be moved somewhere into the enemy code.
 		private void OnCollisionStay2D(Collision2D other)
 		{
 			if(enemyLayer.value == other.gameObject.layer)
