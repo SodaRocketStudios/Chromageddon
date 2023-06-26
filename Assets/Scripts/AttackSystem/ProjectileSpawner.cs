@@ -28,6 +28,11 @@ namespace SRS.AttackSystem
 			return projectile;
 		}
 
+		public void Despawn(GameObject projectile)
+		{
+			pool.Release(projectile);
+		}
+
 		private GameObject Create()
 		{
 			GameObject projectile = Instantiate(projectilePrefab);

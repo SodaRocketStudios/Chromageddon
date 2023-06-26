@@ -37,7 +37,7 @@ namespace SRS.AttackSystem
 		private IEnumerator DespawnTimer()
 		{
 			yield return new WaitForSeconds(lifetime);
-			Despawn();
+			if (isExpended == false) Despawn();
 		}
 
 		private void FixedUpdate()
@@ -76,7 +76,7 @@ namespace SRS.AttackSystem
 		private void Despawn()
 		{
 			StopAllCoroutines();
-			ProjectileSpawner.Instance.Pool.Release(gameObject);
+			ProjectileSpawner.Instance.Despawn(gameObject);
 		}
 	}
 }
