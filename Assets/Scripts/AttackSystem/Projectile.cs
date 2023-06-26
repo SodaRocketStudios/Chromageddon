@@ -47,7 +47,17 @@ namespace SRS.AttackSystem
 
 		private void OnCollisionEnter2D(Collision2D other)
 		{
-			if(isExpended) return;
+			HandleCollision(other.collider);
+		}
+
+		private void OnTriggerEnter2D(Collider2D other)
+		{
+			HandleCollision(other);
+		}
+
+		private void HandleCollision(Collider2D other)
+		{
+			// To Do -- Handle bounces and pierces.
 
 			if((mask.value & (1 << other.gameObject.layer)) > 0)
 			{
@@ -57,13 +67,14 @@ namespace SRS.AttackSystem
 					hitHandler.HandleHit(characterStats);
 				}
 
-				Despawn();
+				isExpended = true;
 			}
+
+			if(isExpended) Despawn();
 		}
 
 		private void Despawn()
 		{
-			isExpended = true;
 			StopAllCoroutines();
 			ProjectileSpawner.Instance.Pool.Release(gameObject);
 		}
