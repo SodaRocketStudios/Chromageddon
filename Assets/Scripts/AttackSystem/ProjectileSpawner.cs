@@ -35,7 +35,7 @@ namespace SRS.AttackSystem
 
 		private GameObject Create()
 		{
-			GameObject projectile = Instantiate(projectilePrefab);
+			GameObject projectile = Instantiate(projectilePrefab, transform);
 			projectile.SetActive(false);
 
 			return projectile;
