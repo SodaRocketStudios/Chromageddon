@@ -20,8 +20,6 @@ namespace SRS.AttackSystem
         [SerializeField] private float invincibilityTime;
         private bool isInvincible = false;
 
-		private static LayerMask enemyLayer;
-
 		private HealthManager healthManager;
 		private StatusEffectTracker effectTracker;
 		private System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
@@ -35,8 +33,6 @@ namespace SRS.AttackSystem
 			healthManager = GetComponent<HealthManager>();
 			effectTracker = GetComponent<StatusEffectTracker>();
 			characterStats = GetComponent<CharacterStats>();
-
-			enemyLayer = LayerMask.NameToLayer("Enemy");
 		}
 
 		public void HandleHit(CharacterStats attackerStats)
@@ -82,15 +78,6 @@ namespace SRS.AttackSystem
 			yield return new WaitForSeconds(invincibilityTime);
 
 			isInvincible = false;
-		}
-
-		// This should probably be moved somewhere into the enemy code.
-		private void OnCollisionStay2D(Collision2D other)
-		{
-			if(enemyLayer.value == other.gameObject.layer)
-			{
-				HandleHit(other.gameObject.GetComponent<CharacterStats>());
-			}	
 		}
 	}
 }
