@@ -37,7 +37,7 @@ namespace SRS.AttackSystem
 		private IEnumerator DespawnTimer()
 		{
 			yield return new WaitForSeconds(lifetime);
-			if (isExpended == false) Despawn();
+			Despawn();
 		}
 
 		private void FixedUpdate()
@@ -57,7 +57,7 @@ namespace SRS.AttackSystem
 
 		private void HandleCollision(Collider2D other)
 		{
-			// To Do -- Handle bounces and pierces.
+			if(isExpended) return;
 
 			if((mask.value & (1 << other.gameObject.layer)) > 0)
 			{
