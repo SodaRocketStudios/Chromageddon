@@ -17,10 +17,20 @@ namespace SRS.AttackSystem
 
 		private void OnCollisionStay2D(Collision2D other)
 		{
+			HandleCollision(other.collider);
+		}
+
+		private void OnTriggerStay2D(Collider2D other)
+		{
+			HandleCollision(other);
+		}
+
+		private void HandleCollision(Collider2D other)
+		{
 			if(other.gameObject.layer == playerLayer)
 			{
 				other.gameObject.GetComponent<HitHandler>().HandleHit(stats);
-			}	
+			}
 		}
 	}
 }

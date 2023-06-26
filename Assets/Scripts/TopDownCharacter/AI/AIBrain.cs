@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SRS.AttackSystem;
 using SRS.Extensions.Vector;
 using SRS.Input;
 
@@ -20,16 +19,18 @@ namespace SRS.TopDownCharacterControl.AI
         private int currentStateIndex = 0;
 
 		private void Awake()
-		{
-			for(int i = 0; i < states.Count; i++)
-			{
-				states[i] = Object.Instantiate(states[i]);
-			}
+        {
+            for (int i = 0; i < states.Count; i++)
+            {
+                states[i] = Object.Instantiate(states[i]);
+            }
 
-			states[0].Enter(this);
-		}
+            states[0].Enter(this);
 
-		private void Update()
+            FindPlayer();
+        }
+
+        private void Update()
 		{
 			if(states[currentStateIndex] == null) return;
 
@@ -86,5 +87,15 @@ namespace SRS.TopDownCharacterControl.AI
 		{
 			MoveDirection = Vector2.zero;
 		}
+
+        private void FindPlayer()
+        {
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 100, LayerMask.GetMask("Player"));
+
+            if (hits.Length > 0)
+            {
+                target = hits[0].transform;
+            }
+        }
 	}
 }

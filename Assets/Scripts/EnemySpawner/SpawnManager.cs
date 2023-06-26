@@ -62,8 +62,6 @@ namespace SRS.EnemySpawner
 
         private void SpawnEnemy()
 		{
-			// TODO -- Determine enemy type based on current challenge rating rather than randomly.
-
 			GameObject enemy = Instantiate(GetEnemyType(), spawnLocator.GetLocation(), Quaternion.identity);
 			enemyCount++;
 			enemy.GetComponent<HealthManager>().OnDeath.AddListener(Despawn);
