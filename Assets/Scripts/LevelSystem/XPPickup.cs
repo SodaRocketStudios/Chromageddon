@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace SRS.LevelSystem
@@ -10,7 +9,7 @@ namespace SRS.LevelSystem
 
 		public Transform Target;
 
-		private void Update()
+        private void Update()
 		{
 			if(Target != null)
 			{
@@ -29,8 +28,6 @@ namespace SRS.LevelSystem
 
 			if(other.gameObject.TryGetComponent<CharacterLevel>(out characterLevel))
 			{
-				if(other.isTrigger) return;
-
 				characterLevel.AddXP(xpValue);
 				Destroy(gameObject);
 			}
