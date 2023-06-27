@@ -41,7 +41,7 @@ namespace SRS.StatSystem
 			Rect hasCapRect = new Rect(container.x + 97, container.y + 60, 18, 18);
 			Rect capRect = new Rect(container.x + 122, container.y + 60, 50, 18);
 
-			EditorGUI.LabelField(hasCapTextRect, "Has a value cap");
+			EditorGUI.LabelField(hasCapTextRect, "Has a value cap:");
 			EditorGUI.PropertyField(hasCapRect, hasCapProperty, GUIContent.none);
 
 			if(hasCapProperty.boolValue)

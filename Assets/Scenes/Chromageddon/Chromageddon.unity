@@ -4015,7 +4015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ebab0fe15fa6146b555e70438fb452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseXPRequirement: 10
+  baseXPRequirement: 5
+  requirementMultiplier: 1.2
   OnLevelUp:
     m_PersistentCalls:
       m_Calls: []

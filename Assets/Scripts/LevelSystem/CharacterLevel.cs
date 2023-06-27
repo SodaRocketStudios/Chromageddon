@@ -7,6 +7,8 @@ namespace SRS.LevelSystem
 	{
 		[SerializeField] private int baseXPRequirement;
 
+		[SerializeField] private float requirementMultiplier;
+
 		public UnityEvent OnLevelUp;
 
 		private int level = 1;
@@ -34,8 +36,8 @@ namespace SRS.LevelSystem
 		private void LevelUp()
 		{
 			level++;
-			currentXP -= requiredXP;
-			requiredXP *= 2;
+			requiredXP += (int)(requirementMultiplier * requiredXP);
+			Debug.Log(requiredXP);
 			OnLevelUp.Invoke();
 		}
 	}

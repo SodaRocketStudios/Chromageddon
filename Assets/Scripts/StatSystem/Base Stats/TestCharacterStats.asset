@@ -24,7 +24,7 @@ MonoBehaviour:
     hasCap: 0
     cap: 0
   - name: Attack Speed
-    baseValue: 4
+    baseValue: 40
     percentageModifier: 100
     hasCap: 0
     cap: 0
