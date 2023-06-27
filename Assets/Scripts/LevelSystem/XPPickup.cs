@@ -9,6 +9,11 @@ namespace SRS.LevelSystem
 
 		public Transform Target;
 
+		private void Start()
+		{
+			TrackPickup();
+		}
+
         private void Update()
 		{
 			if(Target != null)
@@ -22,13 +27,21 @@ namespace SRS.LevelSystem
 			transform.Translate((target - transform.position).normalized*moveSpeed*Time.deltaTime, Space.World);
         }
 
+		private void TrackPickup()
+		{
+			Physics2D.OverlapCircle(transform.position, 100, LayerMask.GetMask("Player")).GetComponent<XPAttractor>().TrackPickup(this);
+		}
+
         private void OnTriggerEnter2D(Collider2D other)
 		{
+			if(Target == null) return;
+
 			CharacterLevel characterLevel;
 
 			if(other.gameObject.TryGetComponent<CharacterLevel>(out characterLevel))
 			{
 				characterLevel.AddXP(xpValue);
+				other.GetComponent<XPAttractor>().StopTracking(this);
 				Destroy(gameObject);
 			}
 		}
