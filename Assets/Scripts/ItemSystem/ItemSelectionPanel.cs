@@ -51,6 +51,7 @@ namespace SRS.ItemSystem
 
 			foreach(Item item in items)
 			{
+
 				if(item == null)
 				{
 					continue;
