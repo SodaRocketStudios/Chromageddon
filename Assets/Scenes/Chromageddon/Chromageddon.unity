@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 69941933}
   - component: {fileID: 69941932}
   - component: {fileID: 69941930}
+  - component: {fileID: 69941934}
   - component: {fileID: 69941931}
   m_Layer: 5
   m_Name: Item Choices
@@ -419,6 +420,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &69941934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69941929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b521872e631837449a993894de988317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChooseFromAllCategories: 1
+  NumberOfChoices: 3
 --- !u!1 &120120325
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +444,6 @@ GameObject:
   m_Component:
   - component: {fileID: 120120328}
   - component: {fileID: 120120327}
-  - component: {fileID: 120120326}
   m_Layer: 0
   m_Name: Item Manager
   m_TagString: Untagged
@@ -437,20 +451,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &120120326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120120325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 375481353d56cf84a9fa0228076de072, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemDropPrefab: {fileID: 2294590734974863366, guid: b0459f06888546c45bd575da5391a7ff, type: 3}
-  dropChance: 10
 --- !u!114 &120120327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4019,7 +4019,19 @@ MonoBehaviour:
   requirementMultiplier: 1.2
   OnLevelUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 69941930}
+        m_TargetAssemblyTypeName: SRS.ItemSystem.ItemSelectionPanel, ItemSystem
+        m_MethodName: GenerateSelectionPanel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1632691814}
+          m_ObjectArgumentAssemblyTypeName: SRS.ItemSystem.Inventory, ItemSystem
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1632691819
 MonoBehaviour:
   m_ObjectHideFlags: 0

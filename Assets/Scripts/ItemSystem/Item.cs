@@ -82,10 +82,8 @@ namespace SRS.ItemSystem
 
 	public enum ItemCategory
 	{
-		Health,
 		Defense,
 		Offense,
-		Utility,
-		ProcChance
+		Utility
 	}
 }

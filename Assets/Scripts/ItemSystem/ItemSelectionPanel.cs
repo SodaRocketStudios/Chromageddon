@@ -14,6 +14,8 @@ namespace SRS.ItemSystem
 
 		[SerializeField] private GameObject skipButton;
 
+		private ItemPicker itemPicker;
+
 		private Image background;
 
 		private List<GameObject> buttons = new List<GameObject>(3);
@@ -32,12 +34,20 @@ namespace SRS.ItemSystem
 			background = GetComponentInParent<Image>();
 		}
 
-		public void GenerateSelectionPanel(List<Item> items, Inventory targetInventory)
+		private void Start()
 		{
+			itemPicker = GetComponent<ItemPicker>();
+		}
+
+		public void GenerateSelectionPanel(Inventory targetInventory)
+		{
+			
 			Game.Instance.Pause();
 
 			background.enabled = true;
 			skipButton.SetActive(true);
+
+			List<Item> items = itemPicker.PickItems();
 
 			foreach(Item item in items)
 			{

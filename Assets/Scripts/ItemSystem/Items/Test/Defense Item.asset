@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2764dfd4e1e0a4a49b9f9b225873dde7, type: 3}
-  m_Name: Health Item
+  m_Name: Defense Item
   m_EditorClassIdentifier: 
-  name: Health Item
+  name: Defense Item
   icon: {fileID: 0}
   rarity: 0
   category: 0
-  data:
-  - stat: Health
-    intensity: 0.1
-    modifier: 1
+  effects: []
   description: 

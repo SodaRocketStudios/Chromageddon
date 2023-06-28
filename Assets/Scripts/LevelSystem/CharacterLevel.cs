@@ -37,7 +37,6 @@ namespace SRS.LevelSystem
 		{
 			level++;
 			requiredXP += (int)(requirementMultiplier * requiredXP);
-			Debug.Log(requiredXP);
 			OnLevelUp.Invoke();
 		}
 	}
