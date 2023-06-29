@@ -20,91 +20,63 @@ namespace SRS.StatusEffects
 		[SerializeField] private float duration;
 		private float endTime;
 
-		[SerializeField] private List<StatEffect> statEffects = new List<StatEffect>();
-		[SerializeField] private List<TickEffect> tickEffects = new List<TickEffect>();
+		[SerializeField] private List<Effect> effects = new List<Effect>();
 
-		public bool HasEnded {get; private set;} = false;
+		private List<Effect> activeEffects = new List<Effect>();
 
 		private CharacterStats targetStats;
+		private StatusEffectTracker targetEffectTracker;
 
-		public bool Apply(GameObject target)
+		public void Apply(GameObject target)
 		{
-			if(target.TryGetComponent<CharacterStats>(out targetStats))
+			if(target.TryGetComponent<StatusEffectTracker>(out targetEffectTracker))
 			{
 				endTime = Time.time + duration;
-				RunEffect();
 
-				int i = 0;
-
-				foreach(StatEffect effect in statEffects)
+				foreach(StatEffect effect in effects)
 				{
-					statEffects[i] = Instantiate(effect);
-					i++;
+					Effect effectInstance = Instantiate(effect);
+					effectInstance.Apply(target);
+					activeEffects.Add(effectInstance);
 				}
 
-				i = 0;
-
-				foreach(TickEffect effect in tickEffects)
-				{
-					tickEffects[i] = Instantiate(effect);
-					i++;
-				}
-
-				return true;
+				targetEffectTracker.AddEffect(this);
+				
+				Run();
 			}
 
-			return false;
 		}
 
-		public void Cancel()
+		public  void Cancel()
 		{
 			endTime = Time.time;
 		}
 
-		private async void RunEffect()
+		public void Remove()
 		{
-			Start();
+			foreach(StatEffect effect in activeEffects)
+			{
+				effect.Remove();
+			}
+		}
 
+		private async void Run()
+		{
 			while(Time.time < endTime)
 			{
-				Tick();
 				await Task.Yield();
 			}
 
 			End();
 		}
 
-		private void Start()
-		{
-			HasEnded = false;
-
-			foreach(StatEffect effect in statEffects)
-			{
-				targetStats.AddModifier(effect.Stat, effect.Modifier);
-			}
-
-			foreach(TickEffect effect in tickEffects)
-			{
-				effect.Initialize(targetStats.gameObject);
-			}
-		}
-
-		private void Tick()
-		{
-			foreach(TickEffect effect in tickEffects)
-			{
-				effect.Tick();
-			}
-		}
 
 		private void End()
 		{
-			foreach(StatEffect effect in statEffects)
-			{
-				targetStats.RemoveModifier(effect.Stat, effect.Modifier);
-			}
+			Remove();
 
-			HasEnded = true;
+			targetEffectTracker.RemoveEffect(this);
+			activeEffects.Clear();
 		}
 	}
 }

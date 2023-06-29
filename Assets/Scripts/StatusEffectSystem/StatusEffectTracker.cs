@@ -5,35 +5,31 @@ namespace SRS.StatusEffects
 {
 	public class StatusEffectTracker : MonoBehaviour
 	{
-		private List<StatusEffect> activeEffects = new List<StatusEffect>();
-
-		private void Update()
-		{
-			activeEffects.RemoveAll(e => e.HasEnded);
-		}
+		private List<StatusEffect> activeStatusEffects = new List<StatusEffect>();
 
 		private void OnDisable()
 		{
-			foreach(StatusEffect effect in activeEffects)
+			foreach(StatusEffect effect in activeStatusEffects)
 			{
 				effect.Cancel();
 			}
 			
-			activeEffects.Clear();
+			activeStatusEffects.Clear();
 		}
 
-		public void ApplyEffect(StatusEffect effect)
+		public void AddEffect(StatusEffect effect)
 		{
-			if(effect.Apply(gameObject))
-			{
-				activeEffects.Add(effect);
-			}
+			activeStatusEffects.Add(effect);
 		}
 
 		public void RemoveEffect(StatusEffect effect)
 		{
+			activeStatusEffects.Remove(effect);
+		}
+
+		public void CancelEffect(StatusEffect effect)
+		{
 			effect.Cancel();
-			activeEffects.Remove(effect);
 		}
 	}
 }

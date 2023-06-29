@@ -3,7 +3,7 @@ using SRS.Health;
 
 namespace SRS.StatusEffects
 {
-	public abstract class TickEffect : ScriptableObject
+	public abstract class TickEffect : Effect
 	{
 		[SerializeField] private float ticksPerSecond;
 		private float tickDelay;
