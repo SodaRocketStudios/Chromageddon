@@ -22,9 +22,14 @@ namespace SRS.StatusEffects
 			nextTickTime = Time.time + tickDelay;
 		}
 
-		public void Tick()
+		private void Update()
 		{
-			if(Time.time > nextTickTime)
+			TryTick();
+		}
+
+		private void TryTick()
+		{
+			if(Time.time >= nextTickTime)
 			{
 				HandleTick();
 				nextTickTime = Time.time + tickDelay;
