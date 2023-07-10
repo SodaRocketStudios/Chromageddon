@@ -45,13 +45,13 @@ namespace SRS.AttackSystem
 
             OnHitEvent?.Invoke();
 
-            // foreach(StatusEffect effect in StatusEffectDatabase.Instance.StatusEffects())
-            // {
-            // 	if(random.NextFloat() <= attackStats[effect.ProcStat].Value)
-            // 	{
-            // 		effect.Apply(gameObject);
-            // 	}
-            // }
+            foreach(StatusEffect effect in StatusEffectDatabase.Instance.Effects)
+            {
+            	if(random.NextFloat() <= attackerStats[effect.ProcStat])
+            	{
+            		effect.Apply(gameObject);
+            	}
+            }
 
             if(invincibilityTime > 0)
 			{
