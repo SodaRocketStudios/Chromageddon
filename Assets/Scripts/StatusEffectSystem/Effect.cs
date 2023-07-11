@@ -7,5 +7,8 @@ namespace SRS.StatusEffects
         public abstract void Apply(GameObject target);
 
         public abstract void Remove();
+
+        public virtual void Update()
+        {}
     }
 }

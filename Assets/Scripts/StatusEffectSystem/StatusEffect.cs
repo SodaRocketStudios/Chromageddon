@@ -5,7 +5,7 @@ using SRS.StatSystem;
 
 namespace SRS.StatusEffects
 {
-	[CreateAssetMenu(fileName = "New Status Effect", menuName = "StatusEffect/Status Effect")]
+	[CreateAssetMenu(fileName = "New Status Effect", menuName = "Status Effect/Status Effect")]
 	public class StatusEffect : ScriptableObject
 	{
 		[SerializeField] private string procStat;
@@ -33,7 +33,7 @@ namespace SRS.StatusEffects
 			{
 				endTime = Time.time + duration;
 
-				foreach(StatEffect effect in effects)
+				foreach(Effect effect in effects)
 				{
 					Effect effectInstance = Instantiate(effect);
 					effectInstance.Apply(target);
@@ -44,7 +44,6 @@ namespace SRS.StatusEffects
 				
 				Run();
 			}
-
 		}
 
 		public  void Cancel()
@@ -52,9 +51,9 @@ namespace SRS.StatusEffects
 			endTime = Time.time;
 		}
 
-		public void Remove()
+		private void Remove()
 		{
-			foreach(StatEffect effect in activeEffects)
+			foreach(Effect effect in activeEffects)
 			{
 				effect.Remove();
 			}
@@ -64,6 +63,10 @@ namespace SRS.StatusEffects
 		{
 			while(Time.time < endTime)
 			{
+				foreach(Effect effect in activeEffects)
+				{
+					effect.Update();
+				}
 				await Task.Yield();
 			}
 

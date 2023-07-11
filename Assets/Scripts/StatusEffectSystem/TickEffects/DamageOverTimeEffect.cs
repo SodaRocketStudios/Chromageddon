@@ -1,23 +1,24 @@
 using UnityEngine;
+using SRS.Health;
 
 namespace SRS.StatusEffects
 {
-	[CreateAssetMenu(fileName = "New Damge Over time Effect", menuName = "Damage Over Time Effect")]
+	[CreateAssetMenu(fileName = "New Damge Over time Effect", menuName = "Status Effect/Damage Over Time Effect")]
     public class DamageOverTimeEffect : TickEffect
     {
-        public override void Apply(GameObject target)
+        private HealthManager targetHealth;
+
+        protected override void Initialize(GameObject target)
         {
-
-        }
-
-        public override void Remove()
-        {
-
+            targetHealth = target.GetComponent<HealthManager>();
         }
 
         protected override void HandleTick()
         {
-			targetHealth.Damage(intensity);
+            if(targetHealth != null)
+            {
+			    targetHealth.Damage(intensity);
+            }
         }
     }
 }

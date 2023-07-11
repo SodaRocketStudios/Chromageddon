@@ -49,7 +49,8 @@ namespace SRS.AttackSystem
             {
             	if(random.NextFloat() <= attackerStats[effect.ProcStat])
             	{
-            		effect.Apply(gameObject);
+					StatusEffect EffectInstance = Instantiate(effect);
+            		EffectInstance.Apply(gameObject);
             	}
             }
 

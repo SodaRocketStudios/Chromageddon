@@ -31,5 +31,15 @@ namespace SRS.StatusEffects
 		{
 			effect.Cancel();
 		}
+
+		public void CancelAllEffects()
+		{
+			foreach(StatusEffect effect in activeStatusEffects)
+			{
+				effect.Cancel();
+			}
+
+			activeStatusEffects.Clear();
+		}
 	}
 }

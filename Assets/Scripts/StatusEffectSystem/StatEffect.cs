@@ -3,7 +3,7 @@ using SRS.StatSystem;
 
 namespace SRS.StatusEffects
 {
-	[CreateAssetMenu(fileName = "New Stat Effect", menuName = "StatusEffect/Stat Effect")]
+	[CreateAssetMenu(fileName = "New Stat Effect", menuName = "Status Effect/Stat Effect")]
 	public class StatEffect : Effect
 	{
 		[SerializeField] private string stat;

@@ -24,20 +24,20 @@ MonoBehaviour:
     hasCap: 0
     cap: 0
   - name: Attack Speed
-    baseValue: 40
+    baseValue: 2
     percentageModifier: 100
     hasCap: 0
     cap: 0
   - name: Burn Chance
     baseValue: 1
     percentageModifier: 100
-    hasCap: 0
-    cap: 0
+    hasCap: 1
+    cap: 1
   - name: Critical Chance
     baseValue: 1
     percentageModifier: 0
-    hasCap: 0
-    cap: 0
+    hasCap: 1
+    cap: 1
   - name: Critical Damage
     baseValue: 1
     percentageModifier: 200
@@ -51,8 +51,8 @@ MonoBehaviour:
   - name: Freeze Chance
     baseValue: 1
     percentageModifier: 100
-    hasCap: 0
-    cap: 0
+    hasCap: 1
+    cap: 1
   - name: Health
     baseValue: 10
     percentageModifier: 100
@@ -71,8 +71,8 @@ MonoBehaviour:
   - name: Poison Chance
     baseValue: 1
     percentageModifier: 100
-    hasCap: 0
-    cap: 0
+    hasCap: 1
+    cap: 1
   - name: Range
     baseValue: 20
     percentageModifier: 100

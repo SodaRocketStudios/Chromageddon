@@ -1,30 +1,44 @@
 using UnityEngine;
-using SRS.Health;
 
 namespace SRS.StatusEffects
 {
 	public abstract class TickEffect : Effect
 	{
-		[SerializeField] private float ticksPerSecond;
+		[SerializeField, Min(0.1f)] private float ticksPerSecond;
 		private float tickDelay;
 
 		[SerializeField] protected float intensity;
 
-		protected HealthManager targetHealth;
-
 		protected float nextTickTime;
 
-		public void Initialize(GameObject target)
+		private bool isRunning = false;
+
+		public override void Apply(GameObject target)
 		{
-			targetHealth = target.GetComponent<HealthManager>();
+			Initialize(target);
 
 			tickDelay = 1.0f/ticksPerSecond;
 			nextTickTime = Time.time + tickDelay;
+
+			isRunning = true;
 		}
 
-		private void Update()
+		public override void Remove()
 		{
-			TryTick();
+			if(Time.time < nextTickTime)
+			{
+				HandleTick();
+			}
+			
+			isRunning = false;
+		}
+
+		public override void Update()
+		{
+			if(isRunning)
+			{
+				TryTick();
+			}
 		}
 
 		private void TryTick()
@@ -32,9 +46,11 @@ namespace SRS.StatusEffects
 			if(Time.time >= nextTickTime)
 			{
 				HandleTick();
-				nextTickTime = Time.time + tickDelay;
+				nextTickTime += tickDelay;
 			}
 		}
+
+		protected abstract void Initialize(GameObject Target);
 
 		protected abstract void HandleTick();
 	}
