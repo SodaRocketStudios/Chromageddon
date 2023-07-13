@@ -12,7 +12,7 @@ namespace SRS.ItemSystem
 
 		public void Apply(CharacterStats characterStats)
 		{
-			characterStats.AddModifier(statName, modifier);s
+			characterStats.AddModifier(statName, modifier);
 		}
 
 		public void Remove(CharacterStats characterStats)

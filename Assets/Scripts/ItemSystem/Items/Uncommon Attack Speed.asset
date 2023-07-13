@@ -10,11 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2764dfd4e1e0a4a49b9f9b225873dde7, type: 3}
-  m_Name: Offense Item
+  m_Name: Uncommon Attack Speed
   m_EditorClassIdentifier: 
-  name: Offense Item
+  name: Attack Speed Up
   icon: {fileID: 0}
-  rarity: 0
+  rarity: 1
   category: 1
-  effects: []
-  description: 
+  effects:
+  - statName: Attack Speed
+    modifier:
+      type: 1
+      value: 10
+  description: Decrease attack cooldown by 10%
