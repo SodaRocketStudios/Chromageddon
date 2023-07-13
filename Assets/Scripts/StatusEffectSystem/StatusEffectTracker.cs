@@ -24,6 +24,7 @@ namespace SRS.StatusEffects
 
 		public void RemoveEffect(StatusEffect effect)
 		{
+			// Unsure whether the status effects need to bew destroyed
 			activeStatusEffects.Remove(effect);
 		}
 
