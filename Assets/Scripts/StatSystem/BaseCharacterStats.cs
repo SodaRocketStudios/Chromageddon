@@ -12,7 +12,7 @@ namespace SRS.StatSystem
 			"Armor",
 			"Damage",
 			"Speed",
-			"Attack Speed",
+			"Attack Delay",
 			"Attack Arc",
 			"Range",
 			"Critical Chance",

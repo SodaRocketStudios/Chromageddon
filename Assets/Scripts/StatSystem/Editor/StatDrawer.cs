@@ -23,7 +23,7 @@ namespace SRS.StatSystem
 			Rect baseValueRect = new Rect(container.x, container.y + 40, 30, 18);
 			Rect multiplyRect = new Rect(container.x + 32, container.y + 40, 10, 18);
 			Rect percentageRect = new Rect(container.x + 44, container.y + 40, 30, 18);
-			Rect equalRect = new Rect(container.x + 76, container.y + 40, 40, 18);
+			Rect equalRect = new Rect(container.x + 76, container.y + 40, 150, 18);
 
 			var baseProperty = property.FindPropertyRelative("baseValue");
 			var percentageProperty = property.FindPropertyRelative("percentageModifier");

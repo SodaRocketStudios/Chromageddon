@@ -17,8 +17,8 @@ MonoBehaviour:
   rarity: 0
   category: 1
   effects:
-  - statName: Attack Speed
+  - statName: Attack Delay
     modifier:
-      type: 1
-      value: 5
+      type: 2
+      value: 0.95
   description: Decrease attack cooldown by 5%

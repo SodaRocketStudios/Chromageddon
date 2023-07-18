@@ -63,7 +63,7 @@ namespace SRS.AttackSystem
 
 			int numOfAttacks = 0;
 
-			float attackDelay = 1.0f/characterStats["Attack Speed"];
+			float attackDelay = characterStats["Attack Delay"];
 
 			while(Time.time - numOfAttacks*attackDelay > nextAttackTime)
 			{
