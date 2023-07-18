@@ -7,6 +7,17 @@ namespace SRS.AttackSystem
 	public class Projectile : MonoBehaviour
 	{
 		[SerializeField] private float speed;
+		public float Speed
+		{
+			get
+			{
+				return speed;
+			}
+			set
+			{
+				speed = value;
+			}
+		}
 
 		private float lifetime;
 

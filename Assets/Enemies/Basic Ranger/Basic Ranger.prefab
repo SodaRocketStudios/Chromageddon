@@ -267,6 +267,8 @@ MonoBehaviour:
     EndTime: 180
   - StartTime: 240
     EndTime: 360
+  - StartTime: 0
+    EndTime: 360
 --- !u!58 &-3972939132495407723
 CircleCollider2D:
   m_ObjectHideFlags: 0

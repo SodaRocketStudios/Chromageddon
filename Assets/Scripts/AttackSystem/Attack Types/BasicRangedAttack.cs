@@ -5,15 +5,16 @@ namespace SRS.AttackSystem
 	[CreateAssetMenu(fileName = "Basic Ranged Attack", menuName = "Attacks/Basic Ranged Attack")]
 	public class BasicRangedAttack : AttackType
 	{
-		[SerializeField] private GameObject projectile;
+		[SerializeField] private float projectileSpeed;
 
         public override void Attack(Transform origin, float attackAngle, LayerMask mask)
         {
 			Quaternion direction = Quaternion.Euler(0, 0, origin.eulerAngles.z+Random.Range(-attackAngle/2, attackAngle/2));
 
-			GameObject projectile = ProjectileSpawner.Instance.Spawn(origin.position + origin.right, direction);
+			GameObject projectileInstance = ProjectileSpawner.Instance.Spawn(origin.position + origin.right, direction);
+			projectileInstance.GetComponent<Projectile>().Speed = projectileSpeed;
 			
-			projectile.GetComponent<Projectile>().Initialize(characterStats, mask);
+			projectileInstance.GetComponent<Projectile>().Initialize(characterStats, mask);
         }
 	}
 }

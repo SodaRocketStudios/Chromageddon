@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5996d352d374b8948adc05e7179cbe55, type: 3}
   m_Name: Basic Ranger Attack
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8209696437095727103, guid: e0d693fdb603e1b45bd77a7071f50718, type: 3}
+  projectileSpeed: 10
