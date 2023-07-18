@@ -142,7 +142,7 @@ MonoBehaviour:
   attackMask:
     serializedVersion: 2
     m_Bits: 8
-  attack: {fileID: 11400000, guid: 9a8010ad17c28164c8e2dae38afd6328, type: 2}
+  attack: {fileID: 11400000, guid: 1f0797670aa0752449b0ba3faf835c33, type: 2}
 --- !u!114 &8643788523000494224
 MonoBehaviour:
   m_ObjectHideFlags: 0

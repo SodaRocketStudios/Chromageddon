@@ -23,7 +23,7 @@ MonoBehaviour:
     percentageModifier: 100
     hasCap: 0
     cap: 0
-  - name: Attack Speed
+  - name: Attack Delay
     baseValue: 1
     percentageModifier: 100
     hasCap: 0

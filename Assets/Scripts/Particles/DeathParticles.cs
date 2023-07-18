@@ -25,8 +25,10 @@ namespace SRS.Particles
 		
 		private ParticleSystem Create()
 		{
-			ParticleSystem newParticle = Instantiate(particlePrefab);
+			ParticleSystem newParticle = Instantiate(particlePrefab, transform);
 			newParticle.gameObject.SetActive(false);
+
+			newParticle.GetComponent<Particle>().OnParticleSystemEnd.AddListener(ReleaseOnEnd);
 
 			return newParticle;
 		}
@@ -39,6 +41,11 @@ namespace SRS.Particles
 		private void OnRelease(ParticleSystem particleSystem)
 		{
 			particleSystem.gameObject.SetActive(false);
+		}
+
+		private void ReleaseOnEnd(ParticleSystem system)
+		{
+			pool.Release(system);
 		}
 	}
 }
