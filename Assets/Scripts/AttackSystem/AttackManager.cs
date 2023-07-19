@@ -38,6 +38,8 @@ namespace SRS.AttackSystem
 
 			attack = Instantiate(attack);
 			attack.Initialize(characterStats);
+
+			nextAttackTime = Time.time;
 		}
 
 		private void Update()

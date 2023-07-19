@@ -10,34 +10,34 @@ namespace SRS.EnemySpawner
 
 		private System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
 
-		private float minDistance = 1;
-
 		private Bounds levelBounds;
 		private float buffer;
 
-		public SpawnLocator(Bounds levelBounds, float buffer, float distance)
+		public SpawnLocator(Bounds levelBounds, float buffer)
 		{
 			this.levelBounds = levelBounds;
 			this.buffer = buffer;
-			this.minDistance = distance;
 		}
 
-		public Vector2 GetLocation()
+		public Vector2 GetLocation(float minDistance)
 		{
-			float randomX = (random.NextFloat() - 0.5f) * (levelBounds.size.x + buffer) + levelBounds.center.x;
-			float randomY = (random.NextFloat() - 0.5f) * (levelBounds.size.y + buffer) + levelBounds.center.y;
+			int tries = 0;
 
-			Vector2 position = new Vector2(randomX, randomY);
+			Vector2 position;
 
-			Collider2D[] colliders = Physics2D.OverlapCircleAll(position, minDistance, LayerMask.NameToLayer("Player"));
+			Collider2D player;
 
-			foreach(Collider2D collider in colliders)
+			do
 			{
-				if(collider.isTrigger == false)
-				{
-					position = GetLocation();
-				}
-			}
+				float randomX = (random.NextFloat() - 0.5f) * (levelBounds.size.x + buffer) + levelBounds.center.x;
+				float randomY = (random.NextFloat() - 0.5f) * (levelBounds.size.y + buffer) + levelBounds.center.y;
+
+				position = new Vector2(randomX, randomY);
+
+				player = Physics2D.OverlapCircle(position, minDistance, LayerMask.GetMask("Player"));
+
+				tries++;
+			} while(player != null && tries < 25);
 
 			return position;
 		}

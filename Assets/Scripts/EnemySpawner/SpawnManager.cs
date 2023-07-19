@@ -36,7 +36,7 @@ namespace SRS.EnemySpawner
 
 		private void Start()
 		{
-			spawnLocator = new SpawnLocator(level.bounds, levelBuffer, minDistanceFromPlayer);
+			spawnLocator = new SpawnLocator(level.bounds, levelBuffer);
 			nextSpawnTime = GameTimer.Instance.Time + initialSpawnDelay;
 		}
 
@@ -62,7 +62,7 @@ namespace SRS.EnemySpawner
 
         private void SpawnEnemy()
 		{
-			GameObject enemy = Instantiate(GetEnemyType(), spawnLocator.GetLocation(), Quaternion.identity);
+			GameObject enemy = Instantiate(GetEnemyType(), spawnLocator.GetLocation(minDistanceFromPlayer), Quaternion.identity);
 			enemyCount++;
 			enemy.GetComponent<HealthManager>().OnDeath.AddListener(Despawn);
 		}

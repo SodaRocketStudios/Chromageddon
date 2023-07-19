@@ -868,7 +868,7 @@ MonoBehaviour:
   - {fileID: 8254603096282425995, guid: e430164c705755444a111899f1d58023, type: 3}
   level: {fileID: 1035417163}
   levelBuffer: -1
-  minDistanceFromPlayer: 5
+  minDistanceFromPlayer: 10
   minGroupSize: 4
   maxGroupSize: 25
   maxEnemies: 200
