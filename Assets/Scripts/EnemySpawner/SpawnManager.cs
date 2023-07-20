@@ -10,7 +10,6 @@ namespace SRS.EnemySpawner
 {
 	public class SpawnManager : MonoBehaviour
 	{
-		[SerializeField] private GameObject baseEnemy;
 		[SerializeField] private List<GameObject> enemyTypes;
 
 		[SerializeField] private Collider2D level;
@@ -32,12 +31,16 @@ namespace SRS.EnemySpawner
 
 		private SpawnLocator spawnLocator;
 
+		private EnemyPool enemyPool;
+
 		private int enemyCount = 0;
 
 		private void Start()
 		{
 			spawnLocator = new SpawnLocator(level.bounds, levelBuffer);
 			nextSpawnTime = GameTimer.Instance.Time + initialSpawnDelay;
+
+			enemyPool = new EnemyPool(enemyTypes);
 		}
 
 		private void Update()
@@ -61,10 +64,19 @@ namespace SRS.EnemySpawner
 		}
 
         private void SpawnEnemy()
-		{
-			GameObject enemy = Instantiate(GetEnemyType(), spawnLocator.GetLocation(minDistanceFromPlayer), Quaternion.identity);
+		{	
+			GameObject enemyType = GetEnemyType();
+			GameObject enemy = enemyPool.Get(enemyType);
+			enemy.transform.position = spawnLocator.GetLocation(minDistanceFromPlayer);
 			enemyCount++;
 			enemy.GetComponent<HealthManager>().OnDeath.AddListener(Despawn);
+
+			ReturnToPool returnToPool = enemy.GetComponent<ReturnToPool>();
+
+			if(returnToPool.Pool == null)
+			{
+				returnToPool.Pool = enemyPool.GetPool(enemyType);
+			}
 		}
 
 		private GameObject GetEnemyType()
@@ -77,9 +89,9 @@ namespace SRS.EnemySpawner
 			OnEnemyDeath.Invoke(enemy);
 			enemy.GetComponent<HealthManager>().OnDeath.RemoveListener(Despawn);
 
-			xpDropper.SpawnXP(enemy.transform.position);
+			enemy.GetComponent<ReturnToPool>().Release();
 
-			Destroy(enemy);
+			xpDropper.SpawnXP(enemy.transform.position);
 
 			enemyCount--;
 		}
