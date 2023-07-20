@@ -14,12 +14,9 @@ namespace SRS.Health
 
 		private CharacterStats characterStats;
 
-		private Rigidbody2D body;
-
 		private void Start()
 		{
 			characterStats = GetComponent<CharacterStats>();
-			body = GetComponent<Rigidbody2D>();
 
 			SetHealthToMax();
 		}
@@ -46,8 +43,6 @@ namespace SRS.Health
 			if(CurrentHealth <= 0)
 			{
 				OnDeath.Invoke(gameObject);
-
-				body.simulated = false;
 			}
 		}
 
