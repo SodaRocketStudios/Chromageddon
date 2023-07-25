@@ -11,6 +11,10 @@ namespace SRS.LevelSystem
 
 		public UnityEvent OnLevelUp;
 
+		public delegate void ValueChangeHandler(float value);
+		public event ValueChangeHandler OnCurrentXPChange;
+		public event ValueChangeHandler OnRequiredXPChange;
+
 		private int level = 1;
 		public int Level => level;
 
@@ -31,13 +35,19 @@ namespace SRS.LevelSystem
 			{
 				LevelUp();
 			}
+
+			OnCurrentXPChange?.Invoke(currentXP);
 		}
 
 		private void LevelUp()
 		{
 			level++;
-			requiredXP += (int)(requirementMultiplier * requiredXP);
+			currentXP -= requiredXP;
+
+			requiredXP = (int)(requirementMultiplier * requiredXP);
 			OnLevelUp.Invoke();
+
+			OnRequiredXPChange?.Invoke(requiredXP);
 		}
 	}
 }

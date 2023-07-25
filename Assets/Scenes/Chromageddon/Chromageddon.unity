@@ -3950,10 +3950,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1529035696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9365298c2500a6d4cb24119643c825b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 02e2f7e9c4dd2a244b129974f55df18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  level: {fileID: 1632691818}
 --- !u!1 &1535837350
 GameObject:
   m_ObjectHideFlags: 0

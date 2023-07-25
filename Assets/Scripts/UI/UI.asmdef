@@ -1,9 +1,7 @@
 {
     "name": "UI",
     "rootNamespace": "SRS.UI",
-    "references": [
-        "GUID:43515be0041b708458f09cf0f8b2f2fe"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
