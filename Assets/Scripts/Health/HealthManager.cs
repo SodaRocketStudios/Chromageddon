@@ -14,11 +14,17 @@ namespace SRS.Health
 
 		private CharacterStats characterStats;
 
+		public delegate void ValueChangeHandler(float value);
+		public event ValueChangeHandler OnCurrentHealthChange;
+		public event ValueChangeHandler OnMaxHealthChange;
+
 		private void Start()
 		{
 			characterStats = GetComponent<CharacterStats>();
 
 			SetHealthToMax();
+
+			characterStats.Stats["Health"].OnValueChange += UpdateMaxHealth;
 		}
 
 		private void OnEnable()
@@ -44,14 +50,23 @@ namespace SRS.Health
 			{
 				OnDeath.Invoke(gameObject);
 			}
+
+			OnCurrentHealthChange?.Invoke(CurrentHealth);
 		}
 
 		private void SetHealthToMax()
 		{
 			if(characterStats != null)
 			{
-				CurrentHealth = characterStats["Health"];
+				CurrentHealth = MaxHealth;
+				OnMaxHealthChange?.Invoke(MaxHealth);
+				OnCurrentHealthChange?.Invoke(CurrentHealth);
 			}
+		}
+
+		private void UpdateMaxHealth(float value)
+		{
+			OnMaxHealthChange?.Invoke(MaxHealth);
 		}
 	}
 }

@@ -1,10 +1,7 @@
 {
-    "name": "Health",
-    "rootNamespace": "SRS.Health",
+    "name": "UI",
+    "rootNamespace": "SRS.UI",
     "references": [
-        "GUID:c13dd715b8d691d46a082b62b2c28be7",
-        "GUID:585fb7ad954cbf0448b961d93b501b32",
-        "GUID:27ade8e5227c66d4fbe61d3dcf6d90aa",
         "GUID:43515be0041b708458f09cf0f8b2f2fe"
     ],
     "includePlatforms": [],

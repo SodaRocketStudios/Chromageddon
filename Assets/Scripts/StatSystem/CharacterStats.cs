@@ -16,6 +16,13 @@ namespace SRS.StatSystem
 		}
 
 		private Dictionary<string, Stat> stats = new Dictionary<string, Stat>();
+		public Dictionary<string, Stat> Stats
+		{
+			get
+			{
+				return stats;
+			}
+		}
 		public float this[string key]
 		{ 
 			get

@@ -27,6 +27,10 @@ namespace SRS.StatSystem
 		[SerializeField] private float cap = 0;
 		public float ValueCap { get {return cap;} }
 
+		public delegate void valueChangeHandler(float value);
+
+		[HideInInspector] public event valueChangeHandler OnValueChange;
+
 		private bool isDirty = true;
 
 		private float value;
@@ -74,6 +78,8 @@ namespace SRS.StatSystem
 					break;
 			}
 
+			OnValueChange?.Invoke(Value);
+
 			isDirty = true;
 		}
 
@@ -93,6 +99,8 @@ namespace SRS.StatSystem
 				default:
 					break;
 			}
+
+			OnValueChange?.Invoke(Value);
 
 			isDirty = true;
 		}
