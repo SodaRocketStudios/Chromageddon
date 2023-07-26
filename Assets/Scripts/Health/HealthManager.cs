@@ -67,7 +67,6 @@ namespace SRS.Health
 		private void UpdateMaxHealth(float value)
 		{
 			OnMaxHealthChange?.Invoke(value);
-			OnCurrentHealthChange?.Invoke(CurrentHealth);
 		}
 	}
 }
