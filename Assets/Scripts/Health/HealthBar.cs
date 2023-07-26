@@ -7,7 +7,7 @@ namespace SRS.Health
     {
         [SerializeField] private HealthManager health;
 
-        private void Start()
+        private void Awake()
         {
             health.OnCurrentHealthChange += UpdateValue;
             health.OnMaxHealthChange += UpdateMax;

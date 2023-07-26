@@ -7,7 +7,7 @@ namespace SRS.LevelSystem
     {
         [SerializeField] private CharacterLevel level;
 
-        private void Start()
+        private void Awake()
         {
             level.OnCurrentXPChange += UpdateValue;
             level.OnRequiredXPChange += UpdateMax;

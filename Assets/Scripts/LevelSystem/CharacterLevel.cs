@@ -27,6 +27,12 @@ namespace SRS.LevelSystem
 			requiredXP = baseXPRequirement;
 		}
 
+		private void Start()
+		{
+			OnCurrentXPChange?.Invoke(currentXP);
+			OnRequiredXPChange?.Invoke(requiredXP);
+		}
+
 		public void AddXP(int amount)
 		{
 			currentXP += amount;
