@@ -68,7 +68,6 @@ namespace SRS.Health
 		{
 			OnMaxHealthChange?.Invoke(value);
 			OnCurrentHealthChange?.Invoke(CurrentHealth);
-			Debug.Log($"{CurrentHealth}/{value}", this);
 		}
 	}
 }
