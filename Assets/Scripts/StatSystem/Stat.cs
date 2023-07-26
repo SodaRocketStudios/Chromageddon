@@ -77,10 +77,10 @@ namespace SRS.StatSystem
 				default:
 					break;
 			}
+			
+			isDirty = true;
 
 			OnValueChange?.Invoke(Value);
-
-			isDirty = true;
 		}
 
 		public void RemoveModifier(StatModifier modifier)
@@ -100,9 +100,9 @@ namespace SRS.StatSystem
 					break;
 			}
 
-			OnValueChange?.Invoke(Value);
-
 			isDirty = true;
+
+			OnValueChange?.Invoke(Value);
 		}
 
 		public Stat DeepCopy()

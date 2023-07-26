@@ -22,9 +22,9 @@ namespace SRS.Health
 		{
 			characterStats = GetComponent<CharacterStats>();
 
-			SetHealthToMax();
-
 			characterStats.Stats["Health"].OnValueChange += UpdateMaxHealth;
+
+			SetHealthToMax();
 		}
 
 		private void OnEnable()
@@ -66,7 +66,9 @@ namespace SRS.Health
 
 		private void UpdateMaxHealth(float value)
 		{
-			OnMaxHealthChange?.Invoke(MaxHealth);
+			OnMaxHealthChange?.Invoke(value);
+			OnCurrentHealthChange?.Invoke(CurrentHealth);
+			Debug.Log($"{CurrentHealth}/{value}", this);
 		}
 	}
 }
