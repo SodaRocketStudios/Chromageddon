@@ -70,20 +70,4 @@ namespace SRS.ItemSystem
 			}
 		}
 	}
-
-	public enum ItemRarity
-	{
-		Common,
-		Uncommon,
-		Rare,
-		Legendary,
-		Boss
-	}
-
-	public enum ItemCategory
-	{
-		Defense,
-		Offense,
-		Utility
-	}
 }

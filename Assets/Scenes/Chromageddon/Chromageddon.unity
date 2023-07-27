@@ -580,6 +580,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cad3fd66d0b45d84282a50aae2e59373, type: 2}
   - {fileID: 11400000, guid: 6603cba82ee78154f8a6c8b21d853da5, type: 2}
   - {fileID: 11400000, guid: 851ecbbf82dbd90428e9c7b67a30dfd8, type: 2}
+  rarityColors:
+  - {r: 0, g: 0.6698113, b: 0.047163818, a: 1}
+  - {r: 0, g: 0.24372904, b: 0.5754717, a: 1}
+  - {r: 0.31742513, g: 0, b: 0.5660378, a: 1}
+  - {r: 0.74509805, g: 0.32941177, b: 0, a: 1}
+  - {r: 0.6132076, g: 0, b: 0.02799673, a: 1}
 --- !u!4 &120120328
 Transform:
   m_ObjectHideFlags: 0

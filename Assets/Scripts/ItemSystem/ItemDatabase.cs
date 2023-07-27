@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,6 +11,9 @@ namespace SRS.ItemSystem
 
 		[SerializeField] private List<Item> allItems;
 
+		[SerializeField] private List<Color> rarityColors = new List<Color>();
+		public Dictionary<ItemRarity, Color> RarityColors = new Dictionary<ItemRarity, Color>();
+
 		System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
 
 		private void Awake()
@@ -21,6 +25,14 @@ namespace SRS.ItemSystem
 			else if(Instance != this)
 			{
 				Destroy(this);
+			}
+
+			int i = 0;
+
+			foreach(ItemRarity rarity in Enum.GetValues(typeof(ItemRarity)))
+			{
+				RarityColors.Add(rarity, rarityColors[i]);
+				i++;
 			}
 		}
 
@@ -81,5 +93,21 @@ namespace SRS.ItemSystem
 
 			return items[randomGenerator.Next(items.Count)];
 		}
+	}
+
+	public enum ItemRarity
+	{
+		Common,
+		Uncommon,
+		Rare,
+		Legendary,
+		Boss
+	}
+
+	public enum ItemCategory
+	{
+		Defense,
+		Offense,
+		Utility
 	}
 }

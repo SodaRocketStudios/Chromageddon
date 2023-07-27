@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using SRS.GameManager;
+using SRS.UI;
 
 namespace SRS.ItemSystem
 {
@@ -62,8 +63,19 @@ namespace SRS.ItemSystem
 
 				button.GetComponentInChildren<TextMeshProUGUI>().text = item.Name;
 
-				button.GetComponent<Button>().onClick.AddListener(DisableSelectionPanel);
-				button.GetComponent<Button>().onClick.AddListener(delegate{targetInventory.AddItem(item);});
+				ColorChangeAnimation colorAnimation = button.GetComponent<ColorChangeAnimation>();
+
+				Color color = ItemDatabase.Instance.RarityColors[item.Rarity];
+				colorAnimation.StartColor = color;
+				float h, s, v;
+				Color.RGBToHSV(color, out h, out s, out v);
+				s = 0.1f;
+				color = Color.HSVToRGB(h, s, v);
+				colorAnimation.EndColor = color;
+
+				HoldButton holdComponent = button.GetComponent<HoldButton>();
+				holdComponent.OnHoldCompleted.AddListener(DisableSelectionPanel);
+				holdComponent.OnHoldCompleted.AddListener(delegate{targetInventory.AddItem(item);});
 
 				buttons.Add(button);
 			}
@@ -76,7 +88,7 @@ namespace SRS.ItemSystem
 
 			foreach(GameObject button in buttons)
 			{
-				button.GetComponent<Button>().onClick.RemoveAllListeners();
+				button.GetComponent<HoldButton>().OnHoldCompleted.RemoveAllListeners();
 				Destroy(button);
 			}
 
