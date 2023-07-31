@@ -77,6 +77,11 @@ namespace SRS.ItemSystem
 				holdComponent.OnHoldCompleted.AddListener(DisableSelectionPanel);
 				holdComponent.OnHoldCompleted.AddListener(delegate{targetInventory.AddItem(item);});
 
+				HoverDisplay hoverDisplay = GetComponent<HoverDisplay>();
+				holdComponent.OnPointerHoverEvent.AddListener(hoverDisplay.Show);
+				holdComponent.OnPointerHoverEvent.AddListener(hoverDisplay.UpdatePosition);
+				holdComponent.OnPointerHoverEndEvent.AddListener(hoverDisplay.Hide);
+
 				buttons.Add(button);
 			}
 		}
@@ -88,7 +93,10 @@ namespace SRS.ItemSystem
 
 			foreach(GameObject button in buttons)
 			{
-				button.GetComponent<HoldButton>().OnHoldCompleted.RemoveAllListeners();
+				HoldButton holdComponent = button.GetComponent<HoldButton>();
+				holdComponent.OnHoldCompleted.RemoveAllListeners();
+				holdComponent.OnPointerHoverEvent.RemoveAllListeners();
+				holdComponent.OnPointerHoverEndEvent.RemoveAllListeners();
 				Destroy(button);
 			}
 
