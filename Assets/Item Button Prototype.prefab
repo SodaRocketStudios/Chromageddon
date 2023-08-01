@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 1131322506997452109}
   - component: {fileID: 1131322506997452108}
   - component: {fileID: 2830017675651454645}
+  - component: {fileID: 4678280078863116298}
   - component: {fileID: 2560807241659667152}
   - component: {fileID: 1414210475886989720}
   m_Layer: 5
@@ -229,6 +230,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startColor: {r: 0.735849, g: 0, b: 0, a: 1}
   EndColor: {r: 0.5123295, g: 0.43529415, b: 0.8980392, a: 1}
+--- !u!114 &4678280078863116298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131322506997452081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295c8f2346ccc024d9fad26494209602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 1
 --- !u!114 &2560807241659667152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,12 +256,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdTime: 1
+  hoverDelay: 1
   OnHoldUpdated:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2830017675651454645}
         m_TargetAssemblyTypeName: SRS.UI.ColorChangeAnimation, UI
         m_MethodName: UpdateColor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4678280078863116298}
+        m_TargetAssemblyTypeName: SRS.UI.ShakeAnimation, UI
+        m_MethodName: UpdatePosition
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -270,6 +297,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointerHoverEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointerHoverEndEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1414210475886989720

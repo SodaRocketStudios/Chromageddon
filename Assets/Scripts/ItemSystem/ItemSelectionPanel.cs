@@ -81,6 +81,7 @@ namespace SRS.ItemSystem
 				holdComponent.OnPointerHoverEvent.AddListener(hoverDisplay.Show);
 				holdComponent.OnPointerHoverEvent.AddListener(hoverDisplay.UpdatePosition);
 				holdComponent.OnPointerHoverEndEvent.AddListener(hoverDisplay.Hide);
+				holdComponent.OnPointerHoverEvent.AddListener(delegate{hoverDisplay.SetText(item.Description);});
 
 				buttons.Add(button);
 			}
