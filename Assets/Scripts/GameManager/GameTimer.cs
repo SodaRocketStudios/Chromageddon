@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SRS.GameManager
 {
@@ -6,7 +7,22 @@ namespace SRS.GameManager
 	{
 		public static GameTimer Instance;
 
-		public float Time{get; private set;}
+		public UnityEvent<float> OnTimeUpdate;
+
+		private float time;
+		public float Time
+		{
+			get
+			{
+				return time;
+			}
+			private set
+			{
+				time = value;
+				OnTimeUpdate?.Invoke(time);
+			}
+		}
+
 		private TimerState state;
 
 

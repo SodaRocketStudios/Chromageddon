@@ -58,8 +58,7 @@ namespace SRS.ItemSystem
 					continue;
 				}
 
-				GameObject button = Instantiate(buttonPrefab);
-				button.transform.SetParent(transform, false);
+				GameObject button = Instantiate(buttonPrefab, transform);
 
 				button.GetComponentInChildren<TextMeshProUGUI>().text = item.Name;
 
@@ -98,6 +97,7 @@ namespace SRS.ItemSystem
 				holdComponent.OnHoldCompleted.RemoveAllListeners();
 				holdComponent.OnPointerHoverEvent.RemoveAllListeners();
 				holdComponent.OnPointerHoverEndEvent.RemoveAllListeners();
+				GetComponent<HoverDisplay>().Hide();
 				Destroy(button);
 			}
 

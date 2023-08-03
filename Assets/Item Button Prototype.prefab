@@ -173,11 +173,11 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 300}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1131322506997452109
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4271dc7b0a28149a240e16e3318a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startColor: {r: 0.735849, g: 0, b: 0, a: 1}
-  EndColor: {r: 0.5123295, g: 0.43529415, b: 0.8980392, a: 1}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  EndColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4678280078863116298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295c8f2346ccc024d9fad26494209602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 1
+  amplitude: 5
+  frequency: 100
 --- !u!114 &2560807241659667152
 MonoBehaviour:
   m_ObjectHideFlags: 0
