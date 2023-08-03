@@ -273,6 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preText: 'Time:'
   postText: 
+  decimalPlaces: 1
 --- !u!1 &43739319
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +615,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4325b9b1534d06c4babbeadb5744193c, type: 2}
   - {fileID: 11400000, guid: 83bcb9449f5c68a43ac82da480879ecd, type: 2}
   - {fileID: 11400000, guid: 2636994c3f62a7f46b450cc031ed9579, type: 2}
+  - {fileID: 11400000, guid: dd1c5a37374e3ac4980ff9116bbb5a26, type: 2}
+  - {fileID: 11400000, guid: 6469bc063f5f4dc48b9e7e387675245f, type: 2}
+  - {fileID: 11400000, guid: d4b17480d5ec3d24eb9cb5ed76037f36, type: 2}
+  - {fileID: 11400000, guid: 12c570aa8e86d2a4fa7585ae9ade3b29, type: 2}
+  - {fileID: 11400000, guid: d905bb20d8b07c449a0e858365e19f08, type: 2}
+  - {fileID: 11400000, guid: 5183ccf1ea878734395fc6be7aeca78c, type: 2}
+  - {fileID: 11400000, guid: cab5ca3450e40cf4987ad1409cc0abaf, type: 2}
+  - {fileID: 11400000, guid: ffee856eccddf9b4ba97bc6fa3d98506, type: 2}
+  - {fileID: 11400000, guid: 1becd0de4c2cb514d81b21c51e0f7ccb, type: 2}
+  - {fileID: 11400000, guid: 15b5e961c7468c045bed74b5bb648059, type: 2}
+  - {fileID: 11400000, guid: 0077c36e3193fc64899e0f744838da1a, type: 2}
+  - {fileID: 11400000, guid: 8a4a2257e713430469656c291f27f34a, type: 2}
   rarityColors:
   - {r: 0, g: 0.6698113, b: 0.047163818, a: 1}
   - {r: 0, g: 0.24372904, b: 0.5754717, a: 1}
