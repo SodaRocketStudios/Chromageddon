@@ -3396,26 +3396,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4334cac3ff1269408910a9900bf93ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  music: []
-  effects:
-<<<<<<< HEAD
-  - Name: Shoot
-=======
-  - Name: Hit
->>>>>>> 3714108528fc5766ffc7e5a6f267944f516ecdf3
-    audioClip: {fileID: 8300000, guid: 498d1f6e56630f340b352564cf95b696, type: 3}
-=======
->>>>>>> parent of 4cbd211 (added shoot sound)
-=======
->>>>>>> parent of 4cbd211 (added shoot sound)
-=======
->>>>>>> parent of 4cbd211 (added shoot sound)
   masterGroup: {fileID: 24300002, guid: 198294307ba40074cae36b77b1a67627, type: 2}
   musicGroup: {fileID: -3264925791621323879, guid: 198294307ba40074cae36b77b1a67627, type: 2}
   effectsGroup: {fileID: -4741462993921894085, guid: 198294307ba40074cae36b77b1a67627, type: 2}
+  music: []
+  effects:
+  - Name: Shoot
+    Clip: {fileID: 8300000, guid: aced6f369de5d4940b5f923cc5d3f271, type: 3}
 --- !u!4 &1336283572
 Transform:
   m_ObjectHideFlags: 0
