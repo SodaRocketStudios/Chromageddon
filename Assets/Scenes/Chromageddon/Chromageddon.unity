@@ -3396,6 +3396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4334cac3ff1269408910a9900bf93ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: []
+  effects:
+  - Name: Shoot
+    audioClip: {fileID: 8300000, guid: 498d1f6e56630f340b352564cf95b696, type: 3}
   masterGroup: {fileID: 24300002, guid: 198294307ba40074cae36b77b1a67627, type: 2}
   musicGroup: {fileID: -3264925791621323879, guid: 198294307ba40074cae36b77b1a67627, type: 2}
   effectsGroup: {fileID: -4741462993921894085, guid: 198294307ba40074cae36b77b1a67627, type: 2}

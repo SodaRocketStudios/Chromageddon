@@ -1,4 +1,5 @@
 using UnityEngine;
+using SRS.Audio;
 
 namespace SRS.AttackSystem
 {
@@ -15,6 +16,8 @@ namespace SRS.AttackSystem
 			projectileInstance.GetComponent<Projectile>().Speed = projectileSpeed;
 			
 			projectileInstance.GetComponent<Projectile>().Initialize(characterStats, mask);
+
+			AudioManager.Instance.PlayEffect("Shoot");
         }
 	}
 }
