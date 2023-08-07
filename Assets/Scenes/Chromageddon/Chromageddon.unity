@@ -3397,6 +3397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   music: []
   effects:
 <<<<<<< HEAD
@@ -3405,6 +3406,8 @@ MonoBehaviour:
   - Name: Hit
 >>>>>>> 3714108528fc5766ffc7e5a6f267944f516ecdf3
     audioClip: {fileID: 8300000, guid: 498d1f6e56630f340b352564cf95b696, type: 3}
+=======
+>>>>>>> parent of 4cbd211 (added shoot sound)
 =======
 >>>>>>> parent of 4cbd211 (added shoot sound)
   masterGroup: {fileID: 24300002, guid: 198294307ba40074cae36b77b1a67627, type: 2}
