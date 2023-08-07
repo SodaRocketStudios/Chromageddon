@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace SRS
+namespace SRS.Audio
 {
 	public class AudioManager : MonoBehaviour
 	{
@@ -9,6 +10,9 @@ namespace SRS
 		[SerializeField] private AudioMixerGroup masterGroup;
 		[SerializeField] private AudioMixerGroup musicGroup;
 		[SerializeField] private AudioMixerGroup effectsGroup;
+
+		[SerializeField] private List<Sound> music = new();
+		[SerializeField] private List<Sound> effects = new();
 
 		private AudioSource MusicSource;
 		private AudioSource EffectSource;
@@ -24,14 +28,17 @@ namespace SRS
 			EffectSource.outputAudioMixerGroup = effectsGroup;
 		}
 
-		public void PlayMusic(AudioClip clip)
+		public void PlayMusic(string sound)
 		{
+			AudioClip clip = music.Find(e => e.Name == sound).Clip;
 			MusicSource.clip = clip;
 			MusicSource.Play();
 		}
 
-		public void PlayEffect(AudioClip clip)
+		public void PlayEffect(string sound)
 		{
+			AudioClip clip = effects.Find(e => e.Name == sound).Clip;
+			EffectSource.clip = clip;
 			EffectSource.PlayOneShot(clip);
 		}
 
