@@ -1,16 +1,11 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace SRS.Audio
+namespace SRS
 {
 	public class AudioManager : MonoBehaviour
 	{
 		public static AudioManager Instance;
-
-		[SerializeField] private List<Sound> music = new();
-		[SerializeField] private List<Sound> effects = new();
-
 		[SerializeField] private AudioMixerGroup masterGroup;
 		[SerializeField] private AudioMixerGroup musicGroup;
 		[SerializeField] private AudioMixerGroup effectsGroup;
@@ -29,32 +24,15 @@ namespace SRS.Audio
 			EffectSource.outputAudioMixerGroup = effectsGroup;
 		}
 
-		public void PlayMusic(string sound)
+		public void PlayMusic(AudioClip clip)
 		{
-			AudioClip clip = music.Find(e => e.Name == sound).audioClip;
-			if(clip != null)
-			{
-				MusicSource.clip = clip;
-				MusicSource.Play();
-			}
-			else
-			{
-				Debug.LogWarning("Audio Clip Not Found", gameObject);
-			}
+			MusicSource.clip = clip;
+			MusicSource.Play();
 		}
 
-		public void PlayEffect(string sound)
+		public void PlayEffect(AudioClip clip)
 		{
-			AudioClip clip = effects.Find(e => e.Name == sound).audioClip;
-			if(clip != null)
-			{
-				EffectSource.clip = clip;
-				EffectSource.Play();
-			}
-			else
-			{
-				Debug.LogWarning("Audio Clip Not Found", gameObject);
-			}
+			EffectSource.PlayOneShot(clip);
 		}
 
 		public void SetMasterVolume(float level)

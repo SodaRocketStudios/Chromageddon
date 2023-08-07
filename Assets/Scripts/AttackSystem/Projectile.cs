@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using SRS.StatSystem;
-using SRS.Audio;
 
 namespace SRS.AttackSystem
 {
@@ -73,13 +72,13 @@ namespace SRS.AttackSystem
 
 			if((mask.value & (1 << other.gameObject.layer)) > 0)
 			{
-                if (other.gameObject.TryGetComponent(out HitHandler hitHandler))
-                {
-                    hitHandler.HandleHit(characterStats);
-                    AudioManager.Instance.PlayEffect("Hit");
-                }
+				HitHandler hitHandler;
+				if(other.gameObject.TryGetComponent<HitHandler>(out hitHandler))
+				{
+					hitHandler.HandleHit(characterStats);
+				}
 
-                isExpended = true;
+				isExpended = true;
 			}
 
 			if(isExpended) Despawn();
