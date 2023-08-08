@@ -627,6 +627,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 15b5e961c7468c045bed74b5bb648059, type: 2}
   - {fileID: 11400000, guid: 0077c36e3193fc64899e0f744838da1a, type: 2}
   - {fileID: 11400000, guid: 8a4a2257e713430469656c291f27f34a, type: 2}
+  - {fileID: 11400000, guid: d414c0d1f1133bd43b741e890aab533b, type: 2}
+  - {fileID: 11400000, guid: c553dc920cd092345b94ceaa295dacd0, type: 2}
+  - {fileID: 11400000, guid: d00ff3fce7e426147b7b333da2158af4, type: 2}
+  - {fileID: 11400000, guid: 1ea1b4c67028f3e4093ea21af9c910e8, type: 2}
   rarityColors:
   - {r: 0, g: 0.6698113, b: 0.047163818, a: 1}
   - {r: 0, g: 0.24372904, b: 0.5754717, a: 1}
@@ -1077,7 +1081,7 @@ GameObject:
   - component: {fileID: 245292837}
   - component: {fileID: 245292836}
   m_Layer: 0
-  m_Name: EnemySpawnManager
+  m_Name: Enemy Spawn Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3402,7 +3406,9 @@ MonoBehaviour:
   music: []
   effects:
   - Name: Shoot
-    Clip: {fileID: 8300000, guid: aced6f369de5d4940b5f923cc5d3f271, type: 3}
+    Clip: {fileID: 8300000, guid: d6f941335d8196044a0e306234e4bd2f, type: 3}
+  - Name: Enemy Death
+    Clip: {fileID: 8300000, guid: 82523652159cb9843824d54191bf66a3, type: 3}
 --- !u!4 &1336283572
 Transform:
   m_ObjectHideFlags: 0

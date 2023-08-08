@@ -5,6 +5,7 @@ using SRS.Health;
 using SRS.Extensions;
 using SRS.GameManager;
 using SRS.LevelSystem;
+using SRS.Audio;
 
 namespace SRS.EnemySpawner
 {
@@ -94,6 +95,8 @@ namespace SRS.EnemySpawner
 			xpDropper.SpawnXP(enemy.transform.position);
 
 			enemyCount--;
+
+			AudioManager.Instance.PlayEffect("Enemy Death");
 		}
 	}
 }
