@@ -21,12 +21,6 @@ namespace SRS.Audio
 		{
 			Instance = this;
 
-			// MusicSource = gameObject.AddComponent<AudioSource>();
-			// EffectSource = gameObject.AddComponent<AudioSource>();
-
-			// MusicSource.outputAudioMixerGroup = musicGroup;
-			// EffectSource.outputAudioMixerGroup = effectsGroup;
-
 			foreach(Sound sound in effects)
 			{
 				sound.Source = gameObject.AddComponent<AudioSource>();
