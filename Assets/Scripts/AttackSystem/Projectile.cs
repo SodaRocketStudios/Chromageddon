@@ -25,6 +25,9 @@ namespace SRS.AttackSystem
 		private LayerMask mask;
 
 		private Rigidbody2D rb;
+
+		private int remainingBounces = 0;
+		private int remainingPierces = 0;
 		
 		private bool isExpended = false;
 
@@ -39,6 +42,9 @@ namespace SRS.AttackSystem
 			mask = collisionMask;
 
             lifetime = characterStats["Range"]/speed;
+
+			remainingBounces = (int)characterStats["Bounces"];
+			remainingPierces = (int)characterStats["Pierces"];
 
 			isExpended = false;
 
@@ -72,16 +78,34 @@ namespace SRS.AttackSystem
 
 			if((mask.value & (1 << other.gameObject.layer)) > 0)
 			{
-				HitHandler hitHandler;
-				if(other.gameObject.TryGetComponent<HitHandler>(out hitHandler))
+                if (other.gameObject.TryGetComponent<HitHandler>(out HitHandler hitHandler))
+                {
+                    hitHandler.HandleHit(characterStats);
+                }
+
+                if (remainingBounces > 0)
 				{
-					hitHandler.HandleHit(characterStats);
+					Bounce();
+					remainingBounces--;
+					return;
+				}
+
+				if(remainingPierces > 0)
+				{
+					remainingPierces--;
+					return;
 				}
 
 				isExpended = true;
 			}
 
 			if(isExpended) Despawn();
+		}
+
+		private void Bounce()
+		{
+			// Look for a target behind the projectile and move toward it.
+			Physics2D.BoxCast();
 		}
 
 		private void Despawn()

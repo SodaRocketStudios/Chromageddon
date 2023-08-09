@@ -20,8 +20,8 @@ GameObject:
   - component: {fileID: 3484423876960464822}
   - component: {fileID: 2582305463493244959}
   - component: {fileID: -3921711892424653427}
-  - component: {fileID: 5138080025154483600}
   - component: {fileID: 2971556539669320165}
+  - component: {fileID: 6061475153277410644}
   m_Layer: 7
   m_Name: Basic Follower
   m_TagString: Untagged
@@ -265,8 +265,20 @@ MonoBehaviour:
     EndTime: 300
   - StartTime: 600
     EndTime: 900
---- !u!58 &5138080025154483600
-CircleCollider2D:
+--- !u!114 &2971556539669320165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8182654570200519838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74fa230208c679643926f14e88e11d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &6061475153277410644
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -298,17 +310,19 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.75
---- !u!114 &2971556539669320165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8182654570200519838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74fa230208c679643926f14e88e11d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2.0039062}
+    newSize: {x: 2, y: 2.0039062}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.75, y: 0.75}
+      - {x: 0.75, y: 0.75}
+      - {x: 0.75, y: -0.75}
+      - {x: -0.75, y: -0.75}
+  m_UseDelaunayMesh: 0

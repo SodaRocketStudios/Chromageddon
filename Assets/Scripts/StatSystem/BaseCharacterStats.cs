@@ -21,7 +21,9 @@ namespace SRS.StatSystem
 			"Burn Chance",
 			"Freeze Chance",
 			"Health Regen",
-			"Pickup Range"
+			"Pickup Range",
+			"Bounces",
+			"Pierces"
 		};
 
 		[SerializeField] private List<Stat> baseStats = new List<Stat>();

@@ -83,3 +83,13 @@ MonoBehaviour:
     percentageModifier: 100
     hasCap: 0
     cap: 0
+  - name: Bounces
+    baseValue: 0
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Pierces
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0

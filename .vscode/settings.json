@@ -52,5 +52,6 @@
         "temp/":true,
         "Temp/":true
     },
-    "dotnet.defaultSolution": "Chromageddon.sln"
+    "dotnet.defaultSolution": "Chromageddon.sln",
+    "unity-code-snippets.style": "allman"
 }
