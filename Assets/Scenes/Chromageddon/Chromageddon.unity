@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5c65f760200fb4bb6bca61e932e41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preText: 'Time:'
+  preText: 
   postText: 
 --- !u!1 &43739319
 GameObject:
@@ -3406,8 +3406,12 @@ MonoBehaviour:
   effects:
   - Name: Shoot
     Clip: {fileID: 8300000, guid: d6f941335d8196044a0e306234e4bd2f, type: 3}
+    Volume: 0.05
+    Source: {fileID: 0}
   - Name: Enemy Death
     Clip: {fileID: 8300000, guid: 82523652159cb9843824d54191bf66a3, type: 3}
+    Volume: 0.01
+    Source: {fileID: 0}
 --- !u!4 &1336283572
 Transform:
   m_ObjectHideFlags: 0

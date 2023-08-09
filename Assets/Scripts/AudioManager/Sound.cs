@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace SRS.Audio
 {
@@ -8,5 +9,8 @@ namespace SRS.Audio
     {
         public string Name;
         public AudioClip Clip;
+        [Range(0, 1)] public float Volume;
+
+        [HideInInspector] public AudioSource Source;
     }
 }

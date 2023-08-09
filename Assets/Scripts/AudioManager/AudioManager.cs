@@ -21,25 +21,35 @@ namespace SRS.Audio
 		{
 			Instance = this;
 
-			MusicSource = gameObject.AddComponent<AudioSource>();
-			EffectSource = gameObject.AddComponent<AudioSource>();
+			// MusicSource = gameObject.AddComponent<AudioSource>();
+			// EffectSource = gameObject.AddComponent<AudioSource>();
 
-			MusicSource.outputAudioMixerGroup = musicGroup;
-			EffectSource.outputAudioMixerGroup = effectsGroup;
+			// MusicSource.outputAudioMixerGroup = musicGroup;
+			// EffectSource.outputAudioMixerGroup = effectsGroup;
+
+			foreach(Sound sound in effects)
+			{
+				sound.Source = gameObject.AddComponent<AudioSource>();
+				sound.Source.clip = sound.Clip;
+				sound.Source.volume = sound.Volume;
+			}
+
+			foreach(Sound sound in music)
+			{
+				sound.Source = gameObject.AddComponent<AudioSource>();
+				sound.Source.clip = sound.Clip;
+				sound.Source.volume = sound.Volume;
+			}
 		}
 
-		public void PlayMusic(string sound)
+		public void PlayMusic(string soundName)
 		{
-			AudioClip clip = music.Find(e => e.Name == sound).Clip;
-			MusicSource.clip = clip;
-			MusicSource.Play();
+			music.Find(e => e.Name == soundName).Source.Play();
 		}
 
-		public void PlayEffect(string sound)
+		public void PlayEffect(string soundName)
 		{
-			AudioClip clip = effects.Find(e => e.Name == sound).Clip;
-			EffectSource.clip = clip;
-			EffectSource.PlayOneShot(clip);
+			effects.Find(e => e.Name == soundName).Source.Play();
 		}
 
 		public void SetMasterVolume(float level)

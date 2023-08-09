@@ -18,7 +18,7 @@ namespace SRS.UI
 
         public void UpdateDisplay(float value)
         {
-            textComponent.text = $"{preText }{value.ToString("0")}{ postText}";
+            textComponent.text = $"{preText}{value.ToString("0")}{postText}";
         }
     }
 }
