@@ -85,7 +85,9 @@ namespace SRS.AttackSystem
 
                 if (remainingBounces > 0)
 				{
-					Bounce();
+					ContactPoint2D[] contactPoint = new ContactPoint2D[1];
+					other.GetContacts(contactPoint);
+					Bounce(contactPoint[0].normal);
 					remainingBounces--;
 					return;
 				}
@@ -102,10 +104,21 @@ namespace SRS.AttackSystem
 			if(isExpended) Despawn();
 		}
 
-		private void Bounce()
+		private void Bounce(Vector3 normal)
 		{
-			// Look for a target behind the projectile and move toward it.
-			Physics2D.BoxCast();
+			RaycastHit2D hit = Physics2D.BoxCast(transform.position - transform.right, new Vector2(1, 10)*transform.right, 0, -transform.right, 25, LayerMask.GetMask("Enemy"));
+
+			Debug.Log($"{transform.right}, {normal}");
+
+			if(hit)
+			{
+				transform.LookAt(hit.transform);
+			}
+			else
+			{
+				float angle = Vector3.Angle(transform.right, normal);
+				transform.Rotate(new Vector3(0, 0, angle*2));
+			}
 		}
 
 		private void Despawn()
