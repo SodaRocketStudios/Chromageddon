@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using SRS.StatSystem;
 
@@ -30,6 +32,8 @@ namespace SRS.AttackSystem
 		private int remainingPierces = 0;
 		
 		private bool isExpended = false;
+
+		private GameObject lastObjectHit;
 
 		private void Awake()
 		{
@@ -78,16 +82,21 @@ namespace SRS.AttackSystem
 
 			if((mask.value & (1 << other.gameObject.layer)) > 0)
 			{
-                if (other.gameObject.TryGetComponent<HitHandler>(out HitHandler hitHandler))
+				if(other.gameObject == lastObjectHit)
+				{
+					return;
+				}
+
+				lastObjectHit = other.gameObject;
+
+                if (other.gameObject.TryGetComponent(out HitHandler hitHandler))
                 {
                     hitHandler.HandleHit(characterStats);
                 }
 
                 if (remainingBounces > 0)
 				{
-					ContactPoint2D[] contactPoint = new ContactPoint2D[1];
-					other.GetContacts(contactPoint);
-					Bounce(contactPoint[0].normal);
+					Bounce();
 					remainingBounces--;
 					return;
 				}
@@ -104,21 +113,25 @@ namespace SRS.AttackSystem
 			if(isExpended) Despawn();
 		}
 
-		private void Bounce(Vector3 normal)
+		private void Bounce()
 		{
-			RaycastHit2D hit = Physics2D.BoxCast(transform.position - transform.right, new Vector2(1, 10)*transform.right, 0, -transform.right, 25, LayerMask.GetMask("Enemy"));
+			List<RaycastHit2D> hits = Physics2D.CircleCastAll(transform.position, 50, transform.right, 0, LayerMask.GetMask("Enemy"))
+				.Where(hit => Vector2.Angle(hit.normal, transform.right) < 60 && hit.transform.gameObject != lastObjectHit).ToList();
 
-			Debug.Log($"{transform.right}, {normal}");
-
-			if(hit)
+			if(hits.Count > 0)
 			{
-				transform.LookAt(hit.transform);
+				float rotation = Vector2.SignedAngle(transform.right,hits.First().transform.position - transform.position);
+				transform.Rotate(new Vector3(0, 0, rotation));
 			}
 			else
 			{
-				float angle = Vector3.Angle(transform.right, normal);
-				transform.Rotate(new Vector3(0, 0, angle*2));
+				RaycastHit2D hit = Physics2D.Raycast(transform.position-transform.right, transform.right);
+				float rotation = Vector2.SignedAngle(transform.right, hit.normal)*2 - 180;
+				transform.Rotate(new Vector3(0, 0, rotation));
 			}
+
+			StopAllCoroutines();
+			DespawnTimer();
 		}
 
 		private void Despawn()
