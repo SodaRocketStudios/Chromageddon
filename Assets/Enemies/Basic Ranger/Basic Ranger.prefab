@@ -266,6 +266,7 @@ MonoBehaviour:
     EndTime: 180
   - StartTime: 240
     EndTime: 360
+  cost: 2
 --- !u!114 &2173446479010359681
 MonoBehaviour:
   m_ObjectHideFlags: 0

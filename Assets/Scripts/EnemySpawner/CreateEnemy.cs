@@ -14,7 +14,7 @@ namespace SRS.EnemySpawner
 
         public GameObject Create()
         {
-            GameObject enemy = GameObject.Instantiate(enemyType);
+            GameObject enemy = Object.Instantiate(enemyType);
             enemy.SetActive(false);
 
             return enemy;

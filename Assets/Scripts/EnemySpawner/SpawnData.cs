@@ -6,6 +6,14 @@ namespace SRS.EnemySpawner
 	public class SpawnData : MonoBehaviour
 	{
 		[SerializeField] private List<TimeFrame> spawnTimes = new List<TimeFrame>();
+		[SerializeField] private int cost;
+		public int Cost
+		{
+			get
+			{
+				return cost;
+			}
+		}
 
 		public bool CanSpawn(float time)
 		{

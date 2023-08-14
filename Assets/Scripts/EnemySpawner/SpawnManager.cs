@@ -34,6 +34,9 @@ namespace SRS.EnemySpawner
 
 		private EnemyPool enemyPool;
 
+		private EnemyShop shop;
+		private int points = 0;
+
 		private int enemyCount = 0;
 
 		private void Start()
@@ -42,6 +45,8 @@ namespace SRS.EnemySpawner
 			nextSpawnTime = GameTimer.Instance.Time + initialSpawnDelay;
 
 			enemyPool = new EnemyPool(enemyTypes);
+
+			shop = new(enemyTypes);
 		}
 
 		private void Update()
@@ -56,17 +61,26 @@ namespace SRS.EnemySpawner
 		{
 			int numberToSpawn = (int)Mathf.Max(minGroupSize, Mathf.Round(maxGroupSize*DifficultyManager.Instance.ChallengeRating));
 
-			for(int i = 0; i < numberToSpawn; i++)
+			points = 10;
+
+			// for(int i = 0; i < numberToSpawn; i++)
+			// {
+			// 	SpawnEnemy();
+			// }
+
+			while(points > 0)
 			{
-				SpawnEnemy();
+				GameObject enemy = shop.GetEnemy(points);
+				points -= enemy.GetComponent<SpawnData>().Cost;
+				SpawnEnemy(enemy);
 			}
 
 			nextSpawnTime = GameTimer.Instance.Time + spawnDelaySeconds;
 		}
 
-        private void SpawnEnemy()
+        private void SpawnEnemy(GameObject enemyType)
 		{	
-			GameObject enemyType = GetEnemyType();
+			// GameObject enemyType = GetEnemyType();
 			GameObject enemy = enemyPool.Get(enemyType);
 			enemy.transform.position = spawnLocator.GetLocation(minDistanceFromPlayer);
 			enemyCount++;
@@ -82,7 +96,7 @@ namespace SRS.EnemySpawner
 
 		private GameObject GetEnemyType()
 		{
-			return enemyTypes.Where(enemy => enemy.GetComponent<SpawnData>().CanSpawn(GameTimer.Instance.Time)).ToList<GameObject>().GetRandom<GameObject>();
+			return enemyTypes.Where(enemy => enemy.GetComponent<SpawnData>().CanSpawn(GameTimer.Instance.Time)).ToList().GetRandom();
 		}
 
 		private void Despawn(GameObject enemy)
