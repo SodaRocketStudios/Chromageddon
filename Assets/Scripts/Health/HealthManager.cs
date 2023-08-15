@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using SRS.StatSystem;
 using SRS.Extensions;
 
@@ -16,9 +17,8 @@ namespace SRS.Health
 
 		private float healthPercentage = 1;
 
-		public delegate void ValueChangeHandler(float value);
-		public event ValueChangeHandler OnCurrentHealthChange;
-		public event ValueChangeHandler OnMaxHealthChange;
+		public UnityEvent<float> OnCurrentHealthChange;
+		public UnityEvent<float> OnMaxHealthChange;
 
 		private void Start()
 		{

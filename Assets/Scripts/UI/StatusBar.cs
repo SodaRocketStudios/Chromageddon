@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace SRS.UI
 {
-    public abstract class StatusBar : MonoBehaviour
+    public class StatusBar : MonoBehaviour
     {
         private Slider slider;
 
@@ -12,7 +12,7 @@ namespace SRS.UI
             slider = GetComponent<Slider>();
         }
 
-        protected void UpdateValue(float value)
+        public void UpdateValue(float value)
         {
             if(slider == null)
             {
@@ -22,7 +22,7 @@ namespace SRS.UI
             slider.value = value;
         }
 
-        protected void UpdateMax(float value)
+        public void UpdateMax(float value)
         {
             if(slider == null)
             {

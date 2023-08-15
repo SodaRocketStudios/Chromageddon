@@ -7,7 +7,7 @@ namespace SRS.UI
     {
         [SerializeField] private string preText;
         [SerializeField] private string postText;
-        // [SerializeField] private int decimalPlaces = 1;
+        [SerializeField] private int decimalPlaces = 1;
 
         private TMP_Text textComponent;
 
@@ -18,7 +18,7 @@ namespace SRS.UI
 
         public void UpdateDisplay(float value)
         {
-            textComponent.text = $"{preText}{value.ToString("0")}{postText}";
+            textComponent.text = $"{preText}{value.ToString("N" + decimalPlaces)}{postText}";
         }
     }
 }

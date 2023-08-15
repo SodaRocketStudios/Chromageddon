@@ -9,8 +9,8 @@ namespace SRS.Health
 
         private void Awake()
         {
-            health.OnCurrentHealthChange += UpdateValue;
-            health.OnMaxHealthChange += UpdateMax;
+            health.OnCurrentHealthChange.AddListener(UpdateValue);
+            health.OnMaxHealthChange.AddListener(UpdateMax);
         }
     }
 }
