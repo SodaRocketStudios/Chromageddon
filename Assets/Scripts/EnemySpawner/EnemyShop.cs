@@ -21,7 +21,7 @@ namespace SRS.EnemySpawner
 
         public GameObject GetEnemy(int points)
         {
-            return enemyTypes.Where(enemy => spawnData[enemy].Cost <= points).ToList().GetRandom();
+            return enemyTypes.Where(enemy => spawnData[enemy].Cost*2 <= points).ToList().GetRandom();
         }
     }
 }

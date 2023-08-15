@@ -59,20 +59,26 @@ namespace SRS.EnemySpawner
 
 		private void SpawnGroup()
 		{
-			int numberToSpawn = (int)Mathf.Max(minGroupSize, Mathf.Round(maxGroupSize*DifficultyManager.Instance.ChallengeRating));
-
 			points = 10;
-
-			// for(int i = 0; i < numberToSpawn; i++)
-			// {
-			// 	SpawnEnemy();
-			// }
 
 			while(points > 0)
 			{
 				GameObject enemy = shop.GetEnemy(points);
-				points -= enemy.GetComponent<SpawnData>().Cost;
-				SpawnEnemy(enemy);
+
+				if(enemy == null)
+				{
+					break;
+				}
+
+				SpawnData data = enemy.GetComponent<SpawnData>();
+				int amountToSpawn = Random.Range(2, points/data.Cost + 1);
+				points -= data.Cost*amountToSpawn;
+
+				for(int i = 0; i < amountToSpawn; i++)
+				{
+					SpawnEnemy(enemy);
+				}
+
 			}
 
 			nextSpawnTime = GameTimer.Instance.Time + spawnDelaySeconds;
@@ -80,7 +86,6 @@ namespace SRS.EnemySpawner
 
         private void SpawnEnemy(GameObject enemyType)
 		{	
-			// GameObject enemyType = GetEnemyType();
 			GameObject enemy = enemyPool.Get(enemyType);
 			enemy.transform.position = spawnLocator.GetLocation(minDistanceFromPlayer);
 			enemyCount++;
