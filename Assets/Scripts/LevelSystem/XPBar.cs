@@ -9,8 +9,8 @@ namespace SRS.LevelSystem
 
         private void Awake()
         {
-            level.OnCurrentXPChange += UpdateValue;
-            level.OnRequiredXPChange += UpdateMax;
+            level.OnCurrentXPChange.AddListener(UpdateValue);
+            level.OnRequiredXPChange.AddListener(UpdateMax);
         }
     }
 }

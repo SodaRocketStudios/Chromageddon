@@ -11,9 +11,8 @@ namespace SRS.LevelSystem
 
 		public UnityEvent OnLevelUp;
 
-		public delegate void ValueChangeHandler(float value);
-		public event ValueChangeHandler OnCurrentXPChange;
-		public event ValueChangeHandler OnRequiredXPChange;
+		public UnityEvent<float> OnCurrentXPChange;
+		public UnityEvent<float> OnRequiredXPChange;
 
 		private int level = 1;
 		public int Level => level;
