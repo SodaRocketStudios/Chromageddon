@@ -29,7 +29,6 @@ namespace SRS.StatSystem
 			{
 				baseValue = value;
 				updateValue();
-				OnValueChange?.Invoke(Value);
 			}
 		}
 
@@ -44,7 +43,6 @@ namespace SRS.StatSystem
 			{
 				percentageModifier = value;
 				updateValue();
-				OnValueChange?.Invoke(Value);
 			}
 		}
 
@@ -70,8 +68,8 @@ namespace SRS.StatSystem
 		public Stat(string name, float baseValue = 1, float percentageModifier = 100)
 		{
 			Name = name;
-			this.baseValue = baseValue;
-			this.percentageModifier = percentageModifier;
+			BaseValue = baseValue;
+			PercentageModifier = percentageModifier;
 		}
 
 		private void updateValue()
@@ -82,6 +80,8 @@ namespace SRS.StatSystem
 			{
 				value = Mathf.Min(value, cap);
 			}
+
+			OnValueChange?.Invoke(Value);
 		}
 
 		public Stat DeepCopy()
