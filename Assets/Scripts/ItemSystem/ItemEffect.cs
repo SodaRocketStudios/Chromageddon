@@ -13,7 +13,7 @@ namespace SRS.ItemSystem
 			get { return statName; }
 		}
 
-		[SerializeField] private EffectType effectType;
+		[SerializeField] private ModifierType effectType;
 
 		[SerializeField] private List<float> values;
 
@@ -21,13 +21,13 @@ namespace SRS.ItemSystem
 		{
 			switch(effectType)
 			{
-				case EffectType.Additive:
+				case ModifierType.Additive:
 					stats.Stats[statName].BaseValue += values[(int)rarity];
 					break;
-				case EffectType.Percentage:
+				case ModifierType.Percentage:
 					stats.Stats[statName].PercentageModifier += values[(int)rarity];
 					break;
-				case EffectType.Multiplier:
+				case ModifierType.Multiplier:
 					stats.Stats[statName].PercentageModifier *= values[(int)rarity];
 					break;
 				default:
@@ -39,25 +39,18 @@ namespace SRS.ItemSystem
 		{
 			switch(effectType)
 			{
-				case EffectType.Additive:
+				case ModifierType.Additive:
 					stats.Stats[statName].BaseValue -= values[(int)rarity];
 					break;
-				case EffectType.Percentage:
+				case ModifierType.Percentage:
 					stats.Stats[statName].PercentageModifier -= values[(int)rarity];
 					break;
-				case EffectType.Multiplier:
+				case ModifierType.Multiplier:
 					stats.Stats[statName].PercentageModifier /= values[(int)rarity];
 					break;
 				default:
 					break;
 			}
 		}
-	}
-
-	public enum EffectType
-	{
-		Additive,
-		Percentage,
-		Multiplier
 	}
 }

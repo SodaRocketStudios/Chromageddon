@@ -17,4 +17,11 @@ namespace SRS.StatSystem
 			this.values = values;
 		}
 	}
+
+	public enum ModifierType
+	{
+		Additive,
+		Percentage,
+		Multiplier
+	}
 }
