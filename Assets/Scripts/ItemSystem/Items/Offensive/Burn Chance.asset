@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2764dfd4e1e0a4a49b9f9b225873dde7, type: 3}
-  m_Name: Common Attack Speed
+  m_Name: Burn Chance
   m_EditorClassIdentifier: 
-  name: Attack Speed Up
+  name: Burn Chance Up
   icon: {fileID: 0}
-  rarity: 0
   category: 1
   effects:
-  - statName: Attack Delay
-    modifier:
-      type: 2
-      value: 0.95
-  description: Decrease attack cooldown by 5%
+  - statName: Burn Chance
+    effectType: 1
+    values:
+    - 5
+    - 8
+    - 12
+    - 20
+    - 0
+  description: Increase burn chance by 5%

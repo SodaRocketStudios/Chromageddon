@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2764dfd4e1e0a4a49b9f9b225873dde7, type: 3}
-  m_Name: Rare Burn Chance Up
+  m_Name: Damage
   m_EditorClassIdentifier: 
-  name: Burn Chance Up
+  name: Damage Up
   icon: {fileID: 0}
-  rarity: 2
   category: 1
   effects:
-  - statName: Burn Chance
-    modifier:
-      type: 1
-      value: 15
-  description: Increase burn chance by 155%
+  - statName: Damage
+    effectType: 1
+    values:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  description: Increase damage by 5%

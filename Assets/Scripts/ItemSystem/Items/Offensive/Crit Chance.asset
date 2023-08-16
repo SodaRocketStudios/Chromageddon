@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2764dfd4e1e0a4a49b9f9b225873dde7, type: 3}
-  m_Name: Legendary Damage Up
+  m_Name: Crit Chance
   m_EditorClassIdentifier: 
-  name: Damage Up
+  name: Crit Chance Up
   icon: {fileID: 0}
-  rarity: 3
   category: 1
   effects:
-  - statName: Damage
-    modifier:
-      type: 1
-      value: 15
-  description: Increase damage by 15%
+  - statName: Critical Chance
+    effectType: 1
+    values:
+    - 5
+    - 8
+    - 12
+    - 20
+    - 0
+  description: Increase Crit Chance by 5%
