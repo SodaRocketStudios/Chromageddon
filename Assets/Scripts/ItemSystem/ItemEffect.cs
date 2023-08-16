@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using SRS.StatSystem;
 
@@ -7,17 +8,56 @@ namespace SRS.ItemSystem
 	public class ItemEffect
 	{
 		[SerializeField] private string statName;
-
-		[SerializeField] private StatModifier modifier;
-
-		public void Apply(CharacterStats characterStats)
+		public string StatName
 		{
-			characterStats.AddModifier(statName, modifier);
+			get { return statName; }
 		}
 
-		public void Remove(CharacterStats characterStats)
+		[SerializeField] private EffectType effectType;
+
+		[SerializeField] private List<float> values;
+
+		public void Apply(CharacterStats stats, ItemRarity rarity)
 		{
-			characterStats.RemoveModifier(statName, modifier);
+			switch(effectType)
+			{
+				case EffectType.Additive:
+					stats.Stats[statName].BaseValue += values[(int)rarity];
+					break;
+				case EffectType.Percentage:
+					stats.Stats[statName].PercentageModifier += values[(int)rarity];
+					break;
+				case EffectType.Multiplier:
+					stats.Stats[statName].PercentageModifier *= values[(int)rarity];
+					break;
+				default:
+					break;
+			}
 		}
+
+		public void Remove(CharacterStats stats, ItemRarity rarity)
+		{
+			switch(effectType)
+			{
+				case EffectType.Additive:
+					stats.Stats[statName].BaseValue -= values[(int)rarity];
+					break;
+				case EffectType.Percentage:
+					stats.Stats[statName].PercentageModifier -= values[(int)rarity];
+					break;
+				case EffectType.Multiplier:
+					stats.Stats[statName].PercentageModifier /= values[(int)rarity];
+					break;
+				default:
+					break;
+			}
+		}
+	}
+
+	public enum EffectType
+	{
+		Additive,
+		Percentage,
+		Multiplier
 	}
 }

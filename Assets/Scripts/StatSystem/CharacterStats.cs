@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,17 +19,11 @@ namespace SRS.StatSystem
 		private Dictionary<string, Stat> stats = new Dictionary<string, Stat>();
 		public Dictionary<string, Stat> Stats
 		{
-			get
-			{
-				return stats;
-			}
+			get { return stats; }
 		}
 		public float this[string key]
 		{ 
-			get
-			{
-				return stats[key].Value;
-			}
+			get { return stats[key].Value; }
 		}
 
 		private void Awake()
@@ -44,14 +39,16 @@ namespace SRS.StatSystem
 			}
 		}
 
-		public void AddModifier(string key, StatModifier modifier)
+		public void AddEffect(string key, StatModifier modifier)
 		{
-			stats[key].AddModifier(modifier);
+			throw new NotImplementedException();
+			// stats[key].AddModifier(modifier);
 		}
 
-		public void RemoveModifier(string key, StatModifier modifier)
+		public void RemoveEffect(string key, StatModifier modifier)
 		{
-			stats[key].RemoveModifier(modifier);
+			throw new NotImplementedException();
+			// stats[key].RemoveModifier(modifier);
 		}
 	}
 }

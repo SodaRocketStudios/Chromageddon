@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEditor;
+using SRS.StatSystem;
 
-namespace SRS.StatSystem
+namespace SRS.StatsEditor
 {	
 	[CustomPropertyDrawer(typeof(Stat))]
 	public class StatDrawer: PropertyDrawer

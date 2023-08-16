@@ -10,63 +10,48 @@ namespace SRS.ItemSystem
 		[SerializeField] new private string name;
 		public string Name
 		{
-			get
-			{
-				return name;
-			}
+			get { return name; }
 		}
 
 		[SerializeField] private Sprite icon;
-		
-		[SerializeField] private ItemRarity rarity;
-		public ItemRarity Rarity
+		public Sprite Icon
 		{
-			get
-			{
-				return rarity;
-			}
+			get{ return icon; }
 		}
 
 		[SerializeField] private ItemCategory category;
 		public ItemCategory Category
 		{
-			get
-			{
-				return category;
-			}
+			get{ return category; }
 		}
 
 		[SerializeField] private List<ItemEffect> effects;
 		public List<ItemEffect> Effects
 		{
-			get
-			{
-				return effects;
-			}
+			get { return effects; }
 		}
 
 		[SerializeField, TextArea(2, 4)] private string description;
 		public string Description
 		{
-			get
-			{
-				return description;
-			}
+			get { return description; }
 		}
 
-		public void Apply(CharacterStats data)
+		public ItemRarity Rarity{ get; set; }
+
+		public void Apply(CharacterStats stats)
 		{
 			foreach(ItemEffect effect in Effects)
 			{
-				effect.Apply(data);
+				effect.Apply(stats, Rarity);
 			}
 		}
 
-		public void Remove(CharacterStats data)
+		public void Remove(CharacterStats stats)
 		{
 			foreach(ItemEffect effect in Effects)
 			{
-				effect.Apply(data);
+				effect.Remove(stats, Rarity);
 			}
 		}
 	}

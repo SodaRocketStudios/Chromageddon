@@ -19,7 +19,34 @@ namespace SRS.StatSystem
 		}
 
 		[SerializeField] private float baseValue;
+		public float BaseValue
+		{
+			get
+			{
+				return baseValue;
+			}
+			set
+			{
+				baseValue = value;
+				updateValue();
+				OnValueChange?.Invoke(Value);
+			}
+		}
+
 		[SerializeField] private float percentageModifier;
+		public float PercentageModifier
+		{
+			get
+			{
+				return percentageModifier;
+			}
+			set
+			{
+				percentageModifier = value;
+				updateValue();
+				OnValueChange?.Invoke(Value);
+			}
+		}
 
 		[SerializeField] private bool hasCap = false;
 		public bool HasCap { get {return hasCap;} }
@@ -31,25 +58,11 @@ namespace SRS.StatSystem
 
 		[HideInInspector] public event valueChangeHandler OnValueChange;
 
-		private bool isDirty = true;
-
 		private float value;
 		public float Value
 		{
 			get
 			{
-				if(isDirty)
-				{
-					value = baseValue*percentageModifier*.01f;
-
-					if(hasCap)
-					{
-						value = Mathf.Min(value, cap);
-					}
-
-					isDirty = false;
-				}
-
 				return value;
 			}
 		}
@@ -61,48 +74,14 @@ namespace SRS.StatSystem
 			this.percentageModifier = percentageModifier;
 		}
 
-		public void AddModifier(StatModifier modifier)
+		private void updateValue()
 		{
-			switch(modifier.Type)
+			value = baseValue*percentageModifier*.01f;
+
+			if(hasCap)
 			{
-				case ModifierType.Additive:
-					baseValue += modifier.Value;
-					break;
-				case ModifierType.Percentage:
-					percentageModifier += modifier.Value;
-					break;
-				case ModifierType.Multiplier:
-					percentageModifier *= modifier.Value;
-					break;
-				default:
-					break;
+				value = Mathf.Min(value, cap);
 			}
-			
-			isDirty = true;
-
-			OnValueChange?.Invoke(Value);
-		}
-
-		public void RemoveModifier(StatModifier modifier)
-		{
-			switch(modifier.Type)
-			{
-				case ModifierType.Additive:
-					baseValue -= modifier.Value;
-					break;
-				case ModifierType.Percentage:
-					percentageModifier -= modifier.Value;
-					break;
-				case ModifierType.Multiplier:
-					percentageModifier /= modifier.Value;
-					break;
-				default:
-					break;
-			}
-
-			isDirty = true;
-
-			OnValueChange?.Invoke(Value);
 		}
 
 		public Stat DeepCopy()

@@ -17,13 +17,13 @@ namespace SRS.StatusEffects
         public override void Apply(GameObject target)
         {
 			targetStats = target.GetComponent<CharacterStats>();
-            
-			targetStats.AddModifier(AffectedStat, modifier);
+
+			targetStats.AddEffect(AffectedStat, modifier);
         }
 
         public override void Remove()
         {
-			targetStats.RemoveModifier(AffectedStat, modifier);
+			targetStats.RemoveEffect(AffectedStat, modifier);
         }
 	}
 }
