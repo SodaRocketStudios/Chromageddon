@@ -24,4 +24,4 @@ MonoBehaviour:
     - 15
     - 25
     - 0
-  description: Decrease attack cooldown by 5%
+  description: Decrease /N by /V%

@@ -19,9 +19,9 @@ MonoBehaviour:
   - statName: Damage
     effectType: 1
     values:
+    - 5
+    - 8
+    - 12
+    - 20
     - 0
-    - 0
-    - 0
-    - 0
-    - 0
-  description: Increase damage by 5%
+  description: Increase /N by /V%

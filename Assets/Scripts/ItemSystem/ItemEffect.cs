@@ -17,6 +17,14 @@ namespace SRS.ItemSystem
 
 		[SerializeField] private List<float> values;
 
+		public List<float> Values
+		{
+			get 
+			{
+				return values;
+			}
+		}
+
 		public void Apply(CharacterStats stats, ItemRarity rarity)
 		{
 			switch(effectType)

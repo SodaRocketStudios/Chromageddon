@@ -24,4 +24,4 @@ MonoBehaviour:
     - 8
     - 15
     - 0
-  description: Increases armor by 1. Has diminishing returns.
+  description: Increase /N by /V. Has diminishing returns.

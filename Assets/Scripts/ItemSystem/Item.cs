@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SRS.StatSystem;
+using System.Text.RegularExpressions;
 
 namespace SRS.ItemSystem
 {
@@ -34,7 +35,7 @@ namespace SRS.ItemSystem
 		[SerializeField, TextArea(2, 4)] private string description;
 		public string Description
 		{
-			get { return description; }
+			get { return FormatDescription(); }
 		}
 
 		public ItemRarity Rarity{ get; set; }
@@ -53,6 +54,13 @@ namespace SRS.ItemSystem
 			{
 				effect.Remove(stats, Rarity);
 			}
+		}
+
+		private string FormatDescription()
+		{
+			string formattedDescription = Regex.Replace(description, "/N", effects[0].StatName);
+			formattedDescription = Regex.Replace(formattedDescription, "/V", effects[0].Values[(int)Rarity].ToString());
+			return formattedDescription;
 		}
 	}
 }
