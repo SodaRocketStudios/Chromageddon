@@ -60,7 +60,6 @@ namespace SRS.EnemySpawner
 		private void SpawnGroup()
 		{
 			points = (int)Mathf.Max(minPoints, maxPoints*DifficultyManager.Instance.ChallengeRating);
-			Debug.Log(points);
 			
 			while(points > 0)
 			{
