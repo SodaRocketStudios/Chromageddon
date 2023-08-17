@@ -17,8 +17,8 @@ namespace SRS.EnemySpawner
 		[SerializeField] private float levelBuffer;
 		[SerializeField] private float minDistanceFromPlayer;
 
-		[SerializeField] private int minGroupSize;
-		[SerializeField] private int maxGroupSize;
+		[SerializeField] private int minPoints = 5;
+		[SerializeField] private int maxPoints = 500;
 
 		[SerializeField] private int maxEnemies;
 
@@ -59,8 +59,9 @@ namespace SRS.EnemySpawner
 
 		private void SpawnGroup()
 		{
-			points = 10;
-
+			points = (int)Mathf.Max(minPoints, maxPoints*DifficultyManager.Instance.ChallengeRating);
+			Debug.Log(points);
+			
 			while(points > 0)
 			{
 				GameObject enemy = shop.GetEnemy(points);

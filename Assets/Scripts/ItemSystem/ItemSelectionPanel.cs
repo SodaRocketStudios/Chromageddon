@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using SRS.GameManager;
 using SRS.UI;
+using SRS.StatSystem;
 
 namespace SRS.ItemSystem
 {
@@ -50,6 +51,8 @@ namespace SRS.ItemSystem
 
 			List<Item> items = itemPicker.PickItems();
 
+			CharacterStats stats = targetInventory.GetComponent<CharacterStats>();
+
 			foreach(Item item in items)
 			{
 
@@ -80,7 +83,9 @@ namespace SRS.ItemSystem
 				holdComponent.OnPointerHoverEvent.AddListener(hoverDisplay.Show);
 				holdComponent.OnPointerHoverEvent.AddListener(hoverDisplay.UpdatePosition);
 				holdComponent.OnPointerHoverEndEvent.AddListener(hoverDisplay.Hide);
-				holdComponent.OnPointerHoverEvent.AddListener(delegate{hoverDisplay.SetText(item.Description);});
+
+				string hoverText = $"{item.Description}\n\nCurrent: {stats[item.Effects[0].StatName]}";
+				holdComponent.OnPointerHoverEvent.AddListener(delegate{hoverDisplay.SetText(hoverText);});
 
 				buttons.Add(button);
 			}

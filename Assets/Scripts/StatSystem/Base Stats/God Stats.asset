@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3768d82b003b10d4f83f66459c8ef9a0, type: 3}
+  m_Name: God Stats
+  m_EditorClassIdentifier: 
+  baseStats:
+  - name: Armor
+    baseValue: 100
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Attack Arc
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Attack Delay
+    baseValue: 0.01
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Burn Chance
+    baseValue: 1
+    percentageModifier: 0
+    hasCap: 1
+    cap: 1
+  - name: Critical Chance
+    baseValue: 1
+    percentageModifier: 0
+    hasCap: 1
+    cap: 1
+  - name: Critical Damage
+    baseValue: 1
+    percentageModifier: 200
+    hasCap: 0
+    cap: 0
+  - name: Damage
+    baseValue: 50
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Freeze Chance
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 1
+    cap: 1
+  - name: Health
+    baseValue: 10
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Health Regen
+    baseValue: 0
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Pickup Range
+    baseValue: 100
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Poison Chance
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 1
+    cap: 1
+  - name: Range
+    baseValue: 50
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Speed
+    baseValue: 25
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Bounces
+    baseValue: 5
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
+  - name: Pierces
+    baseValue: 1
+    percentageModifier: 100
+    hasCap: 0
+    cap: 0
