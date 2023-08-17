@@ -15,16 +15,18 @@ namespace SRS.Health
 
 		private CharacterStats characterStats;
 
-		private float healthPercentage = 1;
-
 		public UnityEvent<float> OnCurrentHealthChange;
 		public UnityEvent<float> OnMaxHealthChange;
+
+		private float previousHealth;
 
 		private void Start()
 		{
 			characterStats = GetComponent<CharacterStats>();
 
 			characterStats.Stats["Health"].OnValueChange += UpdateMaxHealth;
+
+			previousHealth = MaxHealth;
 
 			SetHealthToMax();
 		}
@@ -53,8 +55,6 @@ namespace SRS.Health
 				OnDeath.Invoke(gameObject);
 			}
 
-			CalculateHealthPercentage();
-
 			OnCurrentHealthChange?.Invoke(CurrentHealth);
 		}
 
@@ -65,21 +65,19 @@ namespace SRS.Health
 				CurrentHealth = MaxHealth;
 				OnMaxHealthChange?.Invoke(MaxHealth);
 				OnCurrentHealthChange?.Invoke(CurrentHealth);
-
-				CalculateHealthPercentage();
 			}
 		}
 
 		private void UpdateMaxHealth(float value)
 		{
 			OnMaxHealthChange?.Invoke(value);
-			CurrentHealth = healthPercentage*value;
+			CurrentHealth += CalculateHealthChange();
 			OnCurrentHealthChange?.Invoke(CurrentHealth);
 		}
 
-		private void CalculateHealthPercentage()
+		private float CalculateHealthChange()
 		{
-			healthPercentage = CurrentHealth*1.0f/MaxHealth;
+			return MaxHealth - previousHealth;
 		}
 	}
 }
