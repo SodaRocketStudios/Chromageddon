@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Damage
   m_EditorClassIdentifier: 
   name: Damage Up
+  cost: 1
   icon: {fileID: 0}
   category: 1
   effects:

@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using SRS.GameManager;
 using SRS.UI;
 using SRS.StatSystem;
+using SRS.Extensions;
 
 namespace SRS.ItemSystem
 {
@@ -16,11 +18,14 @@ namespace SRS.ItemSystem
 
 		[SerializeField] private GameObject skipButton;
 
-		private ItemPicker itemPicker;
+		[SerializeField] private int NumberOfItemChoices = 3;
+
+		[SerializeField] private int minPoints;
+		[SerializeField] private int maxPoints;
 
 		private Image background;
 
-		private List<GameObject> buttons = new List<GameObject>(3);
+		private List<GameObject> buttons;
 
 		private void Awake()
 		{
@@ -34,11 +39,10 @@ namespace SRS.ItemSystem
 			}
 
 			background = GetComponentInParent<Image>();
-		}
 
-		private void Start()
-		{
-			itemPicker = GetComponent<ItemPicker>();
+			buttons = new List<GameObject>(NumberOfItemChoices);
+
+			minPoints = Mathf.Max(minPoints, NumberOfItemChoices);
 		}
 
 		public void GenerateSelectionPanel(Inventory targetInventory)
@@ -49,7 +53,28 @@ namespace SRS.ItemSystem
 			background.enabled = true;
 			skipButton.SetActive(true);
 
-			List<Item> items = itemPicker.PickItems();
+			int points = (int)Mathf.Max(minPoints, maxPoints * DifficultyManager.Instance.ChallengeRating);
+
+			List<Item> items = new();
+
+			for(int i = 0; i < NumberOfItemChoices; i++)
+			{
+				int remainingChoices = NumberOfItemChoices - i - 1;
+				Item item;
+				do
+				{
+					item = GetItem(points - remainingChoices);
+				}while(items.Contains(item));
+
+				do
+				{
+					item.Rarity = ItemDatabase.Instance.GetRarity();
+				}while(item.Cost > points - remainingChoices);
+
+				items.Add(item);
+
+				points -= item.Cost;
+			}
 
 			CharacterStats stats = targetInventory.GetComponent<CharacterStats>();
 
@@ -110,5 +135,10 @@ namespace SRS.ItemSystem
 
 			Game.Instance.Play();
 		}
+
+		private Item GetItem(int points)
+        {
+            return ItemDatabase.Instance.GetItems().Where(item => item.Cost <= points).ToList().GetRandom();
+        }
 	}
 }

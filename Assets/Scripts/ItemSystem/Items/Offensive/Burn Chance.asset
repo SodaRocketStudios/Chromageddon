@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Burn Chance
   m_EditorClassIdentifier: 
   name: Burn Chance Up
+  cost: 1
   icon: {fileID: 0}
   category: 1
   effects:

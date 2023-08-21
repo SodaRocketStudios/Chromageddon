@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Health
   m_EditorClassIdentifier: 
   name: Health Up
+  cost: 1
   icon: {fileID: 0}
   category: 0
   effects:

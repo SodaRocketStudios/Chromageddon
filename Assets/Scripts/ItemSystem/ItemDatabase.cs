@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using SRS.Extensions.Random;
 
 namespace SRS.ItemSystem
 {
@@ -11,10 +12,15 @@ namespace SRS.ItemSystem
 
 		[SerializeField] private List<Item> allItems;
 
-		[SerializeField] private List<Color> rarityColors = new List<Color>();
-		public Dictionary<ItemRarity, Color> RarityColors = new Dictionary<ItemRarity, Color>();
+		[SerializeField] private List<Color> rarityColors = new();
+		public Dictionary<ItemRarity, Color> RarityColors = new();
 
-		System.Random randomGenerator = new System.Random(System.DateTime.Now.Millisecond);
+		[SerializeField] private List<int> rarityDrawChances = new();
+		public Dictionary<ItemRarity, int> RarityDrawChances = new();
+
+		private int totalDrawChances;
+
+		System.Random randomGenerator = new System.Random(DateTime.Now.Millisecond);
 
 		private void Awake()
 		{
@@ -32,6 +38,8 @@ namespace SRS.ItemSystem
 			foreach(ItemRarity rarity in Enum.GetValues(typeof(ItemRarity)))
 			{
 				RarityColors.Add(rarity, rarityColors[i]);
+				RarityDrawChances.Add(rarity, rarityDrawChances[i]);
+				totalDrawChances += rarityDrawChances[i];
 				i++;
 			}
 		}
@@ -82,6 +90,21 @@ namespace SRS.ItemSystem
 		{
 			List<Item> itemOptions = GetItems(rarity, category);
 			return GetRandomItemFromList(itemOptions);
+		}
+
+		public ItemRarity GetRarity()
+		{
+			int randomDraw = (int)randomGenerator.NextFloat()*totalDrawChances;
+
+			foreach(KeyValuePair<ItemRarity, int> drawChance in RarityDrawChances)
+			{
+				if(randomDraw <= drawChance.Value)
+				{
+					return drawChance.Key;
+				}
+			}
+
+			return ItemRarity.Common;
 		}
 
 		private Item GetRandomItemFromList(List<Item> items)

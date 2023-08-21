@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2764dfd4e1e0a4a49b9f9b225873dde7, type: 3}
-  m_Name: Common Range
+  m_Name: Speed Up
   m_EditorClassIdentifier: 
-  name: Range Up
+  name: Speed Up
+  cost: 1
   icon: {fileID: 0}
   category: 2
   effects:
-  - statName: Range
-    effectType: 1
+  - statName: Speed
+    effectType: 0
     values:
     - 5
     - 8

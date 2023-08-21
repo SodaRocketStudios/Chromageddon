@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Armor
   m_EditorClassIdentifier: 
   name: Armor Up
+  cost: 1
   icon: {fileID: 0}
   category: 0
   effects:

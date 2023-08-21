@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Crit Chance
   m_EditorClassIdentifier: 
   name: Crit Chance Up
+  cost: 1
   icon: {fileID: 0}
   category: 1
   effects:

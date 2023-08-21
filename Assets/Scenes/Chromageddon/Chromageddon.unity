@@ -462,7 +462,6 @@ GameObject:
   - component: {fileID: 69941933}
   - component: {fileID: 69941932}
   - component: {fileID: 69941930}
-  - component: {fileID: 69941934}
   - component: {fileID: 69941931}
   - component: {fileID: 69941935}
   m_Layer: 5
@@ -486,6 +485,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPrefab: {fileID: 1131322506997452081, guid: e2e1da7ba85257146bf3401e0576d435, type: 3}
   skipButton: {fileID: 1563180907}
+  NumberOfItemChoices: 3
+  minPoints: 3
+  maxPoints: 50
 --- !u!222 &69941931
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -540,20 +542,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &69941934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69941929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b521872e631837449a993894de988317, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChooseFromAllCategories: 1
-  NumberOfChoices: 3
 --- !u!114 &69941935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +600,7 @@ MonoBehaviour:
   - {r: 0.31742513, g: 0, b: 0.5660378, a: 1}
   - {r: 0.74509805, g: 0.32941177, b: 0, a: 1}
   - {r: 0.6132076, g: 0, b: 0.02799673, a: 1}
+  rarityDrawChances: 6400000032000000190000000a00000000000000
 --- !u!4 &120120328
 Transform:
   m_ObjectHideFlags: 0
@@ -5265,7 +5254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707f50f0ad08dcf49a503f249d598a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats: {fileID: 11400000, guid: 2b8f83cde64fcb44981eee5a6cea6fb2, type: 2}
+  baseStats: {fileID: 11400000, guid: 6578a6e654f0b694b9730b7307a7f1f7, type: 2}
 --- !u!4 &1632691820
 Transform:
   m_ObjectHideFlags: 0

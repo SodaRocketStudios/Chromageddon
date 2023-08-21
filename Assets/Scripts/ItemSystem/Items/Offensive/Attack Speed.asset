@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Attack Speed
   m_EditorClassIdentifier: 
   name: Attack Speed Up
+  cost: 1
   icon: {fileID: 0}
   category: 1
   effects:

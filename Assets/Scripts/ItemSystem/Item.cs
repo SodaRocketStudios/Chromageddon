@@ -14,6 +14,12 @@ namespace SRS.ItemSystem
 			get { return name; }
 		}
 
+		[SerializeField] private int cost;
+		public int Cost
+		{
+			get { return (int)Mathf.Pow(2, (int)Rarity)*cost; }
+		}
+
 		[SerializeField] private Sprite icon;
 		public Sprite Icon
 		{
