@@ -29,13 +29,13 @@ MonoBehaviour:
     hasCap: 0
     cap: 0
   - name: Burn Chance
-    baseValue: 1
-    percentageModifier: 0
+    baseValue: 0
+    percentageModifier: 100
     hasCap: 1
     cap: 1
   - name: Critical Chance
-    baseValue: 1
-    percentageModifier: 0
+    baseValue: 0
+    percentageModifier: 100
     hasCap: 1
     cap: 1
   - name: Critical Damage
@@ -49,7 +49,7 @@ MonoBehaviour:
     hasCap: 0
     cap: 0
   - name: Freeze Chance
-    baseValue: 1
+    baseValue: 0
     percentageModifier: 100
     hasCap: 1
     cap: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
     hasCap: 0
     cap: 0
   - name: Poison Chance
-    baseValue: 1
+    baseValue: 0
     percentageModifier: 100
     hasCap: 1
     cap: 1

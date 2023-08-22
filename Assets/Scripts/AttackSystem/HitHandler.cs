@@ -47,7 +47,7 @@ namespace SRS.AttackSystem
 
             foreach(StatusEffect effect in StatusEffectDatabase.Instance.Effects)
             {
-            	if(random.NextFloat() <= attackerStats[effect.ProcStat])
+            	if(random.NextFloat()*100 <= attackerStats[effect.ProcStat])
             	{
 					StatusEffect EffectInstance = Instantiate(effect);
             		EffectInstance.Apply(gameObject);
@@ -66,7 +66,7 @@ namespace SRS.AttackSystem
             float Damage = attackerStats["Damage"];
             float damageModifier = 1 - armorCurve.Evaluate(characterStats["Armor"]);
 
-            Damage *= random.NextFloat() <= attackerStats["Critical Chance"] ? attackerStats["Critical Damage"] : 1;
+            Damage *= random.NextFloat()*100 <= attackerStats["Critical Chance"] ? attackerStats["Critical Damage"] : 1;
             Damage *= damageModifier;
 
             return Mathf.Min(Damage, 1);

@@ -18,7 +18,7 @@ MonoBehaviour:
   category: 1
   effects:
   - statName: Critical Chance
-    effectType: 1
+    effectType: 0
     values:
     - 5
     - 8

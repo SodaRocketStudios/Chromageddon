@@ -18,7 +18,7 @@ MonoBehaviour:
   category: 2
   effects:
   - statName: Speed
-    effectType: 0
+    effectType: 1
     values:
     - 5
     - 8
