@@ -20,9 +20,9 @@ MonoBehaviour:
   - statName: Attack Delay
     effectType: 1
     values:
-    - 5
-    - 10
-    - 15
-    - 25
+    - -5
+    - -10
+    - -15
+    - -25
     - 0
-  description: Decrease /N by /V%
+  description: Decrease /N by /M%

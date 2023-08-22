@@ -65,7 +65,7 @@ namespace SRS.ItemSystem
 		private string FormatDescription()
 		{
 			string formattedDescription = Regex.Replace(description, "/N", effects[0].StatName);
-			formattedDescription = Regex.Replace(formattedDescription, "/V", effects[0].Values[(int)Rarity].ToString());
+			formattedDescription = Regex.Replace(formattedDescription, "/V", Mathf.Abs(effects[0].Values[(int)Rarity]).ToString());
 			return formattedDescription;
 		}
 	}
