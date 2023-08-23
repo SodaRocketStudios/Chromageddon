@@ -72,6 +72,16 @@ namespace SRS.StatSystem
 			PercentageModifier = percentageModifier;
 		}
 
+		public void AddModifier(StatModifier modifier)
+		{
+			percentageModifier *= modifier.Value;
+		}
+
+		public void RemoveModifier(StatModifier modifier)
+		{
+			percentageModifier /= modifier.Value;
+		}
+
 		private void updateValue()
 		{
 			value = baseValue*percentageModifier*.01f;

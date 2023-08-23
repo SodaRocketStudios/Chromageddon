@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRS.StatSystem
@@ -6,22 +5,15 @@ namespace SRS.StatSystem
 	[System.Serializable]
 	public class StatModifier
 	{
-		[SerializeField] private List<float> values = new(5);
-		public List<float> Values
+		[SerializeField] private float value;
+		public float Value
 		{
-			get {return values;}
+			get {return value;}
 		}
 
-		public StatModifier(List<float> values)
+		public StatModifier(float value)
 		{
-			this.values = values;
+			this.value = value;
 		}
-	}
-
-	public enum ModifierType
-	{
-		Additive,
-		Percentage,
-		Multiplier
 	}
 }

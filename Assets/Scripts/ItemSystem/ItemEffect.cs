@@ -61,4 +61,11 @@ namespace SRS.ItemSystem
 			}
 		}
 	}
+
+	public enum ModifierType
+	{
+		Additive,
+		Percentage,
+		Multiplier
+	}
 }
