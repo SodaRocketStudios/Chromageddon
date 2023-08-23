@@ -74,12 +74,12 @@ namespace SRS.StatSystem
 
 		public void AddModifier(StatModifier modifier)
 		{
-			percentageModifier *= modifier.Value;
+			PercentageModifier *= modifier.Value;
 		}
 
 		public void RemoveModifier(StatModifier modifier)
 		{
-			percentageModifier /= modifier.Value;
+			PercentageModifier /= modifier.Value;
 		}
 
 		private void updateValue()

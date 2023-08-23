@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using SRS.StatSystem;
 
 namespace SRS.StatusEffects
 {
@@ -24,12 +23,11 @@ namespace SRS.StatusEffects
 
 		private List<Effect> activeEffects = new List<Effect>();
 
-		private CharacterStats targetStats;
 		private StatusEffectTracker targetEffectTracker;
 
 		public void Apply(GameObject target)
 		{
-			if(target.TryGetComponent<StatusEffectTracker>(out targetEffectTracker))
+			if(target.TryGetComponent(out targetEffectTracker))
 			{
 				endTime = Time.time + duration;
 
