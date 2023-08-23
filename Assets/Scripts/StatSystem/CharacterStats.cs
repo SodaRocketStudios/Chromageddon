@@ -42,13 +42,11 @@ namespace SRS.StatSystem
 		public void AddEffect(string key, StatModifier modifier)
 		{
 			stats[key].AddModifier(modifier);
-			Debug.Log($"New {key}: {stats[key].Value}");
 		}
 
 		public void RemoveEffect(string key, StatModifier modifier)
 		{
 			stats[key].RemoveModifier(modifier);
-			Debug.Log($"New {key}: {stats[key].Value}");
 		}
 	}
 }
