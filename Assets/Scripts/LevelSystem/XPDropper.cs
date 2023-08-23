@@ -16,7 +16,7 @@ namespace SRS.LevelSystem
 
 		private GameObject Create()
 		{
-			return Instantiate(XPPrefab);
+			return Instantiate(XPPrefab, transform);
 		}
 		
 		public void SpawnXP(Vector2 position)
