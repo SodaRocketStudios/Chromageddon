@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace SRS.LevelSystem
 {
@@ -9,9 +10,12 @@ namespace SRS.LevelSystem
 
 		public Transform Target;
 
+		private ObjectPool<GameObject> pool;
+
 		private void Start()
 		{
 			TrackPickup();
+			pool = GetComponentInParent<XPDropper>().pool;
 		}
 
         private void Update()
@@ -42,7 +46,7 @@ namespace SRS.LevelSystem
 			{
 				characterLevel.AddXP(xpValue);
 				other.GetComponent<XPAttractor>().StopTracking(this);
-				Destroy(gameObject);
+				pool.Release(gameObject);
 			}
 		}
 	}
