@@ -41,13 +41,11 @@ namespace SRS.StatSystem
 
 		public void AddEffect(string key, StatModifier modifier)
 		{
-			Debug.Log("Broken");
 			stats[key].AddModifier(modifier);
 		}
 
 		public void RemoveEffect(string key, StatModifier modifier)
 		{
-			Debug.Log("Broken");
 			stats[key].RemoveModifier(modifier);
 		}
 	}
