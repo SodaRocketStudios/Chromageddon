@@ -1913,6 +1913,7 @@ MonoBehaviour:
   effects:
   - {fileID: 11400000, guid: 0395a246f5e5b7e42ba74b658f9ed6ad, type: 2}
   - {fileID: 11400000, guid: ce5259fccf05f3d4487c473dc76f127b, type: 2}
+  - {fileID: 11400000, guid: 6a09c3cff2af95548bcb205710ebbda7, type: 2}
 --- !u!4 &735796008
 Transform:
   m_ObjectHideFlags: 0

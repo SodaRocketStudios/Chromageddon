@@ -32,12 +32,12 @@ MonoBehaviour:
     baseValue: 0
     percentageModifier: 100
     hasCap: 1
-    cap: 1
+    cap: 100
   - name: Critical Chance
     baseValue: 0
     percentageModifier: 100
     hasCap: 1
-    cap: 1
+    cap: 100
   - name: Critical Damage
     baseValue: 1
     percentageModifier: 200
@@ -49,10 +49,10 @@ MonoBehaviour:
     hasCap: 0
     cap: 0
   - name: Freeze Chance
-    baseValue: 0
+    baseValue: 100
     percentageModifier: 100
     hasCap: 1
-    cap: 1
+    cap: 100
   - name: Health
     baseValue: 10
     percentageModifier: 100
@@ -69,10 +69,10 @@ MonoBehaviour:
     hasCap: 0
     cap: 0
   - name: Poison Chance
-    baseValue: 100
+    baseValue: 0
     percentageModifier: 100
     hasCap: 1
-    cap: 1
+    cap: 100
   - name: Range
     baseValue: 20
     percentageModifier: 100
