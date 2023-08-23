@@ -52,6 +52,8 @@ namespace SRS.AttackSystem
 
 			isExpended = false;
 
+			lastObjectHit = null;
+
 			StartCoroutine(DespawnTimer());
 		}
 
@@ -82,8 +84,10 @@ namespace SRS.AttackSystem
 
 			if((mask.value & (1 << other.gameObject.layer)) > 0)
 			{
+				Debug.Log("Hit");
 				if(other.gameObject == lastObjectHit)
 				{
+					Debug.Log("Same");
 					return;
 				}
 

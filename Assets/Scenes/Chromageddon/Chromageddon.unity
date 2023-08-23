@@ -594,6 +594,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 82c6fbc799215134e9180caf729818be, type: 2}
   - {fileID: 11400000, guid: d0b41a4c40af09843aabfc8cf13e4ba2, type: 2}
   - {fileID: 11400000, guid: d905bb20d8b07c449a0e858365e19f08, type: 2}
+  - {fileID: 11400000, guid: a8b1a170f74f0b04a8f36147c06bdb05, type: 2}
   rarityColors:
   - {r: 0, g: 0.6698113, b: 0.047163818, a: 1}
   - {r: 0, g: 0.24372904, b: 0.5754717, a: 1}
@@ -1911,6 +1912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects:
   - {fileID: 11400000, guid: 0395a246f5e5b7e42ba74b658f9ed6ad, type: 2}
+  - {fileID: 11400000, guid: ce5259fccf05f3d4487c473dc76f127b, type: 2}
 --- !u!4 &735796008
 Transform:
   m_ObjectHideFlags: 0
