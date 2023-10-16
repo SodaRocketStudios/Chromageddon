@@ -1,0 +1,9 @@
+Update
+ try to recharge shield
+
+Damage
+    Send resistances to damage calculator to determine damage
+    apply the damage
+    check if shield breaks
+    restart recharge delay
+    return remaining damage = max(0, damage - shield)

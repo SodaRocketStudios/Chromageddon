@@ -1,0 +1,18 @@
+SpawnWave
+    while points > 0
+        get enemy type from shop
+        determine the amouint to spawn based on points and price
+        pick a location
+        amount = points/price ----- Round down
+        remainingSpawns = SpawnCap
+        while amount > 0
+            elitifyingPoints = amount
+            while elitifyingPoints >= remainingSpawns
+                if(amount^elitifications < 0)
+                    amount = 0
+                    break
+                Elitify the enemy
+                elitifications++
+                elitificationPoints /= SpawnCap ----- Round down
+            amount -= SpawnCap^elitifications
+            remainingSpawns --

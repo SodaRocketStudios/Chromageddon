@@ -1,0 +1,4 @@
+Damage
+    send stats to damage calculator to determine the final damage
+    apply the damage
+    check for death
