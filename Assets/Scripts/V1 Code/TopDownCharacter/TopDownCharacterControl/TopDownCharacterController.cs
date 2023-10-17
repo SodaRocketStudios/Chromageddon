@@ -1,6 +1,6 @@
 using UnityEngine;
 using SRS.StatSystem;
-using SRS.Input;
+using SRS.InputV1;
 
 namespace SRS.TopDownCharacterControl
 {

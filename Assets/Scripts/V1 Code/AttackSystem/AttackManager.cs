@@ -1,7 +1,7 @@
 using UnityEngine;
 using SRS.StatSystem;
 using UnityEngine.Events;
-using SRS.Input;
+using SRS.InputV1;
 
 namespace SRS.AttackSystem
 {

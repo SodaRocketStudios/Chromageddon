@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SRS.Extensions.Vector;
-using SRS.Input;
+using SRS.InputV1;
 
 namespace SRS.TopDownCharacterControl.AI
 {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace SRS.Input
+namespace SRS.InputV1
 {
 	public class InputReader : MonoBehaviour
 	{

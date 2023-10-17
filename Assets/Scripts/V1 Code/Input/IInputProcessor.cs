@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SRS.Input
+namespace SRS.InputV1
 {
 	public interface IInputProcessor
 	{
