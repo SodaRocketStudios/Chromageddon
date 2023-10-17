@@ -3,9 +3,11 @@ using UnityEngine;
 
 namespace SRS.Stats
 {
-    public abstract class MultiStatModifier: ScriptableObject
+    public abstract class EquipableData: ScriptableObject
     {
-        [SerializeField] protected string name;
+        [SerializeField] private string name;
+
+        [SerializeField] private Sprite sprite;
 
         [SerializeField] private List<StatModifier> modifiers;
 
