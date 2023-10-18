@@ -7,7 +7,5 @@ namespace SRS.Input
         public Vector2 MoveInput{get;}
         public Vector2 LookInput{get;}
         public bool AttackInput{get;}
-
-        public bool IsReadingLookTarget{get;}
     }
 }

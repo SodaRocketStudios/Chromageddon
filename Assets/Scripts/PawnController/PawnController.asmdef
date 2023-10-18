@@ -2,7 +2,8 @@
     "name": "PawnController",
     "rootNamespace": "SRS.PawnController",
     "references": [
-        "GUID:931174e65c3cd264292e2d8c7a5f7890"
+        "GUID:931174e65c3cd264292e2d8c7a5f7890",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

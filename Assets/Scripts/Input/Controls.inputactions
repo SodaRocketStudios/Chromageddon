@@ -2,7 +2,7 @@
     "name": "Controls",
     "maps": [
         {
-            "name": "Avatar",
+            "name": "Pawn",
             "id": "3055bf59-a22a-4313-81ea-b7f259bda5d5",
             "actions": [
                 {
@@ -60,7 +60,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KB+M",
+                    "groups": "KBM",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -71,7 +71,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KB+M",
+                    "groups": "KBM",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -82,7 +82,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KB+M",
+                    "groups": "KBM",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -93,7 +93,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KB+M",
+                    "groups": "KBM",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -103,7 +103,7 @@
                     "id": "ec5e0227-b3d8-4405-a646-e5213d38eb5d",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "groups": "Gamepad",
                     "action": "Move",
                     "isComposite": false,
@@ -115,7 +115,7 @@
                     "path": "<Pointer>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KB+M",
+                    "groups": "KBM",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -137,7 +137,7 @@
                     "path": "<Pointer>/press",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KB+M",
+                    "groups": "KBM",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -148,7 +148,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KB+M",
+                    "groups": "KBM",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -170,7 +170,7 @@
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KB+M",
+                    "groups": "KBM",
                     "action": "Ability",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -191,8 +191,8 @@
     ],
     "controlSchemes": [
         {
-            "name": "KB+M",
-            "bindingGroup": "KB+M",
+            "name": "KBM",
+            "bindingGroup": "KBM",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
