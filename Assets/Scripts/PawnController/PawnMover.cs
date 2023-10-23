@@ -1,7 +1,6 @@
 using UnityEngine;
 using SRS.Input;
 using SRS.Stats;
-using System.Collections;
 using System;
 
 namespace SRS.PawnController
@@ -22,7 +21,7 @@ namespace SRS.PawnController
         {
             inputSource = GetComponent<IInputSource>();
             body = GetComponent<Rigidbody2D>();
-            // CharacterStats = GetComponent<StatContainer>();
+            CharacterStats = GetComponent<StatContainer>();
         }
 
         private void Update()
@@ -63,7 +62,7 @@ namespace SRS.PawnController
 
         private void HandleMovement()
         {
-            body.velocity = inputSource.MoveInput + (forces*body.mass);
+            body.velocity = (inputSource.MoveInput*CharacterStats["Speed"].Value) + (forces*body.mass);
         }
 
         private void HandleRotation()

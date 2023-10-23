@@ -348,6 +348,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43739319}
   m_CullTransparentMesh: 1
+--- !u!1 &45526687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 45526688}
+  m_Layer: 0
+  m_Name: Core
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &45526688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45526687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 967504631}
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &52822796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,6 +2543,163 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &967504630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967504631}
+  - component: {fileID: 967504632}
+  m_Layer: 0
+  m_Name: StatDatabase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &967504631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967504630}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 45526688}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967504632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967504630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f875ddfd29830a469e9e799f4885b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+  - name: Armor
+    baseValue: 0
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Attack Arc
+    baseValue: 0
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Attack Delay
+    baseValue: 1
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Burn Chance
+    baseValue: 1
+    percentageModifier: 0
+    hasMaximum: 1
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Critical Chance
+    baseValue: 1
+    percentageModifier: 0
+    hasMaximum: 1
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Critical Damage
+    baseValue: 1
+    percentageModifier: 200
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Damage
+    baseValue: 1
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Freeze Chance
+    baseValue: 1
+    percentageModifier: 0
+    hasMaximum: 1
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Health
+    baseValue: 10
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Health Regen
+    baseValue: 0
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Pickup Range
+    baseValue: 5
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Poison Chance
+    baseValue: 1
+    percentageModifier: 0
+    hasMaximum: 1
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Range
+    baseValue: 10
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Speed
+    baseValue: 10
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Bounces
+    baseValue: 0
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Pierces
+    baseValue: 0
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
 --- !u!1 &979545913
 GameObject:
   m_ObjectHideFlags: 0
@@ -4849,20 +5038,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1632691820}
-  - component: {fileID: 1632691819}
-  - component: {fileID: 1632691818}
+  - component: {fileID: 1632691824}
   - component: {fileID: 1632691823}
-  - component: {fileID: 1632691817}
-  - component: {fileID: 1632691816}
-  - component: {fileID: 1632691815}
-  - component: {fileID: 1632691814}
-  - component: {fileID: 1632691813}
-  - component: {fileID: 1632691812}
-  - component: {fileID: 1632691811}
+  - component: {fileID: 1632691822}
+  - component: {fileID: 1632691825}
   - component: {fileID: 1632691809}
   - component: {fileID: 1632691808}
   - component: {fileID: 1632691821}
-  - component: {fileID: 1632691822}
   m_Layer: 3
   m_Name: Player Avatar
   m_TagString: Player
@@ -4949,315 +5131,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1632691811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632691807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67158c7c53f438f47af24e3989a5b4a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnHitEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1901567644}
-        m_TargetAssemblyTypeName: SRS.CameraShake.ScreenShake, CameraShake
-        m_MethodName: AddTrauma
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.75
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  invincibilityTime: 1
---- !u!114 &1632691812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632691807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20499895e989d4a4a9fe6b882871c92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1632691816}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1632691815}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2021412564}
-        m_TargetAssemblyTypeName: SRS.GameManager.Game, GameManager
-        m_MethodName: Pause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1632691813}
-        m_TargetAssemblyTypeName: SRS.StatusEffects.StatusEffectTracker, StatusEffects
-        m_MethodName: CancelAllEffects
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnCurrentHealthChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 52822799}
-        m_TargetAssemblyTypeName: SRS.UI.StatusBar, UI
-        m_MethodName: UpdateValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 613091403}
-        m_TargetAssemblyTypeName: SRS.UI.FractionDisplay, UI
-        m_MethodName: UpdateValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnMaxHealthChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 52822799}
-        m_TargetAssemblyTypeName: SRS.UI.StatusBar, UI
-        m_MethodName: UpdateMax
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 613091403}
-        m_TargetAssemblyTypeName: SRS.UI.FractionDisplay, UI
-        m_MethodName: UpdateMax
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1632691813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632691807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d88efdad071497f4c96132eb3237f478, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1632691814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632691807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93862940dbbf887439db1b0da97efe52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  starterItems: []
---- !u!114 &1632691815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632691807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a4a80531f384542b6d1153b97413d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnAttack:
-    m_PersistentCalls:
-      m_Calls: []
-  attackMask:
-    serializedVersion: 2
-    m_Bits: 192
-  attack: {fileID: 11400000, guid: 9a8010ad17c28164c8e2dae38afd6328, type: 2}
---- !u!114 &1632691816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632691807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282a2472f3917fb438f4440da4cc10fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1632691817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632691807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad75613109f1fe54088a7fc9d1196a33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1632691818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632691807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ebab0fe15fa6146b555e70438fb452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseXPRequirement: 5
-  requirementMultiplier: 1.2
-  OnLevelUp:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 69941930}
-        m_TargetAssemblyTypeName: SRS.ItemSystem.ItemSelectionPanel, ItemSystem
-        m_MethodName: GenerateSelectionPanel
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1632691814}
-          m_ObjectArgumentAssemblyTypeName: SRS.ItemSystem.Inventory, ItemSystem
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnCurrentXPChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1529035699}
-        m_TargetAssemblyTypeName: SRS.UI.StatusBar, UI
-        m_MethodName: UpdateValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 419734819}
-        m_TargetAssemblyTypeName: SRS.UI.FractionDisplay, UI
-        m_MethodName: UpdateValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnRequiredXPChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1529035699}
-        m_TargetAssemblyTypeName: SRS.UI.StatusBar, UI
-        m_MethodName: UpdateMax
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 419734819}
-        m_TargetAssemblyTypeName: SRS.UI.FractionDisplay, UI
-        m_MethodName: UpdateMax
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1632691819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632691807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707f50f0ad08dcf49a503f249d598a21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseStats: {fileID: 11400000, guid: 6578a6e654f0b694b9730b7307a7f1f7, type: 2}
 --- !u!4 &1632691820
 Transform:
   m_ObjectHideFlags: 0
@@ -5317,9 +5190,91 @@ MonoBehaviour:
   m_GameObject: {fileID: 1632691807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a516d21c135bb284c8bd47e06e292ea5, type: 3}
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 556bfb6563496d246b43633bdbb8132b, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1632691823}
+        m_TargetAssemblyTypeName: SRS.Input.PlayerInputHandler, INput
+        m_MethodName: OnSchemeChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1632691823}
+        m_TargetAssemblyTypeName: SRS.Input.PlayerInputHandler, INput
+        m_MethodName: HandleMoveinput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9ffa870e-9f3b-4a16-9c22-f941e65190be
+    m_ActionName: Pawn/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1632691823}
+        m_TargetAssemblyTypeName: SRS.Input.PlayerInputHandler, INput
+        m_MethodName: HandleLookInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 83e306a8-57cd-4acf-bed7-f13431045e0a
+    m_ActionName: Pawn/Look[/Mouse/position,/Pen/position,/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1632691823}
+        m_TargetAssemblyTypeName: SRS.Input.PlayerInputHandler, INput
+        m_MethodName: HandleAttackInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cc19e071-dd36-42b4-88bf-585a9f61e99e
+    m_ActionName: Pawn/Attack[/Mouse/press,/Pen/press,/Keyboard/space,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8dfd2f1e-c356-4f71-8671-c2856dd59228
+    m_ActionName: Pawn/Ability[/Keyboard/f,/XInputControllerWindows/leftTrigger]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: KBM
+  m_DefaultActionMap: Pawn
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!114 &1632691823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5329,7 +5284,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1632691807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3cff94b941e26e4880ed077989cc332, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f5807f80c637a641a97e8ec4edcd5c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1632691824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632691807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f0f0b1c7bc8954f810b7fe2d9a619d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1632691825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632691807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a338b0f86fe954aae6862145bb9034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1647827909
