@@ -18,12 +18,12 @@ namespace SRS.Input
 
         private Camera mainCamera;
 
-        private void Awake()
+        private void Start()
         {
             mainCamera = Camera.main;
         }
 
-        public void ControlChangeTest(PlayerInput input)
+        public void OnSchemeChange(PlayerInput input)
         {
             IsUsingMouse = string.Equals(input.currentControlScheme, "KBM");
         }
@@ -37,7 +37,7 @@ namespace SRS.Input
         {
             if(IsUsingMouse)
             {
-                lookInput = mainCamera.ScreenToWorldPoint(context.ReadValue<Vector2>()) - transform.position;
+                lookInput = (mainCamera.ScreenToWorldPoint(context.ReadValue<Vector2>()) - transform.position).normalized;
                 return;
             }
 

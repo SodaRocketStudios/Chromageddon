@@ -3,7 +3,8 @@
     "rootNamespace": "SRS.PawnController",
     "references": [
         "GUID:931174e65c3cd264292e2d8c7a5f7890",
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:4de3388e370f79c41ba22d393d7d68d3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
