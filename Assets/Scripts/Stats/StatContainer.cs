@@ -40,6 +40,13 @@ namespace SRS.Stats
             modifiers.Remove(this);
         }
 
+        public void Reset()
+        {
+            stats.Clear();
+
+            Initialize();
+        }
+
         private void Initialize()
         {
             foreach(Stat stat in StatDatabase.Stats.Values)
