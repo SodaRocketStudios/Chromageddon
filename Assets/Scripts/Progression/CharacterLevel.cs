@@ -12,22 +12,15 @@ namespace SRS.Progression
         private int level;
 
         private float requiredXP;
-<<<<<<< HEAD
         private float currentXP = 0;
 
         private float requirementMultiplier = 1.2f;
 
         private void Awake()
         {
-            // initialize required XP
+            // initialize requiredXP
         }
 
-=======
-        private float currentXP;
-
-        private float requirementMultiplier = 1.2f;
-
->>>>>>> f5b39b7f4a50600106e8e74402e8836ed17401f4
         private void Start()
         {
             OnCurrentXPChange?.Invoke(currentXP);
