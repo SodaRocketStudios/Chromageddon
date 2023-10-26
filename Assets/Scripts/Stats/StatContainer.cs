@@ -40,7 +40,7 @@ namespace SRS.Stats
             modifiers.Remove(this);
         }
 
-        public void Reset()
+        public void ResetStats()
         {
             stats.Clear();
 
