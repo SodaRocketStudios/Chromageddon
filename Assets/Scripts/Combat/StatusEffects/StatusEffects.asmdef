@@ -1,6 +1,6 @@
 {
     "name": "StatusEffects",
-    "rootNamespace": "SRS.StatusEffects",
+    "rootNamespace": "SRS.Combat.StatusEffects",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

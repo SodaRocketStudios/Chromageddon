@@ -2,7 +2,8 @@
     "name": "Combat",
     "rootNamespace": "SRS.Combat",
     "references": [
-        "GUID:3d3bf88e20410054fa7014912fbd1b69"
+        "GUID:3d3bf88e20410054fa7014912fbd1b69",
+        "GUID:4de3388e370f79c41ba22d393d7d68d3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
