@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using SRS.Utils;
 
 namespace SRS.Combat
 {
@@ -7,54 +8,20 @@ namespace SRS.Combat
     {
         public UnityEvent OnDeath;
 
+        public Fraction Value;
+
         public UnityEvent<float> OnCurrentChange;
         public UnityEvent<float> OnMaxChange;
-
-        private float currentHealth;
-        public float CurrentHealth
-        {
-            get
-            {
-                return currentHealth;
-            }
-            private set
-            {
-                currentHealth = Mathf.Max(value, 0);
-                currentHealth = Mathf.Min(currentHealth, MaxHealth);
-
-                if(currentHealth <= 0)
-                {
-                    OnDeath?.Invoke();
-                }
-
-                OnCurrentChange?.Invoke(CurrentHealth);
-            }
-        }
-
-        private float maxHealth;
-        public float MaxHealth
-        {
-            get
-            {
-                return maxHealth;
-            }
-
-            set
-            {
-                maxHealth = value;
-                OnMaxChange?.Invoke(MaxHealth);
-            }
-        }
 
 
         public void Damage(float amount, DamageType damageType)
         {
-            CurrentHealth -= amount;
+            Value.Current -= amount;
         }
 
         public void Heal(float amount)
         {
-            CurrentHealth += amount;
+            Value.Current += amount;
         }
 
         private void Regenerate()
