@@ -33,7 +33,6 @@ namespace SRS.Stats
             }
         }
 
-
         [SerializeField] private float baseValue = 0;
         public float BaseValue
         {
