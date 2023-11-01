@@ -6,8 +6,6 @@ namespace SRS.Combat
 {
     public abstract class Weapon : MonoBehaviour
 	{
-		[SerializeField] private AttackCollider attackCollider;
-
 		[SerializeField] private WeaponData weaponData;
 
 		public virtual void Attack(StatContainer attackStats)

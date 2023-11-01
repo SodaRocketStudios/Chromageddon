@@ -32,7 +32,7 @@ namespace SRS.Stats
                 Initialize();
             }
 
-            modifiers.Apply(this);
+            modifiers.Equip(this);
         }
 
         public void RemoveInitialModifiers(EquipableData modifiers)

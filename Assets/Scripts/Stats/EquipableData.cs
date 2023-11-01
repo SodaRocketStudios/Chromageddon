@@ -13,7 +13,7 @@ namespace SRS.Stats
 
         [SerializeField] private string description;
 
-        public void Apply(StatContainer container)
+        public void Equip(StatContainer container)
         {
             foreach(StatModifier modifier in modifiers)
             {
