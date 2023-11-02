@@ -6,10 +6,10 @@ namespace SRS.Combat
 	[CreateAssetMenu(fileName = "New Weapon Data", menuName = "Equippables/Weapon Data")]
 	public class WeaponData : EquipableData
 	{
-		[SerializeField] private AttackCollider attackCollider;
-		public AttackCollider AttackCollider
+		[SerializeField] private GameObject attackObject;
+		public GameObject AttackObject
 		{
-			get => attackCollider;
+			get => attackObject;
 		}
 
 		[SerializeField] DamageType damageType;
