@@ -4,7 +4,7 @@ using UnityEngine.Pool;
 
 namespace SRS.Combat
 {
-    public abstract class Weapon : MonoBehaviour
+    public class Weapon : MonoBehaviour
 	{
 		[SerializeField] private WeaponData weaponData;
 
@@ -15,9 +15,9 @@ namespace SRS.Combat
 			attackObjectPool = new(CreateAttackObject, OnGetAttackObject, OnReleaseAttackObject);
 		}
 
-		public virtual void Attack(StatContainer attackStats)
+		public void Attack(StatContainer attackStats)
 		{
-			GameObject attackInstance = attackObjectPool.Get();
+			Attack attackInstance = attackObjectPool.Get().GetComponent<Attack>();
 		}
 
 		private GameObject CreateAttackObject()
@@ -25,7 +25,8 @@ namespace SRS.Combat
 			GameObject instance = Instantiate(weaponData.AttackObject);
 			instance.transform.SetParent(transform);
 			instance.SetActive(false);
-			// Set something to stop the attack from hitting the attacker.
+			instance.GetComponent<Attack>().OnEnd.AddListener(attackObjectPool.Release);
+			// Set something to stop the attack from hitting the attacker. (Could also prevent attacks from hitting tha parent object)
 			return instance;
 		}
 

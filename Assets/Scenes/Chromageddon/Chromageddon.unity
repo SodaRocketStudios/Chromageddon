@@ -1083,7 +1083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &245292836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5042,6 +5042,8 @@ GameObject:
   - component: {fileID: 1632691823}
   - component: {fileID: 1632691822}
   - component: {fileID: 1632691825}
+  - component: {fileID: 1632691827}
+  - component: {fileID: 1632691826}
   - component: {fileID: 1632691809}
   - component: {fileID: 1632691808}
   - component: {fileID: 1632691821}
@@ -5270,6 +5272,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8dfd2f1e-c356-4f71-8671-c2856dd59228
     m_ActionName: Pawn/Ability[/Keyboard/f,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c632d889-3d25-4295-958c-c34196758ceb
+    m_ActionName: Pawn/Escape[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: KBM
   m_DefaultActionMap: Pawn
@@ -5309,6 +5315,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80a338b0f86fe954aae6862145bb9034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1632691826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632691807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 73da7730f051e01438ccd5b498399959, type: 2}
+--- !u!114 &1632691827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632691807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c759039c967aa449fc968ec2af30e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1647827909
