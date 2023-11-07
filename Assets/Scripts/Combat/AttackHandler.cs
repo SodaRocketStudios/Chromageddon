@@ -5,7 +5,7 @@ using SRS.Stats;
 
 namespace SRS.Combat
 {
-	public class Attack : MonoBehaviour
+	public class AttackHandler : MonoBehaviour
 	{
 		public UnityEvent<GameObject> OnEnd;
 
@@ -34,7 +34,7 @@ namespace SRS.Combat
 			StopAllCoroutines();
 		}
 
-		public void EndAttack()
+		public void End()
 		{
 			lifetime = maxLifetime;
 		}
@@ -45,14 +45,20 @@ namespace SRS.Combat
 			{
 				yield return null;
 				lifetime += Time.deltaTime;
-			} while(lifetime < maxLifetime);
+			} 
+			while(lifetime < maxLifetime);
 
 			OnEnd?.Invoke(gameObject);
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			// deal damage to other
+			HitHandler otherHitHandler;
+
+			if(TryGetComponent(out otherHitHandler))
+			{
+				otherHitHandler.Hit(stats, damageType);
+			}
 		}
 	}
 }

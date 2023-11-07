@@ -17,7 +17,7 @@ namespace SRS.Combat
 
 		public void Attack(StatContainer attackStats)
 		{
-			Attack attackInstance = attackObjectPool.Get().GetComponent<Attack>();
+			AttackHandler attackInstance = attackObjectPool.Get().GetComponent<AttackHandler>();
 			attackInstance.Stats = attackStats;
 		}
 
@@ -26,7 +26,7 @@ namespace SRS.Combat
 			GameObject instance = Instantiate(weaponData.AttackObject);
 			instance.transform.SetParent(transform);
 			instance.SetActive(false);
-			instance.GetComponent<Attack>().OnEnd.AddListener(attackObjectPool.Release);
+			instance.GetComponent<AttackHandler>().OnEnd.AddListener(attackObjectPool.Release);
 			// Set something to stop the attack from hitting the attacker. (Could also prevent attacks from hitting the parent object)
 			// This may already work since the attacks will be the same layer as the parent object.
 			// Attacks may be able to collide with each other.
