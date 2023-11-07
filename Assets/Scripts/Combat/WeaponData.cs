@@ -11,11 +11,5 @@ namespace SRS.Combat
 		{
 			get => attackPrefab;
 		}
-
-		[SerializeField] DamageType damageType;
-		public DamageType DamageType
-		{
-			get => DamageType;
-		}
 	}
 }

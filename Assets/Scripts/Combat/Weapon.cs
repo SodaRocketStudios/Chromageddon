@@ -19,7 +19,6 @@ namespace SRS.Combat
 		{
 			Attack attackInstance = attackObjectPool.Get().GetComponent<Attack>();
 			attackInstance.Stats = attackStats;
-			attackInstance.DamageType = weaponData.DamageType;
 		}
 
 		private GameObject CreateAttackObject()

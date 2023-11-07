@@ -18,14 +18,7 @@ namespace SRS.Combat
 			}
 		}
 
-		private DamageType damageType;
-		public DamageType DamageType
-		{
-			set
-			{
-				damageType = value;
-			}
-		}
+		[SerializeField] private DamageType damageType;
 
 		private float lifetime;
 		private float maxLifetime = 5;
