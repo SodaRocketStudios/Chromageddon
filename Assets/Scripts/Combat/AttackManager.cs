@@ -26,6 +26,10 @@ namespace SRS.Combat
 			{
 				weapon.Attack(stats);
 			}
+			else
+			{
+				Debug.LogWarning("No weapon available in attack manager", gameObject);
+			}
 		}
 
 		private void Update()

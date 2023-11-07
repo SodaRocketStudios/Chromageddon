@@ -18,6 +18,15 @@ namespace SRS.Combat
 			}
 		}
 
+		private DamageType damageType;
+		public DamageType DamageType
+		{
+			set
+			{
+				damageType = value;
+			}
+		}
+
 		private float lifetime;
 		private float maxLifetime = 5;
 
@@ -46,6 +55,11 @@ namespace SRS.Combat
 			} while(lifetime < maxLifetime);
 
 			OnEnd?.Invoke(gameObject);
+		}
+
+		private void OnTriggerEnter2D(Collider2D other)
+		{
+			// deal damage to other
 		}
 	}
 }
