@@ -20,8 +20,24 @@ namespace SRS.Combat
 
 		[SerializeField] private DamageType damageType;
 
+		public GameObject Source
+		{
+			set
+			{
+				collider.excludeLayers = LayerMask.GetMask();
+				collider.excludeLayers = LayerMask.GetMask(LayerMask.LayerToName(value.layer));
+			}
+		}
+
 		private float lifetime;
 		private float maxLifetime = 5;
+
+		private new Collider2D collider;
+
+		private void Awake()
+		{
+			collider = GetComponent<Collider2D>();
+		}
 
 		private void OnEnable()
 		{
@@ -59,6 +75,8 @@ namespace SRS.Combat
 			{
 				otherHitHandler.Hit(stats, damageType);
 			}
+
+			// Need to handle bounces and pierces.
 		}
 	}
 }

@@ -5,7 +5,7 @@ namespace SRS.Stats
 {
     public abstract class EquipableData: ScriptableObject
     {
-        [SerializeField] private string name;
+        [SerializeField] private new string name;
 
         [SerializeField] private Sprite sprite;
 
@@ -13,7 +13,7 @@ namespace SRS.Stats
 
         [SerializeField] private string description;
 
-        public void Equip(StatContainer container)
+        public virtual void Equip(StatContainer container)
         {
             foreach(StatModifier modifier in modifiers)
             {
@@ -21,7 +21,7 @@ namespace SRS.Stats
             }
         }
 
-        public void Remove(StatContainer container)
+        public virtual void Remove(StatContainer container)
         {
             foreach(StatModifier modifier in modifiers)
             {

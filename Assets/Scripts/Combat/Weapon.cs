@@ -7,6 +7,13 @@ namespace SRS.Combat
     public class Weapon : MonoBehaviour
 	{
 		[SerializeField] private WeaponData weaponData;
+		public WeaponData WeaponData
+		{
+			set
+			{
+				weaponData = value;
+			}
+		}
 
 		ObjectPool<GameObject> attackObjectPool;
 
@@ -24,12 +31,11 @@ namespace SRS.Combat
 		private GameObject CreateAttackObject()
 		{
 			GameObject instance = Instantiate(weaponData.AttackObject);
-			instance.transform.SetParent(transform);
 			instance.SetActive(false);
-			instance.GetComponent<AttackHandler>().OnEnd.AddListener(attackObjectPool.Release);
-			// Set something to stop the attack from hitting the attacker. (Could also prevent attacks from hitting the parent object)
-			// This may already work since the attacks will be the same layer as the parent object.
-			// Attacks may be able to collide with each other.
+			instance.layer = LayerMask.NameToLayer("Attack");
+			AttackHandler attackInstance = instance.GetComponent<AttackHandler>();
+			attackInstance.Source = gameObject;
+			attackInstance.OnEnd.AddListener(attackObjectPool.Release);
 			return instance;
 		}
 

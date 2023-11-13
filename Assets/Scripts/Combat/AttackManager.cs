@@ -34,7 +34,8 @@ namespace SRS.Combat
 
 		private void Update()
 		{
-			isAttacking = input.AttackInput; // This needs to be controlled by stats.
+			// TO DO -- Control attacking state based on stats
+			isAttacking = input.AttackInput;
 
 			if(isAttacking)
 			{
