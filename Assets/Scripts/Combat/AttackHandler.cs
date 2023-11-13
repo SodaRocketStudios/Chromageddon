@@ -31,6 +31,13 @@ namespace SRS.Combat
 
 		private float lifetime;
 		private float maxLifetime = 5;
+		public float Lifetime
+		{
+			set
+			{
+				maxLifetime = value;
+			}
+		}
 
 		private new Collider2D collider;
 

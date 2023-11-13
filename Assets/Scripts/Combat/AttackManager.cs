@@ -13,33 +13,51 @@ namespace SRS.Combat
 		private Weapon weapon;
 
 		private bool isAttacking;
+		
+		private float nextAttackTime;
 
 		private void Awake()
 		{
+			stats = GetComponent<StatContainer>();
 			input = GetComponent<IInputSource>();
 			weapon = GetComponent<Weapon>();
 		}
 
 		private void Attack()
 		{
-			if(weapon != null)
+			if(weapon == null)
+			{
+				Debug.LogWarning("No Weapon set.");
+				return;
+			}
+
+			int numOfAttacks = 0;
+
+			float attackDelay = stats["Attack Delay"].Value;
+
+			while(Time.time - numOfAttacks*attackDelay >= nextAttackTime)
+			{
+				numOfAttacks++;
+			}
+
+			for(int i = 0; i < numOfAttacks; i++)
 			{
 				weapon.Attack(stats);
-			}
-			else
-			{
-				Debug.LogWarning("No weapon available in attack manager", gameObject);
+				nextAttackTime += attackDelay;
 			}
 		}
 
 		private void Update()
 		{
-			// TO DO -- Control attacking state based on stats
 			isAttacking = input.AttackInput;
 
 			if(isAttacking)
 			{
 				Attack();
+			}
+			else
+			{
+				nextAttackTime = Mathf.Max(Time.time, nextAttackTime);
 			}
 		}
 	}
