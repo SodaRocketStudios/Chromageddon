@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5274346769058848028}
   - component: {fileID: 4029533253696438084}
-  - component: {fileID: 9151391308689229867}
+  - component: {fileID: -3136907179146526745}
   - component: {fileID: 3611547824898648356}
   m_Layer: 0
   m_Name: TestProjectileAttack
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9151391308689229867
+--- !u!114 &-3136907179146526745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6618805606944680896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c268acd9d4861944fb9b1a6cfd2c9d08, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b5ad0866ebdeaa47ac3682e3a40266d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnEnd:

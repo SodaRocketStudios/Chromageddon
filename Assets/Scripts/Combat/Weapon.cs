@@ -24,11 +24,8 @@ namespace SRS.Combat
 
 		public void Attack(StatContainer attackStats)
 		{
-			AttackHandler attackInstance = attackObjectPool.Get().GetComponent<AttackHandler>();
+			AttackBehavior attackInstance = attackObjectPool.Get().GetComponent<AttackBehavior>();
 			attackInstance.Stats = attackStats;
-
-			// TO DO -- treat Melee and Ranged weapons differently for lifetime.
-			attackInstance.Lifetime = attackStats["Range"].Value;
 		}
 
 		private GameObject CreateAttackObject()
@@ -36,7 +33,7 @@ namespace SRS.Combat
 			GameObject instance = Instantiate(weaponData.AttackObject);
 			instance.SetActive(false);
 			instance.layer = LayerMask.NameToLayer("Attack");
-			AttackHandler attackInstance = instance.GetComponent<AttackHandler>();
+			AttackBehavior attackInstance = instance.GetComponent<AttackBehavior>();
 			attackInstance.OnEnd.AddListener(attackObjectPool.Release);
 			attackInstance.Source = gameObject;
 			return instance;

@@ -8,7 +8,6 @@ namespace SRS.TargetFollow
 
 		private void Update()
 		{
-			// TODO -- allow for smooth follow with damper and/or acceleration.
 			transform.position = target.position;
 		}
 	}

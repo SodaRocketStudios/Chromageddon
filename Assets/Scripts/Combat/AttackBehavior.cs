@@ -5,50 +5,41 @@ using SRS.Stats;
 
 namespace SRS.Combat
 {
-	public class AttackHandler : MonoBehaviour
+	public abstract class AttackBehavior : MonoBehaviour
 	{
 		public UnityEvent<GameObject> OnEnd;
 
-		private StatContainer stats;
+		protected StatContainer stats;
 		public StatContainer Stats
 		{
 			set
 			{
 				stats = value;
+				OnStatsSet();
 			}
 		}
 
 		[SerializeField] private DamageType damageType;
 
+		private LayerMask layerExclusions;
+
+		private GameObject source;
 		public GameObject Source
 		{
 			set
 			{
-				collider.excludeLayers = LayerMask.GetMask();
-				collider.excludeLayers = LayerMask.GetMask(LayerMask.LayerToName(value.layer));
+				source = value;
+				layerExclusions = 0;
+				layerExclusions |= 1 << source.layer;
 			}
 		}
 
-		private float lifetime;
-		private float maxLifetime = 5;
-		public float Lifetime
-		{
-			set
-			{
-				maxLifetime = value;
-			}
-		}
-
-		private new Collider2D collider;
-
-		private void Awake()
-		{
-			collider = GetComponent<Collider2D>();
-		}
+		private float lifetimeTimer;
+		protected float lifetime;
 
 		private void OnEnable()
 		{
-			lifetime = 0;
+			lifetimeTimer = 0;
 			StartCoroutine(LifetimeCoroutine());
 		}
 
@@ -59,7 +50,7 @@ namespace SRS.Combat
 
 		public void End()
 		{
-			lifetime = maxLifetime;
+			lifetimeTimer = lifetime;
 		}
 
 		IEnumerator LifetimeCoroutine()
@@ -69,21 +60,30 @@ namespace SRS.Combat
 				yield return null;
 				lifetime += Time.deltaTime;
 			} 
-			while(lifetime < maxLifetime);
+			while(lifetimeTimer < lifetime);
 
 			OnEnd?.Invoke(gameObject);
 		}
 
-		private void OnTriggerEnter2D(Collider2D other)
+		private void Hit(GameObject other)
 		{
+			if((layerExclusions & (1 << other.layer)) > 0)
+			{
+				return;
+			}
+
 			HitHandler otherHitHandler;
 
-			if(TryGetComponent(out otherHitHandler))
+			if(other.TryGetComponent(out otherHitHandler))
 			{
 				otherHitHandler.Hit(stats, damageType);
 			}
 
-			// Need to handle bounces and pierces.
+			HitBehavior(other);
 		}
+
+		protected abstract void OnStatsSet();
+
+		protected abstract void HitBehavior(GameObject other);
 	}
 }
