@@ -53,12 +53,12 @@ namespace SRS.Combat
 			lifetimeTimer = lifetime;
 		}
 
-		IEnumerator LifetimeCoroutine()
+		private IEnumerator LifetimeCoroutine()
 		{
 			do
 			{
 				yield return null;
-				lifetime += Time.deltaTime;
+				lifetimeTimer += Time.deltaTime;
 			} 
 			while(lifetimeTimer < lifetime);
 

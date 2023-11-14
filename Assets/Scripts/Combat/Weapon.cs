@@ -24,7 +24,7 @@ namespace SRS.Combat
 
 		public void Attack(StatContainer attackStats)
 		{
-			AttackBehavior attackInstance = attackObjectPool.Get().GetComponent<AttackBehavior>();
+			AttackBehavior attackInstance =  attackObjectPool.Get().GetComponent<AttackBehavior>();
 			attackInstance.Stats = attackStats;
 		}
 
@@ -41,9 +41,9 @@ namespace SRS.Combat
 
 		private void OnGetAttackObject(GameObject attackObject)
 		{
-			attackObject.SetActive(true);
 			attackObject.transform.position = transform.position;
 			attackObject.transform.right = transform.right;
+			attackObject.SetActive(true);
 		}
 
 		private void OnReleaseAttackObject(GameObject attackObject)
