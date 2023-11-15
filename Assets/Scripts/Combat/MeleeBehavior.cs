@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -7,7 +8,13 @@ namespace SRS.Combat
         protected override void OnStatsSet()
         {
 			lifetime = 0.1f;
-            throw new System.NotImplementedException();
+			List<RaycastHit2D> hits = new();
+			Physics2D.CircleCastNonAlloc(transform.position, stats["range"].Value, transform.right, hits.ToArray());
+            
+			foreach(RaycastHit2D hit in hits)
+			{
+				Hit(hit.transform.gameObject);
+			}
         }
 
         protected override void HitBehavior(GameObject other)
