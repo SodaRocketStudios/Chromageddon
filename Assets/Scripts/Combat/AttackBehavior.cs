@@ -65,7 +65,7 @@ namespace SRS.Combat
 			OnEnd?.Invoke(gameObject);
 		}
 
-		private void Hit(GameObject other)
+		protected void Hit(GameObject other)
 		{
 			if((layerExclusions & (1 << other.layer)) > 0)
 			{
