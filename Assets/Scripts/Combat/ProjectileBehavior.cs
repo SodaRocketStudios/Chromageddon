@@ -4,6 +4,13 @@ namespace SRS.Combat
 {
     public class ProjectileBehavior : AttackBehavior
     {
+        [SerializeField] private float speed = 1;
+
+        private void Update()
+        {
+            transform.Translate(transform.right*speed*Time.deltaTime);
+        }
+
         protected override void OnStatsSet()
         {
 			lifetime = stats["Range"].Value;
