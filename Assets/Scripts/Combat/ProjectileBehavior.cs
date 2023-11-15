@@ -8,7 +8,7 @@ namespace SRS.Combat
 
         private void Update()
         {
-            transform.Translate(transform.right*speed*Time.deltaTime);
+            transform.Translate(transform.right*speed*Time.deltaTime, Space.World);
         }
 
         protected override void OnStatsSet()

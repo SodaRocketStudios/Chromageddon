@@ -42,7 +42,7 @@ namespace SRS.Combat
 		private void OnGetAttackObject(GameObject attackObject)
 		{
 			attackObject.transform.position = transform.position;
-			attackObject.transform.right = transform.right;
+			attackObject.transform.rotation = transform.rotation;
 			attackObject.SetActive(true);
 		}
 
