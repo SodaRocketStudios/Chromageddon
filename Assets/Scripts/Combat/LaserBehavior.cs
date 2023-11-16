@@ -5,9 +5,10 @@ namespace SRS.Combat
 {
     public class LaserBehavior : AttackBehavior
     {
-        protected override void HitBehavior(GameObject other)
+
+        protected override void OnStatsSet()
         {
-            lifetime = 0.1f;
+			lifetime = 0.1f;
 			List<RaycastHit2D> hits = new();
 			
 			Physics2D.RaycastNonAlloc(transform.position, transform.right, hits.ToArray(), stats["Range"].Value);
@@ -17,10 +18,10 @@ namespace SRS.Combat
 				Hit(hit.transform.gameObject);
 			}
         }
-
-        protected override void OnStatsSet()
+		
+        protected override void HitBehavior(GameObject other)
         {
-            throw new System.NotImplementedException();
         }
+
     }
 }

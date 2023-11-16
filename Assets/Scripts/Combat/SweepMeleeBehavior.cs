@@ -21,7 +21,6 @@ namespace SRS.Combat
 
         protected override void HitBehavior(GameObject other)
         {
-            throw new System.NotImplementedException();
         }
 
     }
