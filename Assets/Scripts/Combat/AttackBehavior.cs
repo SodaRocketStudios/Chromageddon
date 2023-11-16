@@ -22,7 +22,7 @@ namespace SRS.Combat
 
 		[SerializeField] private DamageType damageType;
 
-		private LayerMask layerExclusions;
+		protected LayerMask layerExclusions;
 
 		private GameObject source;
 		public GameObject Source
@@ -53,6 +53,11 @@ namespace SRS.Combat
 		public void End()
 		{
 			lifetimeTimer = lifetime;
+		}
+
+		public void ResetLiftime()
+		{
+			lifetimeTimer = 0;
 		}
 
 		private IEnumerator LifetimeCoroutine()
