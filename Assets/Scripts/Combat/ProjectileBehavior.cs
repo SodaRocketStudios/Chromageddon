@@ -22,7 +22,7 @@ namespace SRS.Combat
             throw new System.NotImplementedException();
         }
 
-        private void OnTriggerEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             Hit(other.gameObject);
         }

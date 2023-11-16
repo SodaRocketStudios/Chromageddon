@@ -3,13 +3,16 @@ using UnityEngine;
 
 namespace SRS.Combat
 {
-    public class MeleeBehavior : AttackBehavior
+    public class ThrustMeleeBehavior : AttackBehavior
     {
+		[SerializeField] private float attackWidth;
+
         protected override void OnStatsSet()
         {
-			lifetime = 0.1f;
+            lifetime = 0.1f;
 			List<RaycastHit2D> hits = new();
-			Physics2D.CircleCastNonAlloc(transform.position, stats["range"].Value, transform.right, hits.ToArray());
+			
+			Physics2D.BoxCastNonAlloc(transform.position, new Vector2(attackWidth, 0.1f), 0, transform.right, hits.ToArray(), stats["Range"].Value);
             
 			foreach(RaycastHit2D hit in hits)
 			{
@@ -21,6 +24,5 @@ namespace SRS.Combat
         {
             throw new System.NotImplementedException();
         }
-
     }
 }

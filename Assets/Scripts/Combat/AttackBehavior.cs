@@ -7,6 +7,7 @@ namespace SRS.Combat
 {
 	public abstract class AttackBehavior : MonoBehaviour
 	{
+		public UnityEvent<GameObject> OnStart;
 		public UnityEvent<GameObject> OnEnd;
 
 		protected StatContainer stats;
@@ -40,6 +41,7 @@ namespace SRS.Combat
 		private void OnEnable()
 		{
 			lifetimeTimer = 0;
+			OnStart?.Invoke(gameObject);
 			StartCoroutine(LifetimeCoroutine());
 		}
 
