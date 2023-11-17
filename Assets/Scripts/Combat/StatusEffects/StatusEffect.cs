@@ -8,6 +8,10 @@ namespace SRS.Combat.StatusEffects
     {
 		[SerializeField] private List<IEffect> effects;
 
+		[SerializeField] private float duration;
+
+		[SerializeField] private string ProcStat;
+
         public void Trigger(StatContainer targetStats)
         {
             Apply(targetStats);
