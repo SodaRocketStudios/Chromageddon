@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-11-17T16:13:41.048Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="xjKm7CNV2W7Bub4rlahf" version="22.0.2" type="device" pages="2">
+<mxfile host="Electron" modified="2023-11-17T16:16:08.691Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="DEwAeHz3dpZ3GC8fBqKA" version="22.0.2" type="device" pages="2">
   <diagram name="System" id="lB_Ha_FxwzyLqLuV1oSM">
     <mxGraphModel dx="2220" dy="880" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -408,7 +408,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="blzz8KkRSBZbN0wKVo2y-35" value="HitEffectDataBase" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="6ODLGGC7NXXN00srHuJb-58" vertex="1">
+        <mxCell id="blzz8KkRSBZbN0wKVo2y-35" value="HitEffectDatabase" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="6ODLGGC7NXXN00srHuJb-58" vertex="1">
           <mxGeometry x="2030" y="890" width="230" height="86" as="geometry">
             <mxRectangle x="-640" y="322" width="100" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -452,7 +452,7 @@
             <mxRectangle x="-640" y="322" width="100" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="SbZYSbHi3dT9VR32Mci5-16" value="- Apply(Stats: StatContainer): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="SbZYSbHi3dT9VR32Mci5-13" vertex="1">
+        <mxCell id="SbZYSbHi3dT9VR32Mci5-16" value="- OnTrigger(Stats: StatContainer): Void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="SbZYSbHi3dT9VR32Mci5-13" vertex="1">
           <mxGeometry y="26" width="230" height="25" as="geometry" />
         </mxCell>
         <mxCell id="SbZYSbHi3dT9VR32Mci5-17" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;fontSize=12;edgeStyle=orthogonalEdgeStyle;elbow=vertical;" parent="6ODLGGC7NXXN00srHuJb-58" source="SbZYSbHi3dT9VR32Mci5-13" target="blzz8KkRSBZbN0wKVo2y-22" edge="1">
