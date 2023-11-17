@@ -40,7 +40,6 @@ namespace SRS.Combat
 
             while(RemainingPierces > 0)
             {
-                ResetLiftime();
                 RemainingPierces--;
                 return;
             }
