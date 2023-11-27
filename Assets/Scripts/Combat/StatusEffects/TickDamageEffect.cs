@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using SRS.Stats;
 using UnityEngine;
@@ -13,13 +14,11 @@ namespace SRS.Combat.StatusEffects
 
 		private HitHandler targetHitHandler;
 
-        private bool isRunning = false;
+        private CancellationTokenSource cancellationTokenSource;
 
         public void Apply(StatContainer targetStats)
         {
 			tickDelay = 1/tickRate;
-            isRunning = true;
-            Tick();
 			// TODO -- Start Effect coroutine;
         }
 
@@ -30,10 +29,10 @@ namespace SRS.Combat.StatusEffects
 
         private async Task Tick()
         {
-            while()
+            while(!cancellationTokenSource.IsCancellationRequested)
             {
-                Awaitable
-                targetHitHandler.Hit(DamageType.Fire);
+                await Awaitable.WaitForSecondsAsync(tickDelay);
+                targetHitHandler.Hit(intensity, DamageType.Fire);
             }
         }
     }

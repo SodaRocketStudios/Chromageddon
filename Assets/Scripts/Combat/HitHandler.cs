@@ -21,18 +21,23 @@ namespace SRS.Combat
 
 		public void Hit(StatContainer attackerStats, DamageType damageType)
 		{
-			float remainingDamage = shield.Damage(attackerStats["Damage"].Value, damageType);
-
-			health.Damage(remainingDamage, damageType);
-
-			OnHit?.Invoke(0); // Might make more sense for shield and health to handle most of these events
+			ApplyDamage(attackerStats["Damage"].Value, damageType);
 
 			TryOnHitEffects(attackerStats);
 		}
 
-		public void Hit(DamageType damageType)
+		public void Hit(float damage, DamageType damageType)
 		{
+			ApplyDamage(damage, damageType);
+		}
 
+		private void ApplyDamage(float amount, DamageType damageType)
+		{
+			float remainingDamage = shield.Damage(amount, damageType);
+
+			health.Damage(remainingDamage, damageType);
+
+			OnHit?.Invoke(0); // Might make more sense for shield and health to handle most of these events
 		}
 
 		private void TryOnHitEffects(StatContainer attackerStats)
