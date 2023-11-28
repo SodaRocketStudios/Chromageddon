@@ -1,5 +1,4 @@
 using System.Threading;
-using System.Threading.Tasks;
 using SRS.Stats;
 using UnityEngine;
 
@@ -12,27 +11,29 @@ namespace SRS.Combat.StatusEffects
 		[SerializeField] private float tickRate;
 		private float tickDelay;
 
+        [SerializeField] private DamageType damageType;
+
 		private HitHandler targetHitHandler;
 
-        private CancellationTokenSource cancellationTokenSource;
+        private CancellationTokenSource tokenSource = new CancellationTokenSource();
 
         public void Apply(StatContainer targetStats)
         {
 			tickDelay = 1/tickRate;
-			// TODO -- Start Effect coroutine;
+            TickTask(tokenSource.Token);
         }
 
         public void Remove(StatContainer targetStats)
         {
-			// TODO -- End Effect Coroutine;
+            tokenSource.Cancel();
         }
 
-        private async Task Tick()
+        private async void TickTask(CancellationToken token)
         {
-            while(!cancellationTokenSource.IsCancellationRequested)
+            while(!token.IsCancellationRequested)
             {
                 await Awaitable.WaitForSecondsAsync(tickDelay);
-                targetHitHandler.Hit(intensity, DamageType.Fire);
+                targetHitHandler.Hit(intensity, damageType);
             }
         }
     }
