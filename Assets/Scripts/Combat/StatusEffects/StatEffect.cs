@@ -1,5 +1,4 @@
 using SRS.Stats;
-using UnityEngine;
 
 namespace SRS.Combat.StatusEffects
 {
