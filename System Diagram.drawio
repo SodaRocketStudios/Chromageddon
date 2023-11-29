@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-11-28T17:25:41.921Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="xjKWEMUKPJESJniVV1eI" version="22.1.2" type="device" pages="2">
+<mxfile host="Electron" modified="2023-11-29T15:33:11.449Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="HFPB49X1g2m-GwULka45" version="22.1.2" type="device" pages="2">
   <diagram name="System" id="lB_Ha_FxwzyLqLuV1oSM">
     <mxGraphModel dx="2220" dy="880" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -142,7 +142,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="6lKbP7U7tcQdrdxZIc6Y" name="UML">
-    <mxGraphModel dx="1775" dy="1500" grid="1" gridSize="5" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="4057" dy="2914" grid="1" gridSize="5" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -523,7 +523,7 @@
         <mxCell id="NJ53RqIf8JxPQg9S4Jbb-19" value="+ Remove(targetStats: StatContainer): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="6ODLGGC7NXXN00srHuJb-95" vertex="1">
           <mxGeometry y="211" width="282.5" height="25" as="geometry" />
         </mxCell>
-        <mxCell id="_ytU4g6pH3JNyYv2V9oD-2" value="+ Reapply(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="6ODLGGC7NXXN00srHuJb-95">
+        <mxCell id="_ytU4g6pH3JNyYv2V9oD-2" value="+ Reapply(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="6ODLGGC7NXXN00srHuJb-95" vertex="1">
           <mxGeometry y="236" width="282.5" height="25" as="geometry" />
         </mxCell>
         <mxCell id="NJ53RqIf8JxPQg9S4Jbb-11" value="EffectTracker" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="6ODLGGC7NXXN00srHuJb-94" vertex="1">
@@ -609,7 +609,7 @@
         <mxCell id="gx7y6eC7Tmi9Vjinfigf-26" value="- tickRate: float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="NJ53RqIf8JxPQg9S4Jbb-20" vertex="1">
           <mxGeometry y="76" width="220" height="25" as="geometry" />
         </mxCell>
-        <mxCell id="_ytU4g6pH3JNyYv2V9oD-1" value="- damageType: DamageType" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="NJ53RqIf8JxPQg9S4Jbb-20">
+        <mxCell id="_ytU4g6pH3JNyYv2V9oD-1" value="- damageType: DamageType" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="NJ53RqIf8JxPQg9S4Jbb-20" vertex="1">
           <mxGeometry y="101" width="220" height="25" as="geometry" />
         </mxCell>
         <mxCell id="NJ53RqIf8JxPQg9S4Jbb-22" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="NJ53RqIf8JxPQg9S4Jbb-20" vertex="1">
