@@ -51,7 +51,7 @@ namespace SRS.Combat
             LayerMask mask = LayerMask.GetMask(LayerMask.LayerToName(other.layer));
             mask.value |= LayerMask.GetMask("Environment");
             
-            List<RaycastHit2D> hits = new();
+            List<RaycastHit2D> hits;
             hits = Physics2D.CircleCastAll(transform.position, stats["Range"].Value, transform.right, 0, mask).ToList();
 
             foreach(RaycastHit2D hit in hits)

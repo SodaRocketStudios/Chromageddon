@@ -11,7 +11,7 @@ namespace SRS.Combat
         protected override void OnStatsSet()
         {
             lifetime = 0.1f;
-			List<RaycastHit2D> hits = new();
+			List<RaycastHit2D> hits;
 			
 			hits = Physics2D.BoxCastAll(transform.position, new Vector2(attackWidth, 0.1f), 0, transform.right, stats["Range"].Value).ToList();
             
