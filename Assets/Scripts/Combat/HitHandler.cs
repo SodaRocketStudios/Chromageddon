@@ -48,14 +48,12 @@ namespace SRS.Combat
 		{
 			foreach(IOnHitEffect effect in hitEffectDatabase.Effects)
 			{
-				// TODO -- Try to apply effects
 				float procCheck = random.NextFloat()*100;
 				
 				if(procCheck <= attackerStats[effect.ProcStat].Value)
 				{
 					effect.Trigger(gameObject);
 				}
-				// effect.Trigger(stats)
 			}
 		}
 	}
