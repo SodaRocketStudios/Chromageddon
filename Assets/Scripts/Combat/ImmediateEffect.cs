@@ -1,14 +1,19 @@
+using SRS.Stats;
 using UnityEngine;
 
 namespace SRS.Combat
 {
     public abstract class ImmediateEffect : IOnHitEffect
     {
-        public void Trigger(GameObject stats)
+        [SerializeField] private string procStat;
+
+        public string ProcStat => procStat;
+
+        public void Trigger(GameObject target)
         {
-            
+            OnTrigger(target);
         }
 
-		protected abstract void OnTrigger(GameObject Stats);
+		protected abstract void OnTrigger(GameObject target);
     }
 }

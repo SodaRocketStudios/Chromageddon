@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using SRS.Stats;
+using SRS.Extensions.Random;
 
 namespace SRS.Combat
 {
@@ -48,7 +49,12 @@ namespace SRS.Combat
 			foreach(IOnHitEffect effect in hitEffectDatabase.Effects)
 			{
 				// TODO -- Try to apply effects
-				// if random < proc chance
+				float procCheck = random.NextFloat()*100;
+				
+				if(procCheck <= attackerStats[effect.ProcStat].Value)
+				{
+					effect.Trigger(gameObject);
+				}
 				// effect.Trigger(stats)
 			}
 		}
