@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -11,7 +12,7 @@ namespace SRS.Combat
 			lifetime = 0.1f;
 			List<RaycastHit2D> hits = new();
 			
-			Physics2D.RaycastNonAlloc(transform.position, transform.right, hits.ToArray(), stats["Range"].Value);
+			hits = Physics2D.RaycastAll(transform.position, transform.right, stats["Range"].Value).ToList();
             
 			foreach(RaycastHit2D hit in hits)
 			{

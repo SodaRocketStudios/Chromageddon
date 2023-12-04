@@ -1,7 +1,8 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using SRS.Extensions.Random;
-using System;
 
 namespace SRS.Combat
 {
@@ -51,7 +52,7 @@ namespace SRS.Combat
             mask.value |= LayerMask.GetMask("Environment");
             
             List<RaycastHit2D> hits = new();
-            Physics2D.CircleCastNonAlloc(transform.position, stats["Range"].Value, transform.right, hits.ToArray(), 0, mask);
+            hits = Physics2D.CircleCastAll(transform.position, stats["Range"].Value, transform.right, 0, mask).ToList();
 
             foreach(RaycastHit2D hit in hits)
             {
