@@ -11,7 +11,6 @@ namespace SRS.Combat
 
 		private StatContainer stats;
 		private Health health;
-		private Shield shield;
 
 		private HitEffectDatabase hitEffectDatabase;
 
@@ -21,7 +20,6 @@ namespace SRS.Combat
 		{
 			stats = GetComponent<StatContainer>();
 			health = GetComponent<Health>();
-			shield = GetComponent<Shield>();
 
 			hitEffectDatabase = FindAnyObjectByType<HitEffectDatabase>();
 		}
@@ -40,9 +38,7 @@ namespace SRS.Combat
 
 		private void ApplyDamage(float amount, DamageType damageType)
 		{
-			float remainingDamage = shield.Damage(amount, damageType);
-
-			health.Damage(remainingDamage, damageType);
+			health.Damage(amount, damageType);
 
 			OnHit?.Invoke(0); // Might make more sense for shield and health to handle most of these events
 		}
