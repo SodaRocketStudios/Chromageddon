@@ -1,74 +1,46 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SRS.Stats;
-using System.Threading;
 
 namespace SRS.Combat.StatusEffects
 {
-    public class StatusEffect : IOnHitEffect
+	[System.Serializable]
+    public class StatusEffect : ScriptableObject, IOnHitEffect
     {
-		[SerializeField] private List<IEffect> effects;
+		[SerializeField] private string procStat;
 
 		[SerializeField] private float duration;
 
-		[SerializeField] private string ProcStat;
+		[SerializeField] private List<Effect> effects;
 
-		private StatContainer targetStats;
+		public string ProcStat
+		{
+			get => procStat;
+		}
 
-		private CancellationTokenSource tokenSource = new CancellationTokenSource();
-
-		private float timer = 0;
-
-        public void Trigger(StatContainer targetStats)
+        public void Trigger(GameObject target)
         {
-            Apply(targetStats);
+            EffectTracker tracker = target.GetComponent<EffectTracker>();
+
+			foreach(Effect effect in effects)
+			{
+				tracker.Apply(effect);
+			}
         }
 
-		public void Apply(StatContainer targetStats)
+		private void Remove(EffectTracker tracker)
 		{
-            this.targetStats = targetStats;
-
-			foreach(IEffect effect in effects)
+			foreach(Effect effect in effects)
 			{
-				effect.Apply(targetStats);
+				tracker.Cancel(effect);
 			}
-
-			EffectTask(tokenSource.Token);
-		}
-
-		public void Remove()
-		{
-			foreach(IEffect effect in effects)
-			{
-				effect.Remove(targetStats);
-			}
-		}
-
-		public void Reapply()
-		{
-			timer = 0;
 		}
 
 		public void Cancel()
 		{
-			tokenSource.Cancel();
-		}
-
-		private async void EffectTask(CancellationToken token)
-		{
-			while(!token.IsCancellationRequested)
+			foreach(Effect effect in effects)
 			{
-				if(timer >= duration)
-				{
-					tokenSource.Cancel();
-				}
-
-				timer += Time.deltaTime;
-
-				await Awaitable.EndOfFrameAsync();
+				effect.Cancel();
 			}
-
-			Remove();
 		}
     }
 }

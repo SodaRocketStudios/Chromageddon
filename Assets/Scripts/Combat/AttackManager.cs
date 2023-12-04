@@ -18,7 +18,7 @@ namespace SRS.Combat
 
 		private void Awake()
 		{
-			stats = GetComponent<StatContainer>();
+            stats = GetComponent<StatContainer>();
 			input = GetComponent<IInputSource>();
 			weapon = GetComponent<Weapon>();
 		}

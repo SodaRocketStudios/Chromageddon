@@ -1,6 +1,6 @@
 using UnityEngine;
-using SRS.Stats;
 using UnityEngine.Pool;
+using SRS.Stats;
 
 namespace SRS.Combat
 {
@@ -30,7 +30,7 @@ namespace SRS.Combat
 
 		private GameObject CreateAttackObject()
 		{
-			GameObject instance = Instantiate(weaponData.AttackObject);
+            GameObject instance = Instantiate(weaponData.AttackObject);
 			instance.SetActive(false);
 			instance.layer = LayerMask.NameToLayer("Attack");
 			AttackBehavior attackInstance = instance.GetComponent<AttackBehavior>();

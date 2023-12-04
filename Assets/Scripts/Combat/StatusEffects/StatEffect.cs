@@ -3,16 +3,20 @@ using SRS.Stats;
 
 namespace SRS.Combat.StatusEffects
 {
-    public class StatEffect : IEffect
+    public class StatEffect : Effect
     {
         [SerializeField] private StatModifier statModifier;
 
-        public void Apply(StatContainer targetStats)
+        public StatEffect(Effect effect) : base(effect)
+        {
+        }
+
+        protected override void OnApply()
         {
             statModifier.Apply(targetStats);
         }
 
-        public void Remove(StatContainer targetStats)
+        private void OnDestroy()
         {
             statModifier.Remove(targetStats);
         }

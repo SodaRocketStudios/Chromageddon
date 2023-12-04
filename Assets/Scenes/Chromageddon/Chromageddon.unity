@@ -1901,7 +1901,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687756624}
   m_CullTransparentMesh: 1
---- !u!1 &735796006
+--- !u!1 &715954985
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1909,38 +1909,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 735796008}
-  - component: {fileID: 735796007}
+  - component: {fileID: 715954987}
+  - component: {fileID: 715954986}
   m_Layer: 0
-  m_Name: Status Effect Database
+  m_Name: Hit Effect Database
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &735796007
+--- !u!114 &715954986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735796006}
+  m_GameObject: {fileID: 715954985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f302ba71b29f1a4d92b75953ea48f13, type: 3}
+  m_Script: {fileID: 11500000, guid: 67b51182cc146c846961a9d3a5554861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effects:
-  - {fileID: 11400000, guid: 0395a246f5e5b7e42ba74b658f9ed6ad, type: 2}
-  - {fileID: 11400000, guid: ce5259fccf05f3d4487c473dc76f127b, type: 2}
-  - {fileID: 11400000, guid: 6a09c3cff2af95548bcb205710ebbda7, type: 2}
---- !u!4 &735796008
+--- !u!4 &715954987
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735796006}
+  m_GameObject: {fileID: 715954985}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -6788,4 +6784,4 @@ SceneRoots:
   - {fileID: 160437731}
   - {fileID: 1632691820}
   - {fileID: 674138508}
-  - {fileID: 735796008}
+  - {fileID: 715954987}

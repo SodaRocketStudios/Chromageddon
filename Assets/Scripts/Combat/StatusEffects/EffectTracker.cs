@@ -1,43 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SRS.Stats;
 
 namespace SRS.Combat.StatusEffects
 {
 	public class EffectTracker : MonoBehaviour
 	{
-		private List<StatusEffect> activeEffects;
+		private List<Effect> activeEffects;
 
-		StatContainer stats;
-
-		public void Apply(StatusEffect effect)
+		public void Apply(Effect effect)
 		{
-			if(activeEffects.Contains(effect))
+			int index = activeEffects.IndexOf(effect);
+			if(index >= 0)
 			{
-				effect.Reapply();
+				activeEffects[index].Reapply();
 				return;
 			}
 
-			activeEffects.Add(effect);
-			effect.Apply(stats);
+			Effect effectInstance = Instantiate(effect);
+			activeEffects.Add(effectInstance);
+			effectInstance.Apply();
 		}
 
-		public void Cancel(StatusEffect effect)
+		public void Cancel(Effect effect)
 		{
 			int index = activeEffects.IndexOf(effect);
 			
 			if(index >= 0)
 			{
-				activeEffects[index].Remove();
+				activeEffects[index].Cancel();
 				activeEffects.RemoveAt(index);
 			}
 		}
 
-		private void CancelAll()
+		public void CancelAll()
 		{
-			foreach(StatusEffect effect in activeEffects)
+			foreach(Effect effect in activeEffects)
 			{
-				effect.Remove();
+				effect.Cancel();
 			}
 
 			activeEffects.Clear();

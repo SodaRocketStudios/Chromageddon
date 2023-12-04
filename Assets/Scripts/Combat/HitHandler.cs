@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using SRS.Stats;
@@ -12,11 +13,17 @@ namespace SRS.Combat
 		private Health health;
 		private Shield shield;
 
+		private HitEffectDatabase hitEffectDatabase;
+
+		private System.Random random = new(Guid.NewGuid().GetHashCode());
+
 		private void Awake()
 		{
 			stats = GetComponent<StatContainer>();
 			health = GetComponent<Health>();
 			shield = GetComponent<Shield>();
+
+			hitEffectDatabase = FindAnyObjectByType<HitEffectDatabase>();
 		}
 
 		public void Hit(StatContainer attackerStats, DamageType damageType)
@@ -42,7 +49,12 @@ namespace SRS.Combat
 
 		private void TryOnHitEffects(StatContainer attackerStats)
 		{
-			// Try all on hit effects.
+			foreach(IOnHitEffect effect in hitEffectDatabase.Effects)
+			{
+				// TODO -- Try to apply effects
+				// if random < proc chance
+				// effect.Trigger(stats)
+			}
 		}
 	}
 }

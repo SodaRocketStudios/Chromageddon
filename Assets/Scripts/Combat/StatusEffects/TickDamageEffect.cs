@@ -1,10 +1,10 @@
 using System.Threading;
-using SRS.Stats;
 using UnityEngine;
+using SRS.Stats;
 
 namespace SRS.Combat.StatusEffects
 {
-    public class TickDamageEffect : IEffect
+    public class TickDamageEffect : Effect
     {
 		[SerializeField] private float intensity;
 
@@ -17,13 +17,17 @@ namespace SRS.Combat.StatusEffects
 
         private CancellationTokenSource tokenSource = new CancellationTokenSource();
 
-        public void Apply(StatContainer targetStats)
+        public TickDamageEffect(Effect effect) : base(effect)
+        {
+        }
+
+        protected override void OnApply()
         {
 			tickDelay = 1/tickRate;
             TickTask(tokenSource.Token);
         }
 
-        public void Remove(StatContainer targetStats)
+        private void OnDestroy()
         {
             tokenSource.Cancel();
         }
