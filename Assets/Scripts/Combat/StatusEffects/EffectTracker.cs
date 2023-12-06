@@ -9,22 +9,24 @@ namespace SRS.Combat.StatusEffects
 
 		public void Add(StatusEffect effect)
 		{
-
+			activeEffects.Add(effect);
 		}
 
 		public void Remove(StatusEffect effect)
 		{
-
+			activeEffects.Remove(effect);
 		}
 
-		public void Cancel(Effect effect)
-		{
-
-		}
+		// TODO -- cancel specific types of effects
 
 		public void CancelAll()
 		{
+			foreach(StatusEffect effect in activeEffects)
+			{
+				effect.Cancel();
+			}
 
+			activeEffects.Clear();
 		}
 	}
 }
