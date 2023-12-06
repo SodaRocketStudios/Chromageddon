@@ -7,18 +7,14 @@ namespace SRS.Combat.StatusEffects
     {
         [SerializeField] private StatModifier statModifier;
 
-        public StatEffect(Effect effect) : base(effect)
+        public void Apply(GameObject target)
         {
+            statModifier.Apply(target.GetComponent<StatContainer>());
         }
 
-        protected override void OnApply()
+        public void Remove(GameObject target)
         {
-            statModifier.Apply(targetStats);
-        }
-
-        private void OnDestroy()
-        {
-            statModifier.Remove(targetStats);
+            statModifier.Remove(target.GetComponent<StatContainer>());
         }
     }
 }
