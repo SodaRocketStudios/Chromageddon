@@ -1,4 +1,3 @@
-using UnityEngine;
 using SRS.Stats;
 
 namespace SRS.EnemyManagement
