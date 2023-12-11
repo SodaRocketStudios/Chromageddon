@@ -8,7 +8,7 @@ namespace SRS.AI
 		[SerializeField] private State trueState;
 		[SerializeField] private State falseState;
 
-		public void Try(AIBrain brain)
+		public void Test(AIBrain brain)
 		{
 			if(decision.Decide(brain) == true)
 			{

@@ -17,7 +17,7 @@ namespace SRS.AI
 
 			foreach(Transition transition in transitions)
 			{
-				transition.Try(brain);
+				transition.Test(brain);
 			}
 		}
 	}
