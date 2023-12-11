@@ -1,7 +1,9 @@
 {
     "name": "AI",
     "rootNamespace": "SRS.AI",
-    "references": [],
+    "references": [
+        "GUID:931174e65c3cd264292e2d8c7a5f7890"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
