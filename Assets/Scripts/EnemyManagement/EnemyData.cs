@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SRS.Stats;
+using SRS.AI;
 
 namespace SRS.EnemyManagement
 {
@@ -11,6 +12,6 @@ namespace SRS.EnemyManagement
 		// store all data needed to spawn an enemy.
 		public List<StatModifier> InitialStats;
 		public Sprite Sprite;
-		// need state machine data
+		public State initialState;
 	}
 }
