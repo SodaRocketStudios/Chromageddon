@@ -12,12 +12,14 @@ namespace SRS.Utils.ObjectPooling
 
 		public GameObject Get()
 		{
+			GameObject pooledObject;
+
 			if(pool.Count <= 0)
 			{
-				return CreateObject();
+				pool.Enqueue(CreateObject());
 			}
 
-			GameObject pooledObject = pool.Dequeue();
+			pooledObject = pool.Dequeue();
 			pooledObject.SetActive(true);
 			pooledObject.GetComponent<PooledObject>().Initialize(Return);
 			return pooledObject;
