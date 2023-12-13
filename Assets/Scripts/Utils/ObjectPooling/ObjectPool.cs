@@ -10,6 +10,10 @@ namespace SRS.Utils.ObjectPooling
 
 		private Queue<GameObject> pool = new();
 
+		private GameObject parentObject;
+
+		// TODO -- create a parent object for all pooled objects.
+
 		public GameObject Get()
 		{
 			GameObject pooledObject;
@@ -33,8 +37,14 @@ namespace SRS.Utils.ObjectPooling
 
 		private GameObject CreateObject()
 		{
+			if(parentObject == null)
+			{
+				parentObject = new(name);
+			}
+
 			GameObject newObject = Instantiate(prefab);
 			newObject.SetActive(false);
+			newObject.transform.SetParent(parentObject.transform);
 			return newObject;
 		}
 	}
