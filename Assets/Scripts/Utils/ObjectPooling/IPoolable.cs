@@ -1,5 +1,7 @@
-public interface IPoolable
+using System;
+
+public interface IPoolable<T>
 {
-	public void OnGet();
-	public void OnReturn();
+	public void Initialize(Action<T> returnAction);
+	public void ReturnToPool();
 }

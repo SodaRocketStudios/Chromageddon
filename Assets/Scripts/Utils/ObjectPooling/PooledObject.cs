@@ -3,24 +3,23 @@ using UnityEngine;
 
 namespace SRS.Utils.ObjectPooling
 {
-	public class PooledObject : MonoBehaviour
+	public class PooledObject : MonoBehaviour, IPoolable<PooledObject>
 	{
-		private Action<GameObject> returnAction;
+		private Action<PooledObject> returnAction;
 
 		private void OnDisable()
 		{
 			ReturnToPool();
 		}
 
-
-        public void Initialize(Action<GameObject> returnAction)
+        public void Initialize(Action<PooledObject> returnAction)
 		{
 			this.returnAction = returnAction;
 		}
 
         public void ReturnToPool()
         {
-            returnAction?.Invoke(gameObject);
+            returnAction?.Invoke(this);
         }
-	}
+    }
 }

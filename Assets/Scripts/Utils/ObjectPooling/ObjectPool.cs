@@ -4,17 +4,17 @@ using UnityEngine;
 namespace SRS.Utils.ObjectPooling
 {
 	[CreateAssetMenu(fileName = "Object Pool", menuName = "Utils/Object Pool")]
-	public class ObjectPool<T> : ScriptableObject where T : MonoBehaviour, IPoolable
+	public class ObjectPool<T> : ScriptableObject, IPool<T> where T : MonoBehaviour, IPoolable<T>
 	{
-		[SerializeField] private GameObject prefab;
+		[SerializeField] private GameObject basePrefab;
 
-		private Queue<GameObject> pool = new();
+		private Queue<T> pool = new();
 
 		private GameObject parentObject;
 
-		public GameObject Get()
+		public T Get()
 		{
-			GameObject pooledObject;
+			T pooledObject;
 
 			if(pool.Count <= 0)
 			{
@@ -22,30 +22,37 @@ namespace SRS.Utils.ObjectPooling
 			}
 
 			pooledObject = pool.Dequeue();
-			pooledObject.SetActive(true);
-			pooledObject.GetComponent<PooledObject>().Initialize(Return);
+			pooledObject.gameObject.SetActive(true);
+			pooledObject.Initialize(Return);
 
 			return pooledObject;
 		}
 
-		public void Return(GameObject pooledObject)
+		public void Return(T pooledObject)
 		{
 			pool.Enqueue(pooledObject);
-			pooledObject.SetActive(false);
+			pooledObject.gameObject.SetActive(false);
 		}
 
-		private GameObject CreateObject()
+		private T CreateObject()
 		{
 			if(parentObject == null)
 			{
-				parentObject = new($"{prefab.name} container");
+				parentObject = new($"{basePrefab.name} container");
 			}
 
-			GameObject newObject = Instantiate(prefab);
+			GameObject newObject = Instantiate(basePrefab);
 			newObject.SetActive(false);
 			newObject.transform.SetParent(parentObject.transform);
 
-			return newObject;
+			return newObject.GetComponent<T>();
 		}
+
+	}
+
+	public interface IPool<T>
+	{
+		T Get();
+		void Return(T pooledObject);
 	}
 }

@@ -5,7 +5,7 @@ using SRS.Stats;
 
 namespace SRS.Combat
 {
-	public abstract class AttackBehavior : MonoBehaviour
+	public abstract class AttackBehavior : MonoBehaviour, IPoolable
 	{
 		public UnityEvent<GameObject> OnStart;
 		public UnityEvent<GameObject> OnEnd;
@@ -92,5 +92,15 @@ namespace SRS.Combat
 		protected abstract void OnStatsSet();
 
 		protected abstract void HitBehavior(GameObject other);
-	}
+
+        public void OnGet()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OnReturn()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }
