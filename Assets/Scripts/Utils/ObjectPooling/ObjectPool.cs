@@ -4,15 +4,13 @@ using UnityEngine;
 namespace SRS.Utils.ObjectPooling
 {
 	[CreateAssetMenu(fileName = "Object Pool", menuName = "Utils/Object Pool")]
-	public class ObjectPool : ScriptableObject
+	public class ObjectPool<T> : ScriptableObject where T : MonoBehaviour, IPoolable
 	{
 		[SerializeField] private GameObject prefab;
 
 		private Queue<GameObject> pool = new();
 
 		private GameObject parentObject;
-
-		// TODO -- create a parent object for all pooled objects.
 
 		public GameObject Get()
 		{
@@ -26,6 +24,7 @@ namespace SRS.Utils.ObjectPooling
 			pooledObject = pool.Dequeue();
 			pooledObject.SetActive(true);
 			pooledObject.GetComponent<PooledObject>().Initialize(Return);
+
 			return pooledObject;
 		}
 
@@ -39,12 +38,13 @@ namespace SRS.Utils.ObjectPooling
 		{
 			if(parentObject == null)
 			{
-				parentObject = new(name);
+				parentObject = new($"{prefab.name} container");
 			}
 
 			GameObject newObject = Instantiate(prefab);
 			newObject.SetActive(false);
 			newObject.transform.SetParent(parentObject.transform);
+
 			return newObject;
 		}
 	}

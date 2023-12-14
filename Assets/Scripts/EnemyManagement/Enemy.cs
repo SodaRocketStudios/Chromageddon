@@ -1,10 +1,11 @@
 using UnityEngine;
 using SRS.Stats;
 using SRS.Combat;
+using SRS.Utils.ObjectPooling;
 
 namespace SRS.EnemyManagement
 {
-	public class Enemy : MonoBehaviour
+	public class Enemy : MonoBehaviour, IPoolable
 	{
 		[SerializeField] private EnemyData enemyData;
 
@@ -23,14 +24,20 @@ namespace SRS.EnemyManagement
 			collider = GetComponent<Collider2D>();
 		}
 
-		public void Spawn()
-		{
-			// Get data and set it from enemy data
-		}
+        public void OnGet()
+        {
+            // Set data on components.
+			// sprite
+			// color?
+			// stats
+			// weapon
+			// state machine
+			// collider?
+        }
 
-		public void Despawn()
-		{
-			statContainer.ResetStats();
-		}
-	}
+        public void OnReturn()
+        {
+            statContainer.ResetStats();
+        }
+    }
 }
