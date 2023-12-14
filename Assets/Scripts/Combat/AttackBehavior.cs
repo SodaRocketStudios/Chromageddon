@@ -2,10 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using SRS.Stats;
+using SRS.Utils.ObjectPooling;
 
 namespace SRS.Combat
 {
-	public abstract class AttackBehavior : MonoBehaviour, IPoolable
+	public abstract class AttackBehavior : PooledObject
 	{
 		public UnityEvent<GameObject> OnStart;
 		public UnityEvent<GameObject> OnEnd;
@@ -92,15 +93,5 @@ namespace SRS.Combat
 		protected abstract void OnStatsSet();
 
 		protected abstract void HitBehavior(GameObject other);
-
-        public void OnGet()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void OnReturn()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

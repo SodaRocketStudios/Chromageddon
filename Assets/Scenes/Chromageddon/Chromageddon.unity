@@ -5102,7 +5102,6 @@ GameObject:
   - component: {fileID: 1632691822}
   - component: {fileID: 1632691825}
   - component: {fileID: 1632691827}
-  - component: {fileID: 1632691826}
   - component: {fileID: 1632691809}
   - component: {fileID: 1632691808}
   - component: {fileID: 1632691821}
@@ -5379,19 +5378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a338b0f86fe954aae6862145bb9034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1632691826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632691807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 73da7730f051e01438ccd5b498399959, type: 2}
 --- !u!114 &1632691827
 MonoBehaviour:
   m_ObjectHideFlags: 0

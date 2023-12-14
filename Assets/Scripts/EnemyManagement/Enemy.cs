@@ -5,7 +5,7 @@ using SRS.Utils.ObjectPooling;
 
 namespace SRS.EnemyManagement
 {
-	public class Enemy : MonoBehaviour, IPoolable
+	public class Enemy : PooledObject
 	{
 		[SerializeField] private EnemyData enemyData;
 
