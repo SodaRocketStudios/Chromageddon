@@ -5,7 +5,7 @@ namespace SRS.Combat
 {
 	public class Attack : PooledObject
 	{
-		private AttackBehavior behavior;
+		[SerializeField] private AttackBehavior behavior;
 
 		private float lifetime; // send back to pool when time is up.
 
