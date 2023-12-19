@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SRS.Utils.ObjectPooling
 {
-	public class PooledObject : MonoBehaviour, IPoolable<PooledObject>
+	public class PooledObject : MonoBehaviour
 	{
 		private Action<PooledObject> returnAction;
 

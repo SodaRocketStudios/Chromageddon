@@ -6,8 +6,11 @@ namespace SRS.Combat
 	public class Attack : PooledObject
 	{
 		[SerializeField] private AttackBehavior behavior;
+		
+		public GameObject Source;
 
 		private float lifetime; // send back to pool when time is up.
+
 
 		private void OnSpawn()
 		{

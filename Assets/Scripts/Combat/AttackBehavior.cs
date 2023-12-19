@@ -1,7 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
-using SRS.Stats;
 
 namespace SRS.Combat
 {
@@ -11,7 +8,9 @@ namespace SRS.Combat
 
 		public abstract void Update(Transform transform);
 
-		public abstract void HitCast(Transform transform);
+		public abstract void FixedUpdate(Transform transform);
+
+		protected abstract void HitCast(Transform transform);
 
 		protected abstract void OnHitBehavior(GameObject other);
 

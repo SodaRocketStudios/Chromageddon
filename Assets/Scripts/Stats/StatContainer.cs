@@ -25,7 +25,7 @@ namespace SRS.Stats
             }
         }
 
-        public void AddInitialModifiers(EquipableData modifiers)
+        public void AddInitialModifiers(EquipableObject modifiers)
         {
             if(!initialized)
             {
@@ -35,9 +35,9 @@ namespace SRS.Stats
             modifiers.Equip(this);
         }
 
-        public void RemoveInitialModifiers(EquipableData modifiers)
+        public void RemoveInitialModifiers(EquipableObject modifiers)
         {
-            modifiers.Remove(this);
+            modifiers.Unequip(this);
         }
 
         public void ResetStats()

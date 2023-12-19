@@ -3,31 +3,46 @@ using UnityEngine;
 
 namespace SRS.Stats
 {
-    public abstract class EquipableData: ScriptableObject
+    public abstract class EquipableObject: ScriptableObject
     {
         [SerializeField] private new string name;
+        public string NameToLayer
+        {
+            get => name;
+        }
 
         [SerializeField] private Sprite sprite;
+        public Sprite Sprite
+        {
+            get => sprite;
+        }
 
         [SerializeField] private List<StatModifier> modifiers;
 
         [SerializeField] private string description;
 
-        public virtual void Equip(StatContainer container)
+        public void Equip(StatContainer container)
         {
             foreach(StatModifier modifier in modifiers)
             {
                 modifier.Apply(container);
             }
+            
+            OnEquip(container);
         }
 
-        public virtual void Remove(StatContainer container)
+        public void Unequip(StatContainer container)
         {
             foreach(StatModifier modifier in modifiers)
             {
                 modifier.Remove(container);
             }
+
+            OnUnequip(container);
         }
+
+        protected abstract void OnEquip(StatContainer container);
+        protected abstract void OnUnequip(StatContainer container);
 
         public string GetFormattedDescription()
         {
