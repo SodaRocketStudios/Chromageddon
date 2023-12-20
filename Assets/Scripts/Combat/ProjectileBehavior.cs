@@ -18,7 +18,7 @@ namespace SRS.Combat
             transform.Translate(transform.right*speed*Time.deltaTime, Space.World);
         }
 
-        public override void HitCast(Transform transform)
+        protected override void HitCast(Transform transform)
         {
 
         }
@@ -26,6 +26,21 @@ namespace SRS.Combat
         protected override void OnHitBehavior(GameObject other)
         {
 
+        }
+
+        public override void Start()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void FixedUpdate(Transform transform)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void OnDestroy()
+        {
+            throw new NotImplementedException();
         }
     }
 }
