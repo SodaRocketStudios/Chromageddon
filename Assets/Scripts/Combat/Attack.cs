@@ -6,11 +6,11 @@ namespace SRS.Combat
 {
 	public class Attack : PooledObject
 	{
-		private AttackBehavior behavior;
+		public AttackBehavior Behavior {get; private set;}
 		
-		private StatContainer stats;
+		public StatContainer Stats {get; private set;}
 
-		private LayerMask collisionMask;
+		public LayerMask collisionMask {get; private set;}
 
 		private SpriteRenderer spriteRenderer;
 
@@ -18,25 +18,25 @@ namespace SRS.Combat
 
 		public void Initialize(AttackData data, GameObject attacker)
 		{
-			behavior = data.Behavior;
+			Behavior = data.Behavior;
 			
 			spriteRenderer.sprite = data.Sprite;
 
 			collisionMask = ~(1 << attacker.layer);
 			
-			stats = attacker.GetComponent<StatContainer>();
+			Stats = attacker.GetComponent<StatContainer>();
 
-			behavior.OnStart(this);
+			Behavior.OnStart(this);
 		}
 
 		private void Update()
 		{
-			behavior.OnUpdate(this);
+			Behavior.OnUpdate(this);
 		}
 
 		private void FixedUpdate()
 		{
-			behavior.OnFixedUpdate(this);
+			Behavior.OnFixedUpdate(this);
 		}
 	}
 }
