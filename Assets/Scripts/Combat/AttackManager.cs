@@ -42,7 +42,7 @@ namespace SRS.Combat
 
 			for(int i = 0; i < numOfAttacks; i++)
 			{
-				weapon.Attack(stats);
+				weapon.Attack(gameObject);
 				nextAttackTime += attackDelay;
 			}
 		}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using SRS.Utils.ObjectPooling;
+using SRS.Stats;
 
 namespace SRS.Combat
 {
@@ -7,31 +8,35 @@ namespace SRS.Combat
 	{
 		private AttackBehavior behavior;
 		
-		public GameObject Source;
+		private StatContainer stats;
+
+		private LayerMask collisionMask;
+
+		private SpriteRenderer spriteRenderer;
 
 		private float lifetime; // send back to pool when time is up.
 
-		public void Initialize()
+		public void Initialize(AttackData data, GameObject attacker)
 		{
-			// this needs to set the source of the attack, the attacker stats, and the behavior of the attack
-			// also set any visuals of the attack
-			// would this be easier if I create an attack data scriptable object that can be passed from the weapon.
-		}
+			behavior = data.Behavior;
+			
+			spriteRenderer.sprite = data.Sprite;
 
+			collisionMask = ~(1 << attacker.layer);
+			
+			stats = attacker.GetComponent<StatContainer>();
 
-		private void OnSpawn()
-		{
-			// set correct behavior.
-			// set the sprite.
+			behavior.OnStart(this);
 		}
 
 		private void Update()
 		{
-			// check for hits -- maybe do this in fixed update
-			// update visuals
-			// do specific behavior (Bouncing, piercing, sweeping, thrusting) -- cast behavior is weapon specific
-			// projectiles and lasers use circle/raycast, thrus is a box cast, sweep is an arc.
-			// hit behaviors are the harder implementation -- could pas the game object to the update of the behavior.
+			behavior.OnUpdate(this);
+		}
+
+		private void FixedUpdate()
+		{
+			behavior.OnFixedUpdate(this);
 		}
 	}
 }
