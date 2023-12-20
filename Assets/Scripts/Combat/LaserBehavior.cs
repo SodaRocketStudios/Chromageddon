@@ -23,34 +23,5 @@ namespace SRS.Combat
         // protected override void HitBehavior(GameObject other)
         // {
         // }
-        public override void FixedUpdate(Transform transform)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void OnDestroy()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Start()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void Update(Transform transform)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void HitCast(Transform transform)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void OnHitBehavior(GameObject other)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

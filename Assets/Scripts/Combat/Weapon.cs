@@ -7,10 +7,15 @@ namespace SRS.Combat
 	[CreateAssetMenu(fileName = "New Weapon", menuName = "Combat/Weapon")]
     public class Weapon : EquipableObject
 	{
+        [SerializeField] private AttackBehavior behavior;
+
 		[SerializeField] private ObjectPool attackPool;
 
 		public void Attack(StatContainer attackStats)
 		{
+            // get an instance of the attack from the attack pool
+            // initialize the attack.
+
 
 			// AttackBehavior attackInstance =  attackObjectPool.Get().GetComponent<AttackBehavior>();
 			// attackInstance.Stats = attackStats;
