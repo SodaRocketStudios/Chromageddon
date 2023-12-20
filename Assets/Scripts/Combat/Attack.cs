@@ -18,6 +18,8 @@ namespace SRS.Combat
 
 		private float lifetime; // send back to pool when time is up.
 
+		private float timer;
+
 		public void Initialize(AttackData data, GameObject attacker)
 		{
 			Behavior = data.Behavior;
@@ -29,6 +31,8 @@ namespace SRS.Combat
 			Stats = attacker.GetComponent<StatContainer>();
 
 			Behavior.OnStart(this);
+
+			LifetimeTask();
 		}
 
 		private void Update()
@@ -39,6 +43,19 @@ namespace SRS.Combat
 		private void FixedUpdate()
 		{
 			Behavior.OnFixedUpdate(this);
+		}
+
+		private async void LifetimeTask()
+		{
+			while(timer < lifetime)
+			{
+				timer += Time.deltaTime;
+				await Awaitable.NextFrameAsync();
+			}
+
+			Behavior.OnEnd(this);
+
+			gameObject.SetActive(false);
 		}
 	}
 }

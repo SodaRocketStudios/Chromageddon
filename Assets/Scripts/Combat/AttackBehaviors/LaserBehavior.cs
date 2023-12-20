@@ -10,7 +10,11 @@ namespace SRS.Combat
 
         public override void OnStart(Attack attack)
         {
-            CollisionTest(attack);
+            CollisionTest(attack); // By calling this in OnEnd i could allow for a charge time.
+        }
+
+        public override void OnUpdate(Attack attack)
+        {
         }
 
         public override void OnFixedUpdate(Attack attack)
@@ -18,10 +22,6 @@ namespace SRS.Combat
         }
 
         public override void OnEnd(Attack attack)
-        {
-        }
-
-        public override void OnUpdate(Attack attack)
         {
         }
 
