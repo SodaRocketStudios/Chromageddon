@@ -12,8 +12,8 @@ namespace SRS.Combat
 
 		public abstract void OnEnd(Attack attack);
 
-		protected abstract void CollisionTest(LayerMask mask);
+		protected abstract void CollisionTest(Attack attack);
 
-		protected abstract void OnHit(GameObject other);
+		protected abstract void OnHit(Attack attack, GameObject other);
     }
 }
