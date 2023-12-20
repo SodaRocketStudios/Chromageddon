@@ -26,6 +26,8 @@ namespace SRS.Combat
 			
 			spriteRenderer.sprite = data.Sprite;
 
+			lifetime = data.Lifetime;
+
 			collisionMask = ~(1 << attacker.layer);
 			
 			Stats = attacker.GetComponent<StatContainer>();
