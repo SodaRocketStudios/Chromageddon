@@ -7,6 +7,8 @@ namespace SRS.Combat
 	{
 		public AttackBehavior Behavior;
 
+		public DamageType damageType;
+
 		public Sprite Sprite;
 	}
 }

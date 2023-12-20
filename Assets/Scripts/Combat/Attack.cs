@@ -10,6 +10,8 @@ namespace SRS.Combat
 		
 		public StatContainer Stats {get; private set;}
 
+		public DamageType DamageType {get; private set;}
+
 		public LayerMask collisionMask {get; private set;}
 
 		private SpriteRenderer spriteRenderer;
