@@ -25,7 +25,6 @@ namespace SRS.Combat
 		private void Awake()
 		{
 			spriteRenderer = GetComponent<SpriteRenderer>();
-			collisionMask = ~ignoredLayers;
 		}
 
 		public void Initialize(AttackData data, GameObject attacker)
@@ -36,6 +35,7 @@ namespace SRS.Combat
 
 			lifetime = data.Lifetime;
 
+			collisionMask = ~ignoredLayers;
 			collisionMask &= 0 << attacker.layer;
 			
 			Stats = attacker.GetComponent<StatContainer>();
@@ -58,7 +58,7 @@ namespace SRS.Combat
 		private async void LifetimeTask()
 		{
 			timer = 0;
-			
+
 			while(timer < lifetime)
 			{
 				timer += Time.deltaTime;
