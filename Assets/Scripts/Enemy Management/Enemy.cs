@@ -2,13 +2,13 @@ using UnityEngine;
 using SRS.Stats;
 using SRS.Combat;
 using SRS.Utils.ObjectPooling;
+using SRS.AI;
 
 namespace SRS.EnemyManagement
 {
 	public class Enemy : PooledObject
 	{
-		[SerializeField] private EnemyData enemyData;
-
+		private AIBrain brain;
 		private StatContainer statContainer;
 		private Weapon weapon;
 		private SpriteRenderer spriteRenderer;
@@ -17,6 +17,7 @@ namespace SRS.EnemyManagement
 
 		private void Awake()
 		{
+			brain = GetComponent<AIBrain>();
 			statContainer = GetComponent<StatContainer>();
 			weapon = GetComponent<Weapon>();
 			spriteRenderer = GetComponent<SpriteRenderer>();
@@ -24,20 +25,23 @@ namespace SRS.EnemyManagement
 			collider = GetComponent<Collider2D>();
 		}
 
-        public void OnGet()
+        public void Initialize(EnemyData enemyData)
         {
-            // Set data on components.
-			// sprite
-			// color?
-			// stats
-			// weapon
-			// state machine
-			// collider?
-        }
+			brain.CurrentState = enemyData.InitialState;
 
-        public void OnReturn()
-        {
-            statContainer.ResetStats();
+			weapon = enemyData.Weapon;
+
+			spriteRenderer.sprite = enemyData.Sprite;
+			spriteRenderer.color = enemyData.Color;
+
+			statContainer.ResetStats();
+
+			foreach(StatModifier modifier in enemyData.InitialStats)
+			{
+				modifier.Apply(statContainer);
+			}
+
+			//TODO -- does the collider need to be set up fopr different enemy types?
         }
     }
 }

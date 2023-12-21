@@ -5,7 +5,15 @@ namespace SRS.AI
 {
     public class AIBrain : MonoBehaviour, IInputSource
     {
-		[SerializeField] private State currentState;
+		private State currentState;
+		public State CurrentState
+		{
+			get => currentState;
+			set
+			{
+				ChangeState(value);
+			}
+		}
 
 		private Vector2 moveInput;
         public Vector2 MoveInput
