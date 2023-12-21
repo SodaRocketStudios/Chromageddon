@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using SRS.Extensions.Random;
 
 namespace SRS.Combat
 {
@@ -11,34 +8,42 @@ namespace SRS.Combat
     {
         [SerializeField] private float speed = 1;
 
-        public override void OnEnd(Attack attack)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void OnFixedUpdate(Attack attack)
-        {
-            throw new NotImplementedException();
-        }
-
         public override void OnStart(Attack attack)
         {
-            throw new NotImplementedException();
+            // 
         }
 
         public override void OnUpdate(Attack attack)
         {
-            throw new NotImplementedException();
+            attack.transform.Translate(attack.transform.right*speed*Time.deltaTime, Space.World);
+        }
+
+        public override void OnFixedUpdate(Attack attack)
+        {
+            CollisionTest(attack);
+        }
+
+        public override void OnEnd(Attack attack)
+        {
+            //
         }
 
         protected override void CollisionTest(Attack attack)
         {
-            throw new NotImplementedException();
+            // Raycast a short distance in front of the projectile
+            RaycastHit2D hit = Physics2D.Raycast(attack.transform.position, attack.transform.right);
+
+            if(hit)
+            {
+                OnHit(attack, hit.transform.gameObject);
+            }
         }
 
         protected override void OnHit(Attack attack, GameObject other)
         {
-            throw new NotImplementedException();
+            Debug.Log("hit", other);
+            // apply damage
+            // try to bounce and pierce
         }
     }
 }

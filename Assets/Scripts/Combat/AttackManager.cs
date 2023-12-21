@@ -6,15 +6,11 @@ namespace SRS.Combat
 {
 	public class AttackManager : MonoBehaviour
 	{
-		private StatContainer stats;
-
-		private IInputSource input;
-
 		[SerializeField] private Weapon weapon;
 		public Weapon Weapon
 		{
 			get => weapon;
-			
+
 			set
 			{
 				if(weapon != null)
@@ -25,6 +21,10 @@ namespace SRS.Combat
 				weapon.Equip(stats);
 			}
 		}
+
+		private StatContainer stats;
+
+		private IInputSource input;
 
 		private bool isAttacking;
 		
