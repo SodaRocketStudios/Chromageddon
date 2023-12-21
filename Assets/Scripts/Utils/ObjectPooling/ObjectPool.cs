@@ -38,7 +38,7 @@ namespace SRS.Utils.ObjectPooling
 		{
 			if(parentObject == null)
 			{
-				parentObject = new($"{basePrefab.name} container");
+				parentObject = new($"{basePrefab.name} Pool");
 			}
 
 			GameObject newObject = Instantiate(basePrefab);

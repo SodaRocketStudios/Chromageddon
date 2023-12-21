@@ -34,7 +34,6 @@ namespace SRS.Combat
 		{
             stats = GetComponent<StatContainer>();
 			input = GetComponent<IInputSource>();
-			weapon = GetComponent<Weapon>();
 		}
 
 		private void Attack()

@@ -1497,7 +1497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6528424613dead44ea9e4b5808ad76ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusEffects: []
 --- !u!4 &612342794
 Transform:
   m_ObjectHideFlags: 0
@@ -5099,10 +5098,10 @@ GameObject:
   - component: {fileID: 1632691820}
   - component: {fileID: 1632691824}
   - component: {fileID: 1632691823}
-  - component: {fileID: 1632691822}
   - component: {fileID: 1632691825}
   - component: {fileID: 1632691827}
   - component: {fileID: 1632691809}
+  - component: {fileID: 1632691822}
   - component: {fileID: 1632691808}
   - component: {fileID: 1632691821}
   m_Layer: 3
@@ -5390,6 +5389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c759039c967aa449fc968ec2af30e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: d569be52c37ca8441be31f7e4da80f52, type: 2}
 --- !u!1 &1647827909
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
+  m_Name: Test Projectile Weapon
+  m_EditorClassIdentifier: 
+  name: Test
+  sprite: {fileID: 0}
+  modifiers: []
+  description: 
+  attackData:
+    Behavior: {fileID: 11400000, guid: 4252b90f79fc9ef4590e9dd6d260b0ff, type: 2}
+    damageType: 0
+    Lifetime: 5
+    Sprite: {fileID: 1649147078, guid: 633188d6754abdf47b78b051db06736e, type: 3}
+  attackPool: {fileID: 11400000, guid: 905ef32087374904386d3046b203dfdc, type: 2}

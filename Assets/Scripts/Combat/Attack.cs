@@ -14,11 +14,19 @@ namespace SRS.Combat
 
 		public LayerMask collisionMask {get; private set;}
 
+		[SerializeField] private LayerMask ignoredLayers;
+
 		private SpriteRenderer spriteRenderer;
 
-		private float lifetime; // send back to pool when time is up.
+		private float lifetime;
 
 		private float timer;
+
+		private void Awake()
+		{
+			spriteRenderer = GetComponent<SpriteRenderer>();
+			collisionMask = ~ignoredLayers;
+		}
 
 		public void Initialize(AttackData data, GameObject attacker)
 		{
@@ -28,7 +36,7 @@ namespace SRS.Combat
 
 			lifetime = data.Lifetime;
 
-			collisionMask = ~(1 << attacker.layer);
+			collisionMask &= 0 << attacker.layer;
 			
 			Stats = attacker.GetComponent<StatContainer>();
 
