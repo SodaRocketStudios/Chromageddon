@@ -57,6 +57,8 @@ namespace SRS.Combat
 
 		private async void LifetimeTask()
 		{
+			timer = 0;
+			
 			while(timer < lifetime)
 			{
 				timer += Time.deltaTime;

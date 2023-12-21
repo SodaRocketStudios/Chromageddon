@@ -28,6 +28,20 @@ namespace SRS.Utils.ObjectPooling
 			return pooledObject;
 		}
 
+		public PooledObject Get(Vector3 position)
+		{
+			PooledObject newObject = Get();
+			newObject.transform.position = position;
+			return newObject;
+		}
+
+		public PooledObject Get(Vector3 position, Quaternion rotation)
+		{
+			PooledObject newObject = Get(position);
+			newObject.transform.rotation = rotation;
+			return newObject;
+		}
+
 		public void Return(PooledObject pooledObject)
 		{
 			pool.Enqueue(pooledObject);

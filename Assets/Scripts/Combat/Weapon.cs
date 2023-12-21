@@ -13,7 +13,8 @@ namespace SRS.Combat
 
 		public void Attack(GameObject attacker)
 		{
-            Attack attack = attackPool.Get() as Attack;
+            Debug.Log("Attack");
+            Attack attack = attackPool.Get(attacker.transform.position, attacker.transform.rotation) as Attack;
             attack.Initialize(attackData, attacker);
 		}
 
