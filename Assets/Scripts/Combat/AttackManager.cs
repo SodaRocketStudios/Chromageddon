@@ -10,7 +10,21 @@ namespace SRS.Combat
 
 		private IInputSource input;
 
-		private Weapon weapon;
+		[SerializeField] private Weapon weapon;
+		public Weapon Weapon
+		{
+			get => weapon;
+			
+			set
+			{
+				if(weapon != null)
+				{
+					weapon.Unequip(stats);
+				}
+				weapon = value;
+				weapon.Equip(stats);
+			}
+		}
 
 		private bool isAttacking;
 		

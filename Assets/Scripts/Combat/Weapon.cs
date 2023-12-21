@@ -19,37 +19,14 @@ namespace SRS.Combat
 
         protected override void OnEquip(StatContainer container)
         {
+            // TODO Weapon on equip
             throw new System.NotImplementedException();
         }
 
         protected override void OnUnequip(StatContainer container)
         {
+            // TODO Weapon on unequip
             throw new System.NotImplementedException();
         }
-
-        // --------------------------- Unity Object Pool methods -------------------
-
-        // private GameObject CreateAttackObject()
-        // {
-        //     GameObject instance = Instantiate(weaponData.AttackObject);
-        // 	instance.SetActive(false);
-        // 	instance.layer = LayerMask.NameToLayer("Attack");
-        // 	AttackBehavior attackInstance = instance.GetComponent<AttackBehavior>();
-        // 	attackInstance.OnEnd.AddListener(attackObjectPool.Release);
-        // 	attackInstance.Source = gameObject;
-        // 	return instance;
-        // }
-
-        // private void OnGetAttackObject(GameObject attackObject)
-        // {
-        // 	attackObject.transform.position = transform.position;
-        // 	attackObject.transform.rotation = transform.rotation;
-        // 	attackObject.SetActive(true);
-        // }
-
-        // private void OnReleaseAttackObject(GameObject attackObject)
-        // {
-        // 	attackObject.SetActive(false);
-        // }
     }
 }
