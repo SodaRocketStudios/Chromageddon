@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace SRS.AI
 {
+	[CreateAssetMenu(menuName = "Enemies/AI/State", fileName = "New State")]
 	public class State : ScriptableObject
 	{
 		[SerializeField] private List<Action> actions = new();

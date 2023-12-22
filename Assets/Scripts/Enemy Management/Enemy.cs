@@ -19,7 +19,6 @@ namespace SRS.EnemyManagement
 		{
 			brain = GetComponent<AIBrain>();
 			statContainer = GetComponent<StatContainer>();
-			weapon = GetComponent<Weapon>();
 			spriteRenderer = GetComponent<SpriteRenderer>();
 			rigidody = GetComponent<Rigidbody2D>();
 			collider = GetComponent<Collider2D>();
