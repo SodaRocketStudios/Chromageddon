@@ -9,6 +9,9 @@ namespace SRS.EnemyManagement
 		[SerializeField] private SpawnLocator locator;
 
 		private List<Enemy> activeEnemies;
+
+		private int activeEnemyCount;
+		private int maxActiveEnemies;
 		
 		private Transform player;
 		// TODO -- if player == null then find player with a cast
@@ -16,6 +19,23 @@ namespace SRS.EnemyManagement
 		public void SpawnWave()
 		{
 			// TODO -- spawn and elitify enemies based on the current number of points.
+
+			// TODO -- get teh number of points based on the current difficulty.
+			int points = 10;
+
+			while(points > 0)
+			{
+				EnemyData enemy = selector.SelectEnemyType(points);
+
+				int amountToSpawn = points/enemy.Price;
+
+				activeEnemyCount += amountToSpawn;
+
+				while(activeEnemyCount > maxActiveEnemies)
+				{
+					// try to elitify enemies
+				}
+			}
 			/*
 				while points > 0
 					get enemy type from shop

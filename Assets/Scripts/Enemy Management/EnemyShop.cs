@@ -13,7 +13,7 @@ namespace SRS.EnemyManagement
 
             foreach (EnemyData enemy in database.Enemies)
 			{
-				if(enemy.price <= points)
+				if(enemy.Price <= points)
 				{
 					availableEnemies.Add(enemy);
 				}
@@ -22,7 +22,6 @@ namespace SRS.EnemyManagement
 			int randomIndex = randomGenerator.Next(0, availableEnemies.Count-1);
 
 			return availableEnemies[randomIndex];
-
         }
     }
 }
