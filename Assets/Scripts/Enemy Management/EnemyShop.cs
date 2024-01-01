@@ -5,7 +5,7 @@ namespace SRS.EnemyManagement
 {
     public class EnemyShop : EnemySelector
     {
-		System.Random randomGenerator = new(Guid.NewGuid().GetHashCode());
+		Random randomGenerator = new(Guid.NewGuid().GetHashCode());
 
         public override EnemyData SelectEnemyType(float points)
         {
