@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace SRS.EnemyManagement
 {
-	public class SpawnLocator : MonoBehaviour
+	public abstract class SpawnLocator : ScriptableObject
 	{
-		
+		public abstract Vector3 GetLocation(Transform player);
 	}
 }

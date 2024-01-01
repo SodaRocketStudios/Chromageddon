@@ -1,7 +1,7 @@
 SpawnWave
     while points > 0
         get enemy type from shop
-        determine the amouint to spawn based on points and price
+        determine the amount to spawn based on points and price
         pick a location
         amount = points/price ----- Round down
         remainingSpawns = SpawnCap
