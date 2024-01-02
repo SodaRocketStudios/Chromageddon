@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace SRS.EnemyManagement
 {
+	[CreateAssetMenu(fileName = "New Enemy Shop", menuName = "Enemies/enemy Selectors/ Enemy Shop")]
     public class EnemyShop : EnemySelector
     {
-		Random randomGenerator = new(Guid.NewGuid().GetHashCode());
+		System.Random randomGenerator = new(Guid.NewGuid().GetHashCode());
 
         public override EnemyData SelectEnemyType(float points)
         {
