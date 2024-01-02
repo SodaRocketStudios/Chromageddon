@@ -24,7 +24,7 @@ namespace SRS.EnemyManagement
 			collider = GetComponent<Collider2D>();
 		}
 
-        public void Initialize(EnemyData enemyData)
+        public void Initialize(EnemyData enemyData, int elitifications)
         {
 			brain.CurrentState = enemyData.InitialState;
 
@@ -40,7 +40,18 @@ namespace SRS.EnemyManagement
 				modifier.Apply(statContainer);
 			}
 
+			Elitify(enemyData, elitifications);
+
 			//TODO -- does the collider need to be set up fopr different enemy types?
         }
+
+		private void Elitify(EnemyData enemyData, int elitifications)
+		{
+			while(elitifications > 0)
+			{
+				// TODO -- apply elitification stats
+				elitifications--;
+			}
+		}
     }
 }

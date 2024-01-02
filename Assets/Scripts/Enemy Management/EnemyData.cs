@@ -14,6 +14,7 @@ namespace SRS.EnemyManagement
 		public Weapon Weapon;
 		public List<StatModifier> InitialStats;
 		public int Price;
+		public int maxGroupSize;
 		public Sprite Sprite;
 		public Color Color;
 		public State InitialState;

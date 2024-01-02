@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using SRS.Utils.ObjectPooling;
 using UnityEngine;
 
 namespace SRS.EnemyManagement
@@ -8,6 +10,8 @@ namespace SRS.EnemyManagement
 		[SerializeField] private EnemySelector selector;
 		[SerializeField] private SpawnLocator locator;
 
+		[SerializeField] private ObjectPool enemyPool;
+
 		private List<Enemy> activeEnemies;
 
 		private int activeEnemyCount;
@@ -16,45 +20,38 @@ namespace SRS.EnemyManagement
 		private Transform player;
 		// TODO -- if player == null then find player with a cast
 
+		System.Random randomGenerator = new(Guid.NewGuid().GetHashCode());
+
 		public void SpawnWave()
 		{
-			// TODO -- spawn and elitify enemies based on the current number of points.
-
-			// TODO -- get teh number of points based on the current difficulty.
+			// TODO -- get the number of points based on the current difficulty.
 			int points = 10;
 
 			while(points > 0)
 			{
 				EnemyData enemy = selector.SelectEnemyType(points);
 
-				int amountToSpawn = points/enemy.Price;
+				int maxAffordable = points/enemy.Price;
 
-				activeEnemyCount += amountToSpawn;
+				int amountToSpawn = randomGenerator.Next(1, maxAffordable);
 
-				while(activeEnemyCount > maxActiveEnemies)
+				int elitifications = 0;
+
+				while(amountToSpawn > enemy.maxGroupSize)
 				{
-					// try to elitify enemies
+					elitifications++;
+					amountToSpawn /= 2;
+				}
+
+				while(amountToSpawn > 0)
+				{
+					// TODO -- set the position of each enemy. Ideally spawn them in clusters.
+					Enemy newEnemy = enemyPool.Get() as Enemy;
+					newEnemy.Initialize(enemy, elitifications);
+					points -= enemy.Price*(int)Mathf.Pow(2, elitifications);
+					amountToSpawn--;
 				}
 			}
-			/*
-				while points > 0
-					get enemy type from shop
-					determine the amount to spawn based on points and price
-					pick a location
-					amount = points/price ----- Round down
-					remainingSpawns = SpawnCap
-					while amount > 0
-						elitifyingPoints = amount
-						while elitifyingPoints >= remainingSpawns
-							if(amount^elitifications < 0)
-								amount = 0
-								break
-							Elitify the enemy
-							elitifications++
-							elitificationPoints /= SpawnCap ----- Round down
-						amount -= SpawnCap^elitifications
-						remainingSpawns --
-			*/
 		}
 
 	}
