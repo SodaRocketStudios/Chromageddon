@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Enemy Pool
   m_EditorClassIdentifier: 
   basePrefab: {fileID: 4927237954544682681, guid: 22bb31d0d12047148aa107992865eef1, type: 3}
+  RecycleOldestOnOverflow: 0
+  maxObjects: 25

@@ -9,8 +9,8 @@ namespace SRS.Utils.ObjectPooling
 		[SerializeField] private GameObject basePrefab;
 
 		[SerializeField] private bool RecycleOldestOnOverflow;
-		[SerializeField] private int maxObjects;
-		private int objectCount = 0;
+		[SerializeField, Min(1)] private int maxObjects;
+		private int objectCount => pool.Count + activeObjects.Count;
 
 		private Queue<PooledObject> pool = new();
 		private List<PooledObject> activeObjects = new();
@@ -23,14 +23,15 @@ namespace SRS.Utils.ObjectPooling
 
 			if(pool.Count <= 0)
 			{
-				if(RecycleOldestOnOverflow && objectCount > maxObjects)
+				if(RecycleOldestOnOverflow && objectCount >= maxObjects)
 				{
-					int index = 0;
-					while(activeObjects[index].IsRecycledOnOverflow == false && index < activeObjects.Count)
+					for(int i = 0; i < maxObjects; i++)
 					{
-						index++;
+						if(activeObjects[i].IgnoreRecycleRequest == false)
+						{
+							Return(activeObjects[i]);
+						}
 					}
-					Return(activeObjects[index]);
 				}
 				else
 				{
@@ -83,10 +84,7 @@ namespace SRS.Utils.ObjectPooling
 			newObject.SetActive(false);
 			newObject.transform.SetParent(parentObject.transform);
 
-			objectCount++;
-
 			return newObject.GetComponent<PooledObject>();
 		}
-
 	}
 }

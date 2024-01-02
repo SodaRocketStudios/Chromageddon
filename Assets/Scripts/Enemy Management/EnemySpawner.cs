@@ -22,6 +22,8 @@ namespace SRS.EnemyManagement
 
 		System.Random randomGenerator = new(Guid.NewGuid().GetHashCode());
 
+		// TODO -- spawn enemies at set intervals. Maybe change the interval if there are no active enemies.
+
 		[ContextMenu("SpawnEnemies")]
 		public void SpawnWave()
 		{
@@ -44,10 +46,11 @@ namespace SRS.EnemyManagement
 					amountToSpawn /= 2;
 				}
 
-				for(int index = 0; index < amountToSpawn; index++)
+				List<Vector2> locations = GetGroupSpawnLocations(amountToSpawn);
+
+				for(int i = 0; i < amountToSpawn; i++)
 				{
-					List<Vector2> locations = GetGroupSpawnLocations(amountToSpawn);
-					Enemy newEnemy = enemyPool.Get(locations[index]) as Enemy;
+					Enemy newEnemy = enemyPool.Get(locations[i]) as Enemy;
 					newEnemy.Initialize(enemy, elitifications);
 					points -= enemy.Price*(int)Mathf.Pow(2, elitifications);
 				}

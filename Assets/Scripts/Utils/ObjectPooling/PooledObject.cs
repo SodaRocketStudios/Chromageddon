@@ -7,7 +7,7 @@ namespace SRS.Utils.ObjectPooling
 	{
 		private Action<PooledObject> returnAction;
 
-		public bool IsRecycledOnOverflow;
+		public bool IgnoreRecycleRequest;
 
 		private void OnDisable()
 		{

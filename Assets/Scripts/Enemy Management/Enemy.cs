@@ -50,6 +50,7 @@ namespace SRS.EnemyManagement
 			while(elitifications > 0)
 			{
 				// TODO -- apply elitification stats
+				Debug.Log("Elitified", gameObject);
 				elitifications--;
 			}
 		}

@@ -41,7 +41,7 @@ namespace SRS.Combat
 
         protected override void OnHit(Attack attack, GameObject other)
         {
-            Debug.Log("hit", other);
+            // Debug.Log("hit", other);
             // apply damage
             // try to bounce and pierce
         }
