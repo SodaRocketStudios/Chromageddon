@@ -1067,53 +1067,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 245292837}
-  - component: {fileID: 245292836}
+  - component: {fileID: 245292838}
   m_Layer: 0
   m_Name: Enemy Spawn Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &245292836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245292835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3289907e6e549408852b1e4b62a10c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyTypes:
-  - {fileID: 8182654570200519838, guid: 11a5d54853f85be49ad73f7427a6a8df, type: 3}
-  - {fileID: 8254603096282425995, guid: e430164c705755444a111899f1d58023, type: 3}
-  level: {fileID: 1035417163}
-  levelBuffer: -1
-  minDistanceFromPlayer: 10
-  minPoints: 5
-  maxPoints: 500
-  maxEnemies: 200
-  spawnDelaySeconds: 5
-  initialSpawnDelay: 1
-  xpDropper: {fileID: 2015734296}
-  OnEnemyDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 979545914}
-        m_TargetAssemblyTypeName: SRS.Particles.DeathParticles, Particles
-        m_MethodName: Play
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_IsActive: 1
 --- !u!4 &245292837
 Transform:
   m_ObjectHideFlags: 0
@@ -1129,6 +1090,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1168674332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &245292838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245292835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484794c67e12334488c686e001f4a50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selector: {fileID: 11400000, guid: 1f159ca9d05f20d4d981219453779556, type: 2}
+  enemyPool: {fileID: 11400000, guid: f182708f6519e64438f3120e313a19b8, type: 2}
 --- !u!1 &256207152
 GameObject:
   m_ObjectHideFlags: 0

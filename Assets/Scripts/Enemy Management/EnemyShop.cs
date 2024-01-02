@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SRS.EnemyManagement
 {
-	[CreateAssetMenu(fileName = "New Enemy Shop", menuName = "Enemies/enemy Selectors/ Enemy Shop")]
+	[CreateAssetMenu(fileName = "New Enemy Shop", menuName = "Enemies/Enemy Selectors/ Enemy Shop")]
     public class EnemyShop : EnemySelector
     {
 		System.Random randomGenerator = new(Guid.NewGuid().GetHashCode());

@@ -22,6 +22,7 @@ namespace SRS.EnemyManagement
 
 		System.Random randomGenerator = new(Guid.NewGuid().GetHashCode());
 
+		[ContextMenu("SpawnEnemies")]
 		public void SpawnWave()
 		{
 			// TODO -- get the number of points based on the current difficulty.
