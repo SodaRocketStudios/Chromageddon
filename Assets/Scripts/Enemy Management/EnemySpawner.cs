@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using SRS.Utils.ObjectPooling;
 using UnityEngine;
+using SRS.Utils.ObjectPooling;
+using SRS.Extensions.Random;
 
 namespace SRS.EnemyManagement
 {
 	public class EnemySpawner : MonoBehaviour
 	{
 		[SerializeField] private EnemySelector selector;
-		[SerializeField] private SpawnLocator locator;
 
 		[SerializeField] private ObjectPool enemyPool;
 
@@ -43,16 +43,27 @@ namespace SRS.EnemyManagement
 					amountToSpawn /= 2;
 				}
 
-				while(amountToSpawn > 0)
+				for(int index = 0; index < amountToSpawn; index++)
 				{
-					// TODO -- set the position of each enemy. Ideally spawn them in clusters.
-					Enemy newEnemy = enemyPool.Get() as Enemy;
+					List<Vector2> locations = GetGroupSpawnLocations(amountToSpawn);
+					Enemy newEnemy = enemyPool.Get(locations[index]) as Enemy;
 					newEnemy.Initialize(enemy, elitifications);
 					points -= enemy.Price*(int)Mathf.Pow(2, elitifications);
-					amountToSpawn--;
 				}
 			}
 		}
 
+		private List<Vector2> GetGroupSpawnLocations(int numberToSpawn)
+		{
+			// TODO -- spawn enemies away from player but within play area.
+			List<Vector2> locations = new();
+			while(numberToSpawn > 0)
+			{
+				locations.Add(randomGenerator.WithinUnitCircle());
+
+				numberToSpawn--;
+			}
+			return locations;
+		}
 	}
 }
