@@ -13,8 +13,9 @@ namespace SRS.EnemyManagement
 		// store all data needed to spawn an enemy.
 		public Weapon Weapon;
 		public List<StatModifier> InitialStats;
+		public List<EliteStatModifier> EliteModifiers;
 		public int Price;
-		public int maxGroupSize;
+		public int MaxGroupSize;
 		public Sprite Sprite;
 		public Color Color;
 		public State InitialState;

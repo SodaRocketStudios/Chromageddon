@@ -40,7 +40,7 @@ namespace SRS.EnemyManagement
 
 				int elitifications = 0;
 
-				while(amountToSpawn > enemy.maxGroupSize)
+				while(amountToSpawn > enemy.MaxGroupSize)
 				{
 					elitifications++;
 					amountToSpawn /= 2;
