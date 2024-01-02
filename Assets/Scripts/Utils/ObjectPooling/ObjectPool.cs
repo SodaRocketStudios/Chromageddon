@@ -24,53 +24,46 @@ namespace SRS.Utils.ObjectPooling
 			if(pool.Count <= 0)
 			{
 				if(RecycleOldestOnOverflow && objectCount >= maxObjects)
-				{
-					for(int i = 0; i < maxObjects; i++)
+                {
+                    if(TryRecycle() == false)
 					{
-						if(activeObjects[i].IgnoreRecycleRequest == false)
-						{
-							Return(activeObjects[i]);
-						}
+						return null;
 					}
-				}
-				else
+                }
+                else
 				{
 					pool.Enqueue(CreateObject());
 				}
 			}
 
-			if(pool.Count <= 0)
-			{
-				return null;
-			}
-
 			pooledObject = pool.Dequeue();
 			pooledObject.gameObject.SetActive(true);
 			pooledObject.Initialize(Return);
+			activeObjects.Add(pooledObject);
 
 			return pooledObject;
 		}
 
-		public PooledObject Get(Vector3 position)
+
+        public PooledObject Get(Vector3 position)
 		{
-			PooledObject newObject = Get();
-			newObject.transform.position = position;
-			activeObjects.Add(newObject);
-			return newObject;
+			PooledObject pooledObject = Get();
+			pooledObject.transform.position = position;
+			return pooledObject;
 		}
 
 		public PooledObject Get(Vector3 position, Quaternion rotation)
 		{
-			PooledObject newObject = Get(position);
-			newObject.transform.rotation = rotation;
-			return newObject;
+			PooledObject pooledObject = Get(position);
+			pooledObject.transform.rotation = rotation;
+			return pooledObject;
 		}
 
 		public void Return(PooledObject pooledObject)
 		{
+			activeObjects.Remove(pooledObject);
 			pool.Enqueue(pooledObject);
 			pooledObject.gameObject.SetActive(false);
-			activeObjects.Remove(pooledObject);
 		}
 
 		private PooledObject CreateObject()
@@ -86,5 +79,20 @@ namespace SRS.Utils.ObjectPooling
 
 			return newObject.GetComponent<PooledObject>();
 		}
+
+        private bool TryRecycle()
+        {
+            for (int i = 0; i < activeObjects.Count; i++)
+            {
+                if (activeObjects[i].IgnoreRecycleRequest == false)
+                {
+					Debug.Log("Recycled", activeObjects[i].gameObject);
+                    Return(activeObjects[i]);
+					return true;
+                }
+            }
+
+			return false;
+        }
 	}
 }
