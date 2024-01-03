@@ -14,9 +14,7 @@ namespace SRS.EnemyManagement
 
 		[SerializeField, Min(1)] private int maxEnemies;
 
-		private List<Enemy> activeEnemies;
-
-		private int activeEnemyCount;
+		private List<Enemy> activeEnemies = new();
 		
 		private Transform player;
 		// TODO -- if player == null then find player with a cast
@@ -51,7 +49,7 @@ namespace SRS.EnemyManagement
 
 				for(int i = 0; i < amountToSpawn; i++)
 				{
-					if(activeEnemyCount >= maxEnemies)
+					if(activeEnemies.Count >= maxEnemies)
 					{
 						if(TryRecycleEnemy() == false)
 						{
@@ -90,6 +88,7 @@ namespace SRS.EnemyManagement
 				}
 				else
 				{
+					activeEnemies.Remove(enemy);
 					enemy.ReturnToPool();
 					return true;
 				}

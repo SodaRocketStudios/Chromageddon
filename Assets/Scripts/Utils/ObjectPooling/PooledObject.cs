@@ -7,10 +7,10 @@ namespace SRS.Utils.ObjectPooling
 	{
 		private Action<PooledObject> returnAction;
 
-		private void OnDisable()
-		{
-			ReturnToPool();
-		}
+		// private void OnDisable()
+		// {
+		// 	ReturnToPool();
+		// }
 
         public void Initialize(Action<PooledObject> returnAction)
 		{
