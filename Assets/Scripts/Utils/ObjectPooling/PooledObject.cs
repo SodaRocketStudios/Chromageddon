@@ -7,8 +7,6 @@ namespace SRS.Utils.ObjectPooling
 	{
 		private Action<PooledObject> returnAction;
 
-		public bool IgnoreRecycleRequest;
-
 		private void OnDisable()
 		{
 			ReturnToPool();

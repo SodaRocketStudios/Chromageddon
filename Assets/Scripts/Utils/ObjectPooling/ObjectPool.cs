@@ -8,12 +8,7 @@ namespace SRS.Utils.ObjectPooling
 	{
 		[SerializeField] private GameObject basePrefab;
 
-		[SerializeField] private bool RecycleOldestOnOverflow;
-		[SerializeField, Min(1)] private int maxObjects;
-		private int objectCount => pool.Count + activeObjects.Count;
-
 		private Queue<PooledObject> pool = new();
-		private List<PooledObject> activeObjects = new();
 
 		private GameObject parentObject;
 
@@ -23,23 +18,12 @@ namespace SRS.Utils.ObjectPooling
 
 			if(pool.Count <= 0)
 			{
-				if(RecycleOldestOnOverflow && objectCount >= maxObjects)
-                {
-                    if(TryRecycle() == false)
-					{
-						return null;
-					}
-                }
-                else
-				{
-					pool.Enqueue(CreateObject());
-				}
+				pool.Enqueue(CreateObject());
 			}
 
 			pooledObject = pool.Dequeue();
 			pooledObject.gameObject.SetActive(true);
 			pooledObject.Initialize(Return);
-			activeObjects.Add(pooledObject);
 
 			return pooledObject;
 		}
@@ -61,7 +45,6 @@ namespace SRS.Utils.ObjectPooling
 
 		public void Return(PooledObject pooledObject)
 		{
-			activeObjects.Remove(pooledObject);
 			pool.Enqueue(pooledObject);
 			pooledObject.gameObject.SetActive(false);
 		}
@@ -79,20 +62,5 @@ namespace SRS.Utils.ObjectPooling
 
 			return newObject.GetComponent<PooledObject>();
 		}
-
-        private bool TryRecycle()
-        {
-            for (int i = 0; i < activeObjects.Count; i++)
-            {
-                if (activeObjects[i].IgnoreRecycleRequest == false)
-                {
-					Debug.Log("Recycled", activeObjects[i].gameObject);
-                    Return(activeObjects[i]);
-					return true;
-                }
-            }
-
-			return false;
-        }
 	}
 }
