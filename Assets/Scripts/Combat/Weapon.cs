@@ -13,6 +13,7 @@ namespace SRS.Combat
 
 		public void Attack(GameObject attacker)
 		{
+            // TODO -- add a way for waepons to get the attack pool. Should weapons be monobehaviors too?
             Debug.Log("Attack");
             Attack attack = attackPool.Get(attacker.transform.position, attacker.transform.rotation) as Attack;
             attack.Initialize(attackData, attacker);
