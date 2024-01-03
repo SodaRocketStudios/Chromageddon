@@ -67,7 +67,7 @@ namespace SRS.Combat
 
 			Behavior.OnEnd(this);
 
-			gameObject.SetActive(false);
+			ReturnToPool();
 		}
 	}
 }
