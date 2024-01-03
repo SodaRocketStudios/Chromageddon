@@ -14,8 +14,8 @@ namespace SRS.EnemyManagement
 		public Weapon Weapon;
 		public List<StatModifier> InitialStats;
 		public List<EliteStatModifier> EliteModifiers;
-		public int Price;
-		public int MaxGroupSize;
+		[Min(1)] public int Price;
+		[Min(1)] public int MaxGroupSize;
 		public bool IgnoreRecycleRequests;
 		public Sprite Sprite;
 		public Color Color;
