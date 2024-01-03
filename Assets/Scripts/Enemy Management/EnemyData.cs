@@ -16,6 +16,7 @@ namespace SRS.EnemyManagement
 		public List<EliteStatModifier> EliteModifiers;
 		public int Price;
 		public int MaxGroupSize;
+		public bool IgnoreRecycleRequests;
 		public Sprite Sprite;
 		public Color Color;
 		public State InitialState;

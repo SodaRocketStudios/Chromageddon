@@ -12,10 +12,11 @@ namespace SRS.EnemyManagement
 
 		[SerializeField] private ObjectPool enemyPool;
 
+		[SerializeField, Min(1)] private int maxEnemies;
+
 		private List<Enemy> activeEnemies;
 
 		private int activeEnemyCount;
-		private int maxActiveEnemies;
 		
 		private Transform player;
 		// TODO -- if player == null then find player with a cast
@@ -50,8 +51,17 @@ namespace SRS.EnemyManagement
 
 				for(int i = 0; i < amountToSpawn; i++)
 				{
+					if(activeEnemyCount >= maxEnemies)
+					{
+						if(TryRecycleEnemy() == false)
+						{
+							continue;
+						}
+					}
+
 					Enemy newEnemy = enemyPool.Get(locations[i]) as Enemy;
 					newEnemy.Initialize(enemy, elitifications);
+					activeEnemies.Add(newEnemy);
 					points -= enemy.Price*(int)Mathf.Pow(2, elitifications);
 				}
 			}
@@ -68,6 +78,23 @@ namespace SRS.EnemyManagement
 				numberToSpawn--;
 			}
 			return locations;
+		}
+
+		private bool TryRecycleEnemy()
+		{
+			foreach(Enemy enemy in activeEnemies)
+			{
+				if(enemy.IgnoreRecycleRequests)
+				{
+					continue;
+				}
+				else
+				{
+					enemy.ReturnToPool();
+					return true;
+				}
+			}
+			return false;
 		}
 	}
 }

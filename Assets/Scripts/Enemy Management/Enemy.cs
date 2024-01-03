@@ -8,6 +8,9 @@ namespace SRS.EnemyManagement
 {
 	public class Enemy : PooledObject
 	{
+		private bool ignoreRecycleRequests;
+		public bool IgnoreRecycleRequests => ignoreRecycleRequests;
+
 		private AIBrain brain;
 		private StatContainer statContainer;
 		private Weapon weapon;
@@ -39,6 +42,8 @@ namespace SRS.EnemyManagement
 			{
 				modifier.Apply(statContainer);
 			}
+
+			ignoreRecycleRequests = enemyData.IgnoreRecycleRequests;
 
 			Elitify(enemyData, elitifications);
 
