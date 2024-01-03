@@ -47,15 +47,17 @@ namespace SRS.EnemyManagement
 
 			Elitify(enemyData, elitifications);
 
-			//TODO -- does the collider need to be set up fopr different enemy types?
+			//TODO -- does the collider need to be set up for different enemy types?
         }
 
 		private void Elitify(EnemyData enemyData, int elitifications)
 		{
 			while(elitifications > 0)
 			{
-				// TODO -- apply elitification stats
-				Debug.Log("Elitified", gameObject);
+				foreach(EliteStatModifier modifier in enemyData.EliteModifiers)
+				{
+					modifier.Apply(statContainer);
+				}
 				elitifications--;
 			}
 		}

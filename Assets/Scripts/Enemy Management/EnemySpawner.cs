@@ -65,7 +65,7 @@ namespace SRS.EnemyManagement
 			}
 		}
 
-		private void Despawn(Enemy enemy)
+		public void Despawn(Enemy enemy)
 		{
 			activeEnemies.Remove(enemy);
 			enemy.ReturnToPool();
