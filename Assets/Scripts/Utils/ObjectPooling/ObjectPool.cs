@@ -15,6 +15,12 @@ namespace SRS.Utils.ObjectPooling
 		{
 			PooledObject pooledObject;
 
+			if(parentObject == null)
+			{
+				parentObject = new GameObject($"{basePrefab.name} Pool");
+				pool = parentObject.AddComponent<Pool>();
+			}
+
 			if(pool.Count <= 0)
 			{
 				pool.Enqueue(CreateObject());
@@ -54,12 +60,6 @@ namespace SRS.Utils.ObjectPooling
 
 		private PooledObject CreateObject()
 		{
-			if(parentObject == null)
-			{
-				parentObject = new GameObject($"{basePrefab.name} Pool");
-				pool = parentObject.AddComponent<Pool>();
-			}
-
 			GameObject newObject = Instantiate(basePrefab);
 			newObject.SetActive(false);
 			newObject.transform.SetParent(parentObject.transform);
