@@ -65,6 +65,12 @@ namespace SRS.EnemyManagement
 			}
 		}
 
+		private void Despawn(Enemy enemy)
+		{
+			activeEnemies.Remove(enemy);
+					enemy.ReturnToPool();
+		}
+
 		private List<Vector2> GetGroupSpawnLocations(int numberToSpawn)
 		{
 			// TODO -- spawn enemies away from player but within play area.
@@ -82,18 +88,15 @@ namespace SRS.EnemyManagement
 		{
 			foreach(Enemy enemy in activeEnemies)
 			{
-				if(enemy.IgnoreRecycleRequests)
+				if(enemy.IgnoreRecycleRequests == false)
 				{
-					continue;
-				}
-				else
-				{
-					activeEnemies.Remove(enemy);
-					enemy.ReturnToPool();
+					Debug.Log("Recycled", enemy.gameObject);
+					Despawn(enemy);
 					return true;
 				}
 			}
 			return false;
 		}
+
 	}
 }

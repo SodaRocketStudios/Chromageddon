@@ -3,14 +3,11 @@ using UnityEngine;
 
 namespace SRS.Utils.ObjectPooling
 {
-	[CreateAssetMenu(fileName = "Object Pool", menuName = "Utils/Object Pool")]
-	public class ObjectPool : ScriptableObject
+	public class ObjectPool : MonoBehaviour
 	{
 		[SerializeField] private GameObject basePrefab;
 
 		private Queue<PooledObject> pool = new();
-
-		private GameObject parentObject;
 
 		public PooledObject Get()
 		{
@@ -46,7 +43,7 @@ namespace SRS.Utils.ObjectPooling
 		public void Return(PooledObject pooledObject)
 		{
 			pool.Enqueue(pooledObject);
-			
+
 			if(pooledObject.gameObject.activeSelf)
 			{
 				pooledObject.gameObject.SetActive(false);
@@ -55,14 +52,9 @@ namespace SRS.Utils.ObjectPooling
 
 		private PooledObject CreateObject()
 		{
-			if(parentObject == null)
-			{
-				parentObject = new($"{basePrefab.name} Pool");
-			}
-
 			GameObject newObject = Instantiate(basePrefab);
 			newObject.SetActive(false);
-			newObject.transform.SetParent(parentObject.transform);
+			newObject.transform.SetParent(transform);
 
 			return newObject.GetComponent<PooledObject>();
 		}
