@@ -1,13 +1,15 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRS.Utils.ObjectPooling
 {
-	public class ObjectPool : MonoBehaviour
+	[CreateAssetMenu(fileName = "New Object Pool", menuName = "Utils/Object Pool")]
+	public class ObjectPool : ScriptableObject
 	{
 		[SerializeField] private GameObject basePrefab;
 
-		private Queue<PooledObject> pool = new();
+		private GameObject parentObject;
+
+		private Pool pool;
 
 		public PooledObject Get()
 		{
@@ -52,9 +54,15 @@ namespace SRS.Utils.ObjectPooling
 
 		private PooledObject CreateObject()
 		{
+			if(parentObject == null)
+			{
+				parentObject = new GameObject($"{basePrefab.name} Pool");
+				pool = parentObject.AddComponent<Pool>();
+			}
+
 			GameObject newObject = Instantiate(basePrefab);
 			newObject.SetActive(false);
-			newObject.transform.SetParent(transform);
+			newObject.transform.SetParent(parentObject.transform);
 
 			return newObject.GetComponent<PooledObject>();
 		}
