@@ -51,11 +51,6 @@ namespace SRS.Utils.ObjectPooling
 		public void Return(PooledObject pooledObject)
 		{
 			pool.Enqueue(pooledObject);
-
-			if(pooledObject.gameObject.activeSelf)
-			{
-				pooledObject.gameObject.SetActive(false);
-			}
 		}
 
 		private PooledObject CreateObject()
