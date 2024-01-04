@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SRS.Utils.ObjectPooling;
 using SRS.Extensions.Random;
+using SRS.Progression;
 
 namespace SRS.EnemyManagement
 {
@@ -22,6 +23,9 @@ namespace SRS.EnemyManagement
 		[SerializeField, Min(1)] private float timerMultiplier;
 		private float spawnTimer = 0;
 
+		[SerializeField] private ProgressionFunction pointsFunction;
+		private int previousPoints;
+
 		private List<Enemy> activeEnemies = new();
 		
 		private Transform player;
@@ -36,6 +40,7 @@ namespace SRS.EnemyManagement
 		private void Start()
 		{
 			FindPlayer();
+			previousPoints = (int)pointsFunction.GetInitialValue();
         }
 
 		private void Update()
@@ -59,8 +64,8 @@ namespace SRS.EnemyManagement
         [ContextMenu("SpawnEnemies")]
 		public void SpawnWave()
 		{
-			// TODO -- get the number of points based on the current difficulty.
-			int points = 10;
+			int points = (int)pointsFunction.Compute(previousPoints);
+			previousPoints = points;
 
 			while(points > 0)
 			{
