@@ -16,7 +16,7 @@ namespace SRS.EnemyManagement
 
 		[SerializeField] private float minDistanceFromPlayer;
 
-		[SerializeField] private float spawnAreaSize = 1;
+		[SerializeField] private float spawnAreaRadius = 1;
 
 		[SerializeField] private float spawnDelay;
 		[SerializeField, Min(1)] private float timerMultiplier;
@@ -30,7 +30,7 @@ namespace SRS.EnemyManagement
 
 		private void Awake()
 		{
-			minDistanceFromPlayer += spawnAreaSize;
+			minDistanceFromPlayer += spawnAreaRadius;
 		}
 
 		private void Start()
@@ -91,7 +91,6 @@ namespace SRS.EnemyManagement
 					}
 
 					Enemy newEnemy = enemyPool.Get(locations[i]) as Enemy;
-					// Debug.Log(locations[i]);
 					newEnemy.Initialize(enemy, elitifications);
 					activeEnemies.Add(newEnemy);
 					points -= enemy.Price*(int)Mathf.Pow(2, elitifications);
@@ -113,24 +112,36 @@ namespace SRS.EnemyManagement
 
 			RaycastHit2D hit = Physics2D.Raycast(player.transform.position, direction, int.MaxValue, mask);
 
-			while(hit.distance - spawnAreaSize <= minDistanceFromPlayer)
+			while(hit.distance - spawnAreaRadius <= minDistanceFromPlayer)
 			{
 				direction = Quaternion.AngleAxis(90, Vector3.forward) * direction;
 				hit = Physics2D.Raycast(player.transform.position, direction, int.MaxValue, mask);
 			}
 
-			float distance = randomGenerator.NextFloat(minDistanceFromPlayer, hit.distance - spawnAreaSize);
+			float distance = randomGenerator.NextFloat(minDistanceFromPlayer, hit.distance - spawnAreaRadius);
 
 			Vector2 centroid = (Vector2)player.position + direction*distance;
 
 			Debug.DrawLine(player.position, centroid, Color.red, 5);
 
 			List<Vector2> locations = new();
-			while(numberToSpawn > 0)
+			for(int i = 0; i < numberToSpawn; i++)
 			{
-				locations.Add(centroid + randomGenerator.WithinUnitCircle()*spawnAreaSize);
+				hit = Physics2D.Raycast(player.transform.position, direction, spawnAreaRadius, mask);
+				if(hit)
+				{
+					distance = randomGenerator.NextFloat(0, hit.distance);
+				}
+				else
+				{
+					distance = randomGenerator.NextFloat(0, spawnAreaRadius);
+				}
 
-				numberToSpawn--;
+				direction = randomGenerator.WithinUnitCircle().normalized;
+
+				locations.Add(centroid + direction*distance);
+
+				Debug.DrawLine(centroid, locations[i], Color.blue, 5);
 			}
 			return locations;
 		}
