@@ -22,11 +22,13 @@ namespace SRS.Items
 
         protected override void OnEquip(StatContainer container)
         {
+			// TODO -- On Item Equip
             throw new System.NotImplementedException();
         }
 
         protected override void OnUnequip(StatContainer container)
         {
+			// TODO -- OnItemUnequip
             throw new System.NotImplementedException();
         }
     }

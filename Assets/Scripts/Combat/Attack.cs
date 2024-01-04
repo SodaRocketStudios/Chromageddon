@@ -36,7 +36,7 @@ namespace SRS.Combat
 			lifetime = data.Lifetime;
 
 			collisionMask = ~ignoredLayers;
-			collisionMask &= 0 << attacker.layer;
+			collisionMask &= ~(1 << attacker.layer);
 			
 			Stats = attacker.GetComponent<StatContainer>();
 

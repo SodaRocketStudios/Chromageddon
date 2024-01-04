@@ -13,7 +13,6 @@ namespace SRS.Combat
 
 		public void Attack(GameObject attacker)
 		{
-            Debug.Log("Attack");
             Attack attack = attackPool.Get(attacker.transform.position, attacker.transform.rotation) as Attack;
             attack.Initialize(attackData, attacker);
 		}
@@ -21,13 +20,13 @@ namespace SRS.Combat
         protected override void OnEquip(StatContainer container)
         {
             // TODO Weapon on equip
-            throw new System.NotImplementedException();
+            Debug.Log($"{name} equipped");
         }
 
         protected override void OnUnequip(StatContainer container)
         {
             // TODO Weapon on unequip
-            throw new System.NotImplementedException();
+            Debug.Log($"{name} unequipped");
         }
     }
 }

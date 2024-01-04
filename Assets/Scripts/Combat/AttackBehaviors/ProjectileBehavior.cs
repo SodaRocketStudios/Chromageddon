@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -30,8 +29,8 @@ namespace SRS.Combat
 
         protected override void CollisionTest(Attack attack)
         {
-            // Raycast a short distance in front of the projectile
-            RaycastHit2D hit = Physics2D.Raycast(attack.transform.position, attack.transform.right);
+            // TODO -- only cast as as far as the projectile will move
+            RaycastHit2D hit = Physics2D.Raycast(attack.transform.position, attack.transform.right, 1, attack.collisionMask);
 
             if(hit)
             {
@@ -41,7 +40,7 @@ namespace SRS.Combat
 
         protected override void OnHit(Attack attack, GameObject other)
         {
-            // Debug.Log("hit", other);
+            // TODO -- projectile on hit
             // apply damage
             // try to bounce and pierce
         }
