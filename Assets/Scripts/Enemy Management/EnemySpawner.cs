@@ -88,7 +88,7 @@ namespace SRS.EnemyManagement
 
 			RaycastHit2D hit = Physics2D.Raycast(player.transform.position, direction, int.MaxValue, mask);
 
-			while(hit.distance <= minDistanceFromPlayer);
+			while(hit.distance <= minDistanceFromPlayer)
 			{
 				direction = Quaternion.AngleAxis(90, Vector3.forward) * direction;
 				hit = Physics2D.Raycast(player.transform.position, direction, int.MaxValue, mask);
@@ -114,7 +114,6 @@ namespace SRS.EnemyManagement
 			{
 				if(enemy.IgnoreRecycleRequests == false)
 				{
-					Debug.Log("Recycled", enemy.gameObject);
 					Despawn(enemy);
 					return true;
 				}
