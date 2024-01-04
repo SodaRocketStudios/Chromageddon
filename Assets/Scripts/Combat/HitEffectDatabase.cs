@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace SRS.Combat
 {
-	public class HitEffectDatabase : MonoBehaviour
+	[CreateAssetMenu(fileName = "New Hit Effect Database", menuName = "Combat/Hit Effects/Hit Effect Database")]
+	public class HitEffectDatabase : ScriptableObject
 	{
 		[SerializeField] private static List<IOnHitEffect> effects;
 		public List<IOnHitEffect> Effects

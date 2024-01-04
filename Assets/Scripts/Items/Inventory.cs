@@ -12,12 +12,16 @@ namespace SRS.Items
 
 		public void Add(Item item)
 		{
-
+			items.Add(item);
+			item.Apply(stats);
 		}
 
 		private void Remove(Item item)
 		{
-			
+			if(items.Remove(item))
+			{
+				item.Remove(stats);
+			}
 		}
 	}
 }
