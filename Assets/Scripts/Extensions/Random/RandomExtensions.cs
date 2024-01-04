@@ -18,5 +18,12 @@ namespace SRS.Extensions.Random
 		{
 			return new Vector2(random.NextFloat()*2 - 1, random.NextFloat()*2 - 1);
 		}
+
+		public static Vector2 WithinRect(this System.Random random, Rect bounds)
+		{
+			float randomX = random.NextFloat()*(bounds.xMax - bounds.xMin) + bounds.xMin;
+			float randomY = random.NextFloat()*(bounds.yMax - bounds.yMin) + bounds.yMin;
+			return new Vector2(randomX, randomY);
+		}
 	}
 }

@@ -14,6 +14,8 @@ namespace SRS.EnemyManagement
 
 		[SerializeField, Min(1)] private int maxEnemies;
 
+		[SerializeField] private Rect spawnArea;
+
 		private List<Enemy> activeEnemies = new();
 		
 		private Transform player;
@@ -23,7 +25,12 @@ namespace SRS.EnemyManagement
 
 		// TODO -- spawn enemies at set intervals. Maybe change the interval if there are no active enemies.
 
-		[ContextMenu("SpawnEnemies")]
+		private void Start()
+		{
+			FindPlayer();
+        }
+
+        [ContextMenu("SpawnEnemies")]
 		public void SpawnWave()
 		{
 			// TODO -- get the number of points based on the current difficulty.
@@ -74,17 +81,19 @@ namespace SRS.EnemyManagement
 		private List<Vector2> GetGroupSpawnLocations(int numberToSpawn)
 		{
 			// TODO -- spawn enemies away from player but within play area.
+			Vector2 Centroid = randomGenerator.WithinRect(spawnArea);
+
 			List<Vector2> locations = new();
 			while(numberToSpawn > 0)
 			{
-				locations.Add(randomGenerator.WithinUnitCircle());
+				locations.Add(Centroid + randomGenerator.WithinUnitCircle());
 
 				numberToSpawn--;
 			}
 			return locations;
 		}
 
-		private bool TryRecycleEnemy()
+        private bool TryRecycleEnemy()
 		{
 			foreach(Enemy enemy in activeEnemies)
 			{
@@ -98,5 +107,9 @@ namespace SRS.EnemyManagement
 			return false;
 		}
 
+		private void FindPlayer()
+		{
+			player = GameObject.FindGameObjectWithTag("Player").transform;
+		}
 	}
 }
