@@ -14,7 +14,9 @@ namespace SRS.EnemyManagement
 
 		[SerializeField, Min(1)] private int maxEnemies;
 
-		[SerializeField] private Rect spawnArea;
+		[SerializeField] private float minDistanceFromPlayer;
+
+		[SerializeField] private float spawnAreaSize = 1;
 
 		private List<Enemy> activeEnemies = new();
 		
@@ -80,13 +82,26 @@ namespace SRS.EnemyManagement
 
 		private List<Vector2> GetGroupSpawnLocations(int numberToSpawn)
 		{
-			// TODO -- spawn enemies away from player but within play area.
-			Vector2 Centroid = randomGenerator.WithinRect(spawnArea);
+			Vector2 direction = randomGenerator.WithinUnitCircle();
+
+			LayerMask mask = LayerMask.GetMask("Walls");
+
+			RaycastHit2D hit = Physics2D.Raycast(player.transform.position, direction, int.MaxValue, mask);
+
+			while(hit.distance <= minDistanceFromPlayer);
+			{
+				direction = Quaternion.AngleAxis(90, Vector3.forward) * direction;
+				hit = Physics2D.Raycast(player.transform.position, direction, int.MaxValue, mask);
+			}
+
+			float distance = randomGenerator.NextFloat(minDistanceFromPlayer, hit.distance);
+
+			Vector2 centroid = (Vector2)player.position + direction*distance;
 
 			List<Vector2> locations = new();
 			while(numberToSpawn > 0)
 			{
-				locations.Add(Centroid + randomGenerator.WithinUnitCircle());
+				locations.Add(centroid + randomGenerator.WithinUnitCircle()*spawnAreaSize);
 
 				numberToSpawn--;
 			}

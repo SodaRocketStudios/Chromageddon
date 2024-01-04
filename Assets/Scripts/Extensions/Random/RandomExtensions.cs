@@ -9,6 +9,11 @@ namespace SRS.Extensions.Random
 			return (float)random.NextDouble();
 		}
 
+		public static float NextFloat(this System.Random random, float min, float max)
+		{
+			return random.NextFloat()*(max - min) + min;
+		}
+
 		public static Vector3 WithinUnitSphere(this System.Random random)
 		{
 			return new Vector3(random.NextFloat()*2 - 1, random.NextFloat()*2 - 1, random.NextFloat()*2 - 1);
