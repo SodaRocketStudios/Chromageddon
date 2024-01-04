@@ -5,29 +5,31 @@ using UnityEngine;
 namespace SRS.Items
 {
 	[CreateAssetMenu(fileName = "New Item", menuName = "Items/Item")]
-	public class Item : ScriptableObject
+	public class Item : EquipableObject
 	{
-		private new string name;
-		private List<StatModifier> statModifications;
 		private ItemRarity rarity;
 		private List<string> tags;
 
 		public void Apply(StatContainer stats)
 		{
-			foreach(StatModifier modifier in statModifications)
-			{
-				modifier.Apply(stats);
-			}
+			Equip(stats);
 		}
 
 		public void Remove(StatContainer stats)
 		{
-			foreach(StatModifier modifier in statModifications)
-			{
-				modifier.Remove(stats);
-			}
+			Unequip(stats);
 		}
-	}
+
+        protected override void OnEquip(StatContainer container)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void OnUnequip(StatContainer container)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 
     enum ItemRarity
     {
