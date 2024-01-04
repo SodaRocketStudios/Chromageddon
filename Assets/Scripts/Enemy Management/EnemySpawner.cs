@@ -18,19 +18,43 @@ namespace SRS.EnemyManagement
 
 		[SerializeField] private float spawnAreaSize = 1;
 
+		[SerializeField] private float spawnDelay;
+		[SerializeField, Min(1)] private float timerMultiplier;
+		private float spawnTimer = 0;
+
 		private List<Enemy> activeEnemies = new();
 		
 		private Transform player;
-		// TODO -- if player == null then find player with a cast
 
 		System.Random randomGenerator = new(Guid.NewGuid().GetHashCode());
 
-		// TODO -- spawn enemies at set intervals. Maybe change the interval if there are no active enemies.
+		private void Awake()
+		{
+			minDistanceFromPlayer += spawnAreaSize;
+		}
 
 		private void Start()
 		{
 			FindPlayer();
         }
+
+		private void Update()
+		{
+			if(activeEnemies.Count <= 0)
+			{
+				spawnTimer += Time.deltaTime*timerMultiplier;
+			}
+			else
+			{
+				spawnTimer += Time.deltaTime;
+			}
+
+			if(spawnTimer >= spawnDelay)
+			{
+				SpawnWave();
+				spawnTimer = 0;
+			}
+		}
 
         [ContextMenu("SpawnEnemies")]
 		public void SpawnWave()
@@ -67,6 +91,7 @@ namespace SRS.EnemyManagement
 					}
 
 					Enemy newEnemy = enemyPool.Get(locations[i]) as Enemy;
+					// Debug.Log(locations[i]);
 					newEnemy.Initialize(enemy, elitifications);
 					activeEnemies.Add(newEnemy);
 					points -= enemy.Price*(int)Mathf.Pow(2, elitifications);
@@ -82,21 +107,23 @@ namespace SRS.EnemyManagement
 
 		private List<Vector2> GetGroupSpawnLocations(int numberToSpawn)
 		{
-			Vector2 direction = randomGenerator.WithinUnitCircle();
+			Vector2 direction = randomGenerator.WithinUnitCircle().normalized;
 
 			LayerMask mask = LayerMask.GetMask("Walls");
 
 			RaycastHit2D hit = Physics2D.Raycast(player.transform.position, direction, int.MaxValue, mask);
 
-			while(hit.distance <= minDistanceFromPlayer)
+			while(hit.distance - spawnAreaSize <= minDistanceFromPlayer)
 			{
 				direction = Quaternion.AngleAxis(90, Vector3.forward) * direction;
 				hit = Physics2D.Raycast(player.transform.position, direction, int.MaxValue, mask);
 			}
 
-			float distance = randomGenerator.NextFloat(minDistanceFromPlayer, hit.distance);
+			float distance = randomGenerator.NextFloat(minDistanceFromPlayer, hit.distance - spawnAreaSize);
 
 			Vector2 centroid = (Vector2)player.position + direction*distance;
+
+			Debug.DrawLine(player.position, centroid, Color.red, 5);
 
 			List<Vector2> locations = new();
 			while(numberToSpawn > 0)
