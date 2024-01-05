@@ -66,7 +66,6 @@ namespace SRS.EnemyManagement
 		{
 			int points = (int)Mathf.Pow(pointsBase, pointsExponent) + initialPoints;
 			pointsBase++;
-			Debug.Log(points);
 
 			while(points >= 1)
 			{

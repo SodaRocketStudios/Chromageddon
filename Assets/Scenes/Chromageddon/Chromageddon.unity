@@ -1109,6 +1109,7 @@ MonoBehaviour:
   spawnAreaRadius: 5
   spawnDelay: 5
   timerMultiplier: 2
+  initialPoints: 5
   pointsExponent: 1.25
 --- !u!1 &256207152
 GameObject:
@@ -2897,7 +2898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!60 &1035417163
 PolygonCollider2D:
   m_ObjectHideFlags: 0

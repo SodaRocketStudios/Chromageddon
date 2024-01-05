@@ -18,7 +18,10 @@ namespace SRS.AI
 		private Vector2 moveInput;
         public Vector2 MoveInput
 		{
-			get => moveInput;
+			get
+			{
+				return moveInput;
+			}
 		}
 
 		private Vector2 lookInput;
@@ -49,7 +52,7 @@ namespace SRS.AI
 
 		private void FixedUpdate()
 		{
-			TargetDistanceSquared = (transform.position = player.position).sqrMagnitude;
+			TargetDistanceSquared = (transform.position - player.position).sqrMagnitude;
 		}
 
 		public void ChangeState(State state)
