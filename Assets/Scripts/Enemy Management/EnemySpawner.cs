@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using SRS.Utils.ObjectPooling;
 using SRS.Extensions.Random;
-using SRS.Progression;
 
 namespace SRS.EnemyManagement
 {
@@ -23,8 +22,10 @@ namespace SRS.EnemyManagement
 		[SerializeField, Min(1)] private float timerMultiplier;
 		private float spawnTimer = 0;
 
-		[SerializeField] private ProgressionFunction pointsFunction;
-		private int previousPoints;
+		[SerializeField] private int initialPoints = 5;
+		[SerializeField, Min(1.001f)] private float pointsExponent;
+
+		private int pointsBase = 0;
 
 		private List<Enemy> activeEnemies = new();
 		
@@ -40,7 +41,6 @@ namespace SRS.EnemyManagement
 		private void Start()
 		{
 			FindPlayer();
-			previousPoints = (int)pointsFunction.GetInitialValue();
         }
 
 		private void Update()
@@ -64,10 +64,11 @@ namespace SRS.EnemyManagement
         [ContextMenu("SpawnEnemies")]
 		public void SpawnWave()
 		{
-			int points = (int)pointsFunction.Compute(previousPoints);
-			previousPoints = points;
+			int points = (int)Mathf.Pow(pointsBase, pointsExponent) + initialPoints;
+			pointsBase++;
+			Debug.Log(points);
 
-			while(points > 0)
+			while(points >= 1)
 			{
 				EnemyData enemy = selector.SelectEnemyType(points);
 
@@ -130,6 +131,7 @@ namespace SRS.EnemyManagement
 			Debug.DrawLine(player.position, centroid, Color.red, 5);
 
 			List<Vector2> locations = new();
+
 			for(int i = 0; i < numberToSpawn; i++)
 			{
 				hit = Physics2D.Raycast(player.transform.position, direction, spawnAreaRadius, mask);

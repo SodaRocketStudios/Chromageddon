@@ -1109,6 +1109,7 @@ MonoBehaviour:
   spawnAreaRadius: 5
   spawnDelay: 5
   timerMultiplier: 2
+  pointsExponent: 1.25
 --- !u!1 &256207152
 GameObject:
   m_ObjectHideFlags: 0
@@ -6491,7 +6492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee803e6fd8c4810418b942a61902f55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyFuction: {fileID: 0}
 --- !u!1 &2113922357
 GameObject:
   m_ObjectHideFlags: 0
