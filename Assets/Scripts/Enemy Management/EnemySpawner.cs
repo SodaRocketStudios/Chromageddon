@@ -127,8 +127,6 @@ namespace SRS.EnemyManagement
 
 			Vector2 centroid = (Vector2)player.position + direction*distance;
 
-			Debug.DrawLine(player.position, centroid, Color.red, 5);
-
 			List<Vector2> locations = new();
 
 			for(int i = 0; i < numberToSpawn; i++)
@@ -146,8 +144,6 @@ namespace SRS.EnemyManagement
 				direction = randomGenerator.WithinUnitCircle().normalized;
 
 				locations.Add(centroid + direction*distance);
-
-				Debug.DrawLine(centroid, locations[i], Color.blue, 5);
 			}
 			return locations;
 		}

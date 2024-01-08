@@ -37,8 +37,6 @@ namespace SRS.Combat
         {
             RaycastHit2D hit = Physics2D.Raycast(attack.transform.position + attack.spriteSize.x*attack.transform.right, attack.transform.right, speed*Time.deltaTime, attack.collisionMask);
 
-            Debug.DrawRay(attack.transform.position + attack.spriteSize.x*attack.transform.right, attack.transform.right*speed*Time.deltaTime, Color.red);
-
             if(hit)
             {
                 if(hit.transform.gameObject != attack.LastHitObject)
@@ -97,7 +95,6 @@ namespace SRS.Combat
                 if(Vector2.Dot(targetDirection, hit.normal) >= 0)
                 {
                     attack.transform.right = target.centroid - (Vector2)attack.transform.position;
-                    Debug.DrawRay(hit.point, attack.transform.right, Color.red);
                     return;
                 }
             }
