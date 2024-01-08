@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 3399146765
     locked: 0
+  - name: Attacks
+    uniqueID: 3787875207
+    locked: 0
   - name: Pawns
     uniqueID: 1660681125
     locked: 0

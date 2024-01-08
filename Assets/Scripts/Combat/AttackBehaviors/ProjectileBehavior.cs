@@ -53,6 +53,7 @@ namespace SRS.Combat
         {
             // TODO -- projectile on hit
             // apply damage
+            Debug.Log("hit");
 
             if(TryBounce(attack, hit) || TryPierce())
             {
@@ -108,17 +109,10 @@ namespace SRS.Combat
         {
             if(pierces > 0)
             {
-                Pierce();
                 pierces--;
                 return true;
             }
             return false;
-        }
-
-        private void Pierce()
-        {
-            
-            // throw new NotImplementedException();
         }
     }
 }

@@ -51,6 +51,8 @@ namespace SRS.Combat
 
 			lifetime = Behavior.GetLifetime(this);
 
+			LastHitObject = null;
+
 			Behavior.OnStart(this);
 
 			cancellationTokenSource.Dispose();
