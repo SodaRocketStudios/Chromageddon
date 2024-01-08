@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using SRS.Stats;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -28,7 +25,7 @@ namespace SRS.Combat
 
         protected override void CollisionTest(Attack attack)
         {
-            List<RaycastHit2D> hits = Physics2D.RaycastAll(attack.transform.position, attack.transform.right, attack.Stats["Range"].Value).ToList();
+            RaycastHit2D[] hits = Physics2D.RaycastAll(attack.transform.position, attack.transform.right, attack.Stats["Range"].Value);
 
             foreach(var hit in hits)
             {
