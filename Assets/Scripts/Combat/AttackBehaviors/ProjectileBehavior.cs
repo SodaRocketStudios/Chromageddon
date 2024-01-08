@@ -81,7 +81,6 @@ namespace SRS.Combat
             {
                 if(target.transform == attack.LastHitObject)
                 {
-                    Debug.Log("Same", target.transform);
                     continue;
                 }
 

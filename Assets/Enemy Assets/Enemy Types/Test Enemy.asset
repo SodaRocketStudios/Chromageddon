@@ -20,4 +20,4 @@ MonoBehaviour:
   IgnoreRecycleRequests: 0
   Sprite: {fileID: -780708951, guid: 776894ee602342549b2cc0f748ee17b6, type: 3}
   Color: {r: 0.7924528, g: 0.7084631, b: 0.16820934, a: 1}
-  InitialState: {fileID: 11400000, guid: f97bfa1082a398443b3087bd61c8bc8a, type: 2}
+  InitialState: {fileID: 11400000, guid: 6f846333b9bbc9742a27dcd7ab137a95, type: 2}

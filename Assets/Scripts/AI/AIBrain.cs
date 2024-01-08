@@ -20,29 +20,61 @@ namespace SRS.AI
 		{
 			get
 			{
-				return moveInput;
+				return moveInput.normalized;
+			}
+
+			set
+			{
+				moveInput = value;
 			}
 		}
 
 		private Vector2 lookInput;
         public Vector2 LookInput
 		{
-			get => lookInput;
+			get
+			{
+				return lookInput;
+			}
+
+			set
+			{
+				lookInput = value;
+			}
 		}
 
 		private bool attackInput;
         public bool AttackInput
 		{
-			get => attackInput;
+			get
+			{
+				return attackInput;
+			}
+
+			set
+			{
+				attackInput = value;
+			}
 		}
 
 		public float TargetDistanceSquared{get; private set;}
 
 		private Transform player;
+		public Transform Player
+		{
+			get
+			{
+				if(player == null)
+				{
+					FindPlayer();
+				}
+				return player;
+			}
+		}
 
 		private void OnEnable()
 		{
-			player = Physics2D.CircleCast(transform.position, 200, transform.right, 0, LayerMask.GetMask("Player")).transform;
+			FindPlayer();
 		}
 
 		private void Update()
@@ -61,6 +93,11 @@ namespace SRS.AI
 			{
 				currentState = state;
 			}
+		}
+
+		private void FindPlayer()
+		{
+			player = Physics2D.CircleCast(transform.position, 200, transform.right, 0, LayerMask.GetMask("Player")).transform;
 		}
     }
 }
