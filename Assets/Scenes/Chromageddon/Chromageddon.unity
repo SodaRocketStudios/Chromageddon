@@ -2611,7 +2611,7 @@ MonoBehaviour:
     hasMinimum: 0
     minimumValue: 0
   - name: Pierces
-    baseValue: 0
+    baseValue: 1
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0

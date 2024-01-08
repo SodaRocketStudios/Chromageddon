@@ -41,7 +41,11 @@ namespace SRS.Combat
 
             if(hit)
             {
-                OnHit(attack, hit);
+                if(hit.transform.gameObject != attack.LastHitObject)
+                {
+                    OnHit(attack, hit);
+                    attack.LastHitObject = hit.transform.gameObject;
+                }
             }
         }
 
@@ -49,11 +53,12 @@ namespace SRS.Combat
         {
             // TODO -- projectile on hit
             // apply damage
+
             if(TryBounce(attack, hit) || TryPierce())
             {
                 return;
             }
-            // try to bounce and pierce
+
             attack.Despawn();
         }
 
@@ -67,22 +72,31 @@ namespace SRS.Combat
             if(bounces > 0)
             {
                 Bounce(attack, hit);
+                bounces--;
                 return true;
             }
+
             return false;
         }
 
         private void Bounce(Attack attack, RaycastHit2D hit)
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(hit.point, attack.Stats["Range"].Value, attack.transform.right);
+            // TODO -- reset lifetime timer.
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(hit.point, attack.Stats["Range"].Value, attack.transform.right, 0, attack.collisionMask);
 
             foreach(RaycastHit2D target in hits)
             {
+                if(target == attack.LastHitObject)
+                {
+                    continue;
+                }
+
                 Vector2 targetDirection = target.centroid - hit.point;
 
                 if(Vector2.Dot(targetDirection, hit.normal) >= 0)
                 {
                     attack.transform.right = target.centroid - (Vector2)attack.transform.position;
+                    Debug.DrawRay(hit.point, attack.transform.right, Color.red);
                     return;
                 }
             }
@@ -95,6 +109,7 @@ namespace SRS.Combat
             if(pierces > 0)
             {
                 Pierce();
+                pierces--;
                 return true;
             }
             return false;
@@ -102,7 +117,8 @@ namespace SRS.Combat
 
         private void Pierce()
         {
-            throw new NotImplementedException();
+            
+            // throw new NotImplementedException();
         }
     }
 }

@@ -23,6 +23,8 @@ namespace SRS.Combat
 			}
 		}
 
+		[HideInInspector] public GameObject LastHitObject;
+
 		[SerializeField] private LayerMask ignoredLayers;
 
 		private float lifetime;
