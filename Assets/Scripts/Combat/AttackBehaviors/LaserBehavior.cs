@@ -8,7 +8,8 @@ namespace SRS.Combat
 
         public override void OnStart(Attack attack)
         {
-            CollisionTest(attack); // By calling this in OnEnd i could allow for a charge time.
+            // TODO -- Implement a charge time for the laser
+            CollisionTest(attack);
         }
 
         public override void OnUpdate(Attack attack)
@@ -39,7 +40,8 @@ namespace SRS.Combat
 
         public override float GetLifetime(Attack attack)
         {
-            throw new System.NotImplementedException();
+            // TODO -- determine lifetime based on animation
+            return 1;
         }
     }
 }
