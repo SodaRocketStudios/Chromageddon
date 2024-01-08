@@ -21,7 +21,11 @@ namespace SRS.Combat
 
 		protected void Hit(Attack attack, RaycastHit2D hit)
 		{
-			hit.transform.GetComponent<HitHandler>().Hit(attack.Stats, attack.DamageType);
+			HitHandler hitHandler;
+			if(hit.transform.TryGetComponent<HitHandler>(out hitHandler))
+			{
+				hitHandler.Hit(attack.Stats, attack.DamageType);
+			}
 			OnHit(attack, hit);
 		}
     }

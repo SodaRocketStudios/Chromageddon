@@ -79,6 +79,8 @@ namespace SRS.Combat
             // TODO -- reset lifetime timer.
             RaycastHit2D[] hits = Physics2D.CircleCastAll(hit.point, attack.Stats["Range"].Value, attack.transform.right, 0, attack.collisionMask);
 
+            attack.ResetLifetime();
+
             foreach(RaycastHit2D target in hits)
             {
                 if(target == attack.LastHitObject)

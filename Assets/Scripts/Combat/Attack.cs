@@ -29,6 +29,8 @@ namespace SRS.Combat
 
 		private float lifetime;
 
+		private float timer;
+
 		private SpriteRenderer spriteRenderer;
 
 		private CancellationTokenSource cancellationTokenSource = new();
@@ -66,6 +68,11 @@ namespace SRS.Combat
 			cancellationTokenSource.Cancel();
 		}
 
+		public void ResetLifetime()
+		{
+			timer = 0;
+		}
+
 		private void Update()
 		{
 			Behavior.OnUpdate(this);
@@ -78,7 +85,7 @@ namespace SRS.Combat
 
 		private async void LifetimeTask(CancellationToken token)
 		{
-			float timer = 0;
+			timer = 0;
 
 			while(timer < lifetime)
 			{

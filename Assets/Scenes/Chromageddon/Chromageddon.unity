@@ -2604,14 +2604,14 @@ MonoBehaviour:
     hasMinimum: 0
     minimumValue: 0
   - name: Bounces
-    baseValue: 0
+    baseValue: 1
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
   - name: Pierces
-    baseValue: 1
+    baseValue: 0
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0
