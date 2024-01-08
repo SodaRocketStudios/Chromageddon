@@ -32,18 +32,12 @@ namespace SRS.Combat
 
             foreach(var hit in hits)
             {
-                OnHit(attack, hit);
+                Hit(attack, hit);
             }
         }
 
         protected override void OnHit(Attack attack, RaycastHit2D hit)
         {
-            HitHandler hitHandler;
-
-            if(hit.transform.TryGetComponent(out hitHandler))
-            {
-                hitHandler.Hit(attack.Stats, attack.DamageType);
-            }
         }
 
         public override float GetLifetime(Attack attack)

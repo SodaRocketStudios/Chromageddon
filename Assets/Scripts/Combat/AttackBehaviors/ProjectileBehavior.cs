@@ -41,7 +41,7 @@ namespace SRS.Combat
             {
                 if(hit.transform.gameObject != attack.LastHitObject)
                 {
-                    OnHit(attack, hit);
+                    Hit(attack, hit);
                     attack.LastHitObject = hit.transform.gameObject;
                 }
             }
@@ -49,9 +49,6 @@ namespace SRS.Combat
 
         protected override void OnHit(Attack attack, RaycastHit2D hit)
         {
-            HitHandler hitHandler = hit.transform.GetComponent<HitHandler>();
-            hitHandler.Hit(attack.Stats, attack.DamageType);
-
             if(TryBounce(attack, hit) || TryPierce())
             {
                 return;
