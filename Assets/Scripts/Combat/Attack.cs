@@ -25,9 +25,9 @@ namespace SRS.Combat
 
 		[SerializeField] private LayerMask ignoredLayers;
 
-		private SpriteRenderer spriteRenderer;
-
 		private float lifetime;
+
+		private SpriteRenderer spriteRenderer;
 
 		private CancellationTokenSource cancellationTokenSource = new();
 

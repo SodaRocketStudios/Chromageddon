@@ -1,5 +1,6 @@
-using SRS.Stats;
 using UnityEngine;
+using SRS.Stats;
+using System;
 
 namespace SRS.Combat
 {
@@ -8,9 +9,13 @@ namespace SRS.Combat
     {
         [SerializeField] private float speed = 1;
 
+        private int bounces;
+        private int pierces;
+
         public override void OnStart(Attack attack)
         {
-            // 
+            bounces = (int)attack.Stats["Bounces"].Value;
+            pierces = (int)attack.Stats["Pierces"].Value;
         }
 
         public override void OnUpdate(Attack attack)
@@ -36,15 +41,18 @@ namespace SRS.Combat
 
             if(hit)
             {
-                OnHit(attack, hit.transform.gameObject);
+                OnHit(attack, hit);
             }
         }
 
-        protected override void OnHit(Attack attack, GameObject other)
+        protected override void OnHit(Attack attack, RaycastHit2D hit)
         {
             // TODO -- projectile on hit
             // apply damage
-            // either move the projectile to show an actual collision, or cover up the gap with particles
+            if(TryBounce(attack, hit) || TryPierce())
+            {
+                return;
+            }
             // try to bounce and pierce
             attack.Despawn();
         }
@@ -52,6 +60,49 @@ namespace SRS.Combat
         public override float GetLifetime(Attack attack)
         {
             return attack.Stats["Range"].Value/speed;
+        }
+
+        private bool TryBounce(Attack attack, RaycastHit2D hit)
+        {
+            if(bounces > 0)
+            {
+                Bounce(attack, hit);
+                return true;
+            }
+            return false;
+        }
+
+        private void Bounce(Attack attack, RaycastHit2D hit)
+        {
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(hit.point, attack.Stats["Range"].Value, attack.transform.right);
+
+            foreach(RaycastHit2D target in hits)
+            {
+                Vector2 targetDirection = target.centroid - hit.point;
+
+                if(Vector2.Dot(targetDirection, hit.normal) >= 0)
+                {
+                    attack.transform.right = target.centroid - (Vector2)attack.transform.position;
+                    return;
+                }
+            }
+
+            attack.transform.right = Vector2.Reflect(attack.transform.right, hit.normal);
+        }
+
+        private bool TryPierce()
+        {
+            if(pierces > 0)
+            {
+                Pierce();
+                return true;
+            }
+            return false;
+        }
+
+        private void Pierce()
+        {
+            throw new NotImplementedException();
         }
     }
 }

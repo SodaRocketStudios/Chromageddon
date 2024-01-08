@@ -34,7 +34,7 @@ namespace SRS.Combat
             throw new System.NotImplementedException();
         }
 
-        protected override void OnHit(Attack attack, GameObject other)
+        protected override void OnHit(Attack attack, RaycastHit2D hit)
         {
             throw new System.NotImplementedException();
         }

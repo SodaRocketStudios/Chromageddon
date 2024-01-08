@@ -17,6 +17,6 @@ namespace SRS.Combat
 
 		protected abstract void CollisionTest(Attack attack);
 
-		protected abstract void OnHit(Attack attack, GameObject other);
+		protected abstract void OnHit(Attack attack, RaycastHit2D hit);
     }
 }
