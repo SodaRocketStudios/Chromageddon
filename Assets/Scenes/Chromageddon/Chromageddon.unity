@@ -1104,12 +1104,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selector: {fileID: 11400000, guid: 1f159ca9d05f20d4d981219453779556, type: 2}
   enemyPool: {fileID: 11400000, guid: 220d08de1bb2711408a1b356a1bd110b, type: 2}
-  maxEnemies: 15
+  maxEnemies: 50
   minDistanceFromPlayer: 15
   spawnAreaRadius: 5
-  spawnDelay: 5
-  timerMultiplier: 2
-  initialPoints: 5
+  spawnDelay: 10
+  timerMultiplier: 5
+  initialPoints: 2
   pointsExponent: 1.25
 --- !u!1 &256207152
 GameObject:
