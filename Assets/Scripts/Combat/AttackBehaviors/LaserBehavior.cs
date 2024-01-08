@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using SRS.Stats;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -43,6 +44,11 @@ namespace SRS.Combat
             {
                 hitHandler.Hit(attack.Stats, attack.DamageType);
             }
+        }
+
+        public override float GetLifetime(StatContainer stats)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

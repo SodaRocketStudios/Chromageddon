@@ -9,8 +9,6 @@ namespace SRS.Combat
 
 		public DamageType damageType;
 
-		public float Lifetime;
-
 		public Sprite Sprite;
 	}
 }

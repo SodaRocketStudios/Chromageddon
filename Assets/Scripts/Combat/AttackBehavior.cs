@@ -1,9 +1,12 @@
+using SRS.Stats;
 using UnityEngine;
 
 namespace SRS.Combat
 {
 	public abstract class AttackBehavior : ScriptableObject
 	{
+		public abstract float GetLifetime(StatContainer stats);
+
 		public abstract void OnStart(Attack attack);
 
 		public abstract void OnUpdate(Attack attack);

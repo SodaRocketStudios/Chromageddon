@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using SRS.Stats;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -7,6 +8,12 @@ namespace SRS.Combat
     public class SweepMeleeBehavior : AttackBehavior
     {
         [SerializeField] private float sweepAngle;
+
+        public override float GetLifetime(StatContainer stats)
+        {
+            // TODO -- Setermine lifetime based on animations
+            return 1;
+        }
 
         public override void OnEnd(Attack attack)
         {
@@ -37,22 +44,5 @@ namespace SRS.Combat
         {
             throw new System.NotImplementedException();
         }
-
-        // protected override void OnStatsSet()
-        // {
-        // 	lifetime = 0.1f;
-        // 	List<RaycastHit2D> hits;
-        // 	hits = Physics2D.CircleCastAll(transform.position, stats["range"].Value, transform.right).ToList();
-
-        // 	foreach(RaycastHit2D hit in hits)
-        // 	{
-        // 		Hit(hit.transform.gameObject);
-        // 	}
-        // }
-
-        // protected override void HitBehavior(GameObject other)
-        // {
-        // }
-
     }
 }

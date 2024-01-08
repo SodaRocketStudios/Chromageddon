@@ -1,6 +1,7 @@
 using UnityEngine;
 using SRS.Utils.ObjectPooling;
 using SRS.Stats;
+using System.Threading;
 
 namespace SRS.Combat
 {
@@ -20,7 +21,7 @@ namespace SRS.Combat
 
 		private float lifetime;
 
-		private float timer;
+		private CancellationTokenSource cancellationTokenSource = new();
 
 		private void Awake()
 		{
@@ -33,16 +34,24 @@ namespace SRS.Combat
 			
 			spriteRenderer.sprite = data.Sprite;
 
-			lifetime = data.Lifetime;
-
 			collisionMask = ~ignoredLayers;
 			collisionMask &= ~(1 << attacker.layer);
 			
 			Stats = attacker.GetComponent<StatContainer>();
+			
+			lifetime = Behavior.GetLifetime(Stats);
 
 			Behavior.OnStart(this);
 
-			LifetimeTask();
+			cancellationTokenSource.Dispose();
+			cancellationTokenSource = new();
+
+			LifetimeTask(cancellationTokenSource.Token);
+		}
+
+		public void Despawn()
+		{
+			cancellationTokenSource.Cancel();
 		}
 
 		private void Update()
@@ -55,12 +64,16 @@ namespace SRS.Combat
 			Behavior.OnFixedUpdate(this);
 		}
 
-		private async void LifetimeTask()
+		private async void LifetimeTask(CancellationToken token)
 		{
-			timer = 0;
+			float timer = 0;
 
 			while(timer < lifetime)
 			{
+				if(token.IsCancellationRequested)
+				{
+					break;
+				}
 				timer += Time.deltaTime;
 				await Awaitable.NextFrameAsync();
 			}

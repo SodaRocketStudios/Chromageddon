@@ -1,3 +1,4 @@
+using SRS.Stats;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -29,8 +30,9 @@ namespace SRS.Combat
 
         protected override void CollisionTest(Attack attack)
         {
-            // TODO -- only cast as as far as the projectile will move
-            RaycastHit2D hit = Physics2D.Raycast(attack.transform.position, attack.transform.right, 1, attack.collisionMask);
+            RaycastHit2D hit = Physics2D.Raycast(attack.transform.position + attack.transform.localScale.x*attack.transform.right, attack.transform.right, speed*Time.deltaTime, attack.collisionMask);
+
+            Debug.DrawRay(attack.transform.position + attack.transform.localScale.x*attack.transform.right, attack.transform.right*speed*Time.deltaTime, Color.red);
 
             if(hit)
             {
@@ -42,7 +44,14 @@ namespace SRS.Combat
         {
             // TODO -- projectile on hit
             // apply damage
+            // either move the projectile to show an actual collision, or cover up the gap with particles
             // try to bounce and pierce
+            attack.Despawn();
+        }
+
+        public override float GetLifetime(StatContainer stats)
+        {
+            return stats["Range"].Value/speed;
         }
     }
 }
