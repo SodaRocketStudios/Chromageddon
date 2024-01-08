@@ -20,10 +20,9 @@ namespace SRS.Combat
 
 		protected void Hit(Attack attack, RaycastHit2D hit)
 		{
-			Debug.Log("hit");
 			HitHandler hitHandler;
 
-			attack.LastHitObject = hit.transform.gameObject;
+			attack.LastHitObject = hit.transform;
 
 			if(hit.transform.TryGetComponent(out hitHandler))
 			{

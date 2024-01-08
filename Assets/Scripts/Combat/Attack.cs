@@ -23,7 +23,7 @@ namespace SRS.Combat
 			}
 		}
 
-		[HideInInspector] public GameObject LastHitObject;
+		[HideInInspector] public Transform LastHitObject;
 
 		[SerializeField] private LayerMask ignoredLayers;
 

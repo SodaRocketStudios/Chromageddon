@@ -1,6 +1,4 @@
 using UnityEngine;
-using SRS.Stats;
-using System;
 
 namespace SRS.Combat
 {
@@ -75,22 +73,23 @@ namespace SRS.Combat
 
         private void Bounce(Attack attack, RaycastHit2D hit)
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(hit.point, attack.Stats["Range"].Value, attack.transform.right, 0, attack.collisionMask);
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(hit.point, attack.Stats["Range"].Value, attack.transform.right, 0, attack.collisionMask & ~(1 << LayerMask.NameToLayer("Walls")));
 
             attack.ResetLifetime();
 
             foreach(RaycastHit2D target in hits)
             {
-                if(target == attack.LastHitObject)
+                if(target.transform == attack.LastHitObject)
                 {
+                    Debug.Log("Same", target.transform);
                     continue;
                 }
 
-                Vector2 targetDirection = target.centroid - hit.point;
+                Vector2 targetDirection = (Vector2)target.transform.position - hit.point;
 
-                if(Vector2.Dot(targetDirection, hit.normal) >= 0)
+                if(Vector2.Angle(targetDirection, hit.normal) <= 90)
                 {
-                    attack.transform.right = target.centroid - (Vector2)attack.transform.position;
+                    attack.transform.right = target.transform.position - attack.transform.position;
                     return;
                 }
             }
