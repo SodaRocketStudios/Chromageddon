@@ -42,7 +42,6 @@ namespace SRS.Combat
                 if(hit.transform.gameObject != attack.LastHitObject)
                 {
                     Hit(attack, hit);
-                    attack.LastHitObject = hit.transform.gameObject;
                 }
             }
         }
@@ -76,7 +75,6 @@ namespace SRS.Combat
 
         private void Bounce(Attack attack, RaycastHit2D hit)
         {
-            // TODO -- reset lifetime timer.
             RaycastHit2D[] hits = Physics2D.CircleCastAll(hit.point, attack.Stats["Range"].Value, attack.transform.right, 0, attack.collisionMask);
 
             attack.ResetLifetime();

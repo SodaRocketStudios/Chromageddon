@@ -1,4 +1,3 @@
-using SRS.Stats;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -21,11 +20,16 @@ namespace SRS.Combat
 
 		protected void Hit(Attack attack, RaycastHit2D hit)
 		{
+			Debug.Log("hit");
 			HitHandler hitHandler;
-			if(hit.transform.TryGetComponent<HitHandler>(out hitHandler))
+
+			attack.LastHitObject = hit.transform.gameObject;
+
+			if(hit.transform.TryGetComponent(out hitHandler))
 			{
 				hitHandler.Hit(attack.Stats, attack.DamageType);
 			}
+
 			OnHit(attack, hit);
 		}
     }
