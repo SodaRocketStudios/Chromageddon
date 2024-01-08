@@ -15,6 +15,14 @@ namespace SRS.Combat
 
 		public LayerMask collisionMask {get; private set;}
 
+		public Vector2 spriteSize 
+		{
+			get
+			{
+				return spriteRenderer.sprite.bounds.extents;
+			}
+		}
+
 		[SerializeField] private LayerMask ignoredLayers;
 
 		private SpriteRenderer spriteRenderer;
@@ -38,7 +46,7 @@ namespace SRS.Combat
 			collisionMask &= ~(1 << attacker.layer);
 			
 			Stats = attacker.GetComponent<StatContainer>();
-			
+
 			lifetime = Behavior.GetLifetime(Stats);
 
 			Behavior.OnStart(this);

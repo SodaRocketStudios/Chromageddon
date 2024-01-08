@@ -19,6 +19,5 @@ MonoBehaviour:
   attackData:
     Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
     damageType: 0
-    Lifetime: 5
-    Sprite: {fileID: 1594436974, guid: 776894ee602342549b2cc0f748ee17b6, type: 3}
+    Sprite: {fileID: 1788604060, guid: 7bed9f664d2dbf146a58c7ddee45f22b, type: 3}
   attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}

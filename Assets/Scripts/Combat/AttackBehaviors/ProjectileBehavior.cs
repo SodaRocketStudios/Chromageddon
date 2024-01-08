@@ -30,9 +30,9 @@ namespace SRS.Combat
 
         protected override void CollisionTest(Attack attack)
         {
-            RaycastHit2D hit = Physics2D.Raycast(attack.transform.position + attack.transform.localScale.x*attack.transform.right, attack.transform.right, speed*Time.deltaTime, attack.collisionMask);
+            RaycastHit2D hit = Physics2D.Raycast(attack.transform.position + attack.spriteSize.x*attack.transform.right, attack.transform.right, speed*Time.deltaTime, attack.collisionMask);
 
-            Debug.DrawRay(attack.transform.position + attack.transform.localScale.x*attack.transform.right, attack.transform.right*speed*Time.deltaTime, Color.red);
+            Debug.DrawRay(attack.transform.position + attack.spriteSize.x*attack.transform.right, attack.transform.right*speed*Time.deltaTime, Color.red);
 
             if(hit)
             {
