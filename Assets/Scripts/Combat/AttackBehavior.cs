@@ -5,7 +5,7 @@ namespace SRS.Combat
 {
 	public abstract class AttackBehavior : ScriptableObject
 	{
-		public abstract float GetLifetime(StatContainer stats);
+		public abstract float GetLifetime(Attack attack);
 
 		public abstract void OnStart(Attack attack);
 

@@ -46,7 +46,7 @@ namespace SRS.Combat
             }
         }
 
-        public override float GetLifetime(StatContainer stats)
+        public override float GetLifetime(Attack attack)
         {
             throw new System.NotImplementedException();
         }

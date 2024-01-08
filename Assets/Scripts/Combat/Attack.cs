@@ -47,7 +47,7 @@ namespace SRS.Combat
 			
 			Stats = attacker.GetComponent<StatContainer>();
 
-			lifetime = Behavior.GetLifetime(Stats);
+			lifetime = Behavior.GetLifetime(this);
 
 			Behavior.OnStart(this);
 

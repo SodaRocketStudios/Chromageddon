@@ -49,9 +49,9 @@ namespace SRS.Combat
             attack.Despawn();
         }
 
-        public override float GetLifetime(StatContainer stats)
+        public override float GetLifetime(Attack attack)
         {
-            return stats["Range"].Value/speed;
+            return attack.Stats["Range"].Value/speed;
         }
     }
 }

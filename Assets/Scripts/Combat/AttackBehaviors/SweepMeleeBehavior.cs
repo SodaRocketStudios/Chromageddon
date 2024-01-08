@@ -9,12 +9,6 @@ namespace SRS.Combat
     {
         [SerializeField] private float sweepAngle;
 
-        public override float GetLifetime(StatContainer stats)
-        {
-            // TODO -- Setermine lifetime based on animations
-            return 1;
-        }
-
         public override void OnEnd(Attack attack)
         {
             throw new System.NotImplementedException();
@@ -43,6 +37,12 @@ namespace SRS.Combat
         protected override void OnHit(Attack attack, GameObject other)
         {
             throw new System.NotImplementedException();
+        }
+
+        public override float GetLifetime(Attack attack)
+        {
+            // TODO -- Setermine lifetime based on animations
+            return 1;
         }
     }
 }
