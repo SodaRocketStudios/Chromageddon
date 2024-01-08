@@ -49,9 +49,8 @@ namespace SRS.Combat
 
         protected override void OnHit(Attack attack, RaycastHit2D hit)
         {
-            // TODO -- projectile on hit
-            // apply damage
-            Debug.Log("hit");
+            HitHandler hitHandler = hit.transform.GetComponent<HitHandler>();
+            hitHandler.Hit(attack.Stats, attack.DamageType);
 
             if(TryBounce(attack, hit) || TryPierce())
             {
