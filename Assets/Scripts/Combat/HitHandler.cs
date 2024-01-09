@@ -21,9 +21,6 @@ namespace SRS.Combat
 			}
 		}
 
-		// TODO -- find a way to access the hit effect database
-		private HitEffectDatabase hitEffectDatabase;
-
 		private System.Random random = new(Guid.NewGuid().GetHashCode());
 
 		private void Awake()
@@ -40,8 +37,7 @@ namespace SRS.Combat
 		{
 			ApplyDamage(attackerStats["Damage"].Value, damageType);
 
-			// TODO -- Uncomment when hit effect database is in place
-			// TryOnHitEffects(attackerStats);
+			TryOnHitEffects(attackerStats);
 		}
 
 		public void Hit(float damage, DamageType damageType)
@@ -58,7 +54,7 @@ namespace SRS.Combat
 
 		private void TryOnHitEffects(StatContainer attackerStats)
 		{
-			foreach(IOnHitEffect effect in hitEffectDatabase.Effects)
+			foreach(IOnHitEffect effect in HitEffectDatabase.Effects)
 			{
 				float procCheck = random.NextFloat()*100;
 				
