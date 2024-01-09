@@ -40,5 +40,11 @@ namespace SRS.Utils
 				OnMaxChange?.Invoke(max);
 			}
 		}
+
+		public Fraction(float max, float current)
+		{
+			Max = max;
+			Current = current;
+		}
 	}
 }

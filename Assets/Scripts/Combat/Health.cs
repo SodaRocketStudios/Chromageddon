@@ -4,15 +4,17 @@ using SRS.Utils;
 
 namespace SRS.Combat
 {
-    public class Health : MonoBehaviour
+    [System.Serializable]
+    public class Health
     {
         public UnityEvent OnDeath;
 
         public Fraction Value;
 
-        public UnityEvent<float> OnCurrentChange;
-        public UnityEvent<float> OnMaxChange;
-
+        public Health(float max)
+        {
+            Value = new(max, max);
+        }
 
         public void Damage(float amount, DamageType damageType)
         {

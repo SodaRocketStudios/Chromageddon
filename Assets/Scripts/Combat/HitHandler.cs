@@ -11,8 +11,17 @@ namespace SRS.Combat
 		public UnityEvent<float> OnHit;
 
 		private StatContainer stats;
-		private Health health;
 
+		[SerializeField] private Health health;
+		public Health Health
+		{
+			get
+			{
+				return health;
+			}
+		}
+
+		// TODO -- find a way to access the hit effect database
 		private HitEffectDatabase hitEffectDatabase;
 
 		private System.Random random = new(Guid.NewGuid().GetHashCode());
@@ -20,16 +29,19 @@ namespace SRS.Combat
 		private void Awake()
 		{
 			stats = GetComponent<StatContainer>();
-			health = GetComponent<Health>();
+		}
 
-			hitEffectDatabase = FindAnyObjectByType<HitEffectDatabase>();
+		private void Start()
+		{
+			health = new(stats["Health"].Value);
 		}
 
 		public void Hit(StatContainer attackerStats, DamageType damageType)
 		{
 			ApplyDamage(attackerStats["Damage"].Value, damageType);
 
-			TryOnHitEffects(attackerStats);
+			// TODO -- Uncomment when hit effect database is in place
+			// TryOnHitEffects(attackerStats);
 		}
 
 		public void Hit(float damage, DamageType damageType)
