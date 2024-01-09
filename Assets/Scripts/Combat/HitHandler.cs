@@ -54,15 +54,6 @@ namespace SRS.Combat
 
 		private void TryOnHitEffects(StatContainer attackerStats)
 		{
-			foreach(IOnHitEffect effect in HitEffectDatabase.Effects)
-			{
-				float procCheck = random.NextFloat()*100;
-				
-				if(procCheck <= attackerStats[effect.ProcStat].Value)
-				{
-					effect.Trigger(gameObject);
-				}
-			}
 		}
 	}
 }
