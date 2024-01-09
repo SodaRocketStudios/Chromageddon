@@ -5,7 +5,7 @@ using SRS.Stats;
 namespace SRS.Combat.HitEffects
 {
 
-	[CreateAssetMenu(fileName = "New Hit Effect", menuName = "Combat/Hit Effect")]
+	[CreateAssetMenu(fileName = "New Hit Effect", menuName = "Combat/Hit Effects/Hit Effect")]
 	public class HitEffect : ScriptableObject
 	{
 		[SerializeField] private new string name;
@@ -16,11 +16,11 @@ namespace SRS.Combat.HitEffects
 
 		[SerializeField] private List<Effect> effects = new();
 
-		public void Trigger(EffectTracker tracker)
+		public void Trigger(GameObject target)
 		{
 			foreach(Effect effect in effects)
 			{
-				tracker.ApplyEffect(effect);
+				effect.Apply(target);
 			}
 		}
 
