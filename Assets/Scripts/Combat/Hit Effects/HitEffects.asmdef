@@ -1,6 +1,6 @@
 {
     "name": "HitEffects",
-    "rootNamespace": "SRS.Combat.StatusEffects",
+    "rootNamespace": "SRS.Combat.HitEffects",
     "references": [
         "GUID:4de3388e370f79c41ba22d393d7d68d3",
         "GUID:c0c3e2a1448ba0849ba06e2352bce7bf"
