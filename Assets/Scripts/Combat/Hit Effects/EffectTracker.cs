@@ -10,7 +10,7 @@ namespace SRS.Combat.HitEffects
 		public void ApplyEffect(Effect effect)
 		{
 			activeEffects.Add(effect);
-			effect.Apply(this);
+			effect.Apply(gameObject);
 		}
 	}
 }

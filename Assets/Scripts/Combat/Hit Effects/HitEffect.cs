@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using SRS.Stats;
 
 namespace SRS.Combat.HitEffects
 {
@@ -21,6 +22,11 @@ namespace SRS.Combat.HitEffects
 			{
 				tracker.ApplyEffect(effect);
 			}
+		}
+
+		public float GetProcChance(StatContainer stats)
+		{
+			return stats[procStat].Value;
 		}
 	}
 }

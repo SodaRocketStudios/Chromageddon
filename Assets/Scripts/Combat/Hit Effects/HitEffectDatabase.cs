@@ -7,11 +7,12 @@ namespace SRS.Combat.HitEffects
 	public class HitEffectDatabase : ScriptableObject
 	{
 		[SerializeField] private List<HitEffect> effects = new();
-		public static List<HitEffect> Effects = new();
-
-		private void Awake()
+		public List<HitEffect> Effects
 		{
-			Effects = effects;
+			get
+			{
+				return effects;
+			}
 		}
 	}
 }
