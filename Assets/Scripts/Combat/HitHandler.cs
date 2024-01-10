@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using SRS.Stats;
-using SRS.Extensions.Random;
 
 namespace SRS.Combat
 {
@@ -10,9 +9,12 @@ namespace SRS.Combat
 	{
 		public UnityEvent<float> OnHit;
 
-		private StatContainer stats;
+		public Action<StatContainer> TryHitEffects;
 
 		[SerializeField] private Health health;
+
+		private StatContainer stats;
+
 		public Health Health
 		{
 			get
@@ -37,7 +39,7 @@ namespace SRS.Combat
 		{
 			ApplyDamage(attackerStats["Damage"].Value, damageType);
 
-			TryOnHitEffects(attackerStats);
+			TryHitEffects?.Invoke(attackerStats);
 		}
 
 		public void Hit(float damage, DamageType damageType)
@@ -49,11 +51,7 @@ namespace SRS.Combat
 		{
 			health.Damage(amount, damageType);
 
-			OnHit?.Invoke(0); // Might make more sense for shield and health to handle most of these events
-		}
-
-		private void TryOnHitEffects(StatContainer attackerStats)
-		{
+			OnHit?.Invoke(amount); // Might make more sense for shield and health to handle most of these events
 		}
 	}
 }

@@ -9,10 +9,7 @@ namespace SRS.Combat.HitEffects
 		[SerializeField] private List<HitEffect> effects = new();
 		public List<HitEffect> Effects
 		{
-			get
-			{
-				return effects;
-			}
+			get => effects;
 		}
 	}
 }
