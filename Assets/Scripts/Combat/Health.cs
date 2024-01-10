@@ -1,24 +1,23 @@
-using UnityEngine;
-using UnityEngine.Events;
+using System;
 using SRS.Utils;
 
 namespace SRS.Combat
 {
-    [System.Serializable]
+    [Serializable]
     public class Health
     {
-        public UnityEvent OnDeath;
+        public Action OnDeath;
 
-        public Fraction Value;
-
-        public Health(float max)
-        {
-            Value = new(max, max);
-        }
+        public Fraction Value = new();
 
         public void Damage(float amount, DamageType damageType)
         {
             Value.Current -= amount;
+
+            if(Value.Current <= 0)
+            {
+                OnDeath?.Invoke();
+            }
         }
 
         public void Heal(float amount)
@@ -28,7 +27,7 @@ namespace SRS.Combat
 
         private void Regenerate()
         {
-            // Regenerate health over time. Might be easier with a coroutine.
+            // Regenerate health over time.
         }
     }
 }

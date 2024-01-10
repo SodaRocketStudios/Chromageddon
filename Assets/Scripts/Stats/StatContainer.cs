@@ -11,6 +11,11 @@ namespace SRS.Stats
         {
             get
             {
+                if(!initialized)
+                {
+                    Initialize();
+                }
+                
                 return stats[stat];
             }
         }

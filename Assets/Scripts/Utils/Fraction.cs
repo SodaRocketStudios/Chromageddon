@@ -41,10 +41,20 @@ namespace SRS.Utils
 			}
 		}
 
+		public Fraction()
+		{
+			
+		}
+
 		public Fraction(float max, float current)
 		{
 			Max = max;
 			Current = current;
+		}
+
+		public void SetCurrentToMax()
+		{
+			Current = Max;
 		}
 	}
 }

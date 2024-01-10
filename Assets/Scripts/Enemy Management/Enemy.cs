@@ -30,7 +30,11 @@ namespace SRS.EnemyManagement
 			rigidody = GetComponent<Rigidbody2D>();
 			collider = GetComponent<Collider2D>();
 			hitHandler = GetComponent<HitHandler>();
-			hitHandler.Health.OnDeath.AddListener(OnDeath);
+		}
+
+		private void Start()
+		{
+			hitHandler.Health.OnDeath += OnDeath;
 		}
 
         public void Initialize(EnemyData enemyData, int elitifications)

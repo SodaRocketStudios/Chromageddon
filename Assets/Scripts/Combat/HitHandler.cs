@@ -7,11 +7,11 @@ namespace SRS.Combat
 {
 	public class HitHandler : MonoBehaviour
 	{
-		public UnityEvent<float> OnHit;
+		public Action<float> OnHit;
 
 		public Action<StatContainer> TryHitEffects;
 
-		[SerializeField] private Health health;
+		[SerializeField] private Health health = new();
 
 		private StatContainer stats;
 
@@ -32,7 +32,8 @@ namespace SRS.Combat
 
 		private void Start()
 		{
-			health = new(stats["Health"].Value);
+			health.Value.Max = stats["Health"].Value;
+			health.Value.SetCurrentToMax();
 		}
 
 		public void Hit(StatContainer attackerStats, DamageType damageType)
