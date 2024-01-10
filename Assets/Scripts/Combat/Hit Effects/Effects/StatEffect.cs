@@ -10,8 +10,14 @@ namespace SRS.Combat.HitEffects
 
         public override void Apply(GameObject target)
         {
-            // TODO -- start timer to remove modifier when complete
-			statModifier.Apply(target.GetComponent<StatContainer>());
+            StatContainer stats = target.GetComponent<StatContainer>();
+            EffectTracker tracker = target.GetComponent<EffectTracker>();
+
+            if(stats != null && tracker != null)
+            {
+                tracker.AddEffect(this);
+			    statModifier.Apply(target.GetComponent<StatContainer>());
+            }
         }
 
 		public override void Remove(GameObject target)

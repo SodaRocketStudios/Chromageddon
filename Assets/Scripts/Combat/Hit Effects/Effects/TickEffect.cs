@@ -15,12 +15,16 @@ namespace SRS.Combat.HitEffects
 
         public override void Apply(GameObject target)
         {
-            // TODO -- add a tick effect object to the target.
+            EffectTracker tracker = target.GetComponent<EffectTracker>();
+
+            if(tracker != null)
+            {
+                tracker.AddEffect(this);
+            }
         }
 
 		public override void Remove(GameObject target)
 		{
-			// TODO -- remove the tick effect object from the target.
 		}
 
         public void Tick()

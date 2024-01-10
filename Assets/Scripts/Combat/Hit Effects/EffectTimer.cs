@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace SRS.Combat.HitEffects
 {
@@ -42,6 +43,11 @@ namespace SRS.Combat.HitEffects
 			}
 
 			timer += deltaTime;
+		}
+
+		public void RemoveEffect(GameObject target)
+		{
+			effect.Remove(target);
 		}
 
 		private void TryTick()

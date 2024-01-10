@@ -18,12 +18,13 @@ namespace SRS.Combat.HitEffects
 		public void AddEffect(LastingEffect effect)
 		{
 			EffectTimer timer = new(effect);
-			timer.OnTimerEnd += RemoveEffectTimer;
+			timer.OnTimerEnd += RemoveEffect;
 			activeEffectTimers.Add(timer);
 		}
 
-		public void RemoveEffectTimer(EffectTimer timer)
+		public void RemoveEffect(EffectTimer timer)
 		{
+			timer.RemoveEffect(gameObject);
 			activeEffectTimers.Remove(timer);
 		}
 	}
