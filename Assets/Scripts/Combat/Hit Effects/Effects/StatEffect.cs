@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace SRS.Combat.HitEffects
 {
-    public class StatEffect : Effect
+    [CreateAssetMenu(fileName = "New Stat Effect", menuName = "Combat/Hit Effects/Effects/Stat Effect")]
+    public class StatEffect : LastingEffect
     {
 		[SerializeField] private StatModifier statModifier;
 
@@ -13,7 +14,7 @@ namespace SRS.Combat.HitEffects
 			statModifier.Apply(target.GetComponent<StatContainer>());
         }
 
-		public void Remove(GameObject target)
+		public override void Remove(GameObject target)
 		{
 			statModifier.Remove(target.GetComponent<StatContainer>());
 		}
