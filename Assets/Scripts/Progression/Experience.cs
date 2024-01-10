@@ -18,6 +18,7 @@ namespace SRS.Progression
 			if(other.TryGetComponent(out level))
 			{
 				level.AddXP(value);
+				// TODO -- despawn XP.
 			}
 		}
 	}
