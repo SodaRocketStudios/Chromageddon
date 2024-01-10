@@ -15,9 +15,13 @@ namespace SRS.Combat.HitEffects
 
 		private float nextTickTime = 0;
 
-		public EffectTimer(LastingEffect effect)
+		private GameObject target;
+
+		public EffectTimer(LastingEffect effect, GameObject target)
 		{
 			this.effect = effect;
+
+			this.target = target;
 
 			TickEffect tickEffect = effect as TickEffect;
 
@@ -56,7 +60,7 @@ namespace SRS.Combat.HitEffects
 
 			if(timer >= nextTickTime)
 			{
-				tickEffect.Tick();
+				tickEffect.Tick(target);
 				nextTickTime += tickEffect.TickDelay;
 			}
 		}

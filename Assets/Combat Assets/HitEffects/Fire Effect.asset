@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67b51182cc146c846961a9d3a5554861, type: 3}
-  m_Name: Hit Effect Database
+  m_Script: {fileID: 11500000, guid: 288bebab70a6bb844b9262fc005e1852, type: 3}
+  m_Name: Fire Effect
   m_EditorClassIdentifier: 
+  name: Burn
+  description: 
+  procStat: Burn Chance
   effects:
-  - {fileID: 11400000, guid: c521ed9070be4f94289ad4a62f554023, type: 2}
+  - {fileID: 11400000, guid: f659c887461085e4fa11f4b1e4a57b04, type: 2}

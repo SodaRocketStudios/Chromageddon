@@ -2528,7 +2528,7 @@ MonoBehaviour:
     minimumValue: 0
   - name: Burn Chance
     baseValue: 1
-    percentageModifier: 0
+    percentageModifier: 100
     hasMaximum: 1
     maximumValue: 1
     hasMinimum: 0
@@ -4949,6 +4949,7 @@ GameObject:
   - component: {fileID: 1632691823}
   - component: {fileID: 1632691825}
   - component: {fileID: 1632691829}
+  - component: {fileID: 1632691830}
   - component: {fileID: 1632691827}
   - component: {fileID: 1632691828}
   - component: {fileID: 1632691809}
@@ -5288,6 +5289,19 @@ MonoBehaviour:
       OnMaxChange:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &1632691830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632691807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695309d08f0e1fb4f8e1f884d2158fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectDatabase: {fileID: 11400000, guid: 93669becaccfbc54996a487e553dff42, type: 2}
 --- !u!1 &1647827909
 GameObject:
   m_ObjectHideFlags: 0

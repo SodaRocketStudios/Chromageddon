@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67b51182cc146c846961a9d3a5554861, type: 3}
-  m_Name: Hit Effect Database
+  m_Script: {fileID: 11500000, guid: 0e56469a347dc58459f61cdd5ea0e55e, type: 3}
+  m_Name: Burn Damage Effect
   m_EditorClassIdentifier: 
-  effects:
-  - {fileID: 11400000, guid: c521ed9070be4f94289ad4a62f554023, type: 2}
+  description: 
+  duration: 2
+  tickDelay: 0.5
+  behavior: {fileID: 11400000, guid: bfb34203a43f8fa42863b068964c9f60, type: 2}

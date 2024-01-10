@@ -41,7 +41,7 @@ namespace SRS.Combat.HitEffects
 
 		public void AddEffect(LastingEffect effect)
 		{
-			EffectTimer timer = new(effect);
+			EffectTimer timer = new(effect, gameObject);
 			timer.OnTimerEnd += RemoveEffect;
 			activeEffectTimers.Add(timer);
 		}
@@ -57,10 +57,13 @@ namespace SRS.Combat.HitEffects
 			foreach(HitEffect effect in effectDatabase.Effects)
 			{
 				// TODO -- could I use the same random number for all effects?
-				float randomNumber = random.NextFloat()*100;
+				float randomNumber = random.NextFloat();
+
+				Debug.Log(effect.GetProcChance(attackerStats));
 
 				if(randomNumber <= effect.GetProcChance(attackerStats))
 				{
+					Debug.Log($"Trigger {effect.name}");
 					effect.Trigger(gameObject);
 				}
 			}

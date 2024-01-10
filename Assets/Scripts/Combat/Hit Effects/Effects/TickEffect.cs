@@ -11,7 +11,7 @@ namespace SRS.Combat.HitEffects
             get => tickDelay;
         }
 
-        private TickBehavior behavior;
+        [SerializeField] private TickBehavior behavior;
 
         public override void Apply(GameObject target)
         {
@@ -27,11 +27,11 @@ namespace SRS.Combat.HitEffects
 		{
 		}
 
-        public void Tick()
+        public void Tick(GameObject target)
         {
             if(behavior != null)
             {
-                behavior.Tick();
+                behavior.Tick(target);
             }
         }
     }
