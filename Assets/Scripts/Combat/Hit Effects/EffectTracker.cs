@@ -59,11 +59,8 @@ namespace SRS.Combat.HitEffects
 				// TODO -- could I use the same random number for all effects?
 				float randomNumber = random.NextFloat();
 
-				Debug.Log(effect.GetProcChance(attackerStats));
-
 				if(randomNumber <= effect.GetProcChance(attackerStats))
 				{
-					Debug.Log($"Trigger {effect.name}");
 					effect.Trigger(gameObject);
 				}
 			}
