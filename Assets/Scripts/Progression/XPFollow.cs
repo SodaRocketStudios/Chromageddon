@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace SRS.Utils
+namespace SRS.Progression
 {
-	public class TargetFollower : MonoBehaviour
+	public class XPFollow : MonoBehaviour
 	{
 		[SerializeField] private float maxSpeed;
 
@@ -10,7 +10,7 @@ namespace SRS.Utils
 
 		private float speed;
 
-		[SerializeField] private Transform target;
+		private Transform target;
 
 		public void SetTarget(Transform target)
 		{
@@ -29,13 +29,13 @@ namespace SRS.Utils
 		{
 			if(target == null)
 			{
-				// find target
+				speed = 0;
 				return;
 			}
-			
+
 			Vector2 direction;
 
-			direction = target.position - transform.position;
+			direction = (target.position - transform.position).normalized;
 
 			transform.Translate(direction*speed*Time.deltaTime);
 		}

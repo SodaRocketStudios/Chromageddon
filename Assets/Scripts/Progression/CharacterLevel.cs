@@ -18,7 +18,7 @@ namespace SRS.Progression
 
         private void Awake()
         {
-            // initialize requiredXP
+            // TODO -- initialize requiredXP
         }
 
         private void Start()
