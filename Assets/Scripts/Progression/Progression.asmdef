@@ -2,7 +2,8 @@
     "name": "Progression",
     "rootNamespace": "SRS.Progression",
     "references": [
-        "GUID:4de3388e370f79c41ba22d393d7d68d3"
+        "GUID:4de3388e370f79c41ba22d393d7d68d3",
+        "GUID:03781ec9c0cd794499fd8d5dd07a7327"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

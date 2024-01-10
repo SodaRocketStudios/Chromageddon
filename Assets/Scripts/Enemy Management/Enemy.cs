@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using SRS.Stats;
 using SRS.Combat;
@@ -11,12 +12,15 @@ namespace SRS.EnemyManagement
 		private bool ignoreRecycleRequests;
 		public bool IgnoreRecycleRequests => ignoreRecycleRequests;
 
+		public Action<Enemy> OnEnemyDeath;
+
 		private AIBrain brain;
 		private StatContainer statContainer;
 		private Weapon weapon;
 		private SpriteRenderer spriteRenderer;
 		private Rigidbody2D rigidody;
 		private new Collider2D collider;
+		private HitHandler hitHandler;
 
 		private void Awake()
 		{
@@ -25,6 +29,8 @@ namespace SRS.EnemyManagement
 			spriteRenderer = GetComponent<SpriteRenderer>();
 			rigidody = GetComponent<Rigidbody2D>();
 			collider = GetComponent<Collider2D>();
+			hitHandler = GetComponent<HitHandler>();
+			hitHandler.Health.OnDeath.AddListener(OnDeath);
 		}
 
         public void Initialize(EnemyData enemyData, int elitifications)
@@ -47,7 +53,9 @@ namespace SRS.EnemyManagement
 
 			Elitify(enemyData, elitifications);
 
-			//TODO -- does the collider need to be set up for different enemy types?
+			// TODO -- does the collider need to be set up for different enemy types?
+			// TODO -- Set enemy weapon
+			// TODO -- determine if i need rigidbody here.
         }
 
 		private void Elitify(EnemyData enemyData, int elitifications)
@@ -60,6 +68,11 @@ namespace SRS.EnemyManagement
 				}
 				elitifications--;
 			}
+		}
+
+		public void OnDeath()
+		{
+			OnEnemyDeath?.Invoke(this);
 		}
     }
 }

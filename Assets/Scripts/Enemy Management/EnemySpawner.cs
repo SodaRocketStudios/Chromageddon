@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using SRS.Utils.ObjectPooling;
+using SRS.Progression;
 using SRS.Extensions.Random;
 
 namespace SRS.EnemyManagement
@@ -24,6 +25,8 @@ namespace SRS.EnemyManagement
 
 		[SerializeField] private int initialPoints = 5;
 		[SerializeField, Min(1.001f)] private float pointsExponent;
+
+		[SerializeField] private XPSpawner xpSpawner;
 
 		private int pointsBase = 0;
 
@@ -96,6 +99,7 @@ namespace SRS.EnemyManagement
 					}
 
 					Enemy newEnemy = enemyPool.Get(locations[i]) as Enemy;
+					newEnemy.OnEnemyDeath += KillEnemy;
 					newEnemy.Initialize(enemy, elitifications);
 					activeEnemies.Add(newEnemy);
 					points -= enemy.Price*(int)Mathf.Pow(2, elitifications);
@@ -103,9 +107,16 @@ namespace SRS.EnemyManagement
 			}
 		}
 
+		public void KillEnemy(Enemy enemy)
+		{
+			xpSpawner.Spawn(enemy.transform.position);
+			Despawn(enemy);
+		}
+
 		public void Despawn(Enemy enemy)
 		{
 			activeEnemies.Remove(enemy);
+			enemy.OnEnemyDeath -= KillEnemy;
 			enemy.ReturnToPool();
 		}
 

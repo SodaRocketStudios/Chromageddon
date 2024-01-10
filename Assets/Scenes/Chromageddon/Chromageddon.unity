@@ -1081,6 +1081,7 @@ MonoBehaviour:
   timerMultiplier: 5
   initialPoints: 2
   pointsExponent: 1.25
+  xpSpawner: {fileID: 0}
 --- !u!1 &256207152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,63 +2329,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890519110}
   m_CullTransparentMesh: 1
---- !u!1001 &913133395
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 151217415699902905, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -32.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 151217415699902905, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 151217415699902905, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 151217415699902905, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 151217415699902905, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 151217415699902905, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 151217415699902905, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 151217415699902905, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 151217415699902905, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 151217415699902905, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569649224377884930, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
-      propertyPath: m_Name
-      value: XP Pickup
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a81fbf528d19e6e429546f1c9245ced0, type: 3}
 --- !u!1 &956442017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2562,7 +2506,7 @@ MonoBehaviour:
     minimumValue: 0
   - name: Burn Chance
     baseValue: 1
-    percentageModifier: 100
+    percentageModifier: 0
     hasMaximum: 1
     maximumValue: 1
     hasMinimum: 0
@@ -2596,7 +2540,7 @@ MonoBehaviour:
     hasMinimum: 0
     minimumValue: 0
   - name: Health
-    baseValue: 10
+    baseValue: 2
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0
@@ -6791,4 +6735,3 @@ SceneRoots:
   - {fileID: 160437731}
   - {fileID: 1632691820}
   - {fileID: 674138508}
-  - {fileID: 913133395}

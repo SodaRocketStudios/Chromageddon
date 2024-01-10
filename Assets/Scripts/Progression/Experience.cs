@@ -1,10 +1,11 @@
 using UnityEngine;
+using SRS.Utils.ObjectPooling;
 
 namespace SRS.Progression
 {
-	public class Experience : MonoBehaviour
+	public class Experience : PooledObject
 	{
-		private int value;
+		private int value = 0;
 
 		public void AddValue(int amount)
 		{
@@ -18,7 +19,7 @@ namespace SRS.Progression
 			if(other.TryGetComponent(out level))
 			{
 				level.AddXP(value);
-				// TODO -- despawn XP.
+				gameObject.SetActive(false);
 			}
 		}
 	}
