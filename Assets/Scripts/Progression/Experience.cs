@@ -12,7 +12,7 @@ namespace SRS.Progression
 			value += amount;
 		}
 
-		private void OnTriggerEnter(Collider other)
+		private void OnTriggerEnter2D(Collider2D other)
 		{
 			CharacterLevel level;
 

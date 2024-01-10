@@ -62,7 +62,7 @@ namespace SRS.Progression
         private void FindPlayer()
 		{
 			player = GameObject.FindGameObjectWithTag("Player").transform;
-			attractionRange = player.GetComponent<StatContainer>()["Attraction Range"].Value;
+			attractionRange = player.GetComponent<StatContainer>()["Pickup Range"].Value;
 		}
 	}
 }

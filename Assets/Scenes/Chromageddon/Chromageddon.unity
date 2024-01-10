@@ -2497,13 +2497,6 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
-  - name: Attraction Range
-    baseValue: 2
-    percentageModifier: 100
-    hasMaximum: 0
-    maximumValue: 0
-    hasMinimum: 0
-    minimumValue: 0
   - name: Burn Chance
     baseValue: 1
     percentageModifier: 0
@@ -2554,11 +2547,11 @@ MonoBehaviour:
     hasMinimum: 0
     minimumValue: 0
   - name: Pickup Range
-    baseValue: 5
+    baseValue: 2.5
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0
-    hasMinimum: 0
+    hasMinimum: 1
     minimumValue: 0
   - name: Poison Chance
     baseValue: 1
