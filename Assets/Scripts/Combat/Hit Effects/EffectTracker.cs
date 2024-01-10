@@ -17,7 +17,9 @@ namespace SRS.Combat.HitEffects
 
 		public void AddEffect(LastingEffect effect)
 		{
-			activeEffectTimers.Add(new EffectTimer(effect));
+			EffectTimer timer = new(effect);
+			timer.OnTimerEnd += RemoveEffectTimer;
+			activeEffectTimers.Add(timer);
 		}
 
 		public void RemoveEffectTimer(EffectTimer timer)

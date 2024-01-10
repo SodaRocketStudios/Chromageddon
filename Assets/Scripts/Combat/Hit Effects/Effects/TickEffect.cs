@@ -6,6 +6,10 @@ namespace SRS.Combat.HitEffects
     public class TickEffect : LastingEffect
     {
         [SerializeField] private float tickDelay;
+        public float TickDelay
+        {
+            get => tickDelay;
+        }
 
         private TickBehavior behavior;
 
