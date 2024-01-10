@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using SRS.Stats;
+using SRS.Extensions.Random;
 
 namespace SRS.Combat.HitEffects
 {
@@ -11,6 +13,8 @@ namespace SRS.Combat.HitEffects
 		private HitHandler hitHandler;
 
 		private List<EffectTimer> activeEffectTimers = new();
+
+		private static System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
 
 		private void Awake()
 		{
@@ -52,7 +56,13 @@ namespace SRS.Combat.HitEffects
 		{
 			foreach(HitEffect effect in effectDatabase.Effects)
 			{
-				// try to apply the effect based on attacker stats.
+				// TODO -- could I use the same random number for all effects?
+				float randomNumber = random.NextFloat()*100;
+
+				if(randomNumber <= effect.GetProcChance(attackerStats))
+				{
+					effect.Trigger(gameObject);
+				}
 			}
 		}
 	}
