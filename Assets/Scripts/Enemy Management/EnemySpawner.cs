@@ -24,7 +24,8 @@ namespace SRS.EnemyManagement
 		private float spawnTimer = 0;
 
 		[SerializeField] private int initialPoints = 5;
-		[SerializeField, Min(1.001f)] private float pointsExponent;
+		[SerializeField, Min(1.001f)] private float pointsMultiplier;
+		private float pointsExponent = 1;
 
 		[SerializeField] private XPSpawner xpSpawner;
 
@@ -67,8 +68,8 @@ namespace SRS.EnemyManagement
         [ContextMenu("SpawnEnemies")]
 		public void SpawnWave()
 		{
-			int points = (int)Mathf.Pow(pointsBase, pointsExponent) + initialPoints;
-			pointsBase++;
+			int points = initialPoints*(int)Mathf.Pow(pointsMultiplier, pointsExponent);
+			pointsExponent++;
 
 			while(points >= 1)
 			{

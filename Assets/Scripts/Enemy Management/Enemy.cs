@@ -48,15 +48,19 @@ namespace SRS.EnemyManagement
 
 			statContainer.ResetStats();
 
+
 			foreach(StatModifier modifier in enemyData.InitialStats)
 			{
 				modifier.Apply(statContainer);
 			}
 
+			weapon.Equip(statContainer);
+
 			ignoreRecycleRequests = enemyData.IgnoreRecycleRequests;
 
 			Elitify(enemyData, elitifications);
 
+			hitHandler.Initialize();
 			// TODO -- does the collider need to be set up for different enemy types?
 			// TODO -- Set enemy weapon
 			// TODO -- determine if i need rigidbody here.

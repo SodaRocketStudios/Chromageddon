@@ -31,7 +31,7 @@ namespace SRS.Progression
         {
             currentXP += amount;
 
-            if(currentXP >= requiredXP)
+            while(currentXP >= requiredXP)
             {
                 LevelUp();
             }

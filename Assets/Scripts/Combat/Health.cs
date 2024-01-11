@@ -25,6 +25,11 @@ namespace SRS.Combat
             Value.Current += amount;
         }
 
+        public void SetToMax()
+        {
+            Value.SetCurrentToMax();
+        }
+
         private void Regenerate()
         {
             // Regenerate health over time.

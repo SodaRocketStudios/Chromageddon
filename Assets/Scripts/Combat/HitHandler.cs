@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 using SRS.Stats;
 
 namespace SRS.Combat
@@ -23,8 +22,6 @@ namespace SRS.Combat
 			}
 		}
 
-		private System.Random random = new(Guid.NewGuid().GetHashCode());
-
 		private void Awake()
 		{
 			stats = GetComponent<StatContainer>();
@@ -32,8 +29,14 @@ namespace SRS.Combat
 
 		private void Start()
 		{
+			Initialize();
+		}
+
+		public void Initialize()
+		{
 			health.Value.Max = stats["Health"].Value;
 			health.Value.SetCurrentToMax();
+			stats["Health"].OnChanged += HandleHealthChange;
 		}
 
 		public void Hit(StatContainer attackerStats, DamageType damageType)
@@ -53,6 +56,11 @@ namespace SRS.Combat
 			health.Damage(amount, damageType);
 
 			OnHit?.Invoke(amount); // Might make more sense for shield and health to handle most of these events
+		}
+
+		private void HandleHealthChange(float maxHealth)
+		{
+			health.Value.Max = maxHealth;
 		}
 	}
 }

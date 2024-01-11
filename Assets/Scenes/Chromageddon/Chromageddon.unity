@@ -1080,7 +1080,7 @@ MonoBehaviour:
   spawnDelay: 10
   timerMultiplier: 5
   initialPoints: 2
-  pointsExponent: 1.25
+  pointsMultiplier: 1.1
   xpSpawner: {fileID: 2015734298}
 --- !u!1 &256207152
 GameObject:
@@ -4923,6 +4923,7 @@ GameObject:
   - component: {fileID: 1632691830}
   - component: {fileID: 1632691827}
   - component: {fileID: 1632691828}
+  - component: {fileID: 1632691831}
   - component: {fileID: 1632691809}
   - component: {fileID: 1632691822}
   - component: {fileID: 1632691808}
@@ -5267,6 +5268,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectDatabase: {fileID: 11400000, guid: 93669becaccfbc54996a487e553dff42, type: 2}
+--- !u!114 &1632691831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632691807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6ae7256ae3e784e8d3825f6d1a6825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1647827909
 GameObject:
   m_ObjectHideFlags: 0
