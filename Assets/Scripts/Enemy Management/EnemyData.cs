@@ -13,7 +13,7 @@ namespace SRS.EnemyManagement
 		// store all data needed to spawn an enemy.
 		public Weapon Weapon;
 		public List<StatModifier> InitialStats;
-		public List<EliteStatModifier> EliteModifiers;
+		public List<StatModifier> EliteModifiers;
 		[Min(1)] public int Price;
 		[Min(1)] public int MaxGroupSize;
 		public bool IgnoreRecycleRequests;

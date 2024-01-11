@@ -16,7 +16,7 @@ MonoBehaviour:
   InitialStats:
   - {fileID: 11400000, guid: f3a41ae165792af45b536c95d09ecd5e, type: 2}
   EliteModifiers:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 89a785e22e7448c49acc27fddeb2b4b1, type: 2}
   Price: 1
   MaxGroupSize: 10
   IgnoreRecycleRequests: 0

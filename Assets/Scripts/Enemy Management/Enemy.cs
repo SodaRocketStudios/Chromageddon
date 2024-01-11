@@ -73,7 +73,7 @@ namespace SRS.EnemyManagement
 		{
 			while(elitifications > 0)
 			{
-				foreach(EliteStatModifier modifier in enemyData.EliteModifiers)
+				foreach(StatModifier modifier in enemyData.EliteModifiers)
 				{
 					modifier.Apply(statContainer);
 				}
