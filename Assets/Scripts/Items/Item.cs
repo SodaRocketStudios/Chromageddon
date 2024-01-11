@@ -7,8 +7,14 @@ namespace SRS.Items
 	[CreateAssetMenu(fileName = "New Item", menuName = "Items/Item")]
 	public class Item : EquipableObject
 	{
-		private ItemRarity rarity;
-		private List<string> tags;
+		// TODO -- figure out how to trigger item behaviors at the right time.
+		// Item behaviors can be broken into different types like on hit, on heal, etc.
+		// then they can subscribe to the correct events.
+		[SerializeField] private List<ItemBehavior> beahviors;
+
+		[SerializeField] private ItemRarity rarity;
+
+		[SerializeField] private List<string> tags;
 
 		public void Apply(StatContainer stats)
 		{
@@ -23,13 +29,11 @@ namespace SRS.Items
         protected override void OnEquip(StatContainer container)
         {
 			// TODO -- On Item Equip
-            throw new System.NotImplementedException();
         }
 
         protected override void OnUnequip(StatContainer container)
         {
 			// TODO -- OnItemUnequip
-            throw new System.NotImplementedException();
         }
     }
 

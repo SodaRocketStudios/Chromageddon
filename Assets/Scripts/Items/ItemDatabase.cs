@@ -6,7 +6,7 @@ namespace SRS.Items
 	[CreateAssetMenu(fileName = "New Item Database", menuName = "Items/Database")]
 	public class ItemDatabase : ScriptableObject
 	{
-		private List<Item> items;
+		[SerializeField] private List<Item> items;
 		public List<Item> Items
 		{
 			get => items;
