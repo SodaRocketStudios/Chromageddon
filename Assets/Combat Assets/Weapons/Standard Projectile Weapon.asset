@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Standard Projectile Weapon
   sprite: {fileID: 0}
-  modifiers: []
+  modifiers:
+  - {fileID: 11400000, guid: f1093d587d842544b84ccd078fd9eb66, type: 2}
   description: 
   attackData:
     Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}

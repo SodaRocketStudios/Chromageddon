@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
-  m_Name: Test Projectile Weapon
+  m_Name: Test Weapon
   m_EditorClassIdentifier: 
   name: Test
   sprite: {fileID: 0}
   modifiers: []
   description: 
   attackData:
-    Behavior: {fileID: 11400000, guid: 4252b90f79fc9ef4590e9dd6d260b0ff, type: 2}
+    Behavior: {fileID: 11400000, guid: 409ccb040ef10804dbfb2437e2d27cd4, type: 2}
     damageType: 0
-    Lifetime: 5
     Sprite: {fileID: 1649147078, guid: 633188d6754abdf47b78b051db06736e, type: 3}
   attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}

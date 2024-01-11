@@ -36,6 +36,14 @@ namespace SRS.Combat
 			input = GetComponent<IInputSource>();
 		}
 
+		private void Start()
+		{
+			if(weapon != null)
+			{
+				weapon.Equip(stats);
+			}
+		}
+
 		private void Attack()
 		{
 			if(weapon == null)

@@ -9,16 +9,6 @@ namespace SRS.Combat
     {
         [SerializeField] private float sweepAngle;
 
-        public override void OnEnd(Attack attack)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void OnFixedUpdate(Attack attack)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public override void OnStart(Attack attack)
         {
             throw new System.NotImplementedException();
@@ -29,8 +19,19 @@ namespace SRS.Combat
             throw new System.NotImplementedException();
         }
 
+        public override void OnFixedUpdate(Attack attack)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void OnEnd(Attack attack)
+        {
+            throw new System.NotImplementedException();
+        }
+
         protected override void CollisionTest(Attack attack)
         {
+            //TODO -- get all eneies within attack arc.
             throw new System.NotImplementedException();
         }
 
@@ -41,7 +42,7 @@ namespace SRS.Combat
 
         public override float GetLifetime(Attack attack)
         {
-            // TODO -- Setermine lifetime based on animations
+            // TODO -- Determine lifetime based on animations
             return 1;
         }
     }
