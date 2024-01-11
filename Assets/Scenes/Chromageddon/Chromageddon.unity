@@ -1948,8 +1948,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2021412564}
-        m_TargetAssemblyTypeName: SRS.GameManager.Game, GameManager
+      - m_Target: {fileID: 2021412571}
+        m_TargetAssemblyTypeName: SRS.GameManagement.Game, GameManagement
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -2129,8 +2129,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2021412564}
-        m_TargetAssemblyTypeName: SRS.GameManager.Game, GameManager
+      - m_Target: {fileID: 2021412571}
+        m_TargetAssemblyTypeName: SRS.GameManagement.Game, GameManagement
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -3185,7 +3185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1027.2611, y: -703.5238}
+  m_AnchoredPosition: {x: 644.9229, y: -1102.4226}
   m_SizeDelta: {x: 381.25, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105410188
@@ -3937,7 +3937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1027.2611, y: -96}
+  m_AnchoredPosition: {x: 644.9229, y: -96}
   m_SizeDelta: {x: 663, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1431686361
@@ -6034,7 +6034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1027.2611, y: -397.7619}
+  m_AnchoredPosition: {x: 644.9229, y: -597.2113}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1790210939
@@ -6430,8 +6430,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2021412568}
-  - component: {fileID: 2021412564}
-  - component: {fileID: 2021412567}
+  - component: {fileID: 2021412571}
+  - component: {fileID: 2021412570}
   - component: {fileID: 2021412569}
   - component: {fileID: 2021412565}
   m_Layer: 0
@@ -6441,18 +6441,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2021412564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021412563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 388f46693e16c014fbe873f34db160b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2021412565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6467,33 +6455,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorTexture: {fileID: 2800000, guid: 29e35d85149e9914eb93634a560c1de5, type: 3}
   cursorMode: 0
---- !u!114 &2021412567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021412563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f89931c3f35901d40ac1fe194c5deb7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTimeUpdate:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 10018073}
-        m_TargetAssemblyTypeName: SRS.UI.FloatDisplay, UI
-        m_MethodName: UpdateDisplay
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &2021412568
 Transform:
   m_ObjectHideFlags: 0
@@ -6519,6 +6480,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee803e6fd8c4810418b942a61902f55a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2021412570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021412563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518fdce8127666945b12f21a5609a5ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTimeUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 10018073}
+        m_TargetAssemblyTypeName: SRS.UI.FloatDisplay, UIV1
+        m_MethodName: UpdateDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2021412571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021412563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67aa2f27de773bb42b5b2d683e77dc03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2113922357
