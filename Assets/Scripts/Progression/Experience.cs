@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using SRS.Utils.ObjectPooling;
 
@@ -5,11 +6,19 @@ namespace SRS.Progression
 {
 	public class Experience : PooledObject
 	{
-		private int value = 0;
+		public Action<Experience> OnPickup;
 
-		public void AddValue(int amount)
+		private int value = 0;
+		public int Value
 		{
-			value += amount;
+			get
+			{
+				return value;
+			}
+			set
+			{
+				this.value = value;
+			}
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)
@@ -19,7 +28,7 @@ namespace SRS.Progression
 			if(other.TryGetComponent(out level))
 			{
 				level.AddXP(value);
-				gameObject.SetActive(false);
+				OnPickup?.Invoke(this);
 			}
 		}
 	}
