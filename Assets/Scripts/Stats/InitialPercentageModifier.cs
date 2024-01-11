@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SRS.Stats
 {
-    [CreateAssetMenu(fileName = "New Initial Percentage Modifier", menuName = "Stats/Initial Precentage Modifier")]
+    [CreateAssetMenu(fileName = "New Initial Percentage Modifier", menuName = "Stats/Modifiers/Initial Precentage Modifier")]
     public class InitialPercentageModifier : StatModifier
     {
 		private float oldValue;
