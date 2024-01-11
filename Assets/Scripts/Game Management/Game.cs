@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace SRS.GameManagement
@@ -6,7 +7,9 @@ namespace SRS.GameManagement
 	{
 		public static Game Instance;
 
-		public bool Paused{get; private set;} = false;
+		public bool Running{get; private set;} = false;
+
+		public Action<bool> OnPlayPause;
 
 		private void Awake()
 		{
@@ -25,13 +28,15 @@ namespace SRS.GameManagement
 		public void Pause()
 		{
 			Time.timeScale = 0;
-			Paused = true;
+			Running = false;
+			OnPlayPause?.Invoke(Running);
 		}
 
 		public void Play()
 		{
 			Time.timeScale = 1;
-			Paused = false;
+			Running = true;
+			OnPlayPause?.Invoke(Running);
 		}
 
 		public void Quit()

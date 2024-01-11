@@ -63,6 +63,11 @@ namespace SRS.Input
             mainCamera = Camera.main;
         }
 
+        private void OnEnable()
+        {
+            Game.Instance.OnPlayPause += SetControlsActive;
+        }
+
         public void SetControlsActive(bool isActive)
         {
             MovementEnabled = isActive;
