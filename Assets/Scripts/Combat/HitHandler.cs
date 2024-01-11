@@ -58,9 +58,14 @@ namespace SRS.Combat
 			OnHit?.Invoke(amount); // Might make more sense for shield and health to handle most of these events
 		}
 
-		private void HandleHealthChange(float maxHealth)
+		private void HandleHealthChange(float newMax)
 		{
-			health.Value.Max = maxHealth;
+			if(newMax <= 0)
+			{
+				health.FilledChange(1);
+			}
+			
+			health.FilledChange(newMax);
 		}
 	}
 }

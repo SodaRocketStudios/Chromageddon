@@ -15,7 +15,8 @@ MonoBehaviour:
   Weapon: {fileID: 11400000, guid: d569be52c37ca8441be31f7e4da80f52, type: 2}
   InitialStats:
   - {fileID: 11400000, guid: f3a41ae165792af45b536c95d09ecd5e, type: 2}
-  EliteModifiers: []
+  EliteModifiers:
+  - {fileID: 0}
   Price: 1
   MaxGroupSize: 10
   IgnoreRecycleRequests: 0

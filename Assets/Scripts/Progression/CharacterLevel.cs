@@ -11,7 +11,7 @@ namespace SRS.Progression
 
         private int level;
 
-        private float requiredXP;
+        private float requiredXP = 5;
         private float currentXP = 0;
 
         private float requirementMultiplier = 1.2f;

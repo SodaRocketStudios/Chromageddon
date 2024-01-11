@@ -68,6 +68,11 @@ namespace SRS.Input
             Game.Instance.OnPlayPause += SetControlsActive;
         }
 
+        private void OnDisable()
+        {
+            Game.Instance.OnPlayPause -= SetControlsActive;
+        }
+
         public void SetControlsActive(bool isActive)
         {
             MovementEnabled = isActive;

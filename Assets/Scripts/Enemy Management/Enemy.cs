@@ -3,6 +3,7 @@ using UnityEngine;
 using SRS.Stats;
 using SRS.Combat;
 using SRS.Utils.ObjectPooling;
+using SRS.Utils;
 using SRS.AI;
 
 namespace SRS.EnemyManagement
@@ -61,6 +62,8 @@ namespace SRS.EnemyManagement
 			Elitify(enemyData, elitifications);
 
 			hitHandler.Initialize();
+
+			Debug.Log(hitHandler.Health.Value.Max);
 			// TODO -- does the collider need to be set up for different enemy types?
 			// TODO -- Set enemy weapon
 			// TODO -- determine if i need rigidbody here.

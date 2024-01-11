@@ -20,6 +20,14 @@ namespace SRS.Combat
             }
         }
 
+        public bool IsFull
+        {
+            get
+            {
+                return Value.Current >= Value.Max;
+            }
+        }
+
         public void Heal(float amount)
         {
             Value.Current += amount;
@@ -29,6 +37,18 @@ namespace SRS.Combat
         {
             Value.SetCurrentToMax();
         }
+
+        public void FilledChange(float newMax)
+		{
+            float previousMax = Value.Max;
+			UnfilledChange(newMax);
+            Value.Current += Value.Max - previousMax;
+		}
+
+		public void UnfilledChange(float newMax)
+		{
+			Value.Max = newMax;
+		}
 
         private void Regenerate()
         {
