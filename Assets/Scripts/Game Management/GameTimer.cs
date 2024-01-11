@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SRS.GameManager
+namespace SRS.GameManagement
 {
 	public class GameTimer : MonoBehaviour
 	{
