@@ -14,6 +14,8 @@ namespace SRS.Stats
 
 		public void Select()
 		{
+			// TODO -- make different buttons for the different types of equipable objects.
+			// weapons need to apply to attack manager, while items go into inventory, so they act differently.
 			equipableObject.Equip(targetStats);
 		}
 	}
