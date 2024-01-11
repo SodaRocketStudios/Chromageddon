@@ -25,7 +25,6 @@ namespace SRS.GameManagement
 
 		private TimerState state;
 
-
 		private void Awake()
 		{
 			if(Instance == null)
