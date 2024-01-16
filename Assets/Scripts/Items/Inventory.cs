@@ -12,6 +12,11 @@ namespace SRS.Items
 
 		public void Add(Item item)
 		{
+			if(item == null)
+			{
+				return;
+			}
+			
 			items.Add(item);
 			item.Apply(stats);
 		}

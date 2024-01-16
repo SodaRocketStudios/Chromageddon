@@ -13,6 +13,7 @@ namespace SRS.UI
 
         public UnityEvent<float> OnHoldUpdated;
         public UnityEvent OnHoldCompleted;
+        public UnityEvent OnCompleted;
         public UnityEvent OnPointerEnterEvent;
         public UnityEvent OnPointerExitEvent;
         public UnityEvent OnPointerUpEvent;
@@ -21,12 +22,14 @@ namespace SRS.UI
         public UnityEvent OnPointerHoverEndEvent;
 
         private float timeHeld = 0;
-        private float holdPercentage = 0;
+        private float holdProgress = 0;
         private bool isHeld = false;
 
         private float hoverTime;
         private bool isHovering = false;
         private bool wasHovering = false;
+
+        private bool holdComplete = false;
 
         private Mouse mouse;
         private new Camera camera;
@@ -41,9 +44,12 @@ namespace SRS.UI
         {
             if(isHeld)
             {
-                HandleHold();
+                if(!holdComplete)
+                {
+                    HandleHold();
+                }
             }
-            else if(holdPercentage > 0)
+            else if(holdProgress > 0)
             {
                 HandleRelease();
             }
@@ -79,6 +85,7 @@ namespace SRS.UI
         {
             isHeld = false;
             isHovering = true;
+            holdComplete = false;
             OnPointerUpEvent?.Invoke();
         }
 
@@ -92,23 +99,29 @@ namespace SRS.UI
         {
             timeHeld += Time.unscaledDeltaTime;
 
-            holdPercentage = Mathf.Clamp01(timeHeld/holdTime);
+            holdProgress = Mathf.Clamp01(timeHeld/holdTime);
 
-            OnHoldUpdated?.Invoke(holdPercentage);
+            OnHoldUpdated?.Invoke(holdProgress);
 
-            if(holdPercentage >= 1)
+            if(holdProgress >= 1)
             {
+                holdComplete = true;
                 OnHoldCompleted?.Invoke();
             }
         }
 
         private void HandleRelease()
         {
+            if(holdProgress >= 1)
+            {
+                OnCompleted?.Invoke();
+            }
+
             timeHeld -= Time.unscaledDeltaTime;
 
-            holdPercentage = Mathf.Clamp01(timeHeld/holdTime);
+            holdProgress = Mathf.Clamp01(timeHeld/holdTime);
 
-            OnHoldUpdated?.Invoke(holdPercentage);
+            OnHoldUpdated?.Invoke(holdProgress);
         }
 
         private void HandleHover()

@@ -113,6 +113,9 @@ MonoBehaviour:
         m_CallState: 2
   OnHoldCompleted:
     m_PersistentCalls:
+      m_Calls: []
+  OnCompleted:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4662996234035581839}
         m_TargetAssemblyTypeName: SRS.Items.ItemSelectionButton, Items
