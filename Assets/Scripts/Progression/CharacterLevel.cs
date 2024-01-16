@@ -5,11 +5,18 @@ namespace SRS.Progression
 {
     public class CharacterLevel : MonoBehaviour
     {
-        public UnityEvent<int> OnLevelUp;
+        public UnityEvent<CharacterLevel> OnLevelUp;
         public UnityEvent<float> OnCurrentXPChange;
         public UnityEvent<float> OnRequiredXPChange;
 
         private int level;
+        public int Level
+        {
+            get
+            {
+                return level;
+            }
+        }
 
         private float requiredXP = 2;
         private float currentXP = 0;
@@ -46,7 +53,7 @@ namespace SRS.Progression
 
             CalculateRequiredXP();
 
-            OnLevelUp?.Invoke(level);
+            OnLevelUp?.Invoke(this);
         }
 
         private void CalculateRequiredXP()

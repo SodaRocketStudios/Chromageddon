@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace SRS.Items
@@ -7,12 +8,11 @@ namespace SRS.Items
 		private Item item;
 		public Item Item {get; set;}
 
-		private Inventory targetInventory;
-		public Inventory TargetInventory {get; set;}
+		public Action<Item> OnSelect;
 
 		public void Select()
 		{
-			targetInventory.Add(item);
+			OnSelect?.Invoke(item);
 		}
 	}
 }
