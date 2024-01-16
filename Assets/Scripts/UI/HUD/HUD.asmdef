@@ -1,9 +1,7 @@
 {
     "name": "HUD",
     "rootNamespace": "SRS.HUD",
-    "references": [
-        "GUID:5c2662502320e7847a97500964b161cf"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
