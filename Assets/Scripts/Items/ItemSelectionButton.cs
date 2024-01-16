@@ -10,7 +10,7 @@ namespace SRS.Items
 		private Inventory targetInventory;
 		public Inventory TargetInventory {get; set;}
 
-		public void HandleClick()
+		public void Select()
 		{
 			targetInventory.Add(item);
 		}
