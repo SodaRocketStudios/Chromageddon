@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using SRS.GameManagement;
 using SRS.Progression;
-using System;
 
 namespace SRS.Items
 {
@@ -45,7 +44,7 @@ namespace SRS.Items
 
 			targetInventory = levelScript.GetComponent<Inventory>();
 
-			float points = CalculatePoints();
+			float points = CalculatePoints(levelScript);
 
 			PopulateChoices(points);
 			// TODO -- Set proper gradient on buttons based on item rarity.
@@ -59,6 +58,10 @@ namespace SRS.Items
 				// button.Item = GetItem
 
 				// TODO -- set gradient colors on button based on item rarity.
+
+
+				// Select rarity randomly based on points
+				// select item of rarity
 			}
 		}
 
@@ -80,12 +83,13 @@ namespace SRS.Items
             Close();
         }
 
-        private float CalculatePoints()
+        private float CalculatePoints(CharacterLevel levelScript)
         {
 			// TODO -- determine points based on character level
 			// Could also add luck stat into points. luck is converted to a multiplier by sigmoid function.
 			// Should game time play a role in this too so that players get a boost if they are behind?
-            return 0;
+			float points = levelScript.Level;
+            return points;
         }
 
         private void SetButtonsActive(bool active)

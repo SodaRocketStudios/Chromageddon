@@ -36,12 +36,4 @@ namespace SRS.Items
 			// TODO -- OnItemUnequip
         }
     }
-
-    enum ItemRarity
-    {
-		Common,
-		Uncommon,
-		Rare,
-		Legendary
-    }
 }
