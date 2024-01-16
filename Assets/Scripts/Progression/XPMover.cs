@@ -1,35 +1,34 @@
 using UnityEngine;
 using SRS.Stats;
-using System;
 
 namespace SRS.Progression
 {
-	public class XPFollow : MonoBehaviour
+	public class XPMover : MonoBehaviour
 	{
 		[SerializeField] private float maxSpeed;
 
 		[SerializeField] private float acceleration;
 
+		private float attractionRange;
+
 		private float speed = 0;
 
 		private Transform player;
 
-		private Vector3 target;
-
-		private float attractionRange;
-
 		private bool inRange = false;
-
-		private bool isMerging = false;
 
 		private void OnEnable()
 		{
 			speed = 0;
 			inRange = false;
-			isMerging = false;
 		}
 
 		private void Update()
+		{
+			MoveTowardTarget();
+		}
+
+		private void MoveTowardTarget()
 		{
 			if(player == null)
 			{
@@ -38,35 +37,15 @@ namespace SRS.Progression
 				return;
 			}
 
-			if(isMerging)
-			{
-				speed = maxSpeed;
-				MoveTowardTarget();
-			}
-
 			if(!inRange)
 			{
 				CheckRange();
-				speed = 0;
 				return;
 			}
 
-			target = player.transform.position;
-
-			MoveTowardTarget();
-		}
-
-		public void StartMerge(Vector3 targetLocation)
-		{
-			isMerging = true;
-			target = targetLocation;
-		}
-
-        private void MoveTowardTarget()
-		{
 			Vector2 direction;
 
-			direction = (target - transform.position).normalized;
+			direction = (player.position - transform.position).normalized;
 
 			transform.Translate(direction*speed*Time.deltaTime);
 

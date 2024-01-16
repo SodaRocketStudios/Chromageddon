@@ -8,7 +8,7 @@ namespace SRS.Progression
 	{
 		[SerializeField] private ObjectPool pool;
 
-		[SerializeField] private int maxActivePickups;
+		[SerializeField] private int softPickupCap;
 
 		[SerializeField] private XPMerger merger = new();
 
@@ -16,15 +16,19 @@ namespace SRS.Progression
 
 		public void Spawn(Vector2 position)
 		{
-			if(activePickups.Count >= maxActivePickups)
+			int value = 1;
+
+			if(activePickups.Count >= softPickupCap)
 			{
-				merger.TryMerge(activePickups);
+				value += merger.TryMerge(position);
+
+				Debug.Log(value);
 			}
 
 			Experience experience = pool.Get(position) as Experience;
 			experience.OnPickup += Despawn;
 			activePickups.Add(experience);
-			experience.Value = 1;
+			experience.Value = value;
 		}
 
 		public void Despawn(Experience experience)

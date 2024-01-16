@@ -21,6 +21,11 @@ namespace SRS.Progression
 			}
 		}
 
+		public void Merge()
+		{
+			OnPickup?.Invoke(this);
+		}
+
 		private void OnTriggerEnter2D(Collider2D other)
 		{
 			CharacterLevel level;

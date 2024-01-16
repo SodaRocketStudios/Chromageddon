@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRS.Extensions.Vector
@@ -36,6 +37,44 @@ namespace SRS.Extensions.Vector
 		public static float SquareDistance(Vector3 a, Vector3 b)
 		{
 			return Vector3.SqrMagnitude(b - a);
+		}
+
+		public static Vector3 Average(Vector3[] vectors)
+		{
+			if(vectors.Length <= 0)
+			{
+				return Vector3.zero;
+			}
+
+			Vector3 meanVector = Vector3.zero;
+
+			foreach(Vector3 vector in vectors)
+			{
+				meanVector += vector;
+			}
+
+			meanVector/= vectors.Length;
+
+			return meanVector;
+		}
+
+		public static Vector3 Average(List<Vector3> vectors)
+		{
+			if(vectors.Count <= 0)
+			{
+				return Vector3.zero;
+			}
+
+			Vector3 meanVector = Vector3.zero;
+
+			foreach(Vector3 vector in vectors)
+			{
+				meanVector += vector;
+			}
+
+			meanVector/= vectors.Count;
+
+			return meanVector;
 		}
 	}
 }
