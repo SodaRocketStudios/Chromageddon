@@ -11,5 +11,11 @@ namespace SRS.Items
 		{
 			get => items;
 		}
+
+		[SerializeField] private List<ItemRarity> rarities;
+		public List<ItemRarity> Rarities
+		{
+			get => rarities;
+		}
 	}
 }
