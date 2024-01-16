@@ -18,10 +18,6 @@ namespace SRS.Items
 
 		private Inventory targetInventory;
 
-		// TODO -- figure out how to get players inventory.
-		// Could be pased into the generate function.
-		// That would also give access to the player level and stats to determine points.
-
 		private void Awake()
 		{
 			background = GetComponent<Image>();
@@ -51,19 +47,18 @@ namespace SRS.Items
 
 			float points = CalculatePoints();
 
-			PopulateChoices();
-			// TODO -- Set items in buttons.
+			PopulateChoices(points);
 			// TODO -- Set proper gradient on buttons based on item rarity.
 		}
 
-        private void PopulateChoices()
+        private void PopulateChoices(float points)
 		{
-			// TODO -- determine points based on character level
-			// Could also add luck stat into points.
-
 			foreach(ItemSelectionButton button in buttons)
 			{
+				// TODO -- Pick items and set them for buttons.
 				// button.Item = GetItem
+
+				// TODO -- set gradient colors on button based on item rarity.
 			}
 		}
 
@@ -87,7 +82,8 @@ namespace SRS.Items
 
         private float CalculatePoints()
         {
-			// TODO -- calculate points based on current character level and luck.
+			// TODO -- determine points based on character level
+			// Could also add luck stat into points. luck is converted to a multiplier by sigmoid function.
 			// Should game time play a role in this too so that players get a boost if they are behind?
             return 0;
         }
