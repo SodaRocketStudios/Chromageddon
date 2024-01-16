@@ -6,6 +6,8 @@ namespace SRS.Progression
 {
 	public class Experience : PooledObject
 	{
+		[SerializeField] private Gradient valueGradient;
+
 		public Action<Experience> OnPickup;
 
 		private int value = 0;
@@ -18,7 +20,17 @@ namespace SRS.Progression
 			set
 			{
 				this.value = value;
+				spriteRenderer.color = valueGradient.Evaluate(Mathf.Min((float)value/MAX_COLOR_VALUE, 1));
 			}
+		}
+
+		private SpriteRenderer spriteRenderer;
+
+		private const int MAX_COLOR_VALUE = 100;
+
+		private void Awake()
+		{
+			spriteRenderer = GetComponent<SpriteRenderer>();
 		}
 
 		public void Merge()
