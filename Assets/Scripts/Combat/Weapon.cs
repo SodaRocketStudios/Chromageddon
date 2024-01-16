@@ -11,6 +11,12 @@ namespace SRS.Combat
 
 		[SerializeField] private ObjectPool attackPool;
 
+        [SerializeField, Range(0, 1)] private float recoilStrength = 1;
+        public float RecoilStrength
+        {
+            get => recoilStrength;
+        }
+
 		public void Attack(GameObject attacker)
 		{
             Attack attack = attackPool.Get(attacker.transform.position, attacker.transform.rotation) as Attack;

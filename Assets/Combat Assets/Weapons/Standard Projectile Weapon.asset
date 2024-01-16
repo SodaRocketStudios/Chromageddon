@@ -22,3 +22,4 @@ MonoBehaviour:
     damageType: 0
     Sprite: {fileID: 1788604060, guid: 7bed9f664d2dbf146a58c7ddee45f22b, type: 3}
   attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}
+  recoilStrength: 0.25

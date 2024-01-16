@@ -1,6 +1,7 @@
+using UnityEngine;
+using Cinemachine;
 using SRS.Input;
 using SRS.Stats;
-using UnityEngine;
 
 namespace SRS.Combat
 {
@@ -30,10 +31,13 @@ namespace SRS.Combat
 		
 		private float nextAttackTime;
 
+		private CinemachineImpulseSource impulseSource;
+
 		private void Awake()
 		{
             stats = GetComponent<StatContainer>();
 			input = GetComponent<IInputSource>();
+			impulseSource = GetComponent<CinemachineImpulseSource>();
 		}
 
 		private void Start()
@@ -64,6 +68,7 @@ namespace SRS.Combat
 			for(int i = 0; i < numOfAttacks; i++)
 			{
 				weapon.Attack(gameObject);
+				impulseSource.GenerateImpulse(transform.right*weapon.RecoilStrength);
 				nextAttackTime += attackDelay;
 			}
 		}
