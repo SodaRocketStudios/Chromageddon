@@ -10,9 +10,13 @@ namespace SRS.Items
 		// TODO -- figure out how to trigger item behaviors at the right time.
 		// Item behaviors can be broken into different types like on hit, on heal, etc.
 		// then they can subscribe to the correct events.
-		[SerializeField] private List<ItemBehavior> beahviors;
+		[SerializeField] private List<ItemBehavior> behaviors;
 
 		[SerializeField] private ItemRarity rarity;
+		public ItemRarity Rarity
+		{
+			get => rarity;
+		}
 
 		[SerializeField] private List<string> tags;
 

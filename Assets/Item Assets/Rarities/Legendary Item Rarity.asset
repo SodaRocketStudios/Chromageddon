@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7356f0ce410e90246aab2fb2f00af412, type: 3}
   m_Name: Legendary Item Rarity
   m_EditorClassIdentifier: 
-  name: 
+  name: Legendary
   color: {r: 1, g: 0.43673247, b: 0, a: 1}
-  pointRequirement: 0
+  pointRequirement: 20

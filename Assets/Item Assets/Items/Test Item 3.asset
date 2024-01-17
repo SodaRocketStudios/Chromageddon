@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7356f0ce410e90246aab2fb2f00af412, type: 3}
-  m_Name: Common Item Rarity
+  m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
+  m_Name: Test Item 3
   m_EditorClassIdentifier: 
-  name: Common
-  color: {r: 0.05724919, g: 1, b: 0, a: 1}
-  pointRequirement: 1
+  name: 
+  sprite: {fileID: 0}
+  modifiers: []
+  description: 
+  beahviors: []
+  rarity: {fileID: 11400000, guid: deab78b40dc4af645890eb951f53eb6d, type: 2}
+  tags: []

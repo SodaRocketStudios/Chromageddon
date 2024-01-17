@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using SRS.Extensions.Random;
 using SRS.GameManagement;
 using SRS.Progression;
 using SRS.UI;
-using SRS.Extensions.Random;
 
 namespace SRS.Items
 {
@@ -60,7 +60,7 @@ namespace SRS.Items
 		{
 			foreach(ItemSelectionButton button in buttons)
 			{
-				float pointAllotment = randomGenerator.NextFloat()*points;
+				float pointAllotment = randomGenerator.NextFloat(1, points);
 				ItemRarity selectedRarity = null;
 
 				foreach(ItemRarity rarity in itemDatabase.Rarities)
@@ -80,9 +80,6 @@ namespace SRS.Items
 					}
 				}
 
-				// TODO -- Pick items and set them for buttons.
-				// button.Item = GetItem
-
 				GradientColorKey[] colorKeys =
 				{
 					new GradientColorKey(selectedRarity.Color, 0),
@@ -99,7 +96,14 @@ namespace SRS.Items
 
 				button.GetComponent<ColorChangeAnimation>().Gradient = rarityGradient;
 
-				// select item of rarity
+				List<Item> possibleItems = new();
+
+				foreach(Item item in itemDatabase.Items.Where(item => item.Rarity.name == selectedRarity.name))
+				{
+					possibleItems.Add(item);
+				}
+
+				button.Item = possibleItems[randomGenerator.Next(0, possibleItems.Count)];
 			}
 		}
 

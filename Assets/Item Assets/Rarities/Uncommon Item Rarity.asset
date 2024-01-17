@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7356f0ce410e90246aab2fb2f00af412, type: 3}
   m_Name: Uncommon Item Rarity
   m_EditorClassIdentifier: 
-  name: 
+  name: Uncommon
   color: {r: 0, g: 0.40087318, b: 1, a: 1}
-  pointRequirement: 0
+  pointRequirement: 4

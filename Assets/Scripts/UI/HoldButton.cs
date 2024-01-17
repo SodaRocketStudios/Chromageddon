@@ -40,6 +40,17 @@ namespace SRS.UI
             camera = camera = Camera.main;
         }
 
+        private void OnEnable()
+        {
+            timeHeld = 0;
+            holdProgress = 0;
+            isHeld = false;
+            hoverTime = 0;
+            isHovering = false;
+            wasHovering = false;
+            holdComplete = false;
+        }
+
         private void Update()
         {
             if(isHeld)

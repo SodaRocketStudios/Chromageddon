@@ -6,7 +6,7 @@ namespace SRS.Stats
     public abstract class EquipableObject: ScriptableObject
     {
         [SerializeField] private new string name;
-        public string NameToLayer
+        public string Name
         {
             get => name;
         }
