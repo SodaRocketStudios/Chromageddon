@@ -38,6 +38,9 @@ namespace SRS.Progression
         {
             currentXP += amount;
 
+            // TODO -- make sure that the player is given multiple item choices when leveling up more than once
+            // at one time.
+
             while(currentXP >= requiredXP)
             {
                 LevelUp();
