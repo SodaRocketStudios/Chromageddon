@@ -4680,6 +4680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemButtonPrefab: {fileID: 2355201087118052938, guid: ebd8ca1bb39ab5d4b88e58815022a3d4, type: 3}
+  itemDatabase: {fileID: 11400000, guid: a40069a06d827674ca9bb7383300064c, type: 2}
 --- !u!114 &1519798216
 MonoBehaviour:
   m_ObjectHideFlags: 0

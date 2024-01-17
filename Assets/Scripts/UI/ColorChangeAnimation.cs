@@ -6,6 +6,16 @@ namespace SRS.UI
     public class ColorChangeAnimation : MonoBehaviour
     {
         [SerializeField] private Gradient gradient;
+        public Gradient Gradient
+        {
+            get => gradient;
+            set
+            {
+                gradient = value;
+                UpdateColor(0);
+            }
+                
+        }
 
         private Image image;
 

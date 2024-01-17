@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using SRS.GameManagement;
 using SRS.Progression;
+using SRS.UI;
+using SRS.Extensions.Random;
 
 namespace SRS.Items
 {
@@ -11,11 +14,15 @@ namespace SRS.Items
 	{
 		[SerializeField] private GameObject itemButtonPrefab;
 
+		[SerializeField] private ItemDatabase itemDatabase;
+
 		private List<ItemSelectionButton> buttons;
 
 		private Image background;
 
 		private Inventory targetInventory;
+
+		private System.Random randomGenerator = new System.Random(Guid.NewGuid().GetHashCode());
 
 		private void Awake()
 		{
@@ -47,20 +54,51 @@ namespace SRS.Items
 			float points = CalculatePoints(levelScript);
 
 			PopulateChoices(points);
-			// TODO -- Set proper gradient on buttons based on item rarity.
 		}
 
         private void PopulateChoices(float points)
 		{
 			foreach(ItemSelectionButton button in buttons)
 			{
+				float pointAllotment = randomGenerator.NextFloat()*points;
+				ItemRarity selectedRarity = null;
+
+				foreach(ItemRarity rarity in itemDatabase.Rarities)
+				{
+					if(pointAllotment >= rarity.PointRequirement)
+					{
+						if(selectedRarity == null)
+						{
+							selectedRarity = rarity;
+							continue;
+						}
+
+						if(rarity.PointRequirement > selectedRarity.PointRequirement)
+						{
+							selectedRarity = rarity;
+						}
+					}
+				}
+
 				// TODO -- Pick items and set them for buttons.
 				// button.Item = GetItem
 
-				// TODO -- set gradient colors on button based on item rarity.
+				GradientColorKey[] colorKeys =
+				{
+					new GradientColorKey(selectedRarity.Color, 0),
+					new GradientColorKey(Color.white, 1)
+				};
 
+				GradientAlphaKey[] alphaKeys =
+				{
+					new GradientAlphaKey(1, 1)
+				};
 
-				// Select rarity randomly based on points
+				Gradient rarityGradient = new();
+				rarityGradient.SetKeys(colorKeys, alphaKeys);
+
+				button.GetComponent<ColorChangeAnimation>().Gradient = rarityGradient;
+
 				// select item of rarity
 			}
 		}
