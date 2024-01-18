@@ -4,13 +4,12 @@ using System.Collections.Generic;
 
 namespace SRS.Progression
 {
-	public class XPSpawner : MonoBehaviour
+	public class ExperienceSpawner : MonoBehaviour
 	{
 		[SerializeField] private ObjectPool pool;
 
 		[SerializeField] private int softPickupCap;
-
-		[SerializeField] private XPMerger merger = new();
+		[SerializeField] private float mergeDistance;
 
 		private List<Experience> activePickups = new();
 
@@ -18,17 +17,20 @@ namespace SRS.Progression
 		{
 			int value = 1;
 
+			Experience experience = pool.Get(position) as Experience;
+			experience.Value = value;
+
 			if(activePickups.Count >= softPickupCap)
 			{
-				value += merger.TryMerge(position);
-
-				Debug.Log(value);
+				RaycastHit2D[] hits = Physics2D.CircleCastAll(position, mergeDistance, Vector2.right, 0, LayerMask.GetMask("XP"));
+				foreach(RaycastHit2D hit in hits)
+				{
+					hit.transform.GetComponent<Experience>().StartMerge(experience);
+				}
 			}
 
-			Experience experience = pool.Get(position) as Experience;
 			experience.OnPickup += Despawn;
 			activePickups.Add(experience);
-			experience.Value = value;
 		}
 
 		public void Despawn(Experience experience)

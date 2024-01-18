@@ -27,7 +27,7 @@ namespace SRS.EnemyManagement
 		[SerializeField, Min(1.001f)] private float pointsMultiplier;
 		private float pointsExponent = 1;
 
-		[SerializeField] private XPSpawner xpSpawner;
+		[SerializeField] private ExperienceSpawner experienceSpawner;
 
 		private int pointsBase = 0;
 
@@ -110,7 +110,7 @@ namespace SRS.EnemyManagement
 
 		public void KillEnemy(Enemy enemy)
 		{
-			xpSpawner.Spawn(enemy.transform.position);
+			experienceSpawner.Spawn(enemy.transform.position);
 			Despawn(enemy);
 		}
 

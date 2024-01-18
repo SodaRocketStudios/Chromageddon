@@ -26,27 +26,63 @@ namespace SRS.Progression
 
 		private SpriteRenderer spriteRenderer;
 
+		private ExperienceMover mover;
+
+		private Vector2 target;
+
 		private const int MAX_COLOR_VALUE = 100;
+
+		private Experience mergeTarget;
 
 		private void Awake()
 		{
 			spriteRenderer = GetComponent<SpriteRenderer>();
+			mover = GetComponent<ExperienceMover>();
 		}
 
-		public void Merge()
+		private void OnEnable()
 		{
-			OnPickup?.Invoke(this);
+			mergeTarget = null;
 		}
 
-		private void OnTriggerEnter2D(Collider2D other)
+		private void Update()
 		{
-			CharacterLevel level;
-
-			if(other.TryGetComponent(out level))
+			if(target == null)
 			{
-				level.AddXP(value);
-				OnPickup?.Invoke(this);
+				return;
 			}
+
+			mover.MoveTowardTarget(target);
 		}
-	}
+
+		public void StartMerge(Experience mergeTarget)
+		{
+			target = mergeTarget.transform.position;
+            this.mergeTarget = mergeTarget;
+		}
+
+		private void FixedUpdate()
+		{
+			if(mergeTarget != null)
+			{
+				if(Vector2.Distance(transform.position, mergeTarget.transform.position) < 1)
+				{
+					mergeTarget.Value += value;
+					OnPickup?.Invoke(this);
+				}
+			}
+
+			CollisionCheck();
+		}
+
+        private void CollisionCheck()
+        {
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, mover.Veloctiy, mover.Veloctiy.magnitude*Time.fixedDeltaTime, LayerMask.GetMask("Player"));
+
+			if(hit)
+			{
+				hit.transform.GetComponent<CharacterLevel>().AddXP(value);
+			}
+        }
+    }
 }
