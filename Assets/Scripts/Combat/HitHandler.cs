@@ -12,6 +12,9 @@ namespace SRS.Combat
 
 		[SerializeField] private Health health = new();
 
+		[SerializeField] private float immunityTime;
+		private float lastHitTime = 0;
+
 		private StatContainer stats;
 
 		public Health Health
@@ -41,14 +44,18 @@ namespace SRS.Combat
 
 		public void Hit(StatContainer attackerStats, DamageType damageType)
 		{
-			ApplyDamage(attackerStats["Damage"].Value, damageType);
+			Hit(attackerStats["Damage"].Value, damageType);
 
 			TryHitEffects?.Invoke(attackerStats);
 		}
 
 		public void Hit(float damage, DamageType damageType)
 		{
-			ApplyDamage(damage, damageType);
+			if(Time.time - lastHitTime > immunityTime)
+			{
+				ApplyDamage(damage, damageType);
+				lastHitTime = Time.time;
+			}
 		}
 
 		private void ApplyDamage(float amount, DamageType damageType)

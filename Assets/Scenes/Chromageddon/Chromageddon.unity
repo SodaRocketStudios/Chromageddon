@@ -6563,6 +6563,7 @@ MonoBehaviour:
       OnMaxChange:
         m_PersistentCalls:
           m_Calls: []
+  immunityTime: 0.2
 --- !u!114 &1632691830
 MonoBehaviour:
   m_ObjectHideFlags: 0
