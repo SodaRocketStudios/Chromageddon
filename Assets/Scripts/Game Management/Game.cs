@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SRS.GameManagement
 {
@@ -42,6 +43,11 @@ namespace SRS.GameManagement
 		public void GameOver()
 		{
 			Pause();
+		}
+
+		public void Restart()
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 
 		public void Quit()

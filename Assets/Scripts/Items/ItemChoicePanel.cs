@@ -107,7 +107,7 @@ namespace SRS.Items
 				{
 					if(selectedItems.Contains(item))
 					{
-						// continue;
+						continue;
 					}
 
 					possibleItems.Add(item);
