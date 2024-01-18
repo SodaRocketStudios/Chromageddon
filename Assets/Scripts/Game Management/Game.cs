@@ -39,6 +39,11 @@ namespace SRS.GameManagement
 			OnPlayPause?.Invoke(Running);
 		}
 
+		public void GameOver()
+		{
+			Pause();
+		}
+
 		public void Quit()
 		{
 			Application.Quit();

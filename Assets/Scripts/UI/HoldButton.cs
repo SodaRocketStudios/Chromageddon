@@ -89,6 +89,8 @@ namespace SRS.UI
         public void OnPointerExit(PointerEventData eventData)
         {
             OnPointerExitEvent?.Invoke();
+            isHeld = false;
+            holdComplete = false;
             isHovering = false;
         }
 
@@ -123,7 +125,7 @@ namespace SRS.UI
 
         private void HandleRelease()
         {
-            if(holdProgress >= 1)
+            if(holdComplete)
             {
                 OnCompleted?.Invoke();
             }

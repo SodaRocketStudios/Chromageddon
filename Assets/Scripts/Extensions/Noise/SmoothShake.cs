@@ -8,6 +8,11 @@ namespace SRS.Noise
         private System.Random random = new System.Random();
 
         private Vector3 center;
+        public Vector3 Center
+        {
+            get => center;
+        }
+        
         private Vector3 start;
         private Vector3 end;
 

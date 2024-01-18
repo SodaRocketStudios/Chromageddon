@@ -100,14 +100,14 @@ namespace SRS.Items
 
 
 				List<Item> possibleItems = new();
-				
+
 				// TODO -- consider item tags when selecting
 
 				foreach(Item item in itemDatabase.Items.Where(item => item.Rarity.name == selectedRarity.name))
 				{
 					if(selectedItems.Contains(item))
 					{
-						continue;
+						// continue;
 					}
 
 					possibleItems.Add(item);

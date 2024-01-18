@@ -27,5 +27,10 @@ namespace SRS.UI
             shake.Amplitude = t*amplitude;
             rect.anchoredPosition = shake.Step();
         }
+
+        public void ResetPosition()
+        {
+            rect.anchoredPosition = shake.Center;
+        }
     }
 }
