@@ -98,7 +98,6 @@ namespace SRS.UI
         {
             isHeld = false;
             isHovering = true;
-            holdComplete = false;
             OnPointerUpEvent?.Invoke();
         }
 
@@ -128,6 +127,7 @@ namespace SRS.UI
             if(holdComplete)
             {
                 OnCompleted?.Invoke();
+                holdComplete = false;
             }
 
             timeHeld -= Time.unscaledDeltaTime;
