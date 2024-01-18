@@ -12,6 +12,8 @@ namespace SRS.GameManagement
 
 		public Action<bool> OnPlayPause;
 
+		public Action OnGameOver;
+
 		private void Awake()
 		{
 			if(Instance == null)
@@ -42,6 +44,7 @@ namespace SRS.GameManagement
 
 		public void GameOver()
 		{
+			OnGameOver?.Invoke();
 			Pause();
 		}
 

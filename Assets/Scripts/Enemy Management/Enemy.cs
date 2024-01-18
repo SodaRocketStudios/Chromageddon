@@ -83,5 +83,14 @@ namespace SRS.EnemyManagement
 		{
 			OnEnemyDeath?.Invoke(this);
 		}
+
+		private void OnCollisionEnter2D(Collision2D other)
+		{
+			if(other.collider.CompareTag("Player"))
+			{
+				// TODO -- get real damage type. Maybe create a ram weapon.
+				other.gameObject.GetComponent<HitHandler>().Hit(statContainer, DamageType.Physical);
+			}
+		}
     }
 }
