@@ -58,6 +58,8 @@ namespace SRS.Items
 
         private void PopulateChoices(float points)
 		{
+			List<Item> selectedItems = new();
+
 			foreach(ItemSelectionButton button in buttons)
 			{
 				float pointAllotment = randomGenerator.NextFloat(1, points);
@@ -96,14 +98,25 @@ namespace SRS.Items
 
 				button.GetComponent<ColorChangeAnimation>().Gradient = rarityGradient;
 
+
 				List<Item> possibleItems = new();
+				
+				// TODO -- consider item tags when selecting
 
 				foreach(Item item in itemDatabase.Items.Where(item => item.Rarity.name == selectedRarity.name))
 				{
+					if(selectedItems.Contains(item))
+					{
+						continue;
+					}
+
 					possibleItems.Add(item);
 				}
 
+
 				button.Item = possibleItems[randomGenerator.Next(0, possibleItems.Count)];
+
+				selectedItems.Add(button.Item);
 			}
 		}
 
