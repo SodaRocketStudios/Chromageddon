@@ -12,22 +12,31 @@ namespace SRS.Progression
 		public Vector2 Veloctiy
 		{
 			get => velocity;
-			set => velocity = value;
+		}
+
+		private float speed = 0;
+		public float Speed
+		{
+			get => speed;
+			set => speed = value;
 		}
 
 		private void OnEnable()
 		{
 			velocity = Vector2.zero;
+			speed = 0;
 		}
 
-        public void MoveTowardTarget(Vector3 target)
+        public void MoveTowardTarget(Transform target)
 		{
 			transform.Translate(velocity*Time.deltaTime);
-			
-			Vector2 direction = (target - transform.position).normalized;
 
-			velocity += direction*acceleration;
-			velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
+			Vector2 direction = (target.position - transform.position).normalized;
+
+			speed += acceleration*Time.deltaTime;
+			speed = Mathf.Min(maxSpeed, speed);
+
+			velocity = direction*speed;
 		}
 	}
 }

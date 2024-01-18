@@ -1165,7 +1165,7 @@ MonoBehaviour:
   timerMultiplier: 5
   initialPoints: 2
   pointsMultiplier: 1.1
-  experienceSpawner: {fileID: 0}
+  experienceSpawner: {fileID: 2015734298}
 --- !u!1 &256207152
 GameObject:
   m_ObjectHideFlags: 0
@@ -8279,7 +8279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 11400000, guid: 07fc9ead60874af4ab33dcaba8bca424, type: 2}
-  softPickupCap: 50
+  softPickupCap: 2
+  mergeDistance: 25
 --- !u!1 &2021412563
 GameObject:
   m_ObjectHideFlags: 0

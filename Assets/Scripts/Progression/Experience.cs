@@ -28,7 +28,7 @@ namespace SRS.Progression
 
 		private ExperienceMover mover;
 
-		private Vector2 target;
+		private Transform target;
 
 		private const int MAX_COLOR_VALUE = 100;
 
@@ -42,6 +42,7 @@ namespace SRS.Progression
 
 		private void OnEnable()
 		{
+			target = null;
 			mergeTarget = null;
 		}
 
@@ -57,7 +58,12 @@ namespace SRS.Progression
 
 		public void StartMerge(Experience mergeTarget)
 		{
-			target = mergeTarget.transform.position;
+			if(mergeTarget == this)
+			{
+				return;
+			}
+
+			target = mergeTarget.transform;
             this.mergeTarget = mergeTarget;
 		}
 
@@ -77,7 +83,7 @@ namespace SRS.Progression
 
         private void CollisionCheck()
         {
-			RaycastHit2D hit = Physics2D.Raycast(transform.position, mover.Veloctiy, mover.Veloctiy.magnitude*Time.fixedDeltaTime, LayerMask.GetMask("Player"));
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, mover.Veloctiy, mover.Speed*Time.fixedDeltaTime, LayerMask.GetMask("Player"));
 
 			if(hit)
 			{
