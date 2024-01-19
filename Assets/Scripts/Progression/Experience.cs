@@ -113,8 +113,8 @@ namespace SRS.Progression
 
 			if(hit)
 			{
-				hit.transform.GetComponent<CharacterLevel>().AddXP(value);
 				OnPickup?.Invoke(this);
+				hit.transform.GetComponent<CharacterLevel>().AddXP(value);
 			}
         }
 

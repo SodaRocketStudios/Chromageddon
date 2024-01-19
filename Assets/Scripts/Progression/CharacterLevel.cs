@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
+using SRS.Utils;
 
 namespace SRS.Progression
 {
     public class CharacterLevel : MonoBehaviour
     {
         public UnityEvent<CharacterLevel> OnLevelUp;
-        public UnityEvent<float> OnCurrentXPChange;
-        public UnityEvent<float> OnRequiredXPChange;
 
         private int level;
         public int Level
@@ -18,41 +17,33 @@ namespace SRS.Progression
             }
         }
 
-        private float requiredXP = 2;
-        private float currentXP = 0;
+        [SerializeField] private Fraction experienceValue;
 
         private float requirementMultiplier = 1.2f;
 
-        private void Awake()
-        {
-            // TODO -- initialize requiredXP
-        }
-
         private void Start()
         {
-            OnCurrentXPChange?.Invoke(currentXP);
-            OnRequiredXPChange?.Invoke(requiredXP);
+            experienceValue.Max = 2;
+            experienceValue.Current = 0;
         }
 
         public void AddXP(float amount)
         {
-            currentXP += amount;
+            experienceValue.Current += amount;
 
-            // TODO -- make sure that the player is given multiple item choices when leveling up more than once
-            // at one time.
-
-            while(currentXP >= requiredXP)
+            while(experienceValue.Current >= experienceValue.Max)
             {
                 LevelUp();
             }
-
-            OnCurrentXPChange?.Invoke(currentXP);
         }
 
         private void LevelUp()
         {
+            // TODO -- make sure that the player is given multiple item choices when leveling up more than once
+            // at one time. Add to item count if shop is open. This can probably be handled in generate in item shop.
+
+            experienceValue.Current -= experienceValue.Max;
             level++;
-            currentXP -= requiredXP;
 
             CalculateRequiredXP();
 
@@ -61,8 +52,7 @@ namespace SRS.Progression
 
         private void CalculateRequiredXP()
         {
-            requiredXP *= requirementMultiplier;
-            OnRequiredXPChange?.Invoke(requiredXP);
+            experienceValue.Max *= requirementMultiplier;
         }
     }
 }

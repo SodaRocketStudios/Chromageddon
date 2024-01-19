@@ -488,7 +488,6 @@ GameObject:
   m_Component:
   - component: {fileID: 52822797}
   - component: {fileID: 52822798}
-  - component: {fileID: 52822799}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -568,18 +567,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &52822799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52822796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9365298c2500a6d4cb24119643c825b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &69941929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,8 +1540,8 @@ GameObject:
   m_Component:
   - component: {fileID: 419734818}
   - component: {fileID: 419734821}
+  - component: {fileID: 419734822}
   - component: {fileID: 419734820}
-  - component: {fileID: 419734819}
   m_Layer: 5
   m_Name: XP Text
   m_TagString: Untagged
@@ -1581,19 +1568,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &419734819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419734817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efae1561e47ab8044bdd363448889280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decimalPlaces: 0
 --- !u!114 &419734820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1693,6 +1667,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419734817}
   m_CullTransparentMesh: 1
+--- !u!114 &419734822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419734817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3584c454211480f47bf87afa56dd5014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decimalPlaces: 1
 --- !u!1 &444687473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,8 +1935,8 @@ GameObject:
   m_Component:
   - component: {fileID: 613091399}
   - component: {fileID: 613091402}
-  - component: {fileID: 613091401}
   - component: {fileID: 613091403}
+  - component: {fileID: 613091401}
   m_Layer: 5
   m_Name: Health Text
   m_TagString: Untagged
@@ -2084,7 +2071,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 613091398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efae1561e47ab8044bdd363448889280, type: 3}
+  m_Script: {fileID: 11500000, guid: 3584c454211480f47bf87afa56dd5014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   decimalPlaces: 1
@@ -5704,7 +5691,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1529035697}
   - component: {fileID: 1529035698}
-  - component: {fileID: 1529035699}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -5784,18 +5770,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1529035699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1529035696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9365298c2500a6d4cb24119643c825b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1535837350
 GameObject:
   m_ObjectHideFlags: 0
@@ -6537,12 +6511,61 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnCurrentXPChange:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRequiredXPChange:
-    m_PersistentCalls:
-      m_Calls: []
+  experienceValue:
+    OnCurrentChange:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1529035698}
+          m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_MethodName: set_value
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 419734822}
+          m_TargetAssemblyTypeName: SRS.UI.DisplayedFraction, UI
+          m_MethodName: UpdateValue
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnMaxChange:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1529035698}
+          m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_MethodName: set_maxValue
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 419734822}
+          m_TargetAssemblyTypeName: SRS.UI.DisplayedFraction, UI
+          m_MethodName: UpdateMax
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1632691829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6559,10 +6582,58 @@ MonoBehaviour:
     Value:
       OnCurrentChange:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 52822798}
+            m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+            m_MethodName: set_value
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 613091403}
+            m_TargetAssemblyTypeName: SRS.UI.DisplayedFraction, UI
+            m_MethodName: UpdateValue
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       OnMaxChange:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 52822798}
+            m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+            m_MethodName: set_maxValue
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 613091403}
+            m_TargetAssemblyTypeName: SRS.UI.DisplayedFraction, UI
+            m_MethodName: UpdateMax
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
   immunityTime: 0.2
 --- !u!114 &1632691830
 MonoBehaviour:
