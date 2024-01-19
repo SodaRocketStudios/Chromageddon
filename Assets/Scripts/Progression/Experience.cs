@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using SRS.Utils.ObjectPooling;
+using SRS.Stats;
 
 namespace SRS.Progression
 {
@@ -34,16 +35,33 @@ namespace SRS.Progression
 
 		private Experience mergeTarget;
 
+		private bool isInRange;
+
+		private GameObject player = null;
+		private StatContainer playerStats;
+
 		private void Awake()
 		{
 			spriteRenderer = GetComponent<SpriteRenderer>();
 			mover = GetComponent<ExperienceMover>();
 		}
 
+		private void Start()
+		{
+			FindPlayer();
+		}
+
 		private void OnEnable()
 		{
 			target = null;
 			mergeTarget = null;
+
+			isInRange = false;
+
+			if(player == null)
+			{
+				FindPlayer();
+			}
 		}
 
 		private void Update()
@@ -54,6 +72,28 @@ namespace SRS.Progression
 			}
 
 			mover.MoveTowardTarget(target);
+		}
+
+		private void FixedUpdate()
+		{
+			if(mergeTarget != null)
+			{
+				if(Vector2.Distance(transform.position, mergeTarget.transform.position) < 1)
+				{
+					mergeTarget.Value += value;
+					OnPickup?.Invoke(this);
+				}
+			}
+			else if(isInRange)
+			{
+				target = player.transform;
+			}
+			else
+			{
+				RangeCheck();
+			}
+
+			CollisionCheck();
 		}
 
 		public void StartMerge(Experience mergeTarget)
@@ -67,20 +107,6 @@ namespace SRS.Progression
             this.mergeTarget = mergeTarget;
 		}
 
-		private void FixedUpdate()
-		{
-			if(mergeTarget != null)
-			{
-				if(Vector2.Distance(transform.position, mergeTarget.transform.position) < 1)
-				{
-					mergeTarget.Value += value;
-					OnPickup?.Invoke(this);
-				}
-			}
-
-			CollisionCheck();
-		}
-
         private void CollisionCheck()
         {
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, mover.Veloctiy, mover.Speed*Time.fixedDeltaTime, LayerMask.GetMask("Player"));
@@ -91,5 +117,19 @@ namespace SRS.Progression
 				OnPickup?.Invoke(this);
 			}
         }
+
+		private void RangeCheck()
+		{
+			if(Vector2.Distance(transform.position, player.transform.position) <= playerStats["Pickup Range"].Value)
+			{
+				isInRange = true;
+			}
+		}
+
+		private void FindPlayer()
+		{
+			player = GameObject.FindGameObjectWithTag("Player");
+			playerStats = player.GetComponent<StatContainer>();
+		}
     }
 }

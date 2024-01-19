@@ -8279,7 +8279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 11400000, guid: 07fc9ead60874af4ab33dcaba8bca424, type: 2}
-  softPickupCap: 2
+  softPickupCap: 100
   mergeDistance: 25
 --- !u!1 &2021412563
 GameObject:
