@@ -18,8 +18,6 @@ namespace SRS.EnemyManagement
 		private StatContainer statContainer;
 		private Weapon weapon;
 		private SpriteRenderer spriteRenderer;
-		private Rigidbody2D rigidody;
-		private new Collider2D collider;
 		private HitHandler hitHandler;
 
 		private void Awake()
@@ -27,8 +25,6 @@ namespace SRS.EnemyManagement
 			brain = GetComponent<AIBrain>();
 			statContainer = GetComponent<StatContainer>();
 			spriteRenderer = GetComponent<SpriteRenderer>();
-			rigidody = GetComponent<Rigidbody2D>();
-			collider = GetComponent<Collider2D>();
 			hitHandler = GetComponent<HitHandler>();
 		}
 
@@ -62,7 +58,6 @@ namespace SRS.EnemyManagement
 
 			hitHandler.Initialize();
 			
-			// TODO -- does the collider need to be set up for different enemy types?
 			// TODO -- Set enemy weapon
 			// TODO -- determine if i need rigidbody here.
         }
@@ -82,15 +77,6 @@ namespace SRS.EnemyManagement
 		public void OnDeath()
 		{
 			OnEnemyDeath?.Invoke(this);
-		}
-
-		private void OnCollisionStay2D(Collision2D other)
-		{
-			if(other.collider.CompareTag("Player"))
-			{
-				// TODO -- get real damage type. Maybe create a ram weapon.
-				other.gameObject.GetComponent<HitHandler>().Hit(statContainer, DamageType.Physical);
-			}
 		}
     }
 }
