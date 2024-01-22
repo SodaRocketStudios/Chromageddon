@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
   m_Name: Test Item 1
   m_EditorClassIdentifier: 
-  name: 
+  name: Test Item 1
   sprite: {fileID: 0}
   modifiers: []
   description: 
-  beahviors: []
+  behaviors: []
   rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
   tags: []
