@@ -50,7 +50,7 @@ namespace SRS.EnemyManagement
 				modifier.Apply(statContainer);
 			}
 
-			weapon.Equip(statContainer);
+			GetComponent<AttackManager>().Weapon = weapon;
 
 			ignoreRecycleRequests = enemyData.IgnoreRecycleRequests;
 

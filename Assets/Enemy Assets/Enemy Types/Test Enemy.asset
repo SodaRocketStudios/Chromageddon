@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d4d411be6109a43baa1429ed4e9af4, type: 3}
   m_Name: Test Enemy
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 11400000, guid: d569be52c37ca8441be31f7e4da80f52, type: 2}
+  Weapon: {fileID: 11400000, guid: 9ab6479ec88f3f748a45c2fc09a1f8ca, type: 2}
   InitialStats:
   - {fileID: 11400000, guid: f3a41ae165792af45b536c95d09ecd5e, type: 2}
   EliteModifiers:
@@ -22,4 +22,4 @@ MonoBehaviour:
   IgnoreRecycleRequests: 0
   Sprite: {fileID: -780708951, guid: 776894ee602342549b2cc0f748ee17b6, type: 3}
   Color: {r: 0.7924528, g: 0.7084631, b: 0.16820934, a: 1}
-  InitialState: {fileID: 11400000, guid: 6f846333b9bbc9742a27dcd7ab137a95, type: 2}
+  InitialState: {fileID: 11400000, guid: 9d38bd264b2da0d4aacc13a9ba805f44, type: 2}

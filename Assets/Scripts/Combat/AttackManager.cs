@@ -68,7 +68,7 @@ namespace SRS.Combat
 			for(int i = 0; i < numOfAttacks; i++)
 			{
 				weapon.Attack(gameObject);
-				impulseSource.GenerateImpulse(transform.right*weapon.RecoilStrength);
+				impulseSource?.GenerateImpulse(transform.right*weapon.RecoilStrength);
 				nextAttackTime += attackDelay;
 			}
 		}

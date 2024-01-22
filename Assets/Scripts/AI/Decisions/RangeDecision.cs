@@ -15,7 +15,7 @@ namespace SRS.AI
 				rangeSquared = Mathf.Pow(range, 2);
 			}
 
-            if(brain.TargetDistanceSquared > rangeSquared)
+            if(brain.TargetDistanceSquared <= rangeSquared)
 			{
 				return true;
 			}

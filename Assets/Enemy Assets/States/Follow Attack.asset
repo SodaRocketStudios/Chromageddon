@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8869f15477c54e4c86cbd5c8ca591bf, type: 3}
-  m_Name: Stationary Attack
+  m_Name: Follow Attack
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 11400000, guid: 70a43e00f383d8b408b87495fb8a3081, type: 2}
+  - {fileID: 11400000, guid: 72d0995921729b44989ab3734cf78244, type: 2}
+  - {fileID: 11400000, guid: a4ea6c2da8637644b865602f889c346d, type: 2}
   transitions: []
