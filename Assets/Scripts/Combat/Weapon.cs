@@ -26,13 +26,13 @@ namespace SRS.Combat
         protected override void OnEquip(StatContainer container)
         {
             // TODO Weapon on equip
-            Debug.Log($"{name} equipped");
+            // Debug.Log($"{name} equipped");
         }
 
         protected override void OnUnequip(StatContainer container)
         {
             // TODO Weapon on unequip
-            Debug.Log($"{name} unequipped");
+            // Debug.Log($"{name} unequipped");
         }
     }
 }

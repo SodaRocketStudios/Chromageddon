@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.Events;
-using SRS.Utils;
 
 namespace SRS.Progression
 {
     public class CharacterLevel : MonoBehaviour
     {
         public UnityEvent<CharacterLevel> OnLevelUp;
+
+        public UnityEvent<float> OnCurrentXPChange;
+        public UnityEvent<float> OnRequiredXPChange;
 
         private int level;
         public int Level
@@ -17,21 +19,41 @@ namespace SRS.Progression
             }
         }
 
-        [SerializeField] private Fraction experienceValue;
+        private float _currentXP;
+        private float currentXP
+        {
+            get => _currentXP;
+            set
+            {
+                _currentXP = value;
+                OnCurrentXPChange?.Invoke(_currentXP);
+            }
+        }
+        
+        private float _requiredXP;
+        private float requiredXP
+        {
+            get => _requiredXP;
+            set
+            {
+                _requiredXP = value;
+                OnRequiredXPChange?.Invoke(_requiredXP);
+            }
+        }
 
         private float requirementMultiplier = 1.2f;
 
         private void Start()
         {
-            experienceValue.Max = 2;
-            experienceValue.Current = 0;
+            requiredXP = 2;
+            currentXP = 0;
         }
 
         public void AddXP(float amount)
         {
-            experienceValue.Current += amount;
+            currentXP += amount;
 
-            while(experienceValue.Current >= experienceValue.Max)
+            if(currentXP >= requiredXP)
             {
                 LevelUp();
             }
@@ -39,20 +61,22 @@ namespace SRS.Progression
 
         private void LevelUp()
         {
-            // TODO -- make sure that the player is given multiple item choices when leveling up more than once
-            // at one time. Add to item count if shop is open. This can probably be handled in generate in item shop.
-
-            experienceValue.Current -= experienceValue.Max;
+            currentXP -= requiredXP;
             level++;
 
             CalculateRequiredXP();
 
             OnLevelUp?.Invoke(this);
+
+            if(currentXP >= requiredXP)
+            {
+                LevelUp();
+            }
         }
 
         private void CalculateRequiredXP()
         {
-            experienceValue.Max *= requirementMultiplier;
+            requiredXP *= requirementMultiplier;
         }
     }
 }

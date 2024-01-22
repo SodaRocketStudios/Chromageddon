@@ -2319,7 +2319,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1360248137
   m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &674138508
@@ -8353,7 +8353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 11400000, guid: 07fc9ead60874af4ab33dcaba8bca424, type: 2}
-  softPickupCap: 100
+  softPickupCap: 5
   mergeDistance: 25
 --- !u!1 &2021412563
 GameObject:

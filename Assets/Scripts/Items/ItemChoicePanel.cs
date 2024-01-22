@@ -24,6 +24,10 @@ namespace SRS.Items
 
 		private System.Random randomGenerator = new System.Random(Guid.NewGuid().GetHashCode());
 
+		private bool isActive = false;
+
+		private int itemChoices = 0;
+
 		private void Awake()
 		{
 			background = GetComponent<Image>();
@@ -46,8 +50,17 @@ namespace SRS.Items
 		{
 			Game.Instance.Pause();
 
+			itemChoices++;
+
+			if(isActive)
+			{
+				return;
+			}
+
 			background.enabled = true;
 			SetButtonsActive(true);
+
+			isActive = true;
 
 			targetInventory = levelScript.GetComponent<Inventory>();
 
@@ -126,6 +139,8 @@ namespace SRS.Items
 
 			background.enabled = false;
 			SetButtonsActive(false);
+
+			isActive = false;
 		}
 
 		private void OnItemSelect(Item item)
@@ -135,7 +150,15 @@ namespace SRS.Items
 				targetInventory.Add(item);
 			}
 
-            Close();
+			itemChoices--;
+
+            if(itemChoices > 0)
+			{
+				PopulateChoices(CalculatePoints(targetInventory.GetComponent<CharacterLevel>()));
+				return;
+			}
+
+			Close();
         }
 
         private float CalculatePoints(CharacterLevel levelScript)
