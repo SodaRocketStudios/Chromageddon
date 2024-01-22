@@ -123,10 +123,10 @@ namespace SRS.Items
 
 				foreach(Item item in itemDatabase.Items.Where(item => item.Rarity.name == selectedRarity.name))
 				{
-					// if(selectedItems.Contains(item))
-					// {
-					// 	continue;
-					// }
+					if(selectedItems.Contains(item))
+					{
+						continue;
+					}
 
 					possibleItems.Add(item);
 				}
