@@ -91,6 +91,7 @@ namespace SRS.AI
 		{
 			if(currentState != state)
 			{
+				state.Exit(this);
 				currentState = state;
 			}
 		}

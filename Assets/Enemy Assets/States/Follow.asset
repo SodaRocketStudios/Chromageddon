@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8869f15477c54e4c86cbd5c8ca591bf, type: 3}
-  m_Name: Follow State
+  m_Name: Follow
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 72d0995921729b44989ab3734cf78244, type: 2}
-  transitions: []
+  transitions:
+  - decision: {fileID: 11400000, guid: 663d9705dfa6561449285138e7ae46cf, type: 2}
+    trueState: {fileID: 11400000}
+    falseState: {fileID: 11400000}

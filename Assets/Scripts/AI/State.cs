@@ -21,5 +21,11 @@ namespace SRS.AI
 				transition.Test(brain);
 			}
 		}
+
+		public void Exit(AIBrain brain)
+		{
+			brain.MoveInput = Vector2.zero;
+			brain.AttackInput = false;
+		}
 	}
 }

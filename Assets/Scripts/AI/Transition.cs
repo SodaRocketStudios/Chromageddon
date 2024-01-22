@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace SRS.AI
 {
-	public class Transition : ScriptableObject
+	// [CreateAssetMenu(fileName = "New Transition", menuName = "Enemies/AI/Transition")]
+	[Serializable]
+	public class Transition
 	{
 		[SerializeField] private Decision decision;
 		[SerializeField] private State trueState;
