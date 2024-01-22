@@ -77,13 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfc0e66e7f0b29448e1a88f45ac74c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnHit:
-    m_PersistentCalls:
-      m_Calls: []
   health:
-    OnDeath:
-      m_PersistentCalls:
-        m_Calls: []
     Value:
       OnCurrentChange:
         m_PersistentCalls:
@@ -91,6 +85,7 @@ MonoBehaviour:
       OnMaxChange:
         m_PersistentCalls:
           m_Calls: []
+  immunityTime: 0
 --- !u!114 &523606632087776870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f0f0b1c7bc8954f810b7fe2d9a619d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!50 &1029895149195588509
 Rigidbody2D:
   serializedVersion: 4
