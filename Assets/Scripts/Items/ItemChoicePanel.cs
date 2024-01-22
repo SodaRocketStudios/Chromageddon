@@ -28,6 +28,8 @@ namespace SRS.Items
 
 		private int itemChoices = 0;
 
+		private int level;
+
 		private void Awake()
 		{
 			background = GetComponent<Image>();
@@ -64,7 +66,9 @@ namespace SRS.Items
 
 			targetInventory = levelScript.GetComponent<Inventory>();
 
-			float points = CalculatePoints(levelScript);
+			level = levelScript.Level;
+
+			float points = CalculatePoints(level);
 
 			PopulateChoices(points);
 		}
@@ -111,6 +115,7 @@ namespace SRS.Items
 
 				button.GetComponent<ColorChangeAnimation>().Gradient = rarityGradient;
 
+				button.GetComponent<HoldButton>().Reset();
 
 				List<Item> possibleItems = new();
 
@@ -118,10 +123,10 @@ namespace SRS.Items
 
 				foreach(Item item in itemDatabase.Items.Where(item => item.Rarity.name == selectedRarity.name))
 				{
-					if(selectedItems.Contains(item))
-					{
-						continue;
-					}
+					// if(selectedItems.Contains(item))
+					// {
+					// 	continue;
+					// }
 
 					possibleItems.Add(item);
 				}
@@ -154,19 +159,20 @@ namespace SRS.Items
 
             if(itemChoices > 0)
 			{
-				PopulateChoices(CalculatePoints(targetInventory.GetComponent<CharacterLevel>()));
+				level++;
+				PopulateChoices(CalculatePoints(level));
 				return;
 			}
 
 			Close();
         }
 
-        private float CalculatePoints(CharacterLevel levelScript)
+        private float CalculatePoints(int level)
         {
 			// TODO -- determine points based on character level
 			// Could also add luck stat into points. luck is converted to a multiplier by sigmoid function.
 			// Should game time play a role in this too so that players get a boost if they are behind?
-			float points = levelScript.Level;
+			float points = level;
             return points;
         }
 

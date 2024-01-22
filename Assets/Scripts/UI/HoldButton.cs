@@ -42,13 +42,7 @@ namespace SRS.UI
 
         private void OnEnable()
         {
-            timeHeld = 0;
-            holdProgress = 0;
-            isHeld = false;
-            hoverTime = 0;
-            isHovering = false;
-            wasHovering = false;
-            holdComplete = false;
+            Reset();
         }
 
         private void Update()
@@ -105,6 +99,17 @@ namespace SRS.UI
         {
             isHeld = true;
             isHovering = false;
+        }
+
+        public void Reset()
+        {
+            timeHeld = 0;
+            holdProgress = 0;
+            isHeld = false;
+            hoverTime = 0;
+            isHovering = false;
+            wasHovering = false;
+            holdComplete = false;
         }
 
         private void HandleHold()
