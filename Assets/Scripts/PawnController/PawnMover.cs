@@ -73,7 +73,7 @@ namespace SRS.PawnController
 
         private void HandleMovement()
         {
-            body.velocity = (inputSource.MoveInput*CharacterStats["Speed"].Value) + (forces*body.mass);
+            body.velocity = (inputSource.MoveInput*CharacterStats["Speed"].Value) + (forces*body.mass)/CharacterStats["Mass"].Value;
         }
 
         private void HandleRotation()

@@ -20,6 +20,8 @@ namespace SRS.Combat
 			}
 		}
 
+		[SerializeField] private CinemachineImpulseDefinition recoilImpulse;
+
 		private StatContainer stats;
 
 		private IInputSource input;
@@ -65,8 +67,8 @@ namespace SRS.Combat
 			for(int i = 0; i < numOfAttacks; i++)
 			{
 				weapon.Attack(gameObject);
-				impulseSource?.GenerateImpulse(transform.right*weapon.RecoilStrength);
 				nextAttackTime += attackDelay;
+				GenerateRecoil();
 			}
 		}
 
@@ -82,6 +84,16 @@ namespace SRS.Combat
 			{
 				nextAttackTime = Mathf.Max(Time.time, nextAttackTime);
 			}
+		}
+
+		private void GenerateRecoil()
+		{
+			if(impulseSource == null)
+			{
+				return;
+			}
+			impulseSource.m_ImpulseDefinition = recoilImpulse;
+			impulseSource.GenerateImpulse(transform.right*weapon.RecoilStrength);
 		}
 	}
 }
