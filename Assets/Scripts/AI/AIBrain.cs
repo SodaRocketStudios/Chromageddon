@@ -12,8 +12,11 @@ namespace SRS.AI
 			get => currentState;
 			set
 			{
-				currentState.Exit(this);
-				currentState = value;
+				if(currentState != value)
+				{
+					currentState?.Exit(this);
+					currentState = value;
+				}
 			}
 		}
 
@@ -45,7 +48,7 @@ namespace SRS.AI
 			}
 		}
 
-		private bool attackInput;
+		private bool attackInput = false;
         public bool AttackInput
 		{
 			get
@@ -72,7 +75,10 @@ namespace SRS.AI
 			}
 		}
 
-		public float TargetDistanceSquared{get; private set;}
+		public float TargetDistanceSquared
+		{
+			get => (transform.position - Player.position).sqrMagnitude;
+		}
 
 		private List<Transition> transitions;
 		public List<Transition> Transitions
@@ -83,29 +89,19 @@ namespace SRS.AI
 			}
 		}
 
-		private void OnEnable()
-		{
-			FindPlayer();
-		}
-
 		private void Update()
 		{
-			currentState.Execute(this);
-
 			foreach(Transition transition in transitions)
 			{
 				CurrentState = transition.Test(this);
 			}
-		}
 
-		private void FixedUpdate()
-		{
-			TargetDistanceSquared = (transform.position - player.position).sqrMagnitude;
+			currentState?.Execute(this);
 		}
 
 		private void FindPlayer()
 		{
-			player = Physics2D.CircleCast(transform.position, 200, transform.right, 0, LayerMask.GetMask("Player")).transform;
+			player = GameObject.FindGameObjectWithTag("Player").transform;
 		}
     }
 }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ce941c86eb9b146865ed732460fb19, type: 3}
   m_Name: Outside Range 15 Criteria
   m_EditorClassIdentifier: 
-  range: 0
+  range: 15

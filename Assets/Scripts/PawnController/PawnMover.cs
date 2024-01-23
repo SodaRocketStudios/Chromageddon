@@ -91,8 +91,6 @@ namespace SRS.PawnController
         {
             RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + Vector2.up*collider.radius*Mathf.Sign(body.velocity.y), Vector2.up, distance*Time.fixedDeltaTime, collisionLayers);
 
-            Debug.DrawRay((Vector2)transform.position + Vector2.up*collider.radius*Mathf.Sign(body.velocity.y), Vector2.up*distance, Color.green);
-
             if(hit)
             {
                 if(hit.transform == transform)
@@ -109,8 +107,6 @@ namespace SRS.PawnController
         private void TestHorizontalCollisions(float distance)
         {
             RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + Vector2.right*collider.radius*Mathf.Sign(body.velocity.x), Vector2.right, distance*Time.fixedDeltaTime, collisionLayers);
-
-            Debug.DrawRay((Vector2)transform.position + Vector2.right*collider.radius*Mathf.Sign(body.velocity.x), Vector2.right*distance, Color.red);
 
             if(hit)
             {
