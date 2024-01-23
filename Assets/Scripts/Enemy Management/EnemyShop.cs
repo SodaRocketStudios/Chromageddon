@@ -21,7 +21,7 @@ namespace SRS.EnemyManagement
 				}
 			}
 
-			int randomIndex = randomGenerator.Next(0, availableEnemies.Count-1);
+			int randomIndex = randomGenerator.Next(0, availableEnemies.Count);
 
 			return availableEnemies[randomIndex];
         }

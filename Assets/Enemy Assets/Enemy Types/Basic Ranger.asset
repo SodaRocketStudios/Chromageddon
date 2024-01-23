@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d4d411be6109a43baa1429ed4e9af4, type: 3}
+  m_Name: Basic Ranger
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 11400000, guid: e02028796e1ad8c44997676aa88488af, type: 2}
+  InitialStats:
+  - {fileID: 11400000, guid: f3a41ae165792af45b536c95d09ecd5e, type: 2}
+  - {fileID: 11400000, guid: 6d0a5207c94a75f4587dc143659f8f0b, type: 2}
+  EliteModifiers: []
+  Price: 2
+  MaxGroupSize: 5
+  IgnoreRecycleRequests: 0
+  Sprite: {fileID: 2097375167, guid: 633188d6754abdf47b78b051db06736e, type: 3}
+  Color: {r: 1, g: 0.8470589, b: 0, a: 1}
+  stateTransitions:
+  - criteria:
+    - {fileID: 0}
+    transitionState: {fileID: 11400000, guid: 6f846333b9bbc9742a27dcd7ab137a95, type: 2}
+  - criteria: []
+    transitionState: {fileID: 11400000, guid: 166ec1d96f169e4458e83a84f7ff6498, type: 2}
+  - criteria: []
+    transitionState: {fileID: 11400000, guid: 166ec1d96f169e4458e83a84f7ff6498, type: 2}
