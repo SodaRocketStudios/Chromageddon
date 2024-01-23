@@ -45,6 +45,7 @@ namespace SRS.Combat
 			Behavior = data.Behavior;
 			
 			spriteRenderer.sprite = data.Sprite;
+			spriteRenderer.color = data.Color;
 
 			collisionMask = ~ignoredLayers;
 			collisionMask &= ~(1 << attacker.layer);

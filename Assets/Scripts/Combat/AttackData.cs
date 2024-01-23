@@ -10,5 +10,7 @@ namespace SRS.Combat
 		public DamageType damageType;
 
 		public Sprite Sprite;
+
+		public Color Color;
 	}
 }
