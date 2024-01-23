@@ -22,4 +22,7 @@ MonoBehaviour:
   IgnoreRecycleRequests: 0
   Sprite: {fileID: -780708951, guid: 776894ee602342549b2cc0f748ee17b6, type: 3}
   Color: {r: 0.7924528, g: 0.7084631, b: 0.16820934, a: 1}
-  InitialState: {fileID: 11400000, guid: 9d38bd264b2da0d4aacc13a9ba805f44, type: 2}
+  stateTransitions:
+  - criteria:
+    - {fileID: 11400000, guid: 663d9705dfa6561449285138e7ae46cf, type: 2}
+    transitionState: {fileID: 0}

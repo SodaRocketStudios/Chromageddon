@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRS.AI
@@ -6,20 +7,20 @@ namespace SRS.AI
 	[Serializable]
 	public class Transition
 	{
-		[SerializeField] private Criteria decision;
-		[SerializeField] private State trueState;
+		[SerializeField] private List<Criteria> criteria;
+		[SerializeField] private State transitionState;
 
 		public State Test(AIBrain brain)
 		{
-			if(decision.Check(brain) == true)
+			foreach(Criteria criterion in criteria)
 			{
-				if(trueState == null)
+				if(criterion.Check(brain) == false)
 				{
-					return trueState;
+					return brain.CurrentState;
 				}
 			}
-			
-			return brain.CurrentState;
+
+			return transitionState;
 		}
 	}
 }

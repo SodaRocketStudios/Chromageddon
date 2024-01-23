@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace SRS.AI
 {
-	[CreateAssetMenu(fileName = "New Range Criteria", menuName = "Enemies/AI/Decisions/Range Criteria")]
-    public class RangeCriteria : Criteria
+	[CreateAssetMenu(fileName = "New In Range Criteria", menuName = "Enemies/AI/Criteria/In Range Criteria")]
+    public class InRangeCriteria : Criteria
     {
 		[SerializeField] private float range;
 		private float rangeSquared = -1;

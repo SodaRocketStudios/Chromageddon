@@ -14,7 +14,6 @@ namespace SRS.AI
 			{
 				currentState.Exit(this);
 				currentState = value;
-				currentState.Enter(this);
 			}
 		}
 
@@ -95,7 +94,7 @@ namespace SRS.AI
 
 			foreach(Transition transition in transitions)
 			{
-				currentState = transition.Test(this);
+				CurrentState = transition.Test(this);
 			}
 		}
 

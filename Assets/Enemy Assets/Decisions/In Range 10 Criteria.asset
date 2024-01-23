@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dff4b34297fbd843862a8a94b82df59, type: 3}
-  m_Name: Range Decision 10
+  m_Name: In Range 10 Criteria
   m_EditorClassIdentifier: 
   range: 10
