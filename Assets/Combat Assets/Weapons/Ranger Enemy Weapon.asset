@@ -18,8 +18,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2dbf5aef340d9d340bd070b06358c32b, type: 2}
   description: 
   attackData:
-    Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
+    Behavior: {fileID: 11400000, guid: 685ec12dfc7c98d4e8d6b1a521ae05bb, type: 2}
     damageType: 0
-    Sprite: {fileID: 0}
-  attackPool: {fileID: 0}
-  recoilStrength: 1
+    Sprite: {fileID: -1699468240, guid: 7bed9f664d2dbf146a58c7ddee45f22b, type: 3}
+  attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}
+  recoilStrength: 0

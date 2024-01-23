@@ -14,12 +14,9 @@ namespace SRS.Combat
 
 			set
 			{
-				if(weapon != null)
-				{
-					weapon.Unequip(stats);
-				}
+				weapon?.Unequip(stats);
 				weapon = value;
-				weapon.Equip(stats);
+				weapon?.Equip(stats);
 			}
 		}
 
