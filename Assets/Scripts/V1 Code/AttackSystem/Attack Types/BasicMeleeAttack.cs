@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SRS.AttackSystem
 {
-    [CreateAssetMenu(fileName = "Basic Melee Attack", menuName = "Attacks/Basic Melee Attack")]
+    [CreateAssetMenu(fileName = "Basic Melee Attack", menuName = "Old/Attacks/Basic Melee Attack")]
 	public class BasicMeleeAttack : AttackType
 	{
         public override void Attack(Transform origin, float attackAngle, LayerMask mask)

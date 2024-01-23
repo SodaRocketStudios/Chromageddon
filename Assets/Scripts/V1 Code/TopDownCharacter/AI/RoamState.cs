@@ -5,7 +5,7 @@ using SRS.Extensions.Vector;
 
 namespace SRS.TopDownCharacterControl.AI
 {
-    [CreateAssetMenu(fileName = "New Roam State", menuName = "AI/State/Roam State")]
+    [CreateAssetMenu(fileName = "New Roam State", menuName = "Old/AI/State/Roam State")]
     public class RoamState : State
     {
 		[SerializeField] private float maxDeviationFromTarget;

@@ -3,7 +3,7 @@ using SRS.Audio;
 
 namespace SRS.AttackSystem
 {
-	[CreateAssetMenu(fileName = "Basic Ranged Attack", menuName = "Attacks/Basic Ranged Attack")]
+	[CreateAssetMenu(fileName = "Basic Ranged Attack", menuName = "Old/Attacks/Basic Ranged Attack")]
 	public class BasicRangedAttack : AttackType
 	{
 		[SerializeField] private float projectileSpeed;

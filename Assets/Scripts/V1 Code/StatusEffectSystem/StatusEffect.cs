@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SRS.StatusEffects
 {
-	[CreateAssetMenu(fileName = "New Status Effect", menuName = "Status Effect/Status Effect")]
+	[CreateAssetMenu(fileName = "New Status Effect", menuName = "Old/Status Effect/Status Effect")]
 	public class StatusEffect : ScriptableObject
 	{
 		[SerializeField] private string procStat;

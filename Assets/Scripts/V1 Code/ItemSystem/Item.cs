@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace SRS.ItemSystem
 {
-	[CreateAssetMenu(fileName = "New Item", menuName = "Item System/Item")]
+	[CreateAssetMenu(fileName = "New Item", menuName = "Old/Item System/Item")]
 	public class Item : ScriptableObject
 	{
 		[SerializeField] new private string name;

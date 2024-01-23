@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SRS.TopDownCharacterControl.AI
 {
-	[CreateAssetMenu(fileName = "New Mobile Attack State", menuName = "AI/State/Mobile Attack State")]
+	[CreateAssetMenu(fileName = "New Mobile Attack State", menuName = "Old/AI/State/Mobile Attack State")]
 	public class MobileAttackState : State
 	{
 		public override void Enter(AIBrain brain)

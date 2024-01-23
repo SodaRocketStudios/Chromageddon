@@ -3,7 +3,7 @@ using SRS.Health;
 
 namespace SRS.StatusEffects
 {
-	[CreateAssetMenu(fileName = "New Damge Over time Effect", menuName = "Status Effect/Damage Over Time Effect")]
+	[CreateAssetMenu(fileName = "New Damge Over time Effect", menuName = "Old/Status Effect/Damage Over Time Effect")]
     public class DamageOverTimeEffect : TickEffect
     {
         private HealthManager targetHealth;

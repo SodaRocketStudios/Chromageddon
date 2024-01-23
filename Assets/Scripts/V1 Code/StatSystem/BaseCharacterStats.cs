@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SRS.StatSystem
 {
-	[CreateAssetMenu(fileName = "New Base Character Data", menuName = "Character Data/Character Base Data")]
+	[CreateAssetMenu(fileName = "New Base Character Data", menuName = "Old/Character Data/Character Base Data")]
 	public class BaseCharacterStats : ScriptableObject
 	{
 		private static List<string> stats = new List<string>()

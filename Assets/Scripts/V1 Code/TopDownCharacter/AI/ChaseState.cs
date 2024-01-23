@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SRS.TopDownCharacterControl.AI
 {
-    [CreateAssetMenu(fileName = "New Chase State", menuName = "AI/State/Chase State")]
+    [CreateAssetMenu(fileName = "New Chase State", menuName = "Old/AI/State/Chase State")]
     public class ChaseState : State
     {
         public override void Enter(AIBrain brain)
