@@ -11,6 +11,11 @@ namespace SRS.Combat
 
 		[SerializeField] private ObjectPool attackPool;
 
+        public AudioClip Sound
+        {
+            get => attackData.Sound;
+        }
+
         [SerializeField, Range(0, 1)] private float recoilStrength = 1;
         public float RecoilStrength
         {

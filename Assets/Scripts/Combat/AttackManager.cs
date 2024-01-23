@@ -32,11 +32,14 @@ namespace SRS.Combat
 
 		private CinemachineImpulseSource impulseSource;
 
+		private AudioSource audioSource;
+
 		private void Awake()
 		{
             stats = GetComponent<StatContainer>();
 			input = GetComponent<IInputSource>();
 			impulseSource = GetComponent<CinemachineImpulseSource>();
+			audioSource = GetComponent<AudioSource>();
 		}
 
 		private void Start()
@@ -70,6 +73,9 @@ namespace SRS.Combat
 				nextAttackTime += attackDelay;
 				GenerateRecoil();
 			}
+
+			// TODO -- play attack sound
+			audioSource?.PlayOneShot(weapon.Sound);
 		}
 
 		private void Update()
