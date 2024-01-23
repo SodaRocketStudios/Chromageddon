@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
+  m_Name: Ranger Enemy Weapon
+  m_EditorClassIdentifier: 
+  name: Ranger Enemy Weapon
+  sprite: {fileID: 0}
+  modifiers:
+  - {fileID: 11400000, guid: 2dbf5aef340d9d340bd070b06358c32b, type: 2}
+  description: 
+  attackData:
+    Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
+    damageType: 0
+    Sprite: {fileID: 0}
+  attackPool: {fileID: 0}
+  recoilStrength: 1

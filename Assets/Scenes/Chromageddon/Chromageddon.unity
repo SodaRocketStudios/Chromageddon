@@ -1539,11 +1539,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 419734818}
-  - component: {fileID: 419734821}
   - component: {fileID: 419734822}
+  - component: {fileID: 419734821}
   - component: {fileID: 419734820}
   m_Layer: 5
-  m_Name: XP Text
+  m_Name: Level Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,7 +1588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce4136d7b1b30d14f884ce79ad246da0, type: 2}
   m_sharedMaterial: {fileID: 1196545326440579198, guid: ce4136d7b1b30d14f884ce79ad246da0, type: 2}
@@ -1676,10 +1676,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 419734817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3584c454211480f47bf87afa56dd5014, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f87445b40467304cb4efb1a9ddb5e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decimalPlaces: 1
+  preText: 'Level: '
+  postText: 
 --- !u!1 &444687473
 GameObject:
   m_ObjectHideFlags: 0
@@ -6514,6 +6515,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnLevelChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 419734822}
+        m_TargetAssemblyTypeName: SRS.UI.DisplayedValue, UI
+        m_MethodName: Draw
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCurrentXPChange:
     m_PersistentCalls:
       m_Calls:
@@ -6529,36 +6545,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 419734822}
-        m_TargetAssemblyTypeName: SRS.UI.DisplayedFraction, UI
-        m_MethodName: UpdateValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnRequiredXPChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1529035698}
         m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
         m_MethodName: set_maxValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 419734822}
-        m_TargetAssemblyTypeName: SRS.UI.DisplayedFraction, UI
-        m_MethodName: UpdateMax
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
