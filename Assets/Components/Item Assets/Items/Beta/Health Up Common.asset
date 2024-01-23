@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
   m_Name: Health Up Common
   m_EditorClassIdentifier: 
-  name: 
+  name: Health Up
   sprite: {fileID: 0}
-  modifiers: []
+  modifiers:
+  - {fileID: 11400000, guid: 2865dffc99cf8ca4b9a675888c5db931, type: 2}
   description: 
   behaviors: []
-  rarity: {fileID: 0}
+  rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
   tags: []

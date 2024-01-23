@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba1e50359d04a84da9d8866868f59a5, type: 3}
-  m_Name: +50% Health Modifier
+  m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
+  m_Name: Crit Chance Up Common
   m_EditorClassIdentifier: 
-  affectedStat: Health
-  value: 50
-  description: Increase max health by 50%
+  name: Critical Chance Up
+  sprite: {fileID: 0}
+  modifiers: []
+  description: 
+  behaviors: []
+  rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
+  tags: []

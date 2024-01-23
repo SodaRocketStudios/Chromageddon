@@ -10,6 +10,11 @@ namespace SRS.Items
 		
 		private List<Item> items = new();
 
+		private void Awake()
+		{
+			stats = GetComponent<StatContainer>();
+		}
+
 		public void Add(Item item)
 		{
 			if(item == null)
