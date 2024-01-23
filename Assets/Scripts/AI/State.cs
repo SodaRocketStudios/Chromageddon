@@ -9,6 +9,11 @@ namespace SRS.AI
 		[SerializeField] private List<Action> actions = new();
 		[SerializeField] private List<Transition> transitions = new();
 
+		public void Enter(AIBrain brain)
+		{
+
+		}
+
 		public void Execute(AIBrain brain)
 		{
 			foreach(Action action in actions)

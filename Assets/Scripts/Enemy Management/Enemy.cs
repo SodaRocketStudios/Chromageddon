@@ -35,7 +35,7 @@ namespace SRS.EnemyManagement
 
         public void Initialize(EnemyData enemyData, int elitifications)
         {
-			brain.CurrentState = enemyData.InitialState;
+			brain.Transitions = enemyData.stateTransitions;
 
 			weapon = enemyData.Weapon;
 

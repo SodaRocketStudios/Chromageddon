@@ -1,5 +1,6 @@
 using UnityEngine;
 using SRS.Input;
+using System.Collections.Generic;
 
 namespace SRS.AI
 {
@@ -11,7 +12,9 @@ namespace SRS.AI
 			get => currentState;
 			set
 			{
-				ChangeState(value);
+				currentState.Exit(this);
+				currentState = value;
+				currentState.Enter(this);
 			}
 		}
 
@@ -57,8 +60,6 @@ namespace SRS.AI
 			}
 		}
 
-		public float TargetDistanceSquared{get; private set;}
-
 		private Transform player;
 		public Transform Player
 		{
@@ -72,6 +73,17 @@ namespace SRS.AI
 			}
 		}
 
+		public float TargetDistanceSquared{get; private set;}
+
+		private List<Transition> transitions;
+		public List<Transition> Transitions
+		{
+			set
+			{
+				transitions = value;
+			}
+		}
+
 		private void OnEnable()
 		{
 			FindPlayer();
@@ -80,20 +92,16 @@ namespace SRS.AI
 		private void Update()
 		{
 			currentState.Execute(this);
+
+			foreach(Transition transition in transitions)
+			{
+				currentState = transition.Test(this);
+			}
 		}
 
 		private void FixedUpdate()
 		{
 			TargetDistanceSquared = (transform.position - player.position).sqrMagnitude;
-		}
-
-		public void ChangeState(State state)
-		{
-			if(currentState != state)
-			{
-				state.Exit(this);
-				currentState = state;
-			}
 		}
 
 		private void FindPlayer()

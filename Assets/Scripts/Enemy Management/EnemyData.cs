@@ -19,6 +19,6 @@ namespace SRS.EnemyManagement
 		public bool IgnoreRecycleRequests;
 		public Sprite Sprite;
 		public Color Color;
-		public State InitialState;
+		public List<Transition> stateTransitions;
 	}
 }

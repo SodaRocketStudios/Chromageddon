@@ -2,13 +2,13 @@ using UnityEngine;
 
 namespace SRS.AI
 {
-	[CreateAssetMenu(fileName = "New Range Decision", menuName = "Enemies/AI/Decisions/Range Decision")]
-    public class RangeDecision : Decision
+	[CreateAssetMenu(fileName = "New Range Criteria", menuName = "Enemies/AI/Decisions/Range Criteria")]
+    public class RangeCriteria : Criteria
     {
 		[SerializeField] private float range;
 		private float rangeSquared = -1;
 
-        public override bool Decide(AIBrain brain)
+        public override bool Check(AIBrain brain)
         {
 			if(rangeSquared < 0)
 			{
