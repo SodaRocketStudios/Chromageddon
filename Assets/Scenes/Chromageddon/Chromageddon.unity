@@ -3456,7 +3456,7 @@ MonoBehaviour:
     hasMinimum: 0
     minimumValue: 0
   - name: Health
-    baseValue: 2
+    baseValue: 100
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0
@@ -3498,7 +3498,7 @@ MonoBehaviour:
     hasMinimum: 0
     minimumValue: 0
   - name: Bounces
-    baseValue: 1
+    baseValue: 0
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0
@@ -3506,6 +3506,20 @@ MonoBehaviour:
     minimumValue: 0
   - name: Pierces
     baseValue: 0
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Luck
+    baseValue: 0
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0
+    hasMinimum: 0
+    minimumValue: 0
+  - name: KnockBack
+    baseValue: 1
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0

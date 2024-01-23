@@ -13,10 +13,8 @@ namespace SRS.Progression
 
 		private List<Experience> activePickups = new();
 
-		public void Spawn(Vector2 position)
+		public void Spawn(Vector2 position, int value)
 		{
-			int value = 1;
-
 			Experience experience = pool.Get(position) as Experience;
 			experience.Value = value;
 

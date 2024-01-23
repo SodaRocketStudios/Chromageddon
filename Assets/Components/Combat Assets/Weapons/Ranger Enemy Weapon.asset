@@ -16,6 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   modifiers:
   - {fileID: 11400000, guid: ae4053e4886583d4f8fa0afade0403b7, type: 2}
+  - {fileID: 11400000, guid: a35f4402d5ddc4440be598cf30e73629, type: 2}
   description: 
   attackData:
     Behavior: {fileID: 11400000, guid: 685ec12dfc7c98d4e8d6b1a521ae05bb, type: 2}

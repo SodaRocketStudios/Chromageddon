@@ -110,7 +110,7 @@ namespace SRS.EnemyManagement
 
 		public void KillEnemy(Enemy enemy)
 		{
-			experienceSpawner.Spawn(enemy.transform.position);
+			experienceSpawner.Spawn(enemy.transform.position, enemy.XPValue);
 			Despawn(enemy);
 		}
 

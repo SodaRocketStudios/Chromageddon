@@ -14,11 +14,18 @@ namespace SRS.EnemyManagement
 
 		public Action<Enemy> OnEnemyDeath;
 
+		private int xpValue = 1;
+		public int XPValue
+		{
+			get => xpValue;
+		}
+
 		private AIBrain brain;
 		private StatContainer statContainer;
 		private Weapon weapon;
 		private SpriteRenderer spriteRenderer;
 		private HitHandler hitHandler;
+
 
 		private void Awake()
 		{
@@ -33,33 +40,31 @@ namespace SRS.EnemyManagement
 			hitHandler.Health.OnDeath += OnDeath;
 		}
 
-        public void Initialize(EnemyData enemyData, int elitifications)
+        public void Initialize(EnemyData data, int elitifications)
         {
-			brain.Transitions = enemyData.stateTransitions;
+			brain.Transitions = data.stateTransitions;
 
-			weapon = enemyData.Weapon;
+			weapon = data.Weapon;
 
-			spriteRenderer.sprite = enemyData.Sprite;
-			spriteRenderer.color = enemyData.Color;
+			spriteRenderer.sprite = data.Sprite;
+			spriteRenderer.color = data.Color;
+
+			xpValue = data.xpValue;
 
 			statContainer.ResetStats();
 
-
-			foreach(StatModifier modifier in enemyData.InitialStats)
+			foreach(StatModifier modifier in data.InitialStats)
 			{
 				modifier.Apply(statContainer);
 			}
 
 			GetComponent<AttackManager>().Weapon = weapon;
 
-			ignoreRecycleRequests = enemyData.IgnoreRecycleRequests;
+			ignoreRecycleRequests = data.IgnoreRecycleRequests;
 
-			Elitify(enemyData, elitifications);
+			Elitify(data, elitifications);
 
 			hitHandler.Initialize();
-			
-			// TODO -- Set enemy weapon
-			// TODO -- determine if i need rigidbody here.
         }
 
 		private void Elitify(EnemyData enemyData, int elitifications)
@@ -70,6 +75,9 @@ namespace SRS.EnemyManagement
 				{
 					modifier.Apply(statContainer);
 				}
+
+				xpValue *= 2;
+
 				elitifications--;
 			}
 		}
