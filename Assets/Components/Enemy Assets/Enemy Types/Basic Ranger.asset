@@ -20,7 +20,7 @@ MonoBehaviour:
   Price: 2
   MaxGroupSize: 5
   IgnoreRecycleRequests: 0
-  Sprite: {fileID: 2097375167, guid: 633188d6754abdf47b78b051db06736e, type: 3}
+  Sprite: {fileID: 1415734981, guid: 633188d6754abdf47b78b051db06736e, type: 3}
   Color: {r: 1, g: 0.8470589, b: 0, a: 1}
   stateTransitions:
   - criteria:
@@ -28,6 +28,4 @@ MonoBehaviour:
     transitionState: {fileID: 11400000, guid: 6f846333b9bbc9742a27dcd7ab137a95, type: 2}
   - criteria:
     - {fileID: 11400000, guid: b567c5b06054cd94ea638a49a1f80c52, type: 2}
-    transitionState: {fileID: 11400000, guid: 166ec1d96f169e4458e83a84f7ff6498, type: 2}
-  - criteria: []
     transitionState: {fileID: 11400000, guid: 166ec1d96f169e4458e83a84f7ff6498, type: 2}

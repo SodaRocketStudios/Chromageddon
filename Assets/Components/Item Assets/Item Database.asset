@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4ba31fb3b365a42bbe9ad8893ca611, type: 3}
   m_Name: Item Database
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: 1a9f387e74309ca43bdae80f4ff32331, type: 2}
-  - {fileID: 11400000, guid: d44956fccb7e6644b96749c3537f71dd, type: 2}
-  - {fileID: 11400000, guid: 192a963cd14547945b77cc90e2bdf847, type: 2}
-  - {fileID: 11400000, guid: 867c08e2b9f7985499fd87a4a90094e0, type: 2}
+  items: []
   rarities:
   - {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
   - {fileID: 11400000, guid: 476db63f95ebbaf46bda5df332072d00, type: 2}

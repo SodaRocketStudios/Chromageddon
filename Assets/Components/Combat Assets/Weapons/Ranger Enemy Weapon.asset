@@ -15,11 +15,12 @@ MonoBehaviour:
   name: Ranger Enemy Weapon
   sprite: {fileID: 0}
   modifiers:
-  - {fileID: 11400000, guid: 2dbf5aef340d9d340bd070b06358c32b, type: 2}
+  - {fileID: 11400000, guid: ae4053e4886583d4f8fa0afade0403b7, type: 2}
   description: 
   attackData:
     Behavior: {fileID: 11400000, guid: 685ec12dfc7c98d4e8d6b1a521ae05bb, type: 2}
     damageType: 0
-    Sprite: {fileID: -1699468240, guid: 7bed9f664d2dbf146a58c7ddee45f22b, type: 3}
+    Sprite: {fileID: -1365024104, guid: 7bed9f664d2dbf146a58c7ddee45f22b, type: 3}
+    Color: {r: 0.745283, g: 0, b: 0, a: 1}
   attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}
   recoilStrength: 0

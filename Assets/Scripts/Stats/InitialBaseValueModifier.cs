@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SRS.Stats
 {
-    [CreateAssetMenu(fileName = "New Initial Base Modifier", menuName = "Stats/Modifiers/Initial Base Modifier")]
+    [CreateAssetMenu(fileName = "New Initial Base Modifier", menuName = "Stat Modifiers/Initial Base Modifier")]
     public class InitialBaseValue: StatModifier
     {
 		private float oldValue;

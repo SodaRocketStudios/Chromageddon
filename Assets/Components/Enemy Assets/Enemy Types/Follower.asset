@@ -20,7 +20,7 @@ MonoBehaviour:
   MaxGroupSize: 5
   IgnoreRecycleRequests: 0
   Sprite: {fileID: 1958448713, guid: 633188d6754abdf47b78b051db06736e, type: 3}
-  Color: {r: 0.75, g: 0, b: 0, a: 1}
+  Color: {r: 0.46185517, g: 0, b: 0.7490196, a: 1}
   stateTransitions:
   - criteria: []
     transitionState: {fileID: 11400000, guid: 6f846333b9bbc9742a27dcd7ab137a95, type: 2}
