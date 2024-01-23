@@ -15,8 +15,6 @@ namespace SRS.Combat
 		[SerializeField] private float immunityTime;
 		private float lastHitTime = 0;
 
-		private StatContainer stats;
-
 		public Health Health
 		{
 			get
@@ -24,6 +22,8 @@ namespace SRS.Combat
 				return health;
 			}
 		}
+
+		private StatContainer stats;
 
 		private void Awake()
 		{

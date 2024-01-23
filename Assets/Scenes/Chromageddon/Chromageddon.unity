@@ -3518,8 +3518,8 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
-  - name: KnockBack
-    baseValue: 1
+  - name: Knockback
+    baseValue: 10
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0

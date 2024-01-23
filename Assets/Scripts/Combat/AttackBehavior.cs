@@ -1,3 +1,4 @@
+using SRS.PawnController;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -28,6 +29,8 @@ namespace SRS.Combat
 			{
 				hitHandler.Hit(attack.Stats, attack.DamageType);
 			}
+
+			hitHandler.GetComponent<PawnMover>()?.AddForce(-hit.normal*attack.Stats["Knockback"].Value);
 
 			OnHit(attack, hit);
 		}

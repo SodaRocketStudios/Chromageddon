@@ -29,6 +29,11 @@ namespace SRS.PawnController
             collider = GetComponent<CircleCollider2D>();
         }
 
+        private void OnEnable()
+        {
+            forces = Vector2.zero;
+        }
+
         private void Update()
         {
             HandleRotation();
