@@ -93,7 +93,7 @@ namespace SRS.Combat
 				return;
 			}
 			impulseSource.m_ImpulseDefinition = recoilImpulse;
-			impulseSource.GenerateImpulse(transform.right*weapon.RecoilStrength);
+			impulseSource.GenerateImpulse(-transform.right*weapon.RecoilStrength);
 		}
 	}
 }

@@ -49,6 +49,8 @@ namespace SRS.Combat
 
 			collisionMask = ~ignoredLayers;
 			collisionMask &= ~(1 << attacker.layer);
+
+			DamageType = data.DamageType;
 			
 			Stats = attacker.GetComponent<StatContainer>();
 

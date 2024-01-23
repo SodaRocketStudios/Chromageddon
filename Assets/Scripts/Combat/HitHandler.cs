@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using SRS.Stats;
+using Cinemachine;
+using System.Numerics;
 
 namespace SRS.Combat
 {
@@ -15,6 +17,10 @@ namespace SRS.Combat
 		[SerializeField] private float immunityTime;
 		private float lastHitTime = 0;
 
+		[SerializeField] private CinemachineImpulseDefinition hitImpulse;
+		[SerializeField] private float impulseMagnitude;
+		private CinemachineImpulseSource impulseSource;
+
 		public Health Health
 		{
 			get
@@ -28,6 +34,7 @@ namespace SRS.Combat
 		private void Awake()
 		{
 			stats = GetComponent<StatContainer>();
+			impulseSource = GetComponent<CinemachineImpulseSource>();
 		}
 
 		private void Start()
@@ -53,6 +60,11 @@ namespace SRS.Combat
 		{
 			if(Time.time - lastHitTime > immunityTime)
 			{
+				if(impulseSource != null)
+				{
+					impulseSource.m_ImpulseDefinition = hitImpulse;
+					impulseSource.GenerateImpulse(impulseMagnitude);
+				}
 				ApplyDamage(damage, damageType);
 				lastHitTime = Time.time;
 			}
