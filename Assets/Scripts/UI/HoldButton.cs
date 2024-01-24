@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace SRS.UI
 {
-    public class HoldButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
+    public class HoldButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler, ISelectHandler, ISubmitHandler, ICancelHandler, IDeselectHandler
     {
         [SerializeField, Min(0.1f)] private float holdTime = 1;
         [SerializeField, Min(0.1f)] private float hoverDelay = 1;
@@ -58,7 +58,8 @@ namespace SRS.UI
             {
                 HandleRelease();
             }
-            else if(isHovering)
+            
+            if(isHovering)
             {
                 HandleHover();
             }
@@ -114,6 +115,7 @@ namespace SRS.UI
 
         private void HandleHold()
         {
+            Debug.Log("Holding");
             timeHeld += Time.unscaledDeltaTime;
 
             holdProgress = Mathf.Clamp01(timeHeld/holdTime);
@@ -124,11 +126,13 @@ namespace SRS.UI
             {
                 holdComplete = true;
                 OnHoldCompleted?.Invoke();
+                Debug.Log("Hold Complete");
             }
         }
 
         private void HandleRelease()
         {
+            Debug.Log("Release");
             if(holdComplete)
             {
                 OnCompleted?.Invoke();
@@ -156,6 +160,34 @@ namespace SRS.UI
         private void ResetHoverTime()
         {
             hoverTime = 0;
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            OnPointerEnterEvent?.Invoke();
+            isHovering = true;
+        }
+
+        public void OnSubmit(BaseEventData eventData)
+        {
+            Debug.Log("Submit");
+            isHeld = true;
+            isHovering = false;
+        }
+
+        public void OnCancel(BaseEventData eventData)
+        {
+            isHeld = false;
+            isHovering = true;
+            OnPointerUpEvent?.Invoke();
+        }
+
+        public void OnDeselect(BaseEventData eventData)
+        {
+            OnPointerExitEvent?.Invoke();
+            isHeld = false;
+            holdComplete = false;
+            isHovering = false;
         }
     }
 }
