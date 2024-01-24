@@ -1,8 +1,0 @@
-Hit (stats)
-    damage shield and get the remaining damage if the shield breaks
-    damage health with remaining remaining damage
-    Try to trigger OnHitEffects (Some can't activate if the target is dead, but each effect should decide that)
-
-Hit (damage)
-    damage shield and return remaining damage if the shield breaks
-    damage health

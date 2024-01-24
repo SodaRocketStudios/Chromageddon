@@ -7,6 +7,7 @@ using SRS.Extensions.Random;
 using SRS.GameManagement;
 using SRS.Progression;
 using SRS.UI;
+using UnityEngine.EventSystems;
 
 namespace SRS.Items
 {
@@ -75,6 +76,8 @@ namespace SRS.Items
 
         private void PopulateChoices(float points)
 		{
+			EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
+			
 			List<Item> selectedItems = new();
 
 			foreach(ItemSelectionButton button in buttons)
