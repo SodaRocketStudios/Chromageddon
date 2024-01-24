@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SRS.Settings
 {
-	public abstract class Setting<T> : MonoBehaviour
+	public abstract class Setting<T> : MonoBehaviour, ISetting
 	{
-		protected new string name;
+		public UnityEvent<T> OnApply;
+
+		[SerializeField] protected new string name;
+
+		[SerializeField] protected T defaultValue;
 
 		private T value;
 		public T Value
@@ -20,22 +25,36 @@ namespace SRS.Settings
 			}
 		}
 
-		protected bool isDirty;
-
-		protected T defaultValue;
+		private bool isDirty = true;
 
 		private T lastValue;
 
 		public void Save()
 		{
-			OnSave();
-			lastValue = value;
+			if(isDirty)
+			{
+				OnSave();
+				Apply();
+			}
 		}
 
 		public void Load()
 		{
-			OnLoad();
-			lastValue = value;
+			if(isDirty)
+			{
+				OnLoad();
+				Apply();
+			}
+		}
+
+		private void Apply()
+		{
+			if(isDirty)
+			{
+				OnApply?.Invoke(Value);
+				isDirty = false;
+				lastValue = value;
+			}
 		}
 
 		public abstract void OnSave();
