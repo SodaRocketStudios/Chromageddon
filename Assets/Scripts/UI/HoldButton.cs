@@ -115,7 +115,6 @@ namespace SRS.UI
 
         private void HandleHold()
         {
-            Debug.Log("Holding");
             timeHeld += Time.unscaledDeltaTime;
 
             holdProgress = Mathf.Clamp01(timeHeld/holdTime);
@@ -126,13 +125,11 @@ namespace SRS.UI
             {
                 holdComplete = true;
                 OnHoldCompleted?.Invoke();
-                Debug.Log("Hold Complete");
             }
         }
 
         private void HandleRelease()
         {
-            Debug.Log("Release");
             if(holdComplete)
             {
                 OnCompleted?.Invoke();
@@ -170,7 +167,6 @@ namespace SRS.UI
 
         public void OnSubmit(BaseEventData eventData)
         {
-            Debug.Log("Submit");
             isHeld = true;
             isHovering = false;
         }
