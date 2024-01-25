@@ -4,14 +4,14 @@ using UnityEngine;
 namespace SRS.Utils
 {
 	[Serializable]
-	public class FloatRange : IEquatable<FloatRange>
+	public class IntRange : IEquatable<IntRange>
 	{
 		public Action OnMaxChange;
 		public Action OnMinChange;
 		public Action OnValueChange;
 
-		[SerializeField] protected float current;
-		public float Current
+		[SerializeField] protected int current;
+		public int Current
 		{
 			get => current;
 			set
@@ -21,21 +21,21 @@ namespace SRS.Utils
 			}
 		}
 
-		[SerializeField] protected float max;
-		public float Max
+		[SerializeField] protected int max;
+		public int Max
 		{
 			get => max;
 			set => max = value;
 		}
 
-		[SerializeField] protected float min;
-		public float Min
+		[SerializeField] protected int min;
+		public int Min
 		{
 			get => min;
 			set => min = value;
 		}
 
-        public bool Equals(FloatRange other)
+        public bool Equals(IntRange other)
         {
             return other.Current == current?true:false;
         }

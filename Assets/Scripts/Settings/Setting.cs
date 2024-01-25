@@ -6,6 +6,8 @@ namespace SRS.Settings
 	[Serializable]
 	public abstract class Setting<T> : ISetting
 	{
+		public Action<T> OnApply;
+
 		[SerializeField] protected string name;
 		public string Name
 		{
@@ -17,8 +19,6 @@ namespace SRS.Settings
 		{
 			get => value;
 		}
-
-		public Action<T> OnApply;
 
 		public void Save()
 		{
