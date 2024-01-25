@@ -1,35 +1,22 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace SRS.Settings
 {
 	public class SettingsManager : MonoBehaviour
 	{
-		private List<ISetting> settings;
-
 		private void Start()
 		{
-			GameObject[] gameObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
-			settings = gameObjects.OfType<ISetting>() as List<ISetting>;
-
-			Load();
+			// TODO -- get all settings
 		}
 
 		public void Save()
 		{
-			foreach(ISetting setting in settings)
-			{
-				setting.Save();
-			}
+			// TODO -- save all settings
 		}
 
 		public void Load()
 		{
-			foreach(ISetting setting in settings)
-			{
-				setting.Load();
-			}
+			// TODO -- load all settings
 		}
 	}
 }

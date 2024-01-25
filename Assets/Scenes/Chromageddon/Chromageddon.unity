@@ -711,7 +711,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 138889364}
-  - component: {fileID: 138889366}
   - component: {fileID: 138889365}
   m_Layer: 5
   m_Name: Effects Volume Slider
@@ -787,13 +786,13 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1942316919}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 138889366}
+      - m_Target: {fileID: 2056088553}
         m_TargetAssemblyTypeName: SRS.Settings.Setting`1[[System.Single, mscorlib
         m_MethodName: set_Value
         m_Mode: 0
@@ -805,35 +804,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &138889366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138889363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660d6d1c8f88c19468a5a7d91d2688bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnApply:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 138889365}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  name: 
-  defaultValue: 0
 --- !u!1 &160437728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3344,6 +3314,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840818168}
   m_CullTransparentMesh: 1
+--- !u!1 &886597438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 886597439}
+  - component: {fileID: 886597440}
+  m_Layer: 0
+  m_Name: SettingsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &886597439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886597438}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2056088551}
+  m_Father: {fileID: 1168674332}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &886597440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886597438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09258100045291f40823b8a49e5d029e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &890519110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,7 +3443,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 956442018}
-  - component: {fileID: 956442020}
   - component: {fileID: 956442019}
   m_Layer: 5
   m_Name: UI Volume Slider
@@ -3504,13 +3518,13 @@ MonoBehaviour:
   m_HandleRect: {fileID: 642090219}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 956442020}
+      - m_Target: {fileID: 2056088552}
         m_TargetAssemblyTypeName: SRS.Settings.Setting`1[[System.Single, mscorlib
         m_MethodName: set_Value
         m_Mode: 0
@@ -3522,35 +3536,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &956442020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956442017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660d6d1c8f88c19468a5a7d91d2688bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnApply:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 956442019}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  name: 
-  defaultValue: 0
 --- !u!1 &967504630
 GameObject:
   m_ObjectHideFlags: 0
@@ -4612,6 +4597,7 @@ Transform:
   - {fileID: 2015734297}
   - {fileID: 245292837}
   - {fileID: 1336283572}
+  - {fileID: 886597439}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1169739586
@@ -7973,7 +7959,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1771697369}
-  - component: {fileID: 1771697371}
   - component: {fileID: 1771697370}
   m_Layer: 5
   m_Name: Master Volume Slider
@@ -8049,13 +8034,13 @@ MonoBehaviour:
   m_HandleRect: {fileID: 840818169}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1771697371}
+      - m_Target: {fileID: 2056088554}
         m_TargetAssemblyTypeName: SRS.Settings.Setting`1[[System.Single, mscorlib
         m_MethodName: set_Value
         m_Mode: 0
@@ -8067,35 +8052,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1771697371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771697368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660d6d1c8f88c19468a5a7d91d2688bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnApply:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1771697370}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  name: 
-  defaultValue: 0
 --- !u!1 &1773849748
 GameObject:
   m_ObjectHideFlags: 0
@@ -8917,6 +8873,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67aa2f27de773bb42b5b2d683e77dc03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2056088550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2056088551}
+  - component: {fileID: 2056088554}
+  - component: {fileID: 2056088553}
+  - component: {fileID: 2056088552}
+  m_Layer: 0
+  m_Name: VolumeSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2056088551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056088550}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 886597439}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2056088552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056088550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660d6d1c8f88c19468a5a7d91d2688bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Volume-UI
+  defaultValue: 0.5
+  action: {fileID: 11400000, guid: 986e02143e02000449c7ba2737d421ca, type: 2}
+--- !u!114 &2056088553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056088550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660d6d1c8f88c19468a5a7d91d2688bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Volume-Effects
+  defaultValue: 0.5
+  action: {fileID: 11400000, guid: 5e191e2fbb036bf43a2dfd6babf86bee, type: 2}
+--- !u!114 &2056088554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056088550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660d6d1c8f88c19468a5a7d91d2688bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Volume-Master
+  defaultValue: 0.5
+  action: {fileID: 11400000, guid: 8ae493286c58a98468125ae580049e79, type: 2}
 --- !u!1 &2113922357
 GameObject:
   m_ObjectHideFlags: 0

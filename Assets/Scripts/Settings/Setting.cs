@@ -1,37 +1,28 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace SRS.Settings
 {
-	public abstract class Setting<T> : MonoBehaviour, ISetting
+	[Serializable]
+	public abstract class Setting<T> : ISetting
 	{
-		public UnityEvent<T> OnApply;
-
-		[SerializeField] protected new string name;
-
-		[SerializeField] protected T defaultValue;
-
-		private T value;
-		public T Value
+		[SerializeField] protected string name;
+		public string Name
 		{
-			get => value;
-			set
-			{
-				if(!value.Equals(lastValue))
-				{
-					isDirty = true;
-				}
-				this.value = value;
-			}
+			get => name;
 		}
 
-		private bool isDirty = true;
+		[SerializeField] protected SettingValue<T> value;
+		public SettingValue<T> Value
+		{
+			get => value;
+		}
 
-		private T lastValue;
+		public Action<T> OnApply;
 
 		public void Save()
 		{
-			if(isDirty)
+			if(value.IsDirty)
 			{
 				OnSave();
 				Apply();
@@ -40,8 +31,9 @@ namespace SRS.Settings
 
 		public void Load()
 		{
-			if(isDirty)
+			if(value.IsDirty)
 			{
+				Debug.Log($"Load {name}");
 				OnLoad();
 				Apply();
 			}
@@ -49,16 +41,16 @@ namespace SRS.Settings
 
 		private void Apply()
 		{
-			if(isDirty)
+			if(value.IsDirty)
 			{
-				OnApply?.Invoke(Value);
-				isDirty = false;
-				lastValue = value;
+				OnApply?.Invoke(value.Value);
+				value.IsDirty = false;
+				value.LastValue = value.Value;
 			}
 		}
 
-		public abstract void OnSave();
+		protected abstract void OnSave();
 
-		public abstract void OnLoad();
+		protected abstract void OnLoad();
 	}
 }

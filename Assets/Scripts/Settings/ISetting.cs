@@ -1,3 +1,5 @@
+using System;
+
 namespace SRS.Settings
 {
 	public interface ISetting

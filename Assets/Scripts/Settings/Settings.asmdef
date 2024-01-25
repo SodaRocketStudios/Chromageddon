@@ -1,7 +1,9 @@
 {
     "name": "Settings",
     "rootNamespace": "SRS.Settings",
-    "references": [],
+    "references": [
+        "GUID:3d3bf88e20410054fa7014912fbd1b69"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
