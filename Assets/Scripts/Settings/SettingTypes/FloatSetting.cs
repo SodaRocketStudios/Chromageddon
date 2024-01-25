@@ -25,8 +25,8 @@ namespace SRS.Settings
 			OnApply?.Invoke(Value);
 		}
 
-		[SerializeField] private FloatRange defaultValue;
-		public FloatRange DefaultValue
+		[SerializeField] private float defaultValue;
+		public float DefaultValue
 		{
 			get => defaultValue;
 			set => defaultValue = value;
@@ -39,7 +39,7 @@ namespace SRS.Settings
 
         protected override void OnLoad()
         {
-            Value.Current = PlayerPrefs.GetFloat(name, DefaultValue.Current);
+            Value.Current = PlayerPrefs.GetFloat(name, defaultValue);
         }
     }
 }
