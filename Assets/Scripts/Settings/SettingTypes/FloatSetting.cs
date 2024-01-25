@@ -7,12 +7,12 @@ namespace SRS.Settings
     {
         protected override void OnSave()
         {
-            PlayerPrefs.SetFloat(name, value.Value.Current);
+            PlayerPrefs.SetFloat(name, Value.Current);
         }
 
         protected override void OnLoad()
         {
-            value.Value.Current = PlayerPrefs.GetFloat(name, value.DefaultValue.Current);
+            Value.Current = PlayerPrefs.GetFloat(name, DefaultValue.Current);
         }
     }
 }

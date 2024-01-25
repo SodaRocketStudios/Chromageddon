@@ -14,39 +14,46 @@ namespace SRS.Settings
 			get => name;
 		}
 
-		[SerializeField] protected SettingValue<T> value;
-		public SettingValue<T> Value
+		private T value;
+		public T Value
 		{
 			get => value;
+			set
+			{
+				this.value = value;
+				Apply();
+			}
+		}
+
+		[SerializeField] private T defaultValue;
+		public T DefaultValue
+		{
+			get => defaultValue;
+			set => defaultValue = value;
 		}
 
 		public void Save()
 		{
-			if(value.IsDirty)
-			{
-				OnSave();
-				Apply();
-			}
+			OnSave();
+			Apply();
 		}
 
 		public void Load()
 		{
-			if(value.IsDirty)
-			{
-				Debug.Log($"Load {name}");
-				OnLoad();
-				Apply();
-			}
+			Debug.Log($"Load {name}");
+			OnLoad();
+			Apply();
+		}
+
+		public void Reset()
+		{
+			PlayerPrefs.DeleteKey(name);
+			Load();
 		}
 
 		private void Apply()
 		{
-			if(value.IsDirty)
-			{
-				OnApply?.Invoke(value.Value);
-				value.IsDirty = false;
-				value.LastValue = value.Value;
-			}
+			OnApply?.Invoke(Value);
 		}
 
 		protected abstract void OnSave();

@@ -1,22 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace SRS.Settings
 {
 	public class SettingsManager : MonoBehaviour
 	{
+		private List<ISetting> settings;
 		private void Start()
 		{
-			// TODO -- get all settings
+			// can't use get component for interfaces
+			// TODO -- use actual class for get component.
+			settings = GetComponentsInChildren<ISetting>().ToList();
+			Debug.Log(settings.Count);
 		}
 
 		public void Save()
 		{
-			// TODO -- save all settings
+			foreach(ISetting setting in settings)
+			{
+				setting.Save();
+			}
 		}
 
 		public void Load()
 		{
-			// TODO -- load all settings
+			foreach(ISetting setting in settings)
+			{
+				setting.Load();
+			}
 		}
 	}
 }

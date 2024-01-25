@@ -6,12 +6,12 @@ namespace SRS.Settings
     {
         protected override void OnSave()
         {
-            PlayerPrefs.SetInt(name, value.Value);
+            PlayerPrefs.SetInt(name, Value);
         }
 
         protected override void OnLoad()
         {
-            value.Value = PlayerPrefs.GetInt(name, value.DefaultValue);
+            Value = PlayerPrefs.GetInt(name, DefaultValue);
         }
     }
 }
