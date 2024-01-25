@@ -1,9 +1,36 @@
+using System;
 using UnityEngine;
 
 namespace SRS.Settings
 {
-    public class StringSetting : Setting<string>
+    [Serializable]
+    public class StringSetting : Setting
     {
+        public Action<string> OnApply;
+
+		private string value;
+		public string Value
+		{
+			get => value;
+			set
+			{
+				this.value = value;
+				Apply();
+			}
+		}
+
+		protected override void Apply()
+		{
+			OnApply?.Invoke(Value);
+		}
+
+		[SerializeField] private string defaultValue;
+		public string DefaultValue
+		{
+			get => defaultValue;
+			set => defaultValue = value;
+		}
+
         protected override void OnSave()
         {
             PlayerPrefs.SetString(name, Value);

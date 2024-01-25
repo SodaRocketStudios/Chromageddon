@@ -1,17 +1,45 @@
+using System;
+using SRS.Utils;
 using UnityEngine;
 
 namespace SRS.Settings
 {
-    public class IntSetting : Setting<int>
+    [Serializable]
+    public class IntSetting : Setting
     {
+        public Action<IntRange> OnApply;
+
+		private IntRange value;
+		public IntRange Value
+		{
+			get => value;
+			set
+			{
+				this.value = value;
+				Apply();
+			}
+		}
+
+		protected override void Apply()
+		{
+			OnApply?.Invoke(Value);
+		}
+
+		[SerializeField] private IntRange defaultValue;
+		public IntRange DefaultValue
+		{
+			get => defaultValue;
+			set => defaultValue = value;
+		}
+
         protected override void OnSave()
         {
-            PlayerPrefs.SetInt(name, Value);
+            PlayerPrefs.SetInt(name, Value.Current);
         }
 
         protected override void OnLoad()
         {
-            Value = PlayerPrefs.GetInt(name, DefaultValue);
+            Value.Current = PlayerPrefs.GetInt(name, DefaultValue.Current);
         }
     }
 }

@@ -4,31 +4,38 @@ using UnityEngine;
 namespace SRS.Settings
 {
 	[Serializable]
-	public abstract class Setting<T> : BaseSetting
+	public abstract class Setting
 	{
-		public Action<T> OnApply;
-
-		private T value;
-		public T Value
+		[SerializeField] protected string name;
+		public string Name
 		{
-			get => value;
-			set
-			{
-				this.value = value;
-				Apply();
-			}
+			get => name;
 		}
 
-		protected override void Apply()
+		public void Save()
 		{
-			OnApply?.Invoke(Value);
+			OnSave();
+			Apply();
 		}
 
-		[SerializeField] private T defaultValue;
-		public T DefaultValue
+		public void Load()
 		{
-			get => defaultValue;
-			set => defaultValue = value;
+			Debug.Log($"Load {name}");
+			OnLoad();
+			Apply();
 		}
+
+		public void Reset()
+		{
+			PlayerPrefs.DeleteKey(name);
+			Load();
+		}
+
+
+		protected abstract void OnSave();
+
+		protected abstract void OnLoad();
+
+		protected abstract void Apply();
 	}
 }

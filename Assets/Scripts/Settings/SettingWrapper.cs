@@ -4,7 +4,7 @@ namespace SRS.Settings
 {
 	public abstract class SettingWrapper : MonoBehaviour
 	{
-		[SerializeField] protected BaseSetting setting;
+		[SerializeField] protected Setting setting;
 
 		public void Save()
 		{

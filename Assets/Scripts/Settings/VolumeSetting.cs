@@ -14,7 +14,7 @@ namespace SRS.Settings
 		{
 			setting = new FloatSetting();
 			(setting as FloatSetting).OnApply += Set;
-			setting.Load();
+			Load();
 		}
 
 		protected void Set(FloatRange value)
