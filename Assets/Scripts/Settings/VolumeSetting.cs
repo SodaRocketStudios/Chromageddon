@@ -4,27 +4,22 @@ using UnityEngine.Audio;
 
 namespace SRS.Settings
 {
-	public class VolumeSetting : MonoBehaviour
+	public class VolumeSetting: SettingWrapper
 	{
 		[SerializeField] private AudioMixer mixer;
 
 		[SerializeField] private string parameter;
 
-		[SerializeField] FloatSetting setting = new();
-
-		private void OnEnable()
+		private void Awake()
 		{
-			setting.OnApply += Set;
+			setting = new FloatSetting();
+			(setting as FloatSetting).OnApply += Set;
+			setting.Load();
 		}
 
-		private void OnDisable()
-		{
-			setting.OnApply -= Set;
-		}
-
-		private void Set(FloatRange value)
+		protected void Set(FloatRange value)
 		{
 			mixer.SetFloat(parameter, 20*Mathf.Log10(value.Current));
 		}
-	}
+    }
 }

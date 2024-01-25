@@ -6,18 +6,20 @@ namespace SRS.Settings
 {
 	public class SettingsManager : MonoBehaviour
 	{
-		private List<ISetting> settings;
+		private List<SettingWrapper> settings;
+
 		private void Start()
 		{
 			// can't use get component for interfaces
 			// TODO -- use actual class for get component.
-			settings = GetComponentsInChildren<ISetting>().ToList();
-			Debug.Log(settings.Count);
+			settings = GetComponentsInChildren<SettingWrapper>().ToList();
+			
+			Load();
 		}
 
 		public void Save()
 		{
-			foreach(ISetting setting in settings)
+			foreach(SettingWrapper setting in settings)
 			{
 				setting.Save();
 			}
@@ -25,7 +27,7 @@ namespace SRS.Settings
 
 		public void Load()
 		{
-			foreach(ISetting setting in settings)
+			foreach(SettingWrapper setting in settings)
 			{
 				setting.Load();
 			}
