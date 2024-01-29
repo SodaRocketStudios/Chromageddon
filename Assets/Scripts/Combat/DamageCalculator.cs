@@ -10,7 +10,6 @@ namespace SRS.Combat
 
 		public static float Calculate(float amount, StatContainer defenderStats, DamageType damageType)
 		{
-			Debug.Log($"Initial Damage: {amount}");
 			switch(damageType)
 			{
 				case DamageType.Physical:
@@ -32,8 +31,6 @@ namespace SRS.Combat
 				default:
 					break;
 			}
-
-			Debug.Log($"Final Damage: {amount}");
 			
 			return amount;
 		}
