@@ -20,7 +20,8 @@ MonoBehaviour:
   description: 
   attackData:
     Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
-    damageType: 0
+    Sound: {fileID: 8300000, guid: f70d9c4722fd5a34b81a48f9dd4dfe03, type: 3}
+    DamageType: 0
     Sprite: {fileID: 1788604060, guid: 7bed9f664d2dbf146a58c7ddee45f22b, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
   attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}

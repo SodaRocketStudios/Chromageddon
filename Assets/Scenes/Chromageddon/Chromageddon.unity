@@ -7181,6 +7181,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c632d889-3d25-4295-958c-c34196758ceb
     m_ActionName: 'Pawn/Escape[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 443f3595-33d8-4793-9b70-f1b2df94d14e
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b05e539e-6573-4520-8617-2c3f9b39269d
+    m_ActionName: 'UI/Point[/Mouse/position,/Pen/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 727cb121-cfe2-49fb-9354-eb21b1fa925c
+    m_ActionName: 'UI/Click[/Mouse/leftButton,/Pen/tip]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0b5b59f5-872d-476f-a45f-7578bec14270
+    m_ActionName: 'UI/Submit[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 62dd799e-d47e-44e4-88cc-d0a30c93fb62
+    m_ActionName: 'UI/Cancel[/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: KBM
   m_DefaultActionMap: Pawn
