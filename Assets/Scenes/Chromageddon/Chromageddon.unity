@@ -3949,6 +3949,27 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+  - name: Fire Resistance
+    baseValue: 1
+    percentageModifier: 0
+    hasMaximum: 0
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Ice Resistance
+    baseValue: 1
+    percentageModifier: 0
+    hasMaximum: 0
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Electric Resistance
+    baseValue: 1
+    percentageModifier: 0
+    hasMaximum: 1
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
 --- !u!1 &979545913
 GameObject:
   m_ObjectHideFlags: 0
