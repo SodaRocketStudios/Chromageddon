@@ -928,6 +928,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 198294307ba40074cae36b77b1a67627, type: 2}
   parameter: Volume-Master
+  setting:
+    name: Volume-Master
+    defaultValue: 0.5
 --- !u!1 &185082031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,6 +1119,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 198294307ba40074cae36b77b1a67627, type: 2}
   parameter: Volume-UI
+  setting:
+    name: 
+    defaultValue: 0
 --- !u!1 &214687814
 GameObject:
   m_ObjectHideFlags: 0
@@ -8090,6 +8096,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 198294307ba40074cae36b77b1a67627, type: 2}
   parameter: Volume-Effects
+  setting:
+    name: 
+    defaultValue: 0
 --- !u!1 &1771697368
 GameObject:
   m_ObjectHideFlags: 0

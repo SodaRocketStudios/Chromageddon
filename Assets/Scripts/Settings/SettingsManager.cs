@@ -10,8 +10,6 @@ namespace SRS.Settings
 
 		private void Start()
 		{
-			// can't use get component for interfaces
-			// TODO -- use actual class for get component.
 			settings = GetComponentsInChildren<SettingWrapper>().ToList();
 			
 			Load();

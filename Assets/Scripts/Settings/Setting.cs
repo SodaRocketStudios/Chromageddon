@@ -10,6 +10,7 @@ namespace SRS.Settings
 		public string Name
 		{
 			get => name;
+			set => name = value;
 		}
 
 		public void Save()
@@ -20,7 +21,6 @@ namespace SRS.Settings
 
 		public void Load()
 		{
-			Debug.Log($"Load {name}");
 			OnLoad();
 			Apply();
 		}

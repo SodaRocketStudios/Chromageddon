@@ -4,16 +4,8 @@ namespace SRS.Settings
 {
 	public abstract class SettingWrapper : MonoBehaviour
 	{
-		[SerializeField] protected Setting setting;
+		public abstract void Save();
 
-		public void Save()
-		{
-			setting.Save();
-		}
-
-		public void Load()
-		{
-			setting.Load();
-		}
+		public abstract void Load();
 	}
 }
