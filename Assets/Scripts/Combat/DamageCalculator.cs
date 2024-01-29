@@ -4,9 +4,9 @@ namespace SRS.Combat
 {
 	public static class DamageCalculator
 	{
-		public static float Calculate(StatContainer attackerStats, StatContainer defenderStats, DamageType damageType)
+		public static float Calculate(float amount, StatContainer defenderStats, DamageType damageType)
 		{
-			return attackerStats["Damage"].Value;
+			return amount;
 		}
 	}
 }

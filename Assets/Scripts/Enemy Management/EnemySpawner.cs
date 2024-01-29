@@ -33,8 +33,6 @@ namespace SRS.EnemyManagement
 
 		private AudioSource audioSource;
 
-		private int pointsBase = 0;
-
 		private List<Enemy> activeEnemies = new();
 		
 		private Transform player;

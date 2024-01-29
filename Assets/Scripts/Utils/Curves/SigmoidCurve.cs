@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SRS.Curves
+namespace SRS.Utils.Curves
 {
 	public class SigmoidCurve
 	{

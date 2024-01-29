@@ -65,6 +65,9 @@ namespace SRS.Combat
 					impulseSource.m_ImpulseDefinition = hitImpulse;
 					impulseSource.GenerateImpulse(impulseMagnitude);
 				}
+
+				damage = DamageCalculator.Calculate(damage, stats, damageType);
+
 				ApplyDamage(damage, damageType);
 				lastHitTime = Time.time;
 			}
