@@ -72,10 +72,8 @@ namespace SRS.Combat
 				weapon.Attack(gameObject);
 				nextAttackTime += attackDelay;
 				GenerateRecoil();
+				audioSource?.PlayOneShot(weapon.Sound);
 			}
-
-			// TODO -- play attack sound
-			audioSource?.PlayOneShot(weapon.Sound);
 		}
 
 		private void Update()

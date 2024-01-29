@@ -7,7 +7,7 @@
    viewBox="0 0 304.8 304.80001"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    sodipodi:docname="Buttons.svg"
    inkscape:export-filename="Buttons.png"
    inkscape:export-xdpi="600"
@@ -27,9 +27,9 @@
      inkscape:document-units="in"
      showgrid="false"
      units="in"
-     inkscape:zoom="1.0809567"
-     inkscape:cx="333.96342"
-     inkscape:cy="308.06044"
+     inkscape:zoom="1.5287036"
+     inkscape:cx="399.68506"
+     inkscape:cy="159.93944"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -969,5 +969,32 @@
          x="8.6266689"
          y="51.227291"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.6071px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';fill:#000000;fill-opacity:1;stroke-width:0.141741">Back</tspan></text>
+    <rect
+       style="mix-blend-mode:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.68628;stroke-linejoin:round;filter:url(#filter10577)"
+       id="rect1"
+       width="58.230209"
+       height="21.83633"
+       x="3.7718999"
+       y="10.477499"
+       rx="3.2887003"
+       ry="3.2887003"
+       transform="matrix(1.1388212,0,0,0.96542696,76.828281,25.808854)"
+       inkscape:export-filename="Apply Button.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.6071px;line-height:1.25;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';mix-blend-mode:normal;fill:#000000;fill-opacity:1;stroke-width:0.141741"
+       x="85.447243"
+       y="50.853096"
+       id="text1"
+       inkscape:export-filename="Quit Button.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         x="85.447243"
+         y="50.853096"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.6071px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';fill:#000000;fill-opacity:1;stroke-width:0.141741">Apply</tspan></text>
   </g>
 </svg>
