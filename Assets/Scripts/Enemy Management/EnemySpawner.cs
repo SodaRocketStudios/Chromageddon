@@ -13,6 +13,8 @@ namespace SRS.EnemyManagement
 
 		[SerializeField] private ObjectPool enemyPool;
 
+		[SerializeField] private AudioClip deathSound;
+
 		[SerializeField, Min(1)] private int maxEnemies;
 
 		[SerializeField] private float minDistanceFromPlayer;
@@ -29,6 +31,8 @@ namespace SRS.EnemyManagement
 
 		[SerializeField] private ExperienceSpawner experienceSpawner;
 
+		private AudioSource audioSource;
+
 		private int pointsBase = 0;
 
 		private List<Enemy> activeEnemies = new();
@@ -40,6 +44,8 @@ namespace SRS.EnemyManagement
 		private void Awake()
 		{
 			minDistanceFromPlayer += spawnAreaRadius;
+
+			audioSource = GetComponent<AudioSource>();
 		}
 
 		private void Start()
@@ -111,6 +117,7 @@ namespace SRS.EnemyManagement
 		public void KillEnemy(Enemy enemy)
 		{
 			experienceSpawner.Spawn(enemy.transform.position, enemy.XPValue);
+			audioSource.PlayOneShot(deathSound);
 			Despawn(enemy);
 		}
 
