@@ -67,12 +67,16 @@ namespace SRS.Combat
 				numOfAttacks++;
 			}
 
+			if(numOfAttacks > 0)
+			{
+				audioSource?.PlayOneShot(weapon.Sound);
+			}
+
 			for(int i = 0; i < numOfAttacks; i++)
 			{
 				weapon.Attack(gameObject);
 				nextAttackTime += attackDelay;
 				GenerateRecoil();
-				audioSource?.PlayOneShot(weapon.Sound);
 			}
 		}
 
