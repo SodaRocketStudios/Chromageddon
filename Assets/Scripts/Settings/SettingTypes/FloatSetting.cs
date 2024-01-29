@@ -1,6 +1,7 @@
-using UnityEngine;
-using SRS.Utils;
 using System;
+using UnityEngine;
+using UnityEngine.Events;
+using SRS.Utils;
 
 namespace SRS.Settings
 {
@@ -8,6 +9,7 @@ namespace SRS.Settings
     public class FloatSetting : Setting
     {
         public Action<float> OnApply;
+		public UnityEvent<float> OnApplyEvent;
 
 		[SerializeField] private FloatRange value = new();
 		public float Value
@@ -23,6 +25,7 @@ namespace SRS.Settings
 		protected override void Apply()
 		{
 			OnApply?.Invoke(Value);
+			OnApplyEvent?.Invoke(Value);
 		}
 
 		[SerializeField] private float defaultValue;

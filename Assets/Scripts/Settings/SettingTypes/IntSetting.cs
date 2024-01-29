@@ -1,21 +1,23 @@
 using System;
-using SRS.Utils;
 using UnityEngine;
+using UnityEngine.Events;
+using SRS.Utils;
 
 namespace SRS.Settings
 {
     [Serializable]
     public class IntSetting : Setting
     {
-        public Action<IntRange> OnApply;
+        public Action<int> OnApply;
+		public UnityEvent<int> OnApplyEvent;
 
 		[SerializeField] private IntRange value = new();
-		public IntRange Value
+		public int Value
 		{
-			get => value;
+			get => value.Current;
 			set
 			{
-				this.value = value;
+				this.value.Current = value;
 				Apply();
 			}
 		}
@@ -23,10 +25,11 @@ namespace SRS.Settings
 		protected override void Apply()
 		{
 			OnApply?.Invoke(Value);
+			OnApplyEvent?.Invoke(Value);
 		}
 
-		[SerializeField] private IntRange defaultValue;
-		public IntRange DefaultValue
+		[SerializeField] private int defaultValue;
+		public int DefaultValue
 		{
 			get => defaultValue;
 			set => defaultValue = value;
@@ -34,12 +37,12 @@ namespace SRS.Settings
 
         protected override void OnSave()
         {
-            PlayerPrefs.SetInt(name, Value.Current);
+            PlayerPrefs.SetInt(name, Value);
         }
 
         protected override void OnLoad()
         {
-            Value.Current = PlayerPrefs.GetInt(name, DefaultValue.Current);
+            Value = PlayerPrefs.GetInt(name, DefaultValue);
         }
     }
 }

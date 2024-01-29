@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SRS.Settings
 {
@@ -7,6 +8,7 @@ namespace SRS.Settings
     public class StringSetting : Setting
     {
         public Action<string> OnApply;
+		public UnityEvent<string> OnApplyEvent;
 
 		private string value;
 		public string Value
@@ -22,6 +24,7 @@ namespace SRS.Settings
 		protected override void Apply()
 		{
 			OnApply?.Invoke(Value);
+			OnApplyEvent?.Invoke(Value);
 		}
 
 		[SerializeField] private string defaultValue;
