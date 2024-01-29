@@ -3979,7 +3979,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 979545915}
-  - component: {fileID: 979545914}
   m_Layer: 0
   m_Name: Particle Manager
   m_TagString: Untagged
@@ -3987,19 +3986,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &979545914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979545913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cd34ef7c2a69634087f09f5c8ce3db7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particlePrefab: {fileID: 990324099654419808, guid: eb6e8c4247c81624bb736ecdf337e0f4, type: 3}
 --- !u!4 &979545915
 Transform:
   m_ObjectHideFlags: 0
