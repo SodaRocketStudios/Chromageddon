@@ -15,6 +15,7 @@ namespace SRS.Settings
 			Load();
 		}
 
+		[ContextMenu("Save")]
 		public void Save()
 		{
 			foreach(SettingWrapper setting in settings)
@@ -23,12 +24,19 @@ namespace SRS.Settings
 			}
 		}
 
+		[ContextMenu("Load")]
 		public void Load()
 		{
 			foreach(SettingWrapper setting in settings)
 			{
 				setting.Load();
 			}
+		}
+
+		[ContextMenu("Reset")]
+		public void Reset()
+		{
+			PlayerPrefs.DeleteAll();
 		}
 	}
 }

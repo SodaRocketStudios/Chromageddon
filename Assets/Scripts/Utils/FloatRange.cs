@@ -4,28 +4,20 @@ using UnityEngine;
 namespace SRS.Utils
 {
 	[Serializable]
-	public class FloatRange : IEquatable<FloatRange>
+	public class FloatRange
 	{
 		public Action OnMaxChange;
 		public Action OnMinChange;
 		public Action OnValueChange;
 
-		[SerializeField] protected float current;
+		protected float current;
 		public float Current
 		{
 			get => current;
 			set
 			{
-				value = value <= min?min:value;
-				current = value >= max?max:value;
+				current = Mathf.Clamp(value, min, max);
 			}
-		}
-
-		[SerializeField] protected float max;
-		public float Max
-		{
-			get => max;
-			set => max = value;
 		}
 
 		[SerializeField] protected float min;
@@ -35,9 +27,11 @@ namespace SRS.Utils
 			set => min = value;
 		}
 
-        public bool Equals(FloatRange other)
-        {
-            return other.Current == current?true:false;
-        }
+		[SerializeField] protected float max;
+		public float Max
+		{
+			get => max;
+			set => max = value;
+		}
     }
 }

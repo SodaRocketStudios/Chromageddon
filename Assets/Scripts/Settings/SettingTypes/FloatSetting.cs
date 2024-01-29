@@ -7,15 +7,15 @@ namespace SRS.Settings
     [Serializable]
     public class FloatSetting : Setting
     {
-        public Action<FloatRange> OnApply;
+        public Action<float> OnApply;
 
-		private FloatRange value;
-		public FloatRange Value
+		[SerializeField] private FloatRange value = new();
+		public float Value
 		{
-			get => value;
+			get => value.Current;
 			set
 			{
-				this.value = value;
+				this.value.Current = value;
 				Apply();
 			}
 		}
@@ -34,12 +34,12 @@ namespace SRS.Settings
 
         protected override void OnSave()
         {
-            PlayerPrefs.SetFloat(name, Value.Current);
+            PlayerPrefs.SetFloat(name, Value);
         }
 
         protected override void OnLoad()
         {
-            Value.Current = PlayerPrefs.GetFloat(name, defaultValue);
+            Value = PlayerPrefs.GetFloat(name, defaultValue);
         }
     }
 }

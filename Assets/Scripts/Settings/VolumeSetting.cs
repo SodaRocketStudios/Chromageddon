@@ -1,4 +1,3 @@
-using SRS.Utils;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -10,19 +9,17 @@ namespace SRS.Settings
 
 		[SerializeField] private string parameter;
 
-		[SerializeField] private FloatSetting setting = new();
+		[SerializeField] private FloatSetting setting;
 
 		private void Awake()
 		{
-			setting = new FloatSetting();
 			setting.OnApply += Set;
-			setting.Name = name;
 			Load();
 		}
 
-		protected void Set(FloatRange value)
+		public void Change(float value)
 		{
-			mixer.SetFloat(parameter, 20*Mathf.Log10(value.Current));
+			setting.Value = value;
 		}
 
         public override void Save()
@@ -34,5 +31,10 @@ namespace SRS.Settings
         {
             setting.Load();
         }
+
+		protected void Set(float value)
+		{
+			mixer.SetFloat(parameter, 20*Mathf.Log10(value));
+		}
     }
 }

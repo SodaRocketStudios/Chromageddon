@@ -9,7 +9,7 @@ namespace SRS.Settings
     {
         public Action<IntRange> OnApply;
 
-		private IntRange value;
+		[SerializeField] private IntRange value = new();
 		public IntRange Value
 		{
 			get => value;

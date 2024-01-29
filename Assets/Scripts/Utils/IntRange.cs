@@ -10,22 +10,14 @@ namespace SRS.Utils
 		public Action OnMinChange;
 		public Action OnValueChange;
 
-		[SerializeField] protected int current;
+		protected int current;
 		public int Current
 		{
 			get => current;
 			set
 			{
-				value = value <= min?min:value;
-				current = value >= max?max:value;
+				current = Mathf.Clamp(value, min, max);
 			}
-		}
-
-		[SerializeField] protected int max;
-		public int Max
-		{
-			get => max;
-			set => max = value;
 		}
 
 		[SerializeField] protected int min;
@@ -33,6 +25,13 @@ namespace SRS.Utils
 		{
 			get => min;
 			set => min = value;
+		}
+
+		[SerializeField] protected int max;
+		public int Max
+		{
+			get => max;
+			set => max = value;
 		}
 
         public bool Equals(IntRange other)
