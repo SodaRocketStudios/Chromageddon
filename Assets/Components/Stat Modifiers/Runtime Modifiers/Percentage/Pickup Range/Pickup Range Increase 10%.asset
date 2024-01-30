@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ba1e50359d04a84da9d8866868f59a5, type: 3}
-  m_Name: Speed Increase 2%
+  m_Name: Pickup Range Increase 10%
   m_EditorClassIdentifier: 
-  affectedStat: Speed
-  value: 2
-  description: Increase speed by
+  affectedStat: Pickup Range
+  value: 10
+  description: Increase pickup range by 10%

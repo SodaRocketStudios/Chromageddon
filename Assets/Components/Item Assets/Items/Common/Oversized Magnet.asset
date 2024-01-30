@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
-  m_Name: Glasses
+  m_Name: Oversized Magnet
   m_EditorClassIdentifier: 
-  name: Glasses
+  name: Oversized Magnet
   sprite: {fileID: 0}
   modifiers:
-  - {fileID: 11400000, guid: 21bf5ef09ac55b54c9d4687c24eff9e7, type: 2}
+  - {fileID: 11400000, guid: 90919b63571202d4fa0fbc42202978fa, type: 2}
+  - {fileID: 11400000, guid: 9d6029b90e764cb4fb2fcf0060f3e850, type: 2}
   description: 
   behaviors: []
   rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
   tags:
-  - Accuracy
-  - Ranged
+  - Pickup Range

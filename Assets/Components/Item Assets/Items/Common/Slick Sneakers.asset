@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Slick Sneakers
   sprite: {fileID: 0}
   modifiers:
-  - {fileID: 11400000, guid: c51d572f03b279647a4f15b4df789b9f, type: 2}
+  - {fileID: 11400000, guid: 3b280ffd0917c8d48892b348cc3d2a98, type: 2}
   description: 
   behaviors: []
   rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}

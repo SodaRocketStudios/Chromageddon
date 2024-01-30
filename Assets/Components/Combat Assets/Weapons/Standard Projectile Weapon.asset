@@ -17,7 +17,7 @@ MonoBehaviour:
   modifiers:
   - {fileID: 11400000, guid: f1093d587d842544b84ccd078fd9eb66, type: 2}
   - {fileID: 11400000, guid: 5e7dc7af3156c3543817ead2554aa3c4, type: 2}
-  - {fileID: 11400000, guid: cbf8d57e93bb23940b715fa820fc942c, type: 2}
+  - {fileID: 11400000, guid: e97b14d650cae7f41801cac14f93dc48, type: 2}
   description: 
   attackData:
     Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
