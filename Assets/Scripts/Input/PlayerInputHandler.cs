@@ -115,7 +115,8 @@ namespace SRS.Input
 
         private void HandleMouseLook()
         {
-            lookInput = (mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position).normalized;
+            lookInput = (Vector2)(mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position).normalized;
+            Debug.DrawLine(transform.position, mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue()), Color.blue);
         }
     }
 }

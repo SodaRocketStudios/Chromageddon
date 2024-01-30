@@ -23,7 +23,7 @@ MonoBehaviour:
   Price: 2
   MaxGroupSize: 5
   IgnoreRecycleRequests: 0
-  Sprite: {fileID: 1415734981, guid: 633188d6754abdf47b78b051db06736e, type: 3}
+  Sprite: {fileID: 2064204245, guid: 82c507877f528b34480e1572004f6526, type: 3}
   Color: {r: 1, g: 0.8470589, b: 0, a: 1}
   stateTransitions:
   - criteria:
