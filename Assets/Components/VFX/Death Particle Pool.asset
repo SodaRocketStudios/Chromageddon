@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 552b0f27b54d72642968a05cd45a19bf, type: 3}
-  m_Name: Particle System Pool
+  m_Name: Death Particle Pool
   m_EditorClassIdentifier: 
   basePrefab: {fileID: 1978225873474758150, guid: 9e06ba938db42c84bb8b5de6ad7e18dc, type: 3}

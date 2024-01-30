@@ -9,7 +9,7 @@ namespace SRS.Combat
 
 		public AudioClip Sound;
 
-		public ParticleSystem.EmitParams particles;
+		public ParticleSystem.Particle particle;
 
 		public DamageType DamageType;
 

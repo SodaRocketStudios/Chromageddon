@@ -20,6 +20,11 @@ namespace SRS.EnemyManagement
 			get => xpValue;
 		}
 
+		public Color Color
+		{
+			get => spriteRenderer.color;
+		}
+
 		private AIBrain brain;
 		private StatContainer statContainer;
 		private Weapon weapon;

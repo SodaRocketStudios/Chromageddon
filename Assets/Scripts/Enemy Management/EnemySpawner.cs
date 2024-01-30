@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using SRS.Utils.ObjectPooling;
+using SRS.Utils.VFX;
 using SRS.Progression;
 using SRS.Extensions.Random;
 
@@ -14,6 +15,8 @@ namespace SRS.EnemyManagement
 		[SerializeField] private ObjectPool enemyPool;
 
 		[SerializeField] private AudioClip deathSound;
+
+		[SerializeField] private ParticleManager deathParticleManager;
 
 		[SerializeField, Min(1)] private int maxEnemies;
 
@@ -116,6 +119,7 @@ namespace SRS.EnemyManagement
 		{
 			experienceSpawner.Spawn(enemy.transform.position, enemy.XPValue);
 			audioSource.PlayOneShot(deathSound);
+			deathParticleManager.PlayParticles(enemy.transform.position, Quaternion.identity, enemy.Color);
 			Despawn(enemy);
 		}
 

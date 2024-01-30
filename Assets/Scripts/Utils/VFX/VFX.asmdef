@@ -1,0 +1,16 @@
+{
+    "name": "VFX",
+    "rootNamespace": "SRS.Utils.VFX",
+    "references": [
+        "GUID:03781ec9c0cd794499fd8d5dd07a7327"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

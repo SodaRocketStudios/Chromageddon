@@ -1281,6 +1281,7 @@ MonoBehaviour:
   selector: {fileID: 11400000, guid: 1f159ca9d05f20d4d981219453779556, type: 2}
   enemyPool: {fileID: 11400000, guid: 220d08de1bb2711408a1b356a1bd110b, type: 2}
   deathSound: {fileID: 8300000, guid: dbc041b3c4f20e7499ce4424d2c78f6e, type: 3}
+  deathParticleManager: {fileID: 1116766381}
   maxEnemies: 50
   minDistanceFromPlayer: 15
   spawnAreaRadius: 5
@@ -3980,7 +3981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979545915}
   m_Layer: 0
-  m_Name: Particle Manager
+  m_Name: Particle Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3998,7 +3999,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1116766380}
   m_Father: {fileID: 1168674332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &997797054
@@ -4967,6 +4969,51 @@ MonoBehaviour:
   pointerDownAudio: {fileID: 8300000, guid: c1ac8d56773fe404487637a7d913a254, type: 3}
   pointerUpAudio: {fileID: 0}
   pointerClickAudio: {fileID: 8300000, guid: 5c36e857a167c9d4dadfeadefe82b229, type: 3}
+--- !u!1 &1116766379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116766380}
+  - component: {fileID: 1116766381}
+  m_Layer: 0
+  m_Name: Death Particle Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1116766380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116766379}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979545915}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1116766381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116766379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00c0f7a0fa11504eb0d2b8ea32bfcc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: {fileID: 11400000, guid: f8f589693e829ec4fa589c271ee1f7d7, type: 2}
 --- !u!1 &1118091713
 GameObject:
   m_ObjectHideFlags: 0
