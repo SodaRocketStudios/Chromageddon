@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using SRS.Extensions.Random;
 
 namespace SRS.Combat
 {
@@ -7,6 +9,8 @@ namespace SRS.Combat
     {
         [SerializeField] private float speed = 1;
 
+        private System.Random random = new(Guid.NewGuid().GetHashCode());
+
         private int bounces;
         private int pierces;
 
@@ -14,6 +18,9 @@ namespace SRS.Combat
         {
             bounces = (int)attack.Stats["Bounces"].Value;
             pierces = (int)attack.Stats["Pierces"].Value;
+            float spreadAngle = attack.Stats["Attack Arc"].Value;
+            Vector3 rotation = new(0, 0, random.NextFloat(-spreadAngle, spreadAngle));
+            attack.transform.Rotate(rotation);
         }
 
         public override void OnUpdate(Attack attack)
