@@ -27,6 +27,11 @@ namespace SRS.Input
             {
                 if(LookEnabled)
                 {
+                    if(IsUsingMouse)
+                    {
+                        HandleMouseLook();
+                    }
+                    
                     return lookInput;
                 }
                 
@@ -94,7 +99,6 @@ namespace SRS.Input
         {
             if(IsUsingMouse)
             {
-                lookInput = (mainCamera.ScreenToWorldPoint(context.ReadValue<Vector2>()) - transform.position).normalized;
                 return;
             }
 
@@ -104,6 +108,11 @@ namespace SRS.Input
         public void HandleAttackInput(InputAction.CallbackContext context)
         {
             attackInput = context.ReadValueAsButton();
+        }
+
+        private void HandleMouseLook()
+        {
+            lookInput = (mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position).normalized;
         }
     }
 }
