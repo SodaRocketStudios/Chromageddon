@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon: {fileID: 11400000, guid: e02028796e1ad8c44997676aa88488af, type: 2}
   InitialStats:
-  - {fileID: 11400000, guid: f3a41ae165792af45b536c95d09ecd5e, type: 2}
-  - {fileID: 11400000, guid: 6d0a5207c94a75f4587dc143659f8f0b, type: 2}
+  - {fileID: 11400000, guid: 4dc6449c709eee24fa54cde4be1673ac, type: 2}
+  - {fileID: 11400000, guid: 20c2546ac7ee59e448f8acb1f46867c6, type: 2}
   - {fileID: 11400000, guid: 3bc2d2eb406832c4ebe735245471f91b, type: 2}
   - {fileID: 11400000, guid: c040300b4fcd5304bb6ff72fc23cd7bd, type: 2}
   EliteModifiers: []
@@ -30,5 +30,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 14d7e63ab93ebe64aa06f4b3d1136cb4, type: 2}
     transitionState: {fileID: 11400000, guid: 6f846333b9bbc9742a27dcd7ab137a95, type: 2}
   - criteria:
-    - {fileID: 11400000, guid: b567c5b06054cd94ea638a49a1f80c52, type: 2}
+    - {fileID: 11400000, guid: a769d046e6432474e95d54c66577817f, type: 2}
     transitionState: {fileID: 11400000, guid: 166ec1d96f169e4458e83a84f7ff6498, type: 2}
