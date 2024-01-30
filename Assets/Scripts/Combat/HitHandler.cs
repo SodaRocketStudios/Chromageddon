@@ -51,7 +51,14 @@ namespace SRS.Combat
 
 		public void Hit(StatContainer attackerStats, DamageType damageType)
 		{
-			Hit(attackerStats["Damage"].Value, damageType);
+			float damage = attackerStats["Damage"].Value;
+
+			if(DamageCalculator.CheckCritical(attackerStats["Critical Chance"].Value))
+			{
+				damage *= attackerStats["Critical Damage"].Value;
+			}
+			
+			Hit(damage, damageType);
 
 			TryHitEffects?.Invoke(attackerStats);
 		}

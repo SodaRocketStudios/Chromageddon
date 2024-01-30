@@ -1,3 +1,5 @@
+using System;
+using SRS.Extensions.Random;
 using SRS.Stats;
 using SRS.Utils.Curves;
 
@@ -6,6 +8,8 @@ namespace SRS.Combat
 	public static class DamageCalculator
 	{
 		private static SigmoidCurve armorCurve = new(2, 0, 0, -0.01f);
+
+		private static Random random = new(Guid.NewGuid().GetHashCode());
 
 		public static float Calculate(float amount, StatContainer defenderStats, DamageType damageType)
 		{
@@ -32,6 +36,16 @@ namespace SRS.Combat
 			}
 			
 			return amount;
+		}
+
+		public static bool CheckCritical(float critChance)
+		{
+			if(random.NextFloat() <= critChance)
+			{
+				return true;
+			}
+
+			return false;
 		}
 	}
 }
