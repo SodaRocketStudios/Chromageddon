@@ -1219,7 +1219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &245292837
 Transform:
   m_ObjectHideFlags: 0
@@ -3952,6 +3952,13 @@ MonoBehaviour:
     percentageModifier: 0
     hasMaximum: 1
     maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Spread
+    baseValue: 1
+    percentageModifier: 100
+    hasMaximum: 1
+    maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
 --- !u!1 &997797054

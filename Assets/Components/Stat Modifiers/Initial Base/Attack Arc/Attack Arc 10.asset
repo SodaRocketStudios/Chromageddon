@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
-  m_Name: Crit Chance Up Common
+  m_Script: {fileID: 11500000, guid: dc62fee6cd8516448a3312cf31b68ba2, type: 3}
+  m_Name: Attack Arc 10
   m_EditorClassIdentifier: 
-  name: Critical Chance Up
-  sprite: {fileID: 0}
-  modifiers: []
+  affectedStat: Attack Arc
+  value: 10
   description: 
-  behaviors: []
-  rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
-  tags: []
