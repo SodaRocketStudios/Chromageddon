@@ -1,4 +1,5 @@
 using UnityEngine;
+using SRS.Utils.VFX;
 
 namespace SRS.Combat
 {
@@ -9,7 +10,8 @@ namespace SRS.Combat
 
 		public AudioClip Sound;
 
-		public ParticleSystem.Particle particle;
+		public ParticleManager AttackParticleManager;
+		public ParticleManager HitParticleManager;
 
 		public DamageType DamageType;
 

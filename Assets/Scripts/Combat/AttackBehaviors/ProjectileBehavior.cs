@@ -33,7 +33,7 @@ namespace SRS.Combat
 
         protected override void CollisionTest(Attack attack)
         {
-            RaycastHit2D hit = Physics2D.Raycast(attack.transform.position + attack.spriteSize.x*attack.transform.right, attack.transform.right, speed*Time.deltaTime, attack.collisionMask);
+            RaycastHit2D hit = Physics2D.Raycast(attack.transform.position + attack.spriteSize.x*attack.transform.right, attack.transform.right, speed*Time.deltaTime, attack.CollisionMask);
 
             if(hit)
             {
@@ -73,7 +73,7 @@ namespace SRS.Combat
 
         private void Bounce(Attack attack, RaycastHit2D hit)
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(hit.point, attack.Stats["Range"].Value, attack.transform.right, 0, attack.collisionMask & ~(1 << LayerMask.NameToLayer("Walls")));
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(hit.point, attack.Stats["Range"].Value, attack.transform.right, 0, attack.CollisionMask & ~(1 << LayerMask.NameToLayer("Walls")));
 
             attack.ResetLifetime();
 

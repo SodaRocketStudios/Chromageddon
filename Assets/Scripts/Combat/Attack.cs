@@ -2,6 +2,7 @@ using UnityEngine;
 using SRS.Utils.ObjectPooling;
 using SRS.Stats;
 using System.Threading;
+using SRS.Utils.VFX;
 
 namespace SRS.Combat
 {
@@ -13,7 +14,10 @@ namespace SRS.Combat
 
 		public DamageType DamageType {get; private set;}
 
-		public LayerMask collisionMask {get; private set;}
+		public LayerMask CollisionMask {get; private set;}
+
+		public ParticleManager HitParticleManager{get; private set;}
+		public ParticleManager AttackParticleManager{get; private set;}
 
 		public Vector2 spriteSize 
 		{
@@ -23,15 +27,18 @@ namespace SRS.Combat
 			}
 		}
 
+
 		[HideInInspector] public Transform LastHitObject;
 
 		[SerializeField] private LayerMask ignoredLayers;
+
+
+		private SpriteRenderer spriteRenderer;
 
 		private float lifetime;
 
 		private float timer;
 
-		private SpriteRenderer spriteRenderer;
 
 		private CancellationTokenSource cancellationTokenSource = new();
 
@@ -43,12 +50,15 @@ namespace SRS.Combat
 		public void Initialize(AttackData data, GameObject attacker)
 		{
 			Behavior = data.Behavior;
+
+			HitParticleManager = data.HitParticleManager;
+			AttackParticleManager = data.AttackParticleManager;
 			
 			spriteRenderer.sprite = data.Sprite;
 			spriteRenderer.color = data.Color;
 
-			collisionMask = ~ignoredLayers;
-			collisionMask &= ~(1 << attacker.layer);
+			CollisionMask = ~ignoredLayers;
+			CollisionMask &= ~(1 << attacker.layer);
 
 			DamageType = data.DamageType;
 			
@@ -62,6 +72,8 @@ namespace SRS.Combat
 
 			cancellationTokenSource.Dispose();
 			cancellationTokenSource = new();
+
+			AttackParticleManager?.PlayParticles(transform.position, transform.rotation, spriteRenderer.color);
 
 			LifetimeTask(cancellationTokenSource.Token);
 		}

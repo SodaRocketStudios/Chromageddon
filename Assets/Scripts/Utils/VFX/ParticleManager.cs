@@ -3,7 +3,8 @@ using SRS.Utils.ObjectPooling;
 
 namespace SRS.Utils.VFX
 {
-	public class ParticleManager : MonoBehaviour
+	[CreateAssetMenu(fileName = "New Particle Manager", menuName = "VFX/Particle Manager")]
+	public class ParticleManager : ScriptableObject
 	{
 		[SerializeField] private ObjectPool pool;
 
