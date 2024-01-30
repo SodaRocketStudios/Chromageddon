@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
-  m_Name: Lubricant
+  m_Name: Precision Machining
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   modifiers:
-  - {fileID: 11400000, guid: 9a0856ea9f892ce479a6be0fb16abe22, type: 2}
+  - {fileID: 11400000, guid: e44d3da32ad8320409dcca740c4231d1, type: 2}
   description: 
   behaviors: []
   rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
   tags:
-  - Attack Speed
+  - Critical
