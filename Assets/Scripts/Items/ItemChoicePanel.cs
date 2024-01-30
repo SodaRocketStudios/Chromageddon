@@ -9,6 +9,7 @@ using SRS.GameManagement;
 using SRS.Progression;
 using SRS.UI;
 using SRS.Utils.Curves;
+using SRS.Stats;
 
 namespace SRS.Items
 {
@@ -175,10 +176,8 @@ namespace SRS.Items
 
         private float CalculatePoints(int level)
         {
-			// TODO -- determine points based on character level
-			// Could also add luck stat into points. luck is converted to a multiplier by sigmoid function.
-			// Should game time play a role in this too so that players get a boost if they are behind?
-			float points = level;
+			// TODO -- Should play time play a role in points to help players that are falling behind.
+			float points = level*luckCurve.Evaluate(targetInventory.GetComponent<StatContainer>()["Luck"].Value);
             return points;
         }
 
