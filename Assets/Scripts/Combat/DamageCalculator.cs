@@ -5,14 +5,14 @@ namespace SRS.Combat
 {
 	public static class DamageCalculator
 	{
-		private static SigmoidCurve armorCurve = new(2, 0, 1, .01f);
+		private static SigmoidCurve armorCurve = new(2, 0, 0, -0.01f);
 
 		public static float Calculate(float amount, StatContainer defenderStats, DamageType damageType)
 		{
 			switch(damageType)
 			{
 				case DamageType.Physical:
-					amount *= 1 - armorCurve.Evaluate(defenderStats["Armor"].Value);
+					amount *= armorCurve.Evaluate(defenderStats["Armor"].Value);
 					break;
 
 				case DamageType.Fire:

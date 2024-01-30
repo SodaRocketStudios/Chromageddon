@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using SRS.Extensions.Random;
 using SRS.GameManagement;
 using SRS.Progression;
 using SRS.UI;
-using UnityEngine.EventSystems;
+using SRS.Utils.Curves;
 
 namespace SRS.Items
 {
@@ -24,6 +25,8 @@ namespace SRS.Items
 		private Inventory targetInventory;
 
 		private System.Random randomGenerator = new System.Random(Guid.NewGuid().GetHashCode());
+
+		private SigmoidCurve luckCurve = new(2, 0, 0, .01f);
 
 		private bool isActive = false;
 
