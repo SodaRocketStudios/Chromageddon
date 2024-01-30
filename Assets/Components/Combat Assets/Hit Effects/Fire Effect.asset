@@ -17,3 +17,4 @@ MonoBehaviour:
   procStat: Burn Chance
   effects:
   - {fileID: 11400000, guid: f659c887461085e4fa11f4b1e4a57b04, type: 2}
+  - {fileID: 11400000, guid: 6388e39017af19f439d33337acb207f5, type: 2}
