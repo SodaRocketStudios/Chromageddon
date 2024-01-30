@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 288bebab70a6bb844b9262fc005e1852, type: 3}
-  m_Name: Poison Effect
+  m_Script: {fileID: 11500000, guid: 0e56469a347dc58459f61cdd5ea0e55e, type: 3}
+  m_Name: Poison Damage Effect
   m_EditorClassIdentifier: 
-  name: Poison
   description: 
-  procStat: Poison Chance
-  effects:
-  - {fileID: 11400000, guid: 6d3b02dfa7838fd438704ac204a14954, type: 2}
-  - {fileID: 11400000, guid: 29e3686a1204fff4fa95234ea3edf939, type: 2}
+  duration: 5
+  tickDelay: 1
+  behavior: {fileID: 11400000, guid: 3c125d576845fa54cb00dbb23a9aa18e, type: 2}

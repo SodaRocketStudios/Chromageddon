@@ -42,6 +42,17 @@ namespace SRS.GameManagement
 			OnPlayPause?.Invoke(Running);
 		}
 
+		public void TogglePause()
+		{
+			if(Running == false)
+			{
+				Play();
+				return;
+			}
+
+			Pause();
+		}
+
 		public void GameOver()
 		{
 			OnGameOver?.Invoke();

@@ -103,6 +103,9 @@ namespace SRS.Input
             }
 
             lookInput = context.ReadValue<Vector2>();
+
+            // TODO -- make a separate script that controls the cursor for controllers.
+            // mainCamera.WorldToScreenPoint(transform.position + (Vector3)lookInput);
         }
 
         public void HandleAttackInput(InputAction.CallbackContext context)
