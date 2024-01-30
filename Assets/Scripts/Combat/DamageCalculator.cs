@@ -30,6 +30,10 @@ namespace SRS.Combat
 				case DamageType.Electric:
 					amount *= 1 - defenderStats["Electric Resistance"].Value;
 					break;
+				
+				case DamageType.Poison:
+					amount *= 1-defenderStats["Poison Resistance"].Value;
+					break;
 
 				default:
 					break;

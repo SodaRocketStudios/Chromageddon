@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444c8ede6da0f3844b6de61a40b9fad8, type: 3}
+  m_Name: Freeze Movement
+  m_EditorClassIdentifier: 
+  description: 
+  duration: 2
+  statModifier: {fileID: 11400000, guid: c940c08784efe7e47a451e3ec06f1067, type: 2}

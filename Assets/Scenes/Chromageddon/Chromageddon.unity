@@ -3971,6 +3971,20 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 0
     minimumValue: 0
+  - name: Poison Resistance
+    baseValue: 1
+    percentageModifier: 0
+    hasMaximum: 1
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+  - name: Life Steal
+    baseValue: 1
+    percentageModifier: 0
+    hasMaximum: 1
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
 --- !u!1 &997797054
 GameObject:
   m_ObjectHideFlags: 0

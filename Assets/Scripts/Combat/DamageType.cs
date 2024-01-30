@@ -7,6 +7,7 @@ namespace SRS.Combat
 		Physical,
 		Fire,
 		Ice,
-		Electric
+		Electric,
+		Poison
 	}
 }
