@@ -1,6 +1,5 @@
 using SRS.Stats;
 using SRS.Utils.Curves;
-using UnityEngine;
 
 namespace SRS.Combat
 {
