@@ -21,6 +21,8 @@ namespace SRS.Items
 
 		[SerializeField] private TMP_Text nameText;
 
+		[SerializeField] private TMP_Text descriptionText;
+
 		public void Select()
 		{
 			OnSelect?.Invoke(item);
@@ -29,6 +31,7 @@ namespace SRS.Items
 		private void Draw()
 		{
 			nameText.text = item.Name;
+			descriptionText.text = item.RichTextDescription;
 		}
 	}
 }

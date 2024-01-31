@@ -30,23 +30,23 @@ namespace SRS.Stats
             if(value > 0)
             {
                 isPositive = invertFormatRules?false:true;
-                stringBuilder.Append("Increases ");
+                stringBuilder.Append("Increase ");
             }
             else
             {
                 isPositive = invertFormatRules?true:false;
-                stringBuilder.Append("Decreases ");
+                stringBuilder.Append("Decrease ");
             }
 
             stringBuilder.Append($"{affectedStat} by ");
 
             if(isPositive)
             {
-                stringBuilder.Append($"<color=green>{value}</color>");
+                stringBuilder.Append($"<color=green>{Mathf.Abs(value)}</color>");
             }
             else
             {
-                stringBuilder.Append($"<color=red>{value}{GetUnitSymbol()}</color>");
+                stringBuilder.Append($"<color=red>{Mathf.Abs(value)}{GetUnitSymbol()}</color>");
             }
 
             return stringBuilder.ToString();
