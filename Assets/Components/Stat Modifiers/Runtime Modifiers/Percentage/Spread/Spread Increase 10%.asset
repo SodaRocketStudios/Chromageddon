@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectedStat: Spread
   value: 10
-  description: Increase attack spread by 10%
+  invertFormatRules: 1

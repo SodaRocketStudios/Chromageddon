@@ -45,7 +45,7 @@ namespace SRS.Stats
             }
             else
             {
-                stringBuilder.Append($"<color=green>{value}{GetUnitSymbol()}</color>");
+                stringBuilder.Append($"<color=red>{value}{GetUnitSymbol()}</color>");
             }
 
             return stringBuilder.ToString();

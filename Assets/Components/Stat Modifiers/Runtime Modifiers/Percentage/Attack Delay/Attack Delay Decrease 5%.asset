@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectedStat: Attack Delay
   value: -5
-  description: Reduce Attack Delay by 5%
+  invertFormatRules: 1

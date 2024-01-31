@@ -23,6 +23,7 @@ namespace SRS.Items
 		public void Apply(StatContainer stats)
 		{
 			Equip(stats);
+			Debug.Log(RichTextDescription);
 		}
 
 		public void Remove(StatContainer stats)
