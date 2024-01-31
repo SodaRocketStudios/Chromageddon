@@ -26,7 +26,7 @@ MonoBehaviour:
     AttackParticleManager: {fileID: 11400000, guid: 50ab3e40c7b510543bfa6ffab93c8802, type: 2}
     HitParticleManager: {fileID: 11400000, guid: 084bc7eff7774894b9665c7570531776, type: 2}
     DamageType: 0
-    Sprite: {fileID: 1788604060, guid: 7bed9f664d2dbf146a58c7ddee45f22b, type: 3}
+    Sprite: {fileID: -790504360, guid: a7815cb0648b2e84bab631687c7fe2e2, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
   attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}
   recoilStrength: 0.25
