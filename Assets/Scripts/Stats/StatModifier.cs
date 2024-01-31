@@ -26,6 +26,7 @@ namespace SRS.Stats
         {
             StringBuilder stringBuilder = new();
 
+            // TODO -- make this make since for multipliers
             if(value > 0)
             {
                 isPositive = invertFormatRules?false:true;
