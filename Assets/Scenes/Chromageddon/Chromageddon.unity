@@ -7207,6 +7207,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
   immunityTime: 0.2
+  hitSound: {fileID: 8300000, guid: ed58bb83e6a49414f9dc706342241a6e, type: 3}
   hitImpulse:
     m_ImpulseChannel: 1
     m_ImpulseShape: 0

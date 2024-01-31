@@ -17,6 +17,8 @@ namespace SRS.Combat
 		[SerializeField] private float immunityTime;
 		private float lastHitTime = 0;
 
+		[SerializeField] private AudioClip hitSound;
+
 		[SerializeField] private CinemachineImpulseDefinition hitImpulse;
 		[SerializeField] private float impulseMagnitude;
 		private CinemachineImpulseSource impulseSource;
@@ -31,10 +33,13 @@ namespace SRS.Combat
 
 		private StatContainer stats;
 
+		private AudioSource audioSource;
+
 		private void Awake()
 		{
 			stats = GetComponent<StatContainer>();
 			impulseSource = GetComponent<CinemachineImpulseSource>();
+			audioSource = GetComponent<AudioSource>();
 		}
 
 		private void Start()
@@ -72,6 +77,8 @@ namespace SRS.Combat
 					impulseSource.m_ImpulseDefinition = hitImpulse;
 					impulseSource.GenerateImpulse(impulseMagnitude);
 				}
+
+				audioSource?.PlayOneShot(hitSound);
 
 				damage = DamageCalculator.Calculate(damage, stats, damageType);
 

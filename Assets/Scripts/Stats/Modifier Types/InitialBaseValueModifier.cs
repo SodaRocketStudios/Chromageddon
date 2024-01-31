@@ -16,5 +16,10 @@ namespace SRS.Stats
         {
             container[affectedStat].BaseValue = oldValue;
         }
+
+        protected override string GetUnitSymbol()
+        {
+            return "";
+        }
     }
 }

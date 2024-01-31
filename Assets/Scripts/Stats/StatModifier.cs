@@ -26,7 +26,7 @@ namespace SRS.Stats
         {
             StringBuilder stringBuilder = new();
 
-            // TODO -- make this make since for multipliers
+            // TODO -- make this make sense for multipliers
             if(value > 0)
             {
                 isPositive = invertFormatRules?false:true;
@@ -52,9 +52,6 @@ namespace SRS.Stats
             return stringBuilder.ToString();
         }
 
-        protected virtual string GetUnitSymbol()
-        {
-            return "";
-        }
+        protected abstract string GetUnitSymbol();
     }
 }

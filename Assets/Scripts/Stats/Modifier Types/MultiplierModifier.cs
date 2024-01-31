@@ -28,5 +28,10 @@ namespace SRS.Stats
                 container[affectedStat].RemoveZero();
             }
         }
+
+        protected override string GetUnitSymbol()
+        {
+            return "";
+        }
     }
 }
