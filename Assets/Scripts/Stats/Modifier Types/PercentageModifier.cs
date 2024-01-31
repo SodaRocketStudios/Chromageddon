@@ -14,5 +14,10 @@ namespace SRS.Stats
         {
             container[affectedStat].PercentageModifier -= value;
         }
+
+        protected override string GetUnitSymbol()
+        {
+            return "%";
+        }
     }
 }

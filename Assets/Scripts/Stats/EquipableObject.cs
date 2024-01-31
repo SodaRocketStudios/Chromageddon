@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Text;
 
 namespace SRS.Stats
 {
@@ -18,7 +20,11 @@ namespace SRS.Stats
 
         [SerializeField] private List<StatModifier> modifiers;
 
-        [SerializeField] private string description;
+        // private string description;
+        public string RichTextDescription
+        {
+            get => BuildDescription();
+        }
 
         public void Equip(StatContainer container)
         {
@@ -43,9 +49,15 @@ namespace SRS.Stats
         protected abstract void OnEquip(StatContainer container);
         protected abstract void OnUnequip(StatContainer container);
 
-        public string GetFormattedDescription()
+        public string BuildDescription()
         {
-            return "";
+            StringBuilder stringBuilder = new();
+            foreach(StatModifier modifier in modifiers)
+            {
+                stringBuilder.AppendLine(modifier.Description);
+            }
+
+            return stringBuilder.ToString();
         }
     }
 }
