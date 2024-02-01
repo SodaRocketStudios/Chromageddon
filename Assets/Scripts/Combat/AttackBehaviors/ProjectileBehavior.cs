@@ -18,7 +18,7 @@ namespace SRS.Combat
         {
             bounces = (int)attack.Stats["Bounces"].Value;
             pierces = (int)attack.Stats["Pierces"].Value;
-            float spreadAngle = attack.Stats["Spread"].Value/2;
+            float spreadAngle = attack.Stats["Max Spread"].Value * (1 - attack.Stats["Accuracy"].Value)/2;
             Vector3 rotation = new(0, 0, random.NextFloat(-spreadAngle, spreadAngle));
             attack.transform.Rotate(rotation);
         }
