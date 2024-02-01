@@ -14,6 +14,13 @@ namespace SRS.GameManagement
 
 		public Action OnGameOver;
 
+		private bool ignorePauseInput;
+		public bool IgnorePauseInput
+		{
+			get => ignorePauseInput;
+			set => ignorePauseInput = value;
+		}
+
 		private void Awake()
 		{
 			if(Instance == null)
@@ -44,6 +51,11 @@ namespace SRS.GameManagement
 
 		public void TogglePause()
 		{
+			if(ignorePauseInput)
+			{
+				return;
+			}
+
 			if(Running == false)
 			{
 				Play();
