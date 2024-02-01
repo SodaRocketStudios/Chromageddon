@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 288bebab70a6bb844b9262fc005e1852, type: 3}
-  m_Name: Freeze Effect
+  m_Script: {fileID: 11500000, guid: 444c8ede6da0f3844b6de61a40b9fad8, type: 3}
+  m_Name: Freeze Attack
   m_EditorClassIdentifier: 
-  name: Freeze
   description: 
-  procStat: Freeze Chance
-  effects:
-  - {fileID: 11400000, guid: 45ca0e868d4621f488783e9df32c8712, type: 2}
-  - {fileID: 11400000, guid: 202ffc7b42e459d4397fb4add677084d, type: 2}
+  duration: 2
+  statModifier: {fileID: 11400000, guid: 0f97099922a2c984a9f40f082fecf35b, type: 2}
