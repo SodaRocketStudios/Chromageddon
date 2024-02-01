@@ -50,6 +50,20 @@ namespace SRS.Combat
 			}
 		}
 
+		private void Update()
+		{
+			isAttacking = input.AttackInput;
+
+			if(isAttacking)
+			{
+				Attack();
+			}
+			else
+			{
+				nextAttackTime = Mathf.Max(Time.time, nextAttackTime);
+			}
+		}
+
 		private void Attack()
 		{
 			if(weapon == null)
@@ -61,6 +75,12 @@ namespace SRS.Combat
 			int numOfAttacks = 0;
 
 			float attackDelay = stats["Attack Delay"].Value;
+
+			if(attackDelay < 0)
+			{
+				nextAttackTime = Mathf.Max(Time.time, nextAttackTime);
+				return;
+			}
 
 			while(Time.time - numOfAttacks*attackDelay >= nextAttackTime)
 			{
@@ -77,20 +97,6 @@ namespace SRS.Combat
 				weapon.Attack(gameObject);
 				nextAttackTime += attackDelay;
 				GenerateRecoil();
-			}
-		}
-
-		private void Update()
-		{
-			isAttacking = input.AttackInput;
-
-			if(isAttacking)
-			{
-				Attack();
-			}
-			else
-			{
-				nextAttackTime = Mathf.Max(Time.time, nextAttackTime);
 			}
 		}
 
