@@ -51,5 +51,15 @@ namespace SRS.Combat
 
 			return false;
 		}
+
+		public static bool CheckDodge(float dodgeChance)
+		{
+			if(random.NextFloat() <= dodgeChance)
+			{
+				return true;
+			}
+
+			return false;
+		}
 	}
 }

@@ -16,8 +16,7 @@ MonoBehaviour:
   modifiers:
   - {fileID: 11400000, guid: f146486bd83d56646be90371fb0884d4, type: 2}
   - {fileID: 11400000, guid: 2865dffc99cf8ca4b9a675888c5db931, type: 2}
-  - {fileID: 11400000, guid: f98a454e3a6310242bd7bf3a314182c3, type: 2}
-  description: 
+  - {fileID: 11400000, guid: 2eeefb1a2f94a884e85aac8a4b1750fc, type: 2}
   behaviors: []
   rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
   tags:

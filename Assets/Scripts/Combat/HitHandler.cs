@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using SRS.Stats;
 using Cinemachine;
-using System.Numerics;
+using UnityEngine.Events;
 
 namespace SRS.Combat
 {
@@ -11,6 +11,8 @@ namespace SRS.Combat
 		public Action<float> OnHit;
 
 		public Action<StatContainer> TryHitEffects;
+
+		public UnityEvent OnDodge;
 
 		[SerializeField] private Health health = new();
 
@@ -56,6 +58,12 @@ namespace SRS.Combat
 
 		public void Hit(StatContainer attackerStats, DamageType damageType)
 		{
+			if(DamageCalculator.CheckDodge(stats["Dodge"].Value))
+			{
+				OnDodge?.Invoke();
+				return;
+			}
+
 			float damage = attackerStats["Damage"].Value;
 
 			if(DamageCalculator.CheckCritical(attackerStats["Critical Chance"].Value))
@@ -72,6 +80,12 @@ namespace SRS.Combat
 		{
 			if(Time.time - lastHitTime > immunityTime)
 			{
+				if(DamageCalculator.CheckDodge(stats["Dodge"].Value))
+				{
+					OnDodge?.Invoke();
+					return;
+				}
+
 				if(impulseSource != null)
 				{
 					impulseSource.m_ImpulseDefinition = hitImpulse;

@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
-  m_Name: Lucky Underwear
+  m_Name: Spider Fang
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  modifiers:
-  - {fileID: 11400000, guid: 1dba67634482f4a4a8cd098139818529, type: 2}
+  modifiers: []
   behaviors: []
-  rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
-  tags:
-  - Luck
+  rarity: {fileID: 11400000, guid: 476db63f95ebbaf46bda5df332072d00, type: 2}
+  tags: []
