@@ -90,13 +90,13 @@ namespace SRS.Combat
 			if(numOfAttacks > 0)
 			{
 				audioSource?.PlayOneShot(weapon.Sound);
+				GenerateRecoil();
 			}
 
 			for(int i = 0; i < numOfAttacks; i++)
 			{
 				weapon.Attack(gameObject);
 				nextAttackTime += attackDelay;
-				GenerateRecoil();
 			}
 		}
 
@@ -107,7 +107,7 @@ namespace SRS.Combat
 				return;
 			}
 			impulseSource.m_ImpulseDefinition = recoilImpulse;
-			impulseSource.GenerateImpulse(-transform.right*weapon.RecoilStrength);
+			impulseSource.GenerateImpulse(transform.right*weapon.RecoilStrength);
 		}
 	}
 }
