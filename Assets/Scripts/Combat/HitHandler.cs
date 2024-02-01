@@ -105,7 +105,7 @@ namespace SRS.Combat
 		{
 			health.Damage(amount, damageType);
 
-			OnHit?.Invoke(amount); // Might make more sense for shield and health to handle most of these events
+			OnHit?.Invoke(amount);
 		}
 
 		private void HandleHealthChange(float newMax)

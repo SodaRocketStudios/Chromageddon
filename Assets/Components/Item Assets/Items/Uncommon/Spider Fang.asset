@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Spider Fang
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  modifiers: []
+  modifiers:
+  - {fileID: 11400000, guid: c062ae79d506d064ab65520872415858, type: 2}
   behaviors: []
   rarity: {fileID: 11400000, guid: 476db63f95ebbaf46bda5df332072d00, type: 2}
   tags: []

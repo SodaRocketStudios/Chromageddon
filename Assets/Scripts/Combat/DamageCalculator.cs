@@ -32,7 +32,7 @@ namespace SRS.Combat
 					break;
 				
 				case DamageType.Poison:
-					amount *= 1-defenderStats["Poison Resistance"].Value;
+					amount *= 1 - defenderStats["Poison Resistance"].Value;
 					break;
 
 				default:

@@ -3735,6 +3735,13 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+  - name: Dodge
+    baseValue: 1
+    percentageModifier: 100
+    hasMaximum: 0
+    maximumValue: 0.65
+    hasMinimum: 0
+    minimumValue: 0
 --- !u!1 &997797054
 GameObject:
   m_ObjectHideFlags: 0
@@ -7471,6 +7478,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfc0e66e7f0b29448e1a88f45ac74c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDodge:
+    m_PersistentCalls:
+      m_Calls: []
   health:
     Value:
       OnCurrentChange:
