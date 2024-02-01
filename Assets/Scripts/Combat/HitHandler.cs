@@ -80,11 +80,12 @@ namespace SRS.Combat
 		{
 			if(Time.time - lastHitTime > immunityTime)
 			{
-				if(DamageCalculator.CheckDodge(stats["Dodge"].Value))
-				{
-					OnDodge?.Invoke();
-					return;
-				}
+				// TODO -- make sure not to check dodge twice.
+				// if(DamageCalculator.CheckDodge(stats["Dodge"].Value))
+				// {
+				// 	OnDodge?.Invoke();
+				// 	return;
+				// }
 
 				if(impulseSource != null)
 				{

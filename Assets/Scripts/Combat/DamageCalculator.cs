@@ -44,7 +44,7 @@ namespace SRS.Combat
 
 		public static bool CheckCritical(float critChance)
 		{
-			if(random.NextFloat() <= critChance)
+			if(random.NextFloat() < critChance)
 			{
 				return true;
 			}
@@ -54,7 +54,7 @@ namespace SRS.Combat
 
 		public static bool CheckDodge(float dodgeChance)
 		{
-			if(random.NextFloat() <= dodgeChance)
+			if(random.NextFloat() < dodgeChance)
 			{
 				return true;
 			}

@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e97b14d650cae7f41801cac14f93dc48, type: 2}
   - {fileID: 11400000, guid: 7954cae38af164a40aa12ecd46a65ade, type: 2}
   - {fileID: 11400000, guid: 20c2546ac7ee59e448f8acb1f46867c6, type: 2}
-  description: 
+  - {fileID: 11400000, guid: 3d5f0b5e2d8fec042b56eb7a34ea56bb, type: 2}
   attackData:
     Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
     Sound: {fileID: 8300000, guid: f70d9c4722fd5a34b81a48f9dd4dfe03, type: 3}
