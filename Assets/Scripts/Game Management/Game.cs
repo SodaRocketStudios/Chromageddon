@@ -14,7 +14,7 @@ namespace SRS.GameManagement
 
 		public Action OnGameOver;
 
-		private bool ignorePauseInput;
+		private bool ignorePauseInput = true;
 		public bool IgnorePauseInput
 		{
 			get => ignorePauseInput;
@@ -46,6 +46,7 @@ namespace SRS.GameManagement
 		{
 			Time.timeScale = 1;
 			Running = true;
+			ignorePauseInput = false;
 			OnPlayPause?.Invoke(Running);
 		}
 
@@ -69,11 +70,13 @@ namespace SRS.GameManagement
 		{
 			OnGameOver?.Invoke();
 			Pause();
+			ignorePauseInput = true;
 		}
 
 		public void Restart()
 		{
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			ignorePauseInput = true;
 		}
 
 		public void Quit()
