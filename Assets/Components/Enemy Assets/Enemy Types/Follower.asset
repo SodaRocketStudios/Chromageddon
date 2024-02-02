@@ -16,7 +16,7 @@ MonoBehaviour:
   InitialStats:
   - {fileID: 11400000, guid: 4dc6449c709eee24fa54cde4be1673ac, type: 2}
   - {fileID: 11400000, guid: a381df89a2f4b1f45919a84ad43c1f68, type: 2}
-  - {fileID: 11400000, guid: 10242732771cb2240ac3cfcc27da3876, type: 2}
+  - {fileID: 11400000, guid: 031640bbec6405c4a9fd4d3d36f4573f, type: 2}
   EliteModifiers:
   - {fileID: 11400000, guid: 28309636d6935e249949193467395697, type: 2}
   - {fileID: 11400000, guid: f3c3a3b3e6df0ae4abac592020c02619, type: 2}

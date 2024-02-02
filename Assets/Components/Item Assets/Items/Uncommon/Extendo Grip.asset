@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   modifiers:
-  - {fileID: 11400000, guid: e645f74488535c24f83b0e1596c2f687, type: 2}
+  - {fileID: 11400000, guid: 1b5d4edf192fb834487df980f088b912, type: 2}
   behaviors: []
   rarity: {fileID: 11400000, guid: 476db63f95ebbaf46bda5df332072d00, type: 2}
   tags:

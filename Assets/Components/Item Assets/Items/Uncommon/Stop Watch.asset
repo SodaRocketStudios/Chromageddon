@@ -15,6 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   modifiers:
   - {fileID: 11400000, guid: da7f84c922b29c74d8127b71de0ed507, type: 2}
+  - {fileID: 11400000, guid: 610abe3e6a00af246b29f8405a319792, type: 2}
   behaviors: []
   rarity: {fileID: 11400000, guid: 476db63f95ebbaf46bda5df332072d00, type: 2}
   tags:

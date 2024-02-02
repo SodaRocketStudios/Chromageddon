@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4dc6449c709eee24fa54cde4be1673ac, type: 2}
   - {fileID: 11400000, guid: 20c2546ac7ee59e448f8acb1f46867c6, type: 2}
   - {fileID: 11400000, guid: 3bc2d2eb406832c4ebe735245471f91b, type: 2}
-  - {fileID: 11400000, guid: c040300b4fcd5304bb6ff72fc23cd7bd, type: 2}
+  - {fileID: 11400000, guid: 694c6f498b554384b9a984761e209978, type: 2}
   EliteModifiers: []
   xpValue: 1
   Price: 2

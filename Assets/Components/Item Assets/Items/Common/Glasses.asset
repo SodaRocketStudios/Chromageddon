@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
   m_Name: Glasses
   m_EditorClassIdentifier: 
-  name: Glasses
   sprite: {fileID: 0}
   modifiers:
-  - {fileID: 11400000, guid: 21bf5ef09ac55b54c9d4687c24eff9e7, type: 2}
-  description: 
+  - {fileID: 11400000, guid: 692a29d11bc0bd24f8064118372a9f89, type: 2}
   behaviors: []
   rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
   tags:

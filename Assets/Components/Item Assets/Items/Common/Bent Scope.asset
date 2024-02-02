@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
   m_Name: Bent Scope
   m_EditorClassIdentifier: 
-  name: Bent Scope
   sprite: {fileID: 0}
   modifiers:
-  - {fileID: 11400000, guid: bbcf16327aef4ae48a07082facf664cf, type: 2}
-  - {fileID: 11400000, guid: e253a63675e0a604780aea4e91e3b035, type: 2}
-  description: 
+  - {fileID: 11400000, guid: f6fcbdf0b3132434eb38052e8bf32aff, type: 2}
+  - {fileID: 11400000, guid: f711ecc2b73230942a4ec448a9d6a25e, type: 2}
   behaviors: []
   rarity: {fileID: 11400000, guid: 0422f7fa2d869b74bbff00917a846186, type: 2}
   tags:
