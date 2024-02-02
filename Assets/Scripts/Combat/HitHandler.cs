@@ -20,6 +20,7 @@ namespace SRS.Combat
 		private float lastHitTime = 0;
 
 		[SerializeField] private AudioClip hitSound;
+		[SerializeField] private AudioClip critSound;
 
 		[SerializeField] private CinemachineImpulseDefinition hitImpulse;
 		[SerializeField] private float impulseMagnitude;
@@ -68,6 +69,7 @@ namespace SRS.Combat
 
 			if(DamageCalculator.CheckCritical(attackerStats["Critical Chance"].Value))
 			{
+				audioSource.PlayOneShot(critSound);
 				damage *= attackerStats["Critical Damage"].Value;
 			}
 			

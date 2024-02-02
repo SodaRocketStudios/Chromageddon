@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba1e50359d04a84da9d8866868f59a5, type: 3}
-  m_Name: Damage Up 10%
+  m_Script: {fileID: 11500000, guid: 06b2600d36fbd6342a3c159f38f3ac0b, type: 3}
+  m_Name: Pierces Increase 1
   m_EditorClassIdentifier: 
-  affectedStat: Damage
-  value: 10
-  description: Increase Damage by 10%
+  affectedStat: Pierces
+  value: 1
+  invertFormatRules: 0

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
-  m_Name: Test Item 3
+  m_Name: Game Wiki
   m_EditorClassIdentifier: 
-  name: Test Item 3
   sprite: {fileID: 0}
-  modifiers: []
-  description: 
+  modifiers:
+  - {fileID: 11400000, guid: 9a45dcdcec1dd38418971277e3e5ac80, type: 2}
   behaviors: []
-  rarity: {fileID: 11400000, guid: deab78b40dc4af645890eb951f53eb6d, type: 2}
-  tags: []
+  rarity: {fileID: 11400000, guid: 14204308272b8f943ae27b7b9ace7ad6, type: 2}
+  tags:
+  - Luck

@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
-  m_Name: Helmet
+  m_Name: Gold Horseshoe
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  modifiers: []
+  modifiers:
+  - {fileID: 11400000, guid: 15e020a6d792fcd479999ad0fb569dbb, type: 2}
   behaviors: []
-  rarity: {fileID: 0}
-  tags: []
+  rarity: {fileID: 11400000, guid: deab78b40dc4af645890eb951f53eb6d, type: 2}
+  tags:
+  - Luck

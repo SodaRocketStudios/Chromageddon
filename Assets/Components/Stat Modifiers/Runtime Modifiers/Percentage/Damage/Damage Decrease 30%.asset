@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
-  m_Name: Test Item 4
+  m_Script: {fileID: 11500000, guid: 9ba1e50359d04a84da9d8866868f59a5, type: 3}
+  m_Name: Damage Decrease 30%
   m_EditorClassIdentifier: 
-  name: Test Item 4
-  sprite: {fileID: 0}
-  modifiers: []
-  description: 
-  behaviors: []
-  rarity: {fileID: 11400000, guid: 14204308272b8f943ae27b7b9ace7ad6, type: 2}
-  tags: []
+  affectedStat: Damage
+  value: 10
+  description: Increase Damage by 10%

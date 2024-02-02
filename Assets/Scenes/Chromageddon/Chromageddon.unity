@@ -3726,10 +3726,10 @@ MonoBehaviour:
     percentageModifier: 0
     hasMaximum: 1
     maximumValue: 1
-    hasMinimum: 0
+    hasMinimum: 1
     minimumValue: 0
   - name: Max Spread
-    baseValue: 1
+    baseValue: 100
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0
@@ -3747,7 +3747,7 @@ MonoBehaviour:
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 1
-    hasMinimum: 0
+    hasMinimum: 1
     minimumValue: 0
 --- !u!1 &997797054
 GameObject:
@@ -7546,6 +7546,7 @@ MonoBehaviour:
             m_CallState: 2
   immunityTime: 0.2
   hitSound: {fileID: 8300000, guid: ed58bb83e6a49414f9dc706342241a6e, type: 3}
+  critSound: {fileID: 0}
   hitImpulse:
     m_ImpulseChannel: 1
     m_ImpulseShape: 0
