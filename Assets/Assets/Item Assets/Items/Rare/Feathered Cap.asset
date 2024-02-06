@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
+  m_Name: Feathered Cap
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  modifiers:
+  - {fileID: 11400000, guid: 9915de97d5af1024790b792eecac2b80, type: 2}
+  - {fileID: 11400000, guid: d0210ffaeb8008d459f256c4011cc413, type: 2}
+  - {fileID: 11400000, guid: d7b8adcb89aa24c43ad676c1b0a0b961, type: 2}
+  - {fileID: 11400000, guid: 4f81606e4ec595a4fae89f5a42b5da2e, type: 2}
+  - {fileID: 11400000, guid: ae7f7452f6515504f948c1106e9cb2d7, type: 2}
+  behaviors: []
+  rarity: {fileID: 11400000, guid: deab78b40dc4af645890eb951f53eb6d, type: 2}
+  tags:
+  - Ranged
+  - Accuracy
+  - Critical
+  - Dodge
