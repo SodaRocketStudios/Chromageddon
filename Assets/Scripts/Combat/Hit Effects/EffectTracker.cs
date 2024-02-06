@@ -36,23 +36,22 @@ namespace SRS.Combat.HitEffects
 
 		private void Update()
 		{
-			foreach(EffectTimer effect in effectsToRemove)
-			{
-				effect.RemoveEffect(gameObject);
-				activeEffectTimers.Remove(effect);
-			}
-
-			effectsToRemove.Clear();
-
 			foreach(EffectTimer timer in activeEffectTimers)
 			{
 				timer.Update(Time.deltaTime);
 
 				if(timer.IsComplete)
 				{
-					effectsToRemove.Add(timer);
+					RemoveEffect(timer);
 				}
 			}
+
+			foreach(EffectTimer effect in effectsToRemove)
+			{
+				activeEffectTimers.Remove(effect);
+			}
+
+			effectsToRemove.Clear();
 		}
 
 		public void AddEffect(LastingEffect effect)
@@ -61,16 +60,22 @@ namespace SRS.Combat.HitEffects
 			activeEffectTimers.Add(timer);
 		}
 
-		public void RemoveEffect(EffectTimer timer)
+		public void RemoveEffect(EffectTimer effect)
 		{
-			effectsToRemove.Add(timer);
+			if(effectsToRemove.Contains(effect))
+			{
+				return;
+			}
+			
+			effect.RemoveEffect(gameObject);
+			effectsToRemove.Add(effect);
 		}
 
 		public void RemoveAllEffects()
 		{
 			foreach(EffectTimer effect in activeEffectTimers)
 			{
-				effectsToRemove.Add(effect);
+				RemoveEffect(effect);
 			}
 		}
 

@@ -3639,7 +3639,7 @@ MonoBehaviour:
     minimumValue: 0
   - name: Poison Chance
     baseValue: 1
-    percentageModifier: 0
+    percentageModifier: 100
     hasMaximum: 1
     maximumValue: 1
     hasMinimum: 0
@@ -3684,7 +3684,7 @@ MonoBehaviour:
     percentageModifier: 100
     hasMaximum: 0
     maximumValue: 0
-    hasMinimum: 0
+    hasMinimum: 1
     minimumValue: 0
   - name: Mass
     baseValue: 1

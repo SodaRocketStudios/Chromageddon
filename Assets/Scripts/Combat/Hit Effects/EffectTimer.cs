@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace SRS.Combat.HitEffects
@@ -55,6 +54,7 @@ namespace SRS.Combat.HitEffects
 
 		public void RemoveEffect(GameObject target)
 		{
+			isComplete = true;
 			effect.Remove(target);
 		}
 
