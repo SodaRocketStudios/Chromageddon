@@ -138,8 +138,7 @@ namespace SRS.Items
 					possibleItems.Add(item);
 				}
 
-
-				button.Item = possibleItems[randomGenerator.Next(0, possibleItems.Count)];
+				button.Item = possibleItems[randomGenerator.Next(possibleItems.Count)];
 
 				selectedItems.Add(button.Item);
 			}

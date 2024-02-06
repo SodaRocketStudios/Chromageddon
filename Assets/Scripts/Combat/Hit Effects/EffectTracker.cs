@@ -14,6 +14,8 @@ namespace SRS.Combat.HitEffects
 
 		private List<EffectTimer> activeEffectTimers = new();
 
+		private List<EffectTimer> effectsToRemove = new();
+
 		private static System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
 
 		private void Awake()
@@ -37,6 +39,14 @@ namespace SRS.Combat.HitEffects
 			{
 				timer.Update(Time.deltaTime);
 			}
+
+			foreach(EffectTimer effect in effectsToRemove)
+			{
+				effect.RemoveEffect(gameObject);
+				activeEffectTimers.Remove(effect);
+			}
+
+			effectsToRemove.Clear();
 		}
 
 		public void AddEffect(LastingEffect effect)
@@ -48,8 +58,17 @@ namespace SRS.Combat.HitEffects
 
 		public void RemoveEffect(EffectTimer timer)
 		{
-			timer.RemoveEffect(gameObject);
-			activeEffectTimers.Remove(timer);
+			effectsToRemove.Add(timer);
+		}
+
+		public void RemoveAllEffects()
+		{
+			foreach(EffectTimer timer in activeEffectTimers)
+			{
+				timer.RemoveEffect(gameObject);
+			}
+
+			activeEffectTimers.Clear();
 		}
 
 		public void TryOnHitEffects(StatContainer attackerStats)
