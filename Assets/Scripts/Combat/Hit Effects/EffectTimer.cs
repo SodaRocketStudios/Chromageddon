@@ -5,8 +5,6 @@ namespace SRS.Combat.HitEffects
 {
 	public class EffectTimer
 	{
-		public Action<EffectTimer> OnTimerEnd;
-
 		private LastingEffect effect;
 
 		private float timer;
@@ -16,6 +14,12 @@ namespace SRS.Combat.HitEffects
 		private float nextTickTime = 0;
 
 		private GameObject target;
+
+		private bool isComplete = false;
+		public bool IsComplete
+		{
+			get => isComplete;
+		}
 
 		public EffectTimer(LastingEffect effect, GameObject target)
 		{
@@ -38,7 +42,7 @@ namespace SRS.Combat.HitEffects
 		{
 			if(timer >= effect.Duration)
 			{
-				OnTimerEnd?.Invoke(this);
+				isComplete = true;
 			}
 
 			if(isTickEffect)

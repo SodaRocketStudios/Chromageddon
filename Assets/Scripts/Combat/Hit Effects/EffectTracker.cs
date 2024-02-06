@@ -26,6 +26,7 @@ namespace SRS.Combat.HitEffects
 		private void OnEnable()
 		{
 			hitHandler.TryHitEffects += TryOnHitEffects;
+			RemoveAllEffects();
 		}
 
 		private void OnDisable()
@@ -35,11 +36,6 @@ namespace SRS.Combat.HitEffects
 
 		private void Update()
 		{
-			foreach(EffectTimer timer in activeEffectTimers)
-			{
-				timer.Update(Time.deltaTime);
-			}
-
 			foreach(EffectTimer effect in effectsToRemove)
 			{
 				effect.RemoveEffect(gameObject);
@@ -47,12 +43,21 @@ namespace SRS.Combat.HitEffects
 			}
 
 			effectsToRemove.Clear();
+
+			foreach(EffectTimer timer in activeEffectTimers)
+			{
+				timer.Update(Time.deltaTime);
+
+				if(timer.IsComplete)
+				{
+					effectsToRemove.Add(timer);
+				}
+			}
 		}
 
 		public void AddEffect(LastingEffect effect)
 		{
 			EffectTimer timer = new(effect, gameObject);
-			timer.OnTimerEnd += RemoveEffect;
 			activeEffectTimers.Add(timer);
 		}
 
@@ -63,12 +68,10 @@ namespace SRS.Combat.HitEffects
 
 		public void RemoveAllEffects()
 		{
-			foreach(EffectTimer timer in activeEffectTimers)
+			foreach(EffectTimer effect in activeEffectTimers)
 			{
-				timer.RemoveEffect(gameObject);
+				effectsToRemove.Add(effect);
 			}
-
-			activeEffectTimers.Clear();
 		}
 
 		public void TryOnHitEffects(StatContainer attackerStats)

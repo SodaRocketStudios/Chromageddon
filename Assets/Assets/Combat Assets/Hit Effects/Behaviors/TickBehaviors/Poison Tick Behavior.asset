@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299a8dec42dad744bb3aeb70ac8e17c1, type: 3}
   m_Name: Poison Tick Behavior
   m_EditorClassIdentifier: 
-  damage: 1
-  damageType: 1
+  damage: 5
+  damageType: 4
