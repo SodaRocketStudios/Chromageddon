@@ -7,7 +7,7 @@ namespace SRS.Stats
     {
         public override void Apply(StatContainer container)
         {
-            if(value > 0)
+            if(value != 0)
             {
                 container[affectedStat].PercentageModifier *= value;
             }
@@ -19,7 +19,7 @@ namespace SRS.Stats
 
         public override void Remove(StatContainer container)
         {
-            if(value > 0)
+            if(value != 0)
             {
                 container[affectedStat].PercentageModifier /= value;
             }

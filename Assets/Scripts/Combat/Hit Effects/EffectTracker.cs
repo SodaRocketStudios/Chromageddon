@@ -83,7 +83,6 @@ namespace SRS.Combat.HitEffects
 		{
 			foreach(HitEffect effect in effectDatabase.Effects)
 			{
-				// TODO -- could I use the same random number for all effects?
 				float randomNumber = random.NextFloat();
 
 				if(randomNumber <= effect.GetProcChance(attackerStats))
