@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4807f3f75e524c24cb6d3a3f73629e70, type: 3}
   m_Name: Attack Delay Multiplier -1
   m_EditorClassIdentifier: 
-  affectedStat: 
-  value: 0
+  affectedStat: Attack Delay
+  value: -1
   invertFormatRules: 0
