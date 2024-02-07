@@ -7,7 +7,7 @@
    viewBox="0 0 304.8 304.80001"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    sodipodi:docname="Titles.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,8 +25,8 @@
      showgrid="false"
      units="in"
      inkscape:zoom="1.0809567"
-     inkscape:cx="469.4915"
-     inkscape:cy="692.9047"
+     inkscape:cx="441.73832"
+     inkscape:cy="643.41153"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -326,15 +326,15 @@
          id="feBlend3542" />
     </filter>
     <filter
-       y="-0.67773607"
-       height="2.3554721"
+       y="-0.70597507"
+       height="2.4119501"
        inkscape:menu-tooltip="Darkens the edge with an inner blur and adds a flexible glow"
        inkscape:menu="Shadows and Glows"
        inkscape:label="Dark and Glow"
        style="color-interpolation-filters:sRGB;"
        id="filter4430"
-       x="-0.058675055"
-       width="1.1173501">
+       x="-0.096985716"
+       width="1.1939714">
       <feGaussianBlur
          stdDeviation="2.6897649"
          result="result6"
@@ -360,6 +360,173 @@
          mode="normal"
          in2="result6"
          id="feBlend4428" />
+    </filter>
+    <filter
+       y="-0.20873547"
+       height="1.4174709"
+       inkscape:menu-tooltip="Darkens the edge with an inner blur and adds a flexible glow"
+       inkscape:menu="Shadows and Glows"
+       inkscape:label="Dark and Glow"
+       style="color-interpolation-filters:sRGB;"
+       id="filter24"
+       x="-0.015177696"
+       width="1.0303554">
+      <feGaussianBlur
+         stdDeviation="0.7952821"
+         result="result6"
+         id="feGaussianBlur23" />
+      <feComposite
+         result="result8"
+         in="SourceGraphic"
+         operator="atop"
+         in2="result6"
+         id="feComposite23" />
+      <feComposite
+         result="result9"
+         operator="over"
+         in2="SourceAlpha"
+         in="result8"
+         id="feComposite24" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 "
+         result="result10"
+         id="feColorMatrix24" />
+      <feBlend
+         in="result10"
+         mode="normal"
+         in2="result6"
+         id="feBlend24" />
+    </filter>
+    <filter
+       inkscape:label="Fluorescence"
+       inkscape:menu="Color"
+       inkscape:menu-tooltip="Oversaturate colors which can be fluorescent in real world"
+       style="color-interpolation-filters:sRGB;"
+       id="filter63"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         type="hueRotate"
+         values="0"
+         id="feColorMatrix61" />
+      <feColorMatrix
+         type="saturate"
+         values="1"
+         id="feColorMatrix62" />
+      <feColorMatrix
+         type="matrix"
+         values="2 -1 0 0 0 0 2 -1 0 0 -1 0 2 0 0 0 0 0 1 0 "
+         id="feColorMatrix63" />
+    </filter>
+    <filter
+       y="-0.1545329"
+       height="1.3090658"
+       inkscape:menu-tooltip="Darkens the edge with an inner blur and adds a flexible glow"
+       inkscape:menu="Shadows and Glows"
+       inkscape:label="Dark and Glow"
+       style="color-interpolation-filters:sRGB;"
+       id="filter64"
+       x="-0.033328666"
+       width="1.0666573">
+      <feGaussianBlur
+         stdDeviation="0.81691883"
+         result="result6"
+         id="feGaussianBlur63" />
+      <feComposite
+         result="result8"
+         in="SourceGraphic"
+         operator="atop"
+         in2="result6"
+         id="feComposite63" />
+      <feComposite
+         result="result9"
+         operator="over"
+         in2="SourceAlpha"
+         in="result8"
+         id="feComposite64" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 "
+         result="result10"
+         id="feColorMatrix64" />
+      <feBlend
+         in="result10"
+         mode="normal"
+         in2="result6"
+         id="feBlend64" />
+    </filter>
+    <filter
+       y="-0.35406665"
+       height="1.7081333"
+       inkscape:menu-tooltip="Darkens the edge with an inner blur and adds a flexible glow"
+       inkscape:menu="Shadows and Glows"
+       inkscape:label="Dark and Glow"
+       style="color-interpolation-filters:sRGB;"
+       id="filter113"
+       x="-0.025745102"
+       width="1.0514902">
+      <feGaussianBlur
+         stdDeviation="1.3489939"
+         result="result6"
+         id="feGaussianBlur112" />
+      <feComposite
+         result="result8"
+         in="SourceGraphic"
+         operator="atop"
+         in2="result6"
+         id="feComposite112" />
+      <feComposite
+         result="result9"
+         operator="over"
+         in2="SourceAlpha"
+         in="result8"
+         id="feComposite113" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 "
+         result="result10"
+         id="feColorMatrix113" />
+      <feBlend
+         in="result10"
+         mode="normal"
+         in2="result6"
+         id="feBlend113" />
+    </filter>
+    <filter
+       y="-1.0498688"
+       height="3.0997376"
+       inkscape:menu-tooltip="Darkens the edge with an inner blur and adds a flexible glow"
+       inkscape:menu="Shadows and Glows"
+       inkscape:label="Dark and Glow"
+       style="color-interpolation-filters:sRGB;"
+       id="filter129"
+       x="-0.076338677"
+       width="1.1526774">
+      <feGaussianBlur
+         stdDeviation="3"
+         result="result6"
+         id="feGaussianBlur128"
+         in="SourceGraphic" />
+      <feComposite
+         result="result8"
+         operator="out"
+         in2="SourceAlpha"
+         id="feComposite128"
+         k1="0"
+         k2="0" />
+      <feGaussianBlur
+         stdDeviation="1"
+         result="result6"
+         id="feGaussianBlur171"
+         in="SourceAlpha" />
+      <feComposite
+         id="feComposite171"
+         in2="SourceGraphic"
+         operator="lighter" />
+      <feBlend
+         mode="normal"
+         id="feBlend173"
+         in2="result8" />
     </filter>
   </defs>
   <g
@@ -434,13 +601,13 @@
          y="71.995605">CHROMAGEDDON</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.7px;line-height:1.25;font-family:Orbitron;-inkscape-font-specification:Orbitron;stroke-width:0.264583"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12.7px;line-height:1.25;font-family:Orbitron;-inkscape-font-specification:'Orbitron Heavy';stroke-width:0.264583"
        x="-0.7112"
        y="85.344002"
        id="text1126"><tspan
          sodipodi:role="line"
          id="tspan1124"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Orbitron;-inkscape-font-specification:Orbitron;stroke-width:0.264583"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:Orbitron;-inkscape-font-specification:'Orbitron Heavy';stroke-width:0.264583"
          x="-0.7112"
          y="85.344002">CHROMAGEDDON</tspan></text>
     <text
@@ -564,7 +731,7 @@
        x="109.85955"
        y="-13.488577"
        id="text3572"
-       inkscape:export-filename="Title_Rainbow_2.png"
+       inkscape:export-filename="Title_Rainbow.png"
        inkscape:export-xdpi="600"
        inkscape:export-ydpi="600"
        transform="matrix(1.1321156,0,0,1.1321156,-37.47012,215.36815)"><tspan
@@ -573,29 +740,29 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bungee Inline';-inkscape-font-specification:'Bungee Inline';stroke-width:0.264583"
          x="109.85955"
          y="-13.488577"><tspan
-           style="fill:#ff4d4d;fill-opacity:1"
+           style="fill:#ff0000;fill-opacity:1"
            id="tspan3546">C</tspan><tspan
-           style="fill:#ffa64d;fill-opacity:1"
+           style="fill:#ff8000;fill-opacity:1"
            id="tspan3548">H</tspan><tspan
-           style="fill:#ffff4d;fill-opacity:1"
+           style="fill:#ffff00;fill-opacity:1"
            id="tspan3550">R</tspan><tspan
-           style="fill:#a6ff4d;fill-opacity:1"
+           style="fill:#80ff00;fill-opacity:1"
            id="tspan3552">O</tspan><tspan
-           style="fill:#4dff4d;fill-opacity:1"
+           style="fill:#00ff00;fill-opacity:1"
            id="tspan3554">M</tspan><tspan
-           style="fill:#4dffa6;fill-opacity:1"
+           style="fill:#00ff7f;fill-opacity:1"
            id="tspan3556">A</tspan><tspan
-           style="fill:#4dffff;fill-opacity:1"
+           style="fill:#00ffff;fill-opacity:1"
            id="tspan3558">G</tspan><tspan
-           style="fill:#4da6ff;fill-opacity:1"
+           style="fill:#0080ff;fill-opacity:1"
            id="tspan3560">E</tspan><tspan
-           style="fill:#4d4dff;fill-opacity:1"
+           style="fill:#0000ff;fill-opacity:1"
            id="tspan3562">D</tspan><tspan
-           style="fill:#a64dff;fill-opacity:1"
+           style="fill:#8000ff;fill-opacity:1"
            id="tspan3564">D</tspan><tspan
-           style="fill:#ff4dff;fill-opacity:1"
+           style="fill:#ff00ff;fill-opacity:1"
            id="tspan3566">O</tspan><tspan
-           style="fill:#ff4da6;fill-opacity:1"
+           style="fill:#ff0081;fill-opacity:1"
            id="tspan3568">N</tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -641,5 +808,30 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bungee Inline';-inkscape-font-specification:'Bungee Inline';fill:#ff4dd3;fill-opacity:1;stroke-width:0.264583"
          x="109.85955"
          y="-13.488577">Settings</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12.7px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Heavy';stroke-width:0.264583"
+       x="-0.7112"
+       y="97.827156"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Heavy';stroke-width:0.264583"
+         x="-0.7112"
+         y="97.827156">CHROMAGEDDON</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12.7px;line-height:1.25;font-family:Orbitron;-inkscape-font-specification:'Orbitron Heavy';opacity:1;mix-blend-mode:normal;fill:#fb00ff;fill-opacity:1;stroke-width:0.264583;filter:url(#filter113)"
+       x="115.22524"
+       y="276.90399"
+       id="text125"
+       inkscape:export-filename="Settings Title.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan125"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:Orbitron;-inkscape-font-specification:'Orbitron Heavy';fill:#fb00ff;fill-opacity:1;stroke-width:0.264583"
+         x="115.22524"
+         y="276.90399">Settings</tspan></text>
   </g>
 </svg>
