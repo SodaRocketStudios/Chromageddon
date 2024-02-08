@@ -18,3 +18,5 @@ MonoBehaviour:
   effects:
   - {fileID: 11400000, guid: f659c887461085e4fa11f4b1e4a57b04, type: 2}
   - {fileID: 11400000, guid: 6388e39017af19f439d33337acb207f5, type: 2}
+  particleManager: {fileID: 11400000, guid: b8fe13a605860df40adb277beafd9808, type: 2}
+  particleColor: {r: 1, g: 0.248857, b: 0, a: 1}

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using SRS.Stats;
+using SRS.Utils.VFX;
 
 namespace SRS.Combat.HitEffects
 {
@@ -16,11 +17,16 @@ namespace SRS.Combat.HitEffects
 
 		[SerializeField] private List<Effect> effects = new();
 
+		[SerializeField] private ParticleManager particleManager;
+
+		[SerializeField] private Color particleColor;
+
 		public void Trigger(GameObject target)
 		{
 			foreach(Effect effect in effects)
 			{
 				effect.Apply(target);
+				particleManager?.PlayParticles(target.transform.position, Quaternion.identity, particleColor);
 			}
 		}
 

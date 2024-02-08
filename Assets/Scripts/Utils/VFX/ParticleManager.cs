@@ -14,12 +14,13 @@ namespace SRS.Utils.VFX
 			StartParticles(system);
 		}
 
-		public void PlayParticles(Vector3 position, Quaternion rotation, Color color)
+		public ParticleSystem PlayParticles(Vector3 position, Quaternion rotation, Color color)
 		{
 			ParticleSystem system = GetSystem(position, rotation);
 			ParticleSystem.MainModule mainModule = system.main;
 			mainModule.startColor = color;
 			StartParticles(system);
+			return system;
 		}
 
 		private ParticleSystem GetSystem(Vector3 position, Quaternion rotation)
