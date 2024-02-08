@@ -27,9 +27,9 @@
      inkscape:document-units="in"
      showgrid="false"
      units="in"
-     inkscape:zoom="3.4604836"
-     inkscape:cx="110.24471"
-     inkscape:cy="76.145427"
+     inkscape:zoom="6.9209672"
+     inkscape:cx="153.95247"
+     inkscape:cy="51.510142"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -80,5 +80,15 @@
        d="m 15.78678,12.867307 2.060127,3.568245 -4.120254,-1e-6 z"
        inkscape:transform-center-y="-0.73188491"
        transform="matrix(1.2306633,0,0,1.2306633,9.1420632,-5.3310078)" />
+    <path
+       id="path3"
+       style="fill:none;stroke:#ffffff;stroke-width:1.27;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:76.8"
+       inkscape:transform-center-x="-0.11970491"
+       inkscape:transform-center-y="-0.017013543"
+       d="m 44.994549,12.285119 -0.828522,2.58196 -2.534561,0.466814 -2.896482,-1.617559 1.363481,-3.290679 2.390344,-0.359548 z"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="Freeze Particle.png"
+       inkscape:export-xdpi="256"
+       inkscape:export-ydpi="256" />
   </g>
 </svg>

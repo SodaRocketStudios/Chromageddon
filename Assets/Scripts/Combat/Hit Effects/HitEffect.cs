@@ -31,8 +31,11 @@ namespace SRS.Combat.HitEffects
 			}
 			
 			ParticleSystem system = particleManager?.PlayParticles(target.transform.position, Quaternion.identity, particleColor);
-			system.GetComponent<TargetFollower>().Target = target.transform;
-			target.GetComponent<HitHandler>().Health.OnDeath += system.GetComponent<PooledObject>().ReturnToPool;
+			if(system != null)
+			{
+				system.GetComponent<TargetFollower>().Target = target.transform;
+				target.GetComponent<HitHandler>().Health.OnDeath += system.GetComponent<PooledObject>().ReturnToPool;
+			}
 		}
 
 		public float GetProcChance(StatContainer stats)
