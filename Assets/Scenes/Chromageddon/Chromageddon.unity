@@ -1147,7 +1147,7 @@ MonoBehaviour:
   enemyPool: {fileID: 11400000, guid: 220d08de1bb2711408a1b356a1bd110b, type: 2}
   deathSound: {fileID: 8300000, guid: dbc041b3c4f20e7499ce4424d2c78f6e, type: 3}
   deathParticleManager: {fileID: 11400000, guid: 4f9da89bd2649f34f8b6a3e924130853, type: 2}
-  maxEnemies: 50
+  maxEnemies: 150
   minDistanceFromPlayer: 15
   spawnAreaRadius: 5
   spawnDelay: 10
@@ -7118,7 +7118,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 1358765120, guid: 82c507877f528b34480e1572004f6526, type: 3}
-  m_Color: {r: 0.4292453, g: 0.639, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.5833335, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

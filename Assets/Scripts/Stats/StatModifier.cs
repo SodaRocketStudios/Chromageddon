@@ -42,7 +42,7 @@ namespace SRS.Stats
 
             if(isPositive)
             {
-                stringBuilder.Append($"<color=green>{Mathf.Abs(value)}</color>");
+                stringBuilder.Append($"<color=green>{Mathf.Abs(value)}{GetUnitSymbol()}</color>");
             }
             else
             {
