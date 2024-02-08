@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using SRS.Stats;
 using SRS.Utils.VFX;
+using SRS.Utils;
+using SRS.Utils.ObjectPooling;
 
 namespace SRS.Combat.HitEffects
 {
@@ -26,8 +28,11 @@ namespace SRS.Combat.HitEffects
 			foreach(Effect effect in effects)
 			{
 				effect.Apply(target);
-				particleManager?.PlayParticles(target.transform.position, Quaternion.identity, particleColor);
 			}
+			
+			ParticleSystem system = particleManager?.PlayParticles(target.transform.position, Quaternion.identity, particleColor);
+			system.GetComponent<TargetFollower>().Target = target.transform;
+			target.GetComponent<HitHandler>().Health.OnDeath += system.GetComponent<PooledObject>().ReturnToPool;
 		}
 
 		public float GetProcChance(StatContainer stats)
