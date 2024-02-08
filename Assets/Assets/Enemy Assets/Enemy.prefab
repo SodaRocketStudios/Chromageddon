@@ -93,6 +93,7 @@ MonoBehaviour:
   immunityTime: 0
   hitSound: {fileID: 0}
   critSound: {fileID: 8300000, guid: a648eab4836655e4687fe60389fa4b3b, type: 3}
+  critParticles: {fileID: 11400000, guid: 955f6352cf9596d489ac1e42524e06c6, type: 2}
   hitImpulse:
     m_ImpulseChannel: -1
     m_ImpulseShape: 0

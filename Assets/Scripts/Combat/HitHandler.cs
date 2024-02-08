@@ -3,6 +3,7 @@ using UnityEngine;
 using SRS.Stats;
 using Cinemachine;
 using UnityEngine.Events;
+using SRS.Utils.VFX;
 
 namespace SRS.Combat
 {
@@ -21,6 +22,8 @@ namespace SRS.Combat
 
 		[SerializeField] private AudioClip hitSound;
 		[SerializeField] private AudioClip critSound;
+
+		[SerializeField] private ParticleManager critParticles;
 
 		[SerializeField] private CinemachineImpulseDefinition hitImpulse;
 		[SerializeField] private float impulseMagnitude;
@@ -71,6 +74,8 @@ namespace SRS.Combat
 			{
 				audioSource.PlayOneShot(critSound);
 				damage *= attackerStats["Critical Damage"].Value;
+
+				critParticles?.PlayParticles(transform.position, Quaternion.identity, Color.red);
 			}
 			
 			Hit(damage, damageType);

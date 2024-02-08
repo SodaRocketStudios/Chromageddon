@@ -27,9 +27,9 @@
      inkscape:document-units="in"
      showgrid="false"
      units="in"
-     inkscape:zoom="6.9209672"
-     inkscape:cx="153.95247"
-     inkscape:cy="51.510142"
+     inkscape:zoom="3.4604836"
+     inkscape:cx="181.18855"
+     inkscape:cy="65.453279"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -90,5 +90,16 @@
        inkscape:export-filename="Freeze Particle.png"
        inkscape:export-xdpi="256"
        inkscape:export-ydpi="256" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.60434px;line-height:1.25;font-family:'Protest Strike';-inkscape-font-specification:'Protest Strike';fill:#ffffff;fill-opacity:1;stroke-width:0.358514"
+       x="50.627914"
+       y="15.788959"
+       id="text3"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.60434px;font-family:'Protest Strike';-inkscape-font-specification:'Protest Strike';fill:#ffffff;fill-opacity:1;stroke-width:0.358514"
+         x="50.627914"
+         y="15.788959"
+         id="tspan1">CRIT</tspan></text>
   </g>
 </svg>

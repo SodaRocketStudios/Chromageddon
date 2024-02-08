@@ -3590,7 +3590,7 @@ MonoBehaviour:
     minimumValue: 0
   - name: Critical Chance
     baseValue: 1
-    percentageModifier: 0
+    percentageModifier: 100
     hasMaximum: 1
     maximumValue: 1
     hasMinimum: 0
@@ -3611,7 +3611,7 @@ MonoBehaviour:
     minimumValue: 0
   - name: Freeze Chance
     baseValue: 1
-    percentageModifier: 100
+    percentageModifier: 0
     hasMaximum: 1
     maximumValue: 1
     hasMinimum: 0
@@ -7547,6 +7547,7 @@ MonoBehaviour:
   immunityTime: 0.2
   hitSound: {fileID: 8300000, guid: ed58bb83e6a49414f9dc706342241a6e, type: 3}
   critSound: {fileID: 0}
+  critParticles: {fileID: 0}
   hitImpulse:
     m_ImpulseChannel: 1
     m_ImpulseShape: 0
