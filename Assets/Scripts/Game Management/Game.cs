@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace SRS.GameManagement
@@ -11,6 +12,7 @@ namespace SRS.GameManagement
 		public bool Running{get; private set;} = false;
 
 		public Action<bool> OnPlayPause;
+		public UnityEvent OnPlay;
 
 		public Action OnGameOver;
 
@@ -48,6 +50,7 @@ namespace SRS.GameManagement
 			Running = true;
 			ignorePauseInput = false;
 			OnPlayPause?.Invoke(Running);
+			OnPlay?.Invoke();
 		}
 
 		public void TogglePause()
