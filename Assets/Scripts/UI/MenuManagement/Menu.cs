@@ -15,7 +15,7 @@ namespace SRS.UI.MenuManagement
 		{
 			get => closeOnBack;
 		}
-		
+
 		public void Enable()
 		{
 			gameObject.SetActive(true);

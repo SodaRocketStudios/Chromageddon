@@ -34,13 +34,8 @@ namespace SRS.UI.MenuManagement
 			}
 		}
 
-		public void Back(InputAction.CallbackContext context)
+		public void Back()
 		{
-			if(!context.performed)
-			{
-				return;
-			}
-
 			if(activeMenu == null)
 			{
 				return;
@@ -54,6 +49,15 @@ namespace SRS.UI.MenuManagement
 			{
 				Switch(activeMenu.PreviousMenu);
 			}
+		}
+
+		public void HandleBackInput(InputAction.CallbackContext context)
+		{
+			if(context.performed)
+			{
+				Back();
+			}
+
 		}
 	}
 }
