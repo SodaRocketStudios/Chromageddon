@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SRS.UI
+namespace SRS.UI.MenuManagement
 {
 	public class Menu : MonoBehaviour
 	{
