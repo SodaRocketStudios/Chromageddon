@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 namespace SRS.GameManagement
 {
@@ -13,15 +14,9 @@ namespace SRS.GameManagement
 
 		public Action<bool> OnPlayPause;
 		public UnityEvent OnPlay;
+		public UnityEvent OnPause;
 
 		public Action OnGameOver;
-
-		private bool ignorePauseInput = true;
-		public bool IgnorePauseInput
-		{
-			get => ignorePauseInput;
-			set => ignorePauseInput = value;
-		}
 
 		private void Awake()
 		{
@@ -42,44 +37,40 @@ namespace SRS.GameManagement
 			Time.timeScale = 0;
 			Running = false;
 			OnPlayPause?.Invoke(Running);
+			OnPause.Invoke();
 		}
 
 		public void Play()
 		{
 			Time.timeScale = 1;
 			Running = true;
-			ignorePauseInput = false;
 			OnPlayPause?.Invoke(Running);
 			OnPlay?.Invoke();
 		}
 
-		public void TogglePause()
+		public void TogglePause(InputAction.CallbackContext context)
 		{
-			if(ignorePauseInput)
+			if(context.performed)
 			{
-				return;
-			}
-
-			if(Running == false)
-			{
+				if(Running)
+				{
+					Pause();
+					return;
+				}
+				
 				Play();
-				return;
 			}
-
-			Pause();
 		}
 
 		public void GameOver()
 		{
 			OnGameOver?.Invoke();
 			Pause();
-			ignorePauseInput = true;
 		}
 
 		public void Restart()
 		{
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-			ignorePauseInput = true;
 		}
 
 		public void Quit()

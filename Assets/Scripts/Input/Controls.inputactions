@@ -43,12 +43,12 @@
                 },
                 {
                     "name": "Pause",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "c632d889-3d25-4295-958c-c34196758ceb",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -270,12 +270,12 @@
                 },
                 {
                     "name": "Back",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "3abc34cf-f3f5-40e5-b03e-0ad17d3c3177",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

@@ -1,10 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace SRS.UI.MenuManagement
 {
 	public class MenuManager : MonoBehaviour
 	{
+		public UnityEvent OnClose;
+
 		[SerializeField] private Menu activeMenu;
+
+		[SerializeField] private Menu pauseMenu;
 
 		public void Switch(Menu menu)
 		{
@@ -17,18 +23,36 @@ namespace SRS.UI.MenuManagement
 		{
 			activeMenu?.Disable();
 			activeMenu = null;
+			OnClose?.Invoke();
 		}
 
-		public void Back()
+		public void Pause(InputAction.CallbackContext context)
 		{
-			if(activeMenu.PreviousMenu != null)
+			if(context.performed)
 			{
-				Switch(activeMenu.PreviousMenu);
+				Switch(pauseMenu);
 			}
-			
-			else if(activeMenu.CloseOnBack)
+		}
+
+		public void Back(InputAction.CallbackContext context)
+		{
+			if(!context.performed)
+			{
+				return;
+			}
+
+			if(activeMenu == null)
+			{
+				return;
+			}
+
+			if(activeMenu.CloseOnBack)
 			{
 				Close();
+			}
+			else if(activeMenu.PreviousMenu != null)
+			{
+				Switch(activeMenu.PreviousMenu);
 			}
 		}
 	}
