@@ -10,6 +10,12 @@ namespace SRS.UI.MenuManagement
 			get => previousMenu;
 		}
 
+		[SerializeField] private bool closeOnBack;
+		public bool CloseOnBack
+		{
+			get => closeOnBack;
+		}
+		
 		public void Enable()
 		{
 			gameObject.SetActive(true);

@@ -25,6 +25,11 @@ namespace SRS.UI.MenuManagement
 			{
 				Switch(activeMenu.PreviousMenu);
 			}
+			
+			else if(activeMenu.CloseOnBack)
+			{
+				Close();
+			}
 		}
 	}
 }
