@@ -4,18 +4,20 @@ namespace SRS.UI.MenuManagement
 {
 	public class Menu : MonoBehaviour
 	{
-		[SerializeField] private GameObject panel;
-
 		[SerializeField] private Menu previousMenu;
+		public Menu PreviousMenu
+		{
+			get => previousMenu;
+		}
 
 		public void Enable()
 		{
-			panel.SetActive(true);
+			gameObject.SetActive(true);
 		}
 
 		public void Disable()
 		{
-			panel.SetActive(false);
+			gameObject.SetActive(false);
 		}
 	}
 }

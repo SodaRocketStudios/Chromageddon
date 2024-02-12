@@ -458,24 +458,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Disable
-        m_Mode: 2
+        m_TargetAssemblyTypeName: SRS.UI.MenuManagement.MenuManager, MenuManagement
+        m_MethodName: Back
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 589688680}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Enable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 822890287}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1295,12 +1283,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Disable
-        m_Mode: 2
+        m_TargetAssemblyTypeName: SRS.UI.MenuManagement.MenuManager, MenuManagement
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 822890287}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3201,6 +3189,7 @@ GameObject:
   - component: {fileID: 589688681}
   - component: {fileID: 589688683}
   - component: {fileID: 589688682}
+  - component: {fileID: 589688684}
   m_Layer: 5
   m_Name: Pause Settings Menu
   m_TagString: Untagged
@@ -3266,6 +3255,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589688680}
   m_CullTransparentMesh: 1
+--- !u!114 &589688684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589688680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4e68cd86df47546ad5a486fab5b7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousMenu: {fileID: 822890291}
 --- !u!1 &613091398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3502,6 +3504,7 @@ GameObject:
   - component: {fileID: 670011250}
   - component: {fileID: 670011251}
   - component: {fileID: 670011252}
+  - component: {fileID: 670011253}
   m_Layer: 5
   m_Name: Game Over
   m_TagString: Untagged
@@ -3567,6 +3570,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &670011253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670011249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4e68cd86df47546ad5a486fab5b7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousMenu: {fileID: 0}
 --- !u!1 &674138503
 GameObject:
   m_ObjectHideFlags: 0
@@ -3800,6 +3816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28769e2bbe33370458bf4e2f8fec889e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeMenu: {fileID: 1519423076}
 --- !u!1 &693235142
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,12 +4215,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Disable
-        m_Mode: 2
+        m_TargetAssemblyTypeName: SRS.UI.MenuManagement.MenuManager, MenuManagement
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1519423072}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4945,6 +4962,7 @@ GameObject:
   - component: {fileID: 822890288}
   - component: {fileID: 822890290}
   - component: {fileID: 822890289}
+  - component: {fileID: 822890291}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -5010,6 +5028,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822890287}
   m_CullTransparentMesh: 1
+--- !u!114 &822890291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822890287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4e68cd86df47546ad5a486fab5b7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousMenu: {fileID: 0}
 --- !u!1 &840818168
 GameObject:
   m_ObjectHideFlags: 0
@@ -5512,24 +5543,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Disable
+        m_TargetAssemblyTypeName: SRS.UI.MenuManagement.MenuManager, MenuManagement
+        m_MethodName: Switch
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 822890287}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Enable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 589688680}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 589688684}
+          m_ObjectArgumentAssemblyTypeName: SRS.UI.MenuManagement.Menu, MenuManagement
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7260,24 +7279,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Disable
-        m_Mode: 2
+        m_TargetAssemblyTypeName: SRS.UI.MenuManagement.MenuManager, MenuManagement
+        m_MethodName: Back
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1740516845}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Enable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1519423072}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9172,24 +9179,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Disable
+        m_TargetAssemblyTypeName: SRS.UI.MenuManagement.MenuManager, MenuManagement
+        m_MethodName: Switch
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1519423072}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Enable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1740516845}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1740516849}
+          m_ObjectArgumentAssemblyTypeName: SRS.UI.MenuManagement.Menu, MenuManagement
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9433,6 +9428,7 @@ GameObject:
   - component: {fileID: 1519423073}
   - component: {fileID: 1519423075}
   - component: {fileID: 1519423074}
+  - component: {fileID: 1519423076}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -9498,6 +9494,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519423072}
   m_CullTransparentMesh: 1
+--- !u!114 &1519423076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519423072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4e68cd86df47546ad5a486fab5b7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousMenu: {fileID: 0}
 --- !u!1 &1519798210
 GameObject:
   m_ObjectHideFlags: 0
@@ -10441,12 +10450,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManager, UI
-        m_MethodName: Enable
+        m_TargetAssemblyTypeName: SRS.UI.MenuManagement.MenuManager, MenuManagement
+        m_MethodName: Switch
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 822890287}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 822890291}
+          m_ObjectArgumentAssemblyTypeName: SRS.UI.MenuManagement.Menu, MenuManagement
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10474,6 +10483,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 62dd799e-d47e-44e4-88cc-d0a30c93fb62
     m_ActionName: 'UI/Cancel[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 674138511}
+        m_TargetAssemblyTypeName: SRS.UI.MenuManagement.MenuManager, MenuManagement
+        m_MethodName: Back
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3abc34cf-f3f5-40e5-b03e-0ad17d3c3177
+    m_ActionName: 'UI/Back[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: KBM
   m_DefaultActionMap: Pawn
@@ -11734,6 +11759,7 @@ GameObject:
   - component: {fileID: 1740516846}
   - component: {fileID: 1740516848}
   - component: {fileID: 1740516847}
+  - component: {fileID: 1740516849}
   m_Layer: 5
   m_Name: Settings Menu
   m_TagString: Untagged
@@ -11799,6 +11825,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740516845}
   m_CullTransparentMesh: 1
+--- !u!114 &1740516849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740516845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4e68cd86df47546ad5a486fab5b7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousMenu: {fileID: 1519423076}
 --- !u!1 &1756026681
 GameObject:
   m_ObjectHideFlags: 0
