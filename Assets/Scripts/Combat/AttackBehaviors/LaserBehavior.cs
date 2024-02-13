@@ -33,11 +33,8 @@ namespace SRS.Combat
 
         public override void OnUpdate(Attack attack)
         {
-            Debug.DrawRay(startPosition, direction*attack.Stats["Range"].Value);
-
             if(hasFired)
             {
-                Debug.DrawRay(startPosition, direction*attack.Stats["Range"].Value, Color.red);
                 return;
             }
 

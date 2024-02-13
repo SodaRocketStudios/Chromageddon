@@ -39,6 +39,8 @@ namespace SRS.Combat
 			get => spriteRenderer;
 		}
 
+		private Animator animator;
+
 		private float lifetime;
 
 		private float timer;
@@ -48,6 +50,7 @@ namespace SRS.Combat
 		private void Awake()
 		{
 			spriteRenderer = GetComponent<SpriteRenderer>();
+			animator = GetComponent<Animator>();
 		}
 
 		public void Initialize(AttackData data, GameObject attacker)
@@ -57,7 +60,7 @@ namespace SRS.Combat
 			HitParticleManager = data.HitParticleManager;
 			AttackParticleManager = data.AttackParticleManager;
 			
-			spriteRenderer.sprite = data.Sprite;
+			animator.runtimeAnimatorController = data.animatorController;
 			spriteRenderer.color = data.Color;
 
 			CollisionMask = ~ignoredLayers;
