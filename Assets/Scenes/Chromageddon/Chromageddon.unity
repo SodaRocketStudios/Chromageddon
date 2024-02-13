@@ -10184,6 +10184,7 @@ GameObject:
   - component: {fileID: 1632691830}
   - component: {fileID: 1632691827}
   - component: {fileID: 1632691828}
+  - component: {fileID: 1632691836}
   - component: {fileID: 1632691831}
   - component: {fileID: 1632691809}
   - component: {fileID: 1632691822}
@@ -10607,6 +10608,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1632691836}
+        m_TargetAssemblyTypeName: SRS.PawnController.KnockbackZone, PawnController
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnLevelChange:
     m_PersistentCalls:
       m_Calls:
@@ -11015,6 +11028,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1632691836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632691807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9530e0f30a85b8438fac501ff0bc717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: 40
+  range: 10
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1646946520
 GameObject:
   m_ObjectHideFlags: 0

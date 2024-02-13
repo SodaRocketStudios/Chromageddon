@@ -16,7 +16,7 @@ namespace SRS.PawnController
 
 			foreach(Collider2D collider in colliders)
 			{
-				Vector2 direction = (transform.position - collider.transform.position).normalized;
+				Vector2 direction = (collider.transform.position - transform.position).normalized;
 				collider.GetComponent<PawnMover>()?.AddVelocity(direction*magnitude);
 			}
 		}
