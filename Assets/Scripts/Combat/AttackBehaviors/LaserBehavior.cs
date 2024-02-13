@@ -14,6 +14,8 @@ namespace SRS.Combat
 
         private float timer;
 
+        private bool hasFired;
+
         public override void OnStart(Attack attack)
         {
             timer = 0;
@@ -22,16 +24,25 @@ namespace SRS.Combat
             
             startPosition = attack.transform.position;
             direction = attack.transform.right;
+
+            hasFired = false;
         }
 
         public override void OnUpdate(Attack attack)
         {
             Debug.DrawRay(startPosition, direction*attack.Stats["Range"].Value);
 
+            if(hasFired)
+            {
+                Debug.DrawRay(startPosition, direction*attack.Stats["Range"].Value, Color.red);
+                return;
+            }
+
             if(timer >= chargeTime)
             {
                 // TODO -- play firing animation.
                 CollisionTest(attack);
+                hasFired = true;
             }
             // TODO -- play charge animation.
             timer += Time.deltaTime;
