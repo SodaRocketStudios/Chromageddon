@@ -1,3 +1,4 @@
+using Codice.Client.Common.GameUI;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -5,17 +6,19 @@ namespace SRS.Combat
     [CreateAssetMenu(fileName = "New Laser Behavior", menuName = "Combat/Attack Behavior/Laser Behavior")]
     public class LaserBehavior : AttackBehavior
     {
-        [SerializeField] private float chargeTime;
+        private Vector2 direction;
+
+        private float chargeTime;
 
         private float timer;
 
         public override void OnStart(Attack attack)
         {
-            // TODO -- Stop multiple laser from charging at once if fire rate is too fast.
-            // maybe fire rate should be used to determine the charge time.
             timer = 0;
+
+            chargeTime = attack.Stats["Attack Delay"].Value/2;
             
-            CollisionTest(attack);
+            direction = attack.transform.right;
         }
 
         public override void OnUpdate(Attack attack)
@@ -39,7 +42,7 @@ namespace SRS.Combat
 
         protected override void CollisionTest(Attack attack)
         {
-            RaycastHit2D[] hits = Physics2D.RaycastAll(attack.transform.position, attack.transform.right, attack.Stats["Range"].Value);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(attack.transform.position, direction, attack.Stats["Range"].Value);
 
             foreach(var hit in hits)
             {
@@ -54,7 +57,7 @@ namespace SRS.Combat
         public override float GetLifetime(Attack attack)
         {
             // TODO -- set a better lifetime.
-            return chargeTime*2;
+            return chargeTime*1.5f;
         }
     }
 }
