@@ -16,7 +16,9 @@ namespace SRS.Combat
 
 		public DamageType DamageType;
 
-		public AnimatorController animatorController;
+		public AnimatorController AnimatorController;
+
+		public Sprite DefaultSprite;
 
 		public Color Color;
 	}

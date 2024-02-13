@@ -22,7 +22,8 @@ MonoBehaviour:
     AttackParticleManager: {fileID: 0}
     HitParticleManager: {fileID: 0}
     DamageType: 0
-    animatorController: {fileID: 9100000, guid: fdddfc45487e45a4a98e19d06ca20e2d, type: 2}
+    AnimatorController: {fileID: 9100000, guid: fdddfc45487e45a4a98e19d06ca20e2d, type: 2}
+    DefaultSprite: {fileID: 2086756488, guid: a7815cb0648b2e84bab631687c7fe2e2, type: 3}
     Color: {r: 1, g: 0, b: 0, a: 1}
   attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}
   recoilStrength: 0

@@ -5,8 +5,6 @@ namespace SRS.Combat
     [CreateAssetMenu(fileName = "New Laser Behavior", menuName = "Combat/Attack Behavior/Laser Behavior")]
     public class LaserBehavior : AttackBehavior
     {
-        private Vector2 startPosition;
-
         private Vector2 direction;
 
         private float chargeTime;
@@ -20,15 +18,14 @@ namespace SRS.Combat
             timer = 0;
 
             chargeTime = attack.Stats["Attack Delay"].Value/2;
-            
-            startPosition = attack.transform.position;
+
             direction = attack.transform.right;
 
             hasFired = false;
 
             attack.SpriteRenderer.drawMode = SpriteDrawMode.Tiled;
-            attack.SpriteRenderer.size = new(attack.Stats["Range"].Value, attack.SpriteRenderer.size.y);
-            attack.transform.localScale = Vector3.one;
+            // attack.transform.localScale = Vector3.one;
+            attack.SpriteRenderer.size = new Vector2(attack.Stats["Range"].Value, attack.spriteSize.y);
         }
 
         public override void OnUpdate(Attack attack)

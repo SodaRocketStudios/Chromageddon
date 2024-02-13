@@ -23,7 +23,7 @@ namespace SRS.Combat
 		{
 			get
 			{
-				return spriteRenderer.sprite.bounds.extents;
+				return defaultSprite.bounds.size;
 			}
 		}
 
@@ -38,6 +38,8 @@ namespace SRS.Combat
 		{
 			get => spriteRenderer;
 		}
+
+		private Sprite defaultSprite;
 
 		private Animator animator;
 
@@ -60,8 +62,9 @@ namespace SRS.Combat
 			HitParticleManager = data.HitParticleManager;
 			AttackParticleManager = data.AttackParticleManager;
 			
-			animator.runtimeAnimatorController = data.animatorController;
+			defaultSprite = data.DefaultSprite;
 			spriteRenderer.color = data.Color;
+			animator.runtimeAnimatorController = data.AnimatorController;
 
 			CollisionMask = ~ignoredLayers;
 			CollisionMask &= ~(1 << attacker.layer);
@@ -90,7 +93,7 @@ namespace SRS.Combat
 
 		public void PlayAnimation(string name)
 		{
-			GetComponent<Animator>().Play(name);
+			animator.Play(name);
 		}
 
 		public void Despawn()
