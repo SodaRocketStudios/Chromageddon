@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -26,6 +25,10 @@ namespace SRS.Combat
             direction = attack.transform.right;
 
             hasFired = false;
+
+            attack.SpriteRenderer.drawMode = SpriteDrawMode.Tiled;
+            attack.SpriteRenderer.size = new(attack.Stats["Range"].Value, attack.SpriteRenderer.size.y);
+            attack.transform.localScale = Vector3.one;
         }
 
         public override void OnUpdate(Attack attack)
@@ -42,6 +45,7 @@ namespace SRS.Combat
             {
                 // TODO -- play firing animation.
                 CollisionTest(attack);
+                attack.PlayAnimation("Laser");
                 hasFired = true;
             }
             // TODO -- play charge animation.

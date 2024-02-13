@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
   m_Name: Laser Sniper Enemy Weapon
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 2ea5fc4ec598c1a40b3c678145b79fdf, type: 3}
   modifiers:
   - {fileID: 11400000, guid: 7456ff583a2a9c145b0e4369411730ba, type: 2}
   - {fileID: 11400000, guid: a35f4402d5ddc4440be598cf30e73629, type: 2}
@@ -22,7 +22,7 @@ MonoBehaviour:
     AttackParticleManager: {fileID: 0}
     HitParticleManager: {fileID: 0}
     DamageType: 0
-    Sprite: {fileID: 2086756488, guid: a7815cb0648b2e84bab631687c7fe2e2, type: 3}
+    Sprite: {fileID: 21300000, guid: 2ea5fc4ec598c1a40b3c678145b79fdf, type: 3}
     Color: {r: 1, g: 0, b: 0, a: 1}
   attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}
   recoilStrength: 0

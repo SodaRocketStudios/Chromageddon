@@ -34,11 +34,14 @@ namespace SRS.Combat
 
 
 		private SpriteRenderer spriteRenderer;
+		public SpriteRenderer SpriteRenderer
+		{
+			get => spriteRenderer;
+		}
 
 		private float lifetime;
 
 		private float timer;
-
 
 		private CancellationTokenSource cancellationTokenSource = new();
 
@@ -68,6 +71,9 @@ namespace SRS.Combat
 
 			LastHitObject = null;
 
+			spriteRenderer.drawMode = SpriteDrawMode.Simple;
+			transform.localScale = Vector3.one;
+
 			Behavior.OnStart(this);
 
 			cancellationTokenSource.Dispose();
@@ -76,6 +82,12 @@ namespace SRS.Combat
 			AttackParticleManager?.PlayParticles(transform.position, transform.rotation, spriteRenderer.color);
 
 			LifetimeTask(cancellationTokenSource.Token);
+
+		}
+
+		public void PlayAnimation(string name)
+		{
+			GetComponent<Animator>().Play(name);
 		}
 
 		public void Despawn()
