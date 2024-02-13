@@ -27,7 +27,7 @@ namespace SRS.Combat
         public override void OnUpdate(Attack attack)
         {
             Debug.DrawRay(startPosition, direction*attack.Stats["Range"].Value);
-            
+
             if(timer >= chargeTime)
             {
                 // TODO -- play firing animation.
@@ -47,7 +47,7 @@ namespace SRS.Combat
 
         protected override void CollisionTest(Attack attack)
         {
-            RaycastHit2D[] hits = Physics2D.RaycastAll(attack.transform.position, direction, attack.Stats["Range"].Value);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(attack.transform.position, direction, attack.Stats["Range"].Value, attack.CollisionMask);
 
             foreach(var hit in hits)
             {
