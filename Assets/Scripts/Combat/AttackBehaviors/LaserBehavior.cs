@@ -1,4 +1,4 @@
-using Codice.Client.Common.GameUI;
+using System;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -6,6 +6,8 @@ namespace SRS.Combat
     [CreateAssetMenu(fileName = "New Laser Behavior", menuName = "Combat/Attack Behavior/Laser Behavior")]
     public class LaserBehavior : AttackBehavior
     {
+        private Vector2 startPosition;
+
         private Vector2 direction;
 
         private float chargeTime;
@@ -18,11 +20,14 @@ namespace SRS.Combat
 
             chargeTime = attack.Stats["Attack Delay"].Value/2;
             
+            startPosition = attack.transform.position;
             direction = attack.transform.right;
         }
 
         public override void OnUpdate(Attack attack)
         {
+            Debug.DrawRay(startPosition, direction*attack.Stats["Range"].Value);
+            
             if(timer >= chargeTime)
             {
                 // TODO -- play firing animation.

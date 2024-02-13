@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d4d411be6109a43baa1429ed4e9af4, type: 3}
+  m_Name: Laser Sniper
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 11400000, guid: 565c58f611c1f944ea2984b65d029826, type: 2}
+  InitialStats:
+  - {fileID: 11400000, guid: 4dc6449c709eee24fa54cde4be1673ac, type: 2}
+  - {fileID: 11400000, guid: 6d0a5207c94a75f4587dc143659f8f0b, type: 2}
+  - {fileID: 11400000, guid: a558323fce00cb44c866cd14c32eac5e, type: 2}
+  - {fileID: 11400000, guid: 8d033e76bfdfcc54aaa80508a5447651, type: 2}
+  EliteModifiers:
+  - {fileID: 11400000, guid: f83d83e55bcf4f548b9c5d090286c072, type: 2}
+  - {fileID: 11400000, guid: d4ceed71f6979d64d841bd30668c9e59, type: 2}
+  - {fileID: 11400000, guid: f3c3a3b3e6df0ae4abac592020c02619, type: 2}
+  xpValue: 1
+  Price: 4
+  MaxGroupSize: 2
+  IgnoreRecycleRequests: 0
+  Sprite: {fileID: 19190314, guid: 82c507877f528b34480e1572004f6526, type: 3}
+  Color: {r: 0, g: 1, b: 0, a: 1}
+  stateTransitions:
+  - criteria:
+    - {fileID: 11400000, guid: 14d7e63ab93ebe64aa06f4b3d1136cb4, type: 2}
+    transitionState: {fileID: 11400000, guid: 6f846333b9bbc9742a27dcd7ab137a95, type: 2}
+  - criteria:
+    - {fileID: 11400000, guid: b567c5b06054cd94ea638a49a1f80c52, type: 2}
+    transitionState: {fileID: 11400000, guid: 166ec1d96f169e4458e83a84f7ff6498, type: 2}
