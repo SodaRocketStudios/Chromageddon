@@ -48,32 +48,41 @@ namespace SRS.PawnController
 
         public void AddForce(Vector2 force)
         {
-            forces += force;
+            forces += force/CharacterStats["Mass"].Value;
+        }
+
+        public void AddVelocity(Vector2 velocity)
+        {
+            forces += velocity;
         }
 
         public void EnableMovement()
         {
+            // TODO -- enable movement
             throw new NotImplementedException();
         }
 
         public void DisableMovement()
         {
+            // TODO -- disable movement
             throw new NotImplementedException();
         }
 
         public void EnableRotation()
         {
+            // TODO -- enable rotation
             throw new NotImplementedException();
         }
 
         public void DisableRotation()
         {
+            // TODO -- disable rotation
             throw new NotImplementedException();
         }
 
         private void HandleMovement()
         {
-            body.velocity = (inputSource.MoveInput*CharacterStats["Speed"].Value) + (forces*body.mass)/CharacterStats["Mass"].Value;
+            body.velocity = (inputSource.MoveInput*CharacterStats["Speed"].Value) + forces;
         }
 
         private void HandleRotation()
