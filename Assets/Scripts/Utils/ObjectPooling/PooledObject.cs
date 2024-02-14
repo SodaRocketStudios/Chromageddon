@@ -19,13 +19,16 @@ namespace SRS.Utils.ObjectPooling
 
         public void ReturnToPool()
         {
-			if(gameObject.activeSelf)
+			if(gameObject != null)
 			{
-				gameObject.SetActive(false);
-				return;
-			}
+				if(gameObject.activeSelf)
+				{
+					gameObject.SetActive(false);
+					return;
+				}
 
-            returnAction?.Invoke(this);
+				returnAction?.Invoke(this);
+			}
         }
     }
 }

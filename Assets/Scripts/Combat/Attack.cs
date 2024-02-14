@@ -115,6 +115,13 @@ namespace SRS.Combat
 
 		public void Despawn()
 		{
+			Behavior.OnEnd(this);
+			gameObject.SetActive(false);
+			cancellationTokenSource.Cancel();
+		}
+
+		private void OnDisable()
+		{
 			cancellationTokenSource.Cancel();
 		}
 
@@ -141,15 +148,13 @@ namespace SRS.Combat
 			{
 				if(token.IsCancellationRequested)
 				{
-					break;
+					return;
 				}
 				timer += Time.deltaTime;
 				await Awaitable.NextFrameAsync();
 			}
 
-			Behavior.OnEnd(this);
-
-			ReturnToPool();
+			Despawn();
 		}
 	}
 }

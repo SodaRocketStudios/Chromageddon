@@ -16,14 +16,14 @@ MonoBehaviour:
   InitialStats:
   - {fileID: 11400000, guid: 4dc6449c709eee24fa54cde4be1673ac, type: 2}
   - {fileID: 11400000, guid: 6d0a5207c94a75f4587dc143659f8f0b, type: 2}
-  - {fileID: 11400000, guid: a558323fce00cb44c866cd14c32eac5e, type: 2}
+  - {fileID: 11400000, guid: 12a89b4c8f73fc6438b2c60d1da5abe9, type: 2}
   - {fileID: 11400000, guid: 031640bbec6405c4a9fd4d3d36f4573f, type: 2}
   EliteModifiers:
   - {fileID: 11400000, guid: f83d83e55bcf4f548b9c5d090286c072, type: 2}
   - {fileID: 11400000, guid: d4ceed71f6979d64d841bd30668c9e59, type: 2}
   - {fileID: 11400000, guid: f3c3a3b3e6df0ae4abac592020c02619, type: 2}
   xpValue: 1
-  Price: 1
+  Price: 16
   MaxGroupSize: 2
   IgnoreRecycleRequests: 0
   Sprite: {fileID: 1401027097, guid: 82c507877f528b34480e1572004f6526, type: 3}
