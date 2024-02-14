@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d4d411be6109a43baa1429ed4e9af4, type: 3}
   m_Name: Charger
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 11400000, guid: f4f68c22b86ba9842868ae678057c527, type: 2}
+  Weapon: {fileID: 11400000, guid: 6bdd19484acd98e4a9347db44cdb9dab, type: 2}
   InitialStats:
   - {fileID: 11400000, guid: 4dc6449c709eee24fa54cde4be1673ac, type: 2}
   - {fileID: 11400000, guid: 6d0a5207c94a75f4587dc143659f8f0b, type: 2}
   - {fileID: 11400000, guid: a558323fce00cb44c866cd14c32eac5e, type: 2}
-  - {fileID: 11400000, guid: 8d033e76bfdfcc54aaa80508a5447651, type: 2}
+  - {fileID: 11400000, guid: 031640bbec6405c4a9fd4d3d36f4573f, type: 2}
   EliteModifiers:
   - {fileID: 11400000, guid: f83d83e55bcf4f548b9c5d090286c072, type: 2}
   - {fileID: 11400000, guid: d4ceed71f6979d64d841bd30668c9e59, type: 2}

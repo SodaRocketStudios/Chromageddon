@@ -23,7 +23,11 @@ namespace SRS.Combat
 		{
 			get
 			{
-				return defaultSprite.bounds.size;
+				if(defaultSprite != null)
+				{
+					return defaultSprite.bounds.size;
+				}
+				return Vector2.zero;
 			}
 		}
 
