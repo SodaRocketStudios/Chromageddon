@@ -75,9 +75,24 @@ namespace SRS.AI
 			}
 		}
 
+		private Vector2 target;
+		public Vector2 Target
+		{
+			get => target;
+			set => target = value;
+		}
+
 		public float TargetDistanceSquared
 		{
-			get => (transform.position - Player.position).sqrMagnitude;
+			get
+			{
+				if(target == null)
+				{
+					return (transform.position - Player.position).sqrMagnitude;
+				}
+				
+				return (transform.position - (Vector3)target).sqrMagnitude;
+			}
 		}
 
 		private List<Transition> transitions;
