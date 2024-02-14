@@ -5,45 +5,33 @@ namespace SRS.Combat
     [CreateAssetMenu(fileName = "New Laser Behavior", menuName = "Combat/Attack Behavior/Laser Behavior")]
     public class LaserBehavior : AttackBehavior
     {
-        private Vector2 direction;
-
         private float chargeTime;
 
-        private float timer;
-
-        private bool hasFired;
+        private Vector2 size;
 
         public override void OnStart(Attack attack)
         {
-            timer = 0;
-
             chargeTime = attack.Stats["Attack Delay"].Value/2;
 
-            direction = attack.transform.right;
-
-            hasFired = false;
-
-            attack.SpriteRenderer.drawMode = SpriteDrawMode.Tiled;
-            // attack.transform.localScale = Vector3.one;
-            attack.SpriteRenderer.size = new Vector2(attack.Stats["Range"].Value, attack.spriteSize.y);
+            size = attack.spriteSize;
+            size.x = attack.Stats["Range"].Value;
         }
 
         public override void OnUpdate(Attack attack)
         {
-            if(hasFired)
+            attack.SpriteRenderer.size = size;
+
+            if(attack.Flag)
             {
                 return;
             }
 
-            if(timer >= chargeTime)
+            if(attack.Timer >= chargeTime)
             {
-                // TODO -- play firing animation.
                 CollisionTest(attack);
                 attack.PlayAnimation("Laser");
-                hasFired = true;
+                attack.Flag = true;
             }
-            // TODO -- play charge animation.
-            timer += Time.deltaTime;
         }
 
         public override void OnFixedUpdate(Attack attack)
@@ -56,7 +44,8 @@ namespace SRS.Combat
 
         protected override void CollisionTest(Attack attack)
         {
-            RaycastHit2D[] hits = Physics2D.RaycastAll(attack.transform.position, direction, attack.Stats["Range"].Value, attack.CollisionMask);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(attack.transform.position, attack.transform.right, attack.Stats["Range"].Value, attack.CollisionMask);
+            Debug.DrawRay(attack.transform.position, attack.transform.right*attack.Stats["Range"].Value, Color.red, 2);
 
             foreach(var hit in hits)
             {
@@ -70,7 +59,6 @@ namespace SRS.Combat
 
         public override float GetLifetime(Attack attack)
         {
-            // TODO -- set a better lifetime.
             return chargeTime*1.5f;
         }
     }

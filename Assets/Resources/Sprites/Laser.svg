@@ -28,8 +28,8 @@
      showgrid="false"
      units="in"
      inkscape:zoom="2.1619135"
-     inkscape:cx="256.9483"
-     inkscape:cy="111.24405"
+     inkscape:cx="92.973192"
+     inkscape:cy="67.764043"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -45,12 +45,12 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:none;stroke:#ffffff;stroke-width:1.27;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:2.53999996,3.80999994;stroke-dashoffset:1.26999998;stroke-opacity:1"
-       d="M 0,0.63499999 H 19.05"
+       style="fill:none;stroke:#ffffff;stroke-width:1.27000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:2.54000004,3.80999986;stroke-dashoffset:1.27000002;stroke-opacity:1"
+       d="M 0,0.63499999 H 25.4"
        id="path1"
        inkscape:export-filename="Laser Aim.png"
-       inkscape:export-xdpi="341.33334"
-       inkscape:export-ydpi="341.33334" />
+       inkscape:export-xdpi="256"
+       inkscape:export-ydpi="256" />
     <path
        style="fill:none;stroke:#ffffff;stroke-width:0.254;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
        d="M 0,26.035 H 25.4"

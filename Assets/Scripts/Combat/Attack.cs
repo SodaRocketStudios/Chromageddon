@@ -19,7 +19,7 @@ namespace SRS.Combat
 		public ParticleManager HitParticleManager{get; private set;}
 		public ParticleManager AttackParticleManager{get; private set;}
 
-		public Vector2 spriteSize 
+		public Vector2 spriteSize
 		{
 			get
 			{
@@ -27,11 +27,15 @@ namespace SRS.Combat
 			}
 		}
 
-
 		[HideInInspector] public Transform LastHitObject;
 
 		[SerializeField] private LayerMask ignoredLayers;
 
+		private GameObject attacker;
+		public GameObject Attacker
+		{
+			get => attacker;
+		}
 
 		private SpriteRenderer spriteRenderer;
 		public SpriteRenderer SpriteRenderer
@@ -46,6 +50,12 @@ namespace SRS.Combat
 		private float lifetime;
 
 		private float timer;
+		public float Timer
+		{
+			get => timer;
+		}
+		
+		public bool Flag{ get; set;}
 
 		private CancellationTokenSource cancellationTokenSource = new();
 
@@ -59,11 +69,15 @@ namespace SRS.Combat
 		{
 			Behavior = data.Behavior;
 
+			this.attacker = attacker;
+
 			HitParticleManager = data.HitParticleManager;
 			AttackParticleManager = data.AttackParticleManager;
 			
 			defaultSprite = data.DefaultSprite;
 			spriteRenderer.color = data.Color;
+			spriteRenderer.size = spriteSize;
+
 			animator.runtimeAnimatorController = data.AnimatorController;
 
 			CollisionMask = ~ignoredLayers;
@@ -77,15 +91,14 @@ namespace SRS.Combat
 
 			LastHitObject = null;
 
-			spriteRenderer.drawMode = SpriteDrawMode.Simple;
-			transform.localScale = Vector3.one;
-
 			Behavior.OnStart(this);
 
 			cancellationTokenSource.Dispose();
 			cancellationTokenSource = new();
 
 			AttackParticleManager?.PlayParticles(transform.position, transform.rotation, spriteRenderer.color);
+
+			Flag = false;
 
 			LifetimeTask(cancellationTokenSource.Token);
 
