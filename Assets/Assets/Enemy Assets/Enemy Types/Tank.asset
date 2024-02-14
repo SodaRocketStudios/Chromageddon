@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1d4d411be6109a43baa1429ed4e9af4, type: 3}
-  m_Name: Follower
+  m_Name: Tank
   m_EditorClassIdentifier: 
   Weapon: {fileID: 0}
   InitialStats:
-  - {fileID: 11400000, guid: 4dc6449c709eee24fa54cde4be1673ac, type: 2}
-  - {fileID: 11400000, guid: 0d53dc37049c7f14db1bdb665af338fd, type: 2}
-  - {fileID: 11400000, guid: 031640bbec6405c4a9fd4d3d36f4573f, type: 2}
+  - {fileID: 11400000, guid: fca0230bd0845954ebeef1aeff917d20, type: 2}
+  - {fileID: 11400000, guid: e0f0e62913bc9b7479b71b4bf651b7a9, type: 2}
+  - {fileID: 11400000, guid: fca06f0c0c26f574ca47a3e26d6c10d2, type: 2}
   - {fileID: 11400000, guid: 5e7dc7af3156c3543817ead2554aa3c4, type: 2}
   EliteModifiers:
   - {fileID: 11400000, guid: 7db757e50451da948849ec7e7516cec2, type: 2}
@@ -24,11 +24,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d4ceed71f6979d64d841bd30668c9e59, type: 2}
   - {fileID: 11400000, guid: f83d83e55bcf4f548b9c5d090286c072, type: 2}
   xpValue: 1
-  Price: 1
-  MaxGroupSize: 5
+  Price: 24
+  MaxGroupSize: 1
   IgnoreRecycleRequests: 0
-  Sprite: {fileID: -294878283, guid: 82c507877f528b34480e1572004f6526, type: 3}
-  Color: {r: 1, g: 0.62744796, b: 0.25098038, a: 1}
+  Sprite: {fileID: -2017620029, guid: 82c507877f528b34480e1572004f6526, type: 3}
+  Color: {r: 0.428514, g: 0, b: 1, a: 1}
   stateTransitions:
   - criteria: []
     transitionState: {fileID: 11400000, guid: 6f846333b9bbc9742a27dcd7ab137a95, type: 2}
