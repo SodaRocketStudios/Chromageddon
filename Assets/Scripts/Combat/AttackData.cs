@@ -1,6 +1,5 @@
 using UnityEngine;
 using SRS.Utils.VFX;
-using UnityEditor.Animations;
 
 namespace SRS.Combat
 {
@@ -16,7 +15,7 @@ namespace SRS.Combat
 
 		public DamageType DamageType;
 
-		public AnimatorController AnimatorController;
+		public RuntimeAnimatorController AnimatorController;
 
 		public Sprite DefaultSprite;
 
