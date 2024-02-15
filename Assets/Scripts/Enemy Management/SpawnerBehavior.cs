@@ -10,7 +10,7 @@ namespace SRS.EnemyManagement
     {
         [SerializeField] private EnemyData enemyToSpawn;
 
-        [SerializeField] private int amountTospawn;
+        [SerializeField] private int amountToSpawn;
 
         [SerializeField] private float distanceFromSpawner;
 
@@ -38,7 +38,7 @@ namespace SRS.EnemyManagement
                 FindSpawner();
             }
             
-            for(int i = 0; i < amountTospawn; i++)
+            for(int i = 0; i < amountToSpawn; i++)
             {
                 Vector2 location = (Vector2)attack.transform.position + random.WithinUnitCircle().normalized*distanceFromSpawner;
                 spawner.SpawnEnemy(enemyToSpawn, location);

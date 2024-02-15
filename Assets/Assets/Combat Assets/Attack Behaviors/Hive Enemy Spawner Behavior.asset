@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec9157632fd4c943bf94d90a691e9ca, type: 3}
   m_Name: Hive Enemy Spawner Behavior
   m_EditorClassIdentifier: 
+  enemyToSpawn: {fileID: 11400000, guid: 9cec2724a1527b14e8f58e2d4cb15396, type: 2}
+  amountToSpawn: 3
+  distanceFromSpawner: 3

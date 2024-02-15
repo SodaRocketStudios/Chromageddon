@@ -15,6 +15,11 @@ namespace SRS.Progression
 
 		public void Spawn(Vector2 position, int value)
 		{
+			if(value <= 0)
+			{
+				return;
+			}
+			
 			Experience experience = pool.Get(position) as Experience;
 			experience.Value = value;
 

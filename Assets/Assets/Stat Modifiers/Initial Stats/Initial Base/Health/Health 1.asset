@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Health 1
   m_EditorClassIdentifier: 
   affectedStat: Health
-  value: 10
-  description: 
+  value: 1
+  invertFormatRules: 0

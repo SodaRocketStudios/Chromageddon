@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
+  m_Name: Hive Enemy Weapon
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  modifiers:
+  - {fileID: 11400000, guid: 2808041a2d443944b9d69d0630964fd0, type: 2}
+  attackData:
+    Behavior: {fileID: 11400000, guid: e3617afd8a2f6a84ebb061f4bdff87ca, type: 2}
+    Sound: {fileID: 0}
+    AttackParticleManager: {fileID: 0}
+    HitParticleManager: {fileID: 0}
+    DamageType: 0
+    AnimatorController: {fileID: 0}
+    DefaultSprite: {fileID: 0}
+    Color: {r: 0, g: 0, b: 0, a: 0}
+  attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}
+  recoilStrength: 1
