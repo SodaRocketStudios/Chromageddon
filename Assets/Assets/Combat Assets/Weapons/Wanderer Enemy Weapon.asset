@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
+  m_Name: Wanderer Enemy Weapon
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  modifiers:
+  - {fileID: 11400000, guid: ae4053e4886583d4f8fa0afade0403b7, type: 2}
+  - {fileID: 11400000, guid: a35f4402d5ddc4440be598cf30e73629, type: 2}
+  attackData:
+    Behavior: {fileID: 11400000, guid: 685ec12dfc7c98d4e8d6b1a521ae05bb, type: 2}
+    Sound: {fileID: 0}
+    AttackParticleManager: {fileID: 0}
+    HitParticleManager: {fileID: 0}
+    DamageType: 0
+    AnimatorController: {fileID: 9100000, guid: fdddfc45487e45a4a98e19d06ca20e2d, type: 2}
+    DefaultSprite: {fileID: 2086756488, guid: a7815cb0648b2e84bab631687c7fe2e2, type: 3}
+    Color: {r: 1, g: 0, b: 0, a: 1}
+  attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}
+  recoilStrength: 0
