@@ -21,7 +21,7 @@ MonoBehaviour:
   EliteModifiers:
   - {fileID: 11400000, guid: f3c3a3b3e6df0ae4abac592020c02619, type: 2}
   xpValue: 5
-  Price: 1
+  Price: 50
   MaxGroupSize: 1
   IgnoreRecycleRequests: 0
   Sprite: {fileID: 1358765120, guid: 82c507877f528b34480e1572004f6526, type: 3}
