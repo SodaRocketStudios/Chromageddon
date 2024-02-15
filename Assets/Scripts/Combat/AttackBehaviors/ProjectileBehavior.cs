@@ -44,7 +44,7 @@ namespace SRS.Combat
 
             if(hit)
             {
-                if(hit.transform.gameObject != attack.LastHitObject)
+                if(hit.transform != attack.LastHitObject)
                 {
                     Hit(attack, hit);
                 }
