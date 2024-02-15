@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Initial 10 attack delay
   m_EditorClassIdentifier: 
   affectedStat: Attack Delay
-  value: 5
+  value: 10
   invertFormatRules: 0

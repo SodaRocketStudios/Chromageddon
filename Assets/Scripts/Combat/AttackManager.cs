@@ -17,6 +17,7 @@ namespace SRS.Combat
 				weapon?.Unequip(stats);
 				weapon = value;
 				weapon?.Equip(stats);
+				nextAttackTime = Time.time + stats["Attack Delay"].Value;
 			}
 		}
 
