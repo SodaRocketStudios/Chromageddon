@@ -105,13 +105,19 @@ namespace SRS.EnemyManagement
 						}
 					}
 
-					Enemy newEnemy = enemyPool.Get(locations[i]) as Enemy;
-					newEnemy.OnEnemyDeath += KillEnemy;
-					newEnemy.Initialize(enemy, elitifications);
-					activeEnemies.Add(newEnemy);
+					SpawnEnemy(enemy, locations[i], elitifications);
+
 					points -= enemy.Price*(int)Mathf.Pow(2, elitifications);
 				}
 			}
+		}
+
+		public void SpawnEnemy(EnemyData enemyData, Vector2 location, int elitifications = 0)
+		{
+			Enemy newEnemy = enemyPool.Get(location) as Enemy;
+			newEnemy.OnEnemyDeath += KillEnemy;
+			newEnemy.Initialize(enemyData, elitifications);
+			activeEnemies.Add(newEnemy);
 		}
 
 		public void KillEnemy(Enemy enemy)
