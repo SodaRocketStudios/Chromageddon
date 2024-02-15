@@ -50,6 +50,7 @@ namespace SRS.Utils.ObjectPooling
 
 		public void Return(PooledObject pooledObject)
 		{
+			Debug.Log("Returned", pooledObject);
 			pool.Enqueue(pooledObject);
 		}
 

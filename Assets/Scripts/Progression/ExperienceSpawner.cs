@@ -34,7 +34,7 @@ namespace SRS.Progression
 		public void Despawn(Experience experience)
 		{
 			activePickups.Remove(experience);
-			experience.gameObject.SetActive(false);
+			experience.ReturnToPool();
 		}
 	}
 }
