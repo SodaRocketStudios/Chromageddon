@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Wanderer Enemy Random Projectile Behavior
   m_EditorClassIdentifier: 
   speed: 5
-  randomizedAngle: 90
+  randomizedAngle: 45
