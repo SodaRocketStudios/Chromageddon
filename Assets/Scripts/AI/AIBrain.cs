@@ -86,7 +86,7 @@ namespace SRS.AI
 		{
 			get
 			{
-				if(target == null)
+				if(target == Vector2.zero)
 				{
 					return (transform.position - Player.position).sqrMagnitude;
 				}
@@ -102,6 +102,11 @@ namespace SRS.AI
 			{
 				transitions = value;
 			}
+		}
+
+		private void OnEnable()
+		{
+			target = Vector2.zero;
 		}
 
 		private void Update()
