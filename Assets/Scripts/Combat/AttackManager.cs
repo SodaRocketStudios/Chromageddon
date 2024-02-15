@@ -50,6 +50,11 @@ namespace SRS.Combat
 			}
 		}
 
+		private void OnEnable()
+		{
+			nextAttackTime = Time.time + stats["Attack Delay"].Value;
+		}
+
 		private void Update()
 		{
 			isAttacking = input.AttackInput;

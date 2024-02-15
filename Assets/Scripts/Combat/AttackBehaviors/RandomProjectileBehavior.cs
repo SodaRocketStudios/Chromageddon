@@ -15,7 +15,7 @@ namespace SRS.Combat
         public override void OnStart(Attack attack)
         {
             Vector3 rotation = new(0, 0, random.NextFloat(-randomizedAngle/2, randomizedAngle/2));
-            attack.transform.LookAt(Vector3.zero, Vector3.forward);
+            attack.transform.right = -attack.transform.position;
             attack.transform.Rotate(rotation);
         }
 
