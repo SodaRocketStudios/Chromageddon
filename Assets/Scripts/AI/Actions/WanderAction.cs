@@ -5,7 +5,7 @@ using SRS.Extensions.Random;
 namespace SRS.AI
 {
 	[CreateAssetMenu(fileName = "New Wander Action", menuName = "Enemies/AI/Actions/Wander Action")]
-    public class Wander : Action
+    public class WanderAction : Action
     {
 		[SerializeField] private float wanderRange;
 
