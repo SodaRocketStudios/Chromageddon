@@ -10,12 +10,18 @@ namespace SRS.Combat
         [SerializeField] private float speed = 1;
 		[SerializeField] private float randomizedAngle;
 
+        private Transform player;
+
         private System.Random random = new(Guid.NewGuid().GetHashCode());
 
         public override void OnStart(Attack attack)
         {
+            if(player == null)
+            {
+                FindPlayer();
+            }
             Vector3 rotation = new(0, 0, random.NextFloat(-randomizedAngle/2, randomizedAngle/2));
-            attack.transform.right = -attack.transform.position;
+            attack.transform.right = player.position - attack.transform.position;
             attack.transform.Rotate(rotation);
         }
 
@@ -57,5 +63,9 @@ namespace SRS.Combat
             return attack.Stats["Range"].Value/speed;
         }
 
+        private void FindPlayer()
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
 }
