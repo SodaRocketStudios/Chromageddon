@@ -116,7 +116,7 @@ namespace SRS.Combat
 		public void Despawn()
 		{
 			Behavior.OnEnd(this);
-			gameObject.SetActive(false);
+			ReturnToPool();
 			cancellationTokenSource.Cancel();
 		}
 

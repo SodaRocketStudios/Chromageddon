@@ -45,7 +45,6 @@ namespace SRS.Combat
         protected override void CollisionTest(Attack attack)
         {
             RaycastHit2D[] hits = Physics2D.RaycastAll(attack.transform.position, attack.transform.right, attack.Stats["Range"].Value, attack.CollisionMask);
-            Debug.DrawRay(attack.transform.position, attack.transform.right*attack.Stats["Range"].Value, Color.red, 2);
 
             foreach(var hit in hits)
             {
