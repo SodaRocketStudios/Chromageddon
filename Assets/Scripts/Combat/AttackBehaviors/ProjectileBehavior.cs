@@ -80,11 +80,11 @@ namespace SRS.Combat
 
         private void Bounce(Attack attack, RaycastHit2D hit)
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(hit.point, attack.Stats["Range"].Value, attack.transform.right, 0, attack.CollisionMask & ~(1 << LayerMask.NameToLayer("Walls")));
+            Collider2D[] hits = Physics2D.OverlapCircleAll(hit.point, attack.Stats["Range"].Value, attack.CollisionMask & ~(1 << LayerMask.NameToLayer("Walls")));
 
             attack.ResetLifetime();
 
-            foreach(RaycastHit2D target in hits)
+            foreach(Collider2D target in hits)
             {
                 if(target.transform == attack.LastHitObject)
                 {
