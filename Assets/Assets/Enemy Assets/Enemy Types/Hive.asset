@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d4d411be6109a43baa1429ed4e9af4, type: 3}
+  m_Name: Hive
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 0}
+  InitialStats:
+  - {fileID: 11400000, guid: fca0230bd0845954ebeef1aeff917d20, type: 2}
+  - {fileID: 11400000, guid: e0f0e62913bc9b7479b71b4bf651b7a9, type: 2}
+  - {fileID: 11400000, guid: fca06f0c0c26f574ca47a3e26d6c10d2, type: 2}
+  - {fileID: 11400000, guid: 5e7dc7af3156c3543817ead2554aa3c4, type: 2}
+  EliteModifiers:
+  - {fileID: 11400000, guid: f3c3a3b3e6df0ae4abac592020c02619, type: 2}
+  xpValue: 5
+  Price: 32
+  MaxGroupSize: 1
+  IgnoreRecycleRequests: 0
+  Sprite: {fileID: 1358765120, guid: 82c507877f528b34480e1572004f6526, type: 3}
+  Color: {r: 0.005894661, g: 0, b: 1, a: 1}
+  stateTransitions:
+  - criteria:
+    - {fileID: 11400000, guid: 5881b9aa74db5e849aacf71d64939414, type: 2}
+    transitionState: {fileID: 11400000, guid: 46abe82d3b4f8b040b1f15ea8ad24ac8, type: 2}
+  - criteria:
+    - {fileID: 11400000, guid: 5a3d3910009bbb747a35f36705a4757c, type: 2}
+    transitionState: {fileID: 11400000, guid: 166ec1d96f169e4458e83a84f7ff6498, type: 2}
