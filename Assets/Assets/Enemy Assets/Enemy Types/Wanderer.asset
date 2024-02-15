@@ -23,7 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d4ceed71f6979d64d841bd30668c9e59, type: 2}
   - {fileID: 11400000, guid: f3c3a3b3e6df0ae4abac592020c02619, type: 2}
   xpValue: 1
-  Price: 1
+  Price: 16
   MaxGroupSize: 5
   IgnoreRecycleRequests: 0
   Sprite: {fileID: 504698423, guid: 82c507877f528b34480e1572004f6526, type: 3}
