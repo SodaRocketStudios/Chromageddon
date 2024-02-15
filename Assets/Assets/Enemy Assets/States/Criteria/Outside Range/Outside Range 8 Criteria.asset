@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaa69450e49e1dd49b77e4716b284367, type: 3}
-  m_Name: Test Laser Behavior
+  m_Script: {fileID: 11500000, guid: 39ce941c86eb9b146865ed732460fb19, type: 3}
+  m_Name: Outside Range 8 Criteria
   m_EditorClassIdentifier: 
-  chargeTime: 1
+  range: 8

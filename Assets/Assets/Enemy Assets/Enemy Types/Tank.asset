@@ -15,7 +15,7 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   InitialStats:
   - {fileID: 11400000, guid: fca0230bd0845954ebeef1aeff917d20, type: 2}
-  - {fileID: 11400000, guid: e0f0e62913bc9b7479b71b4bf651b7a9, type: 2}
+  - {fileID: 11400000, guid: 577f84a53ac43f74daf6a23fd7bb7f0d, type: 2}
   - {fileID: 11400000, guid: fca06f0c0c26f574ca47a3e26d6c10d2, type: 2}
   - {fileID: 11400000, guid: 5e7dc7af3156c3543817ead2554aa3c4, type: 2}
   EliteModifiers:
