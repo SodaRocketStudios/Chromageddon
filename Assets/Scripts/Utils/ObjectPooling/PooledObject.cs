@@ -20,6 +20,7 @@ namespace SRS.Utils.ObjectPooling
         public void ReturnToPool()
         {
 			returnAction?.Invoke(this);
+			returnAction = null;
 
 			if(gameObject.activeSelf)
 			{

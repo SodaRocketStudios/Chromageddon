@@ -72,7 +72,6 @@ namespace SRS.EnemyManagement
 			}
 		}
 
-        [ContextMenu("SpawnEnemies")]
 		public void SpawnWave()
 		{
 			int points = initialPoints*(int)Mathf.Pow(pointsMultiplier, pointsExponent);
