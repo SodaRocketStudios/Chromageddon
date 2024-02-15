@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8869f15477c54e4c86cbd5c8ca591bf, type: 3}
-  m_Name: Roam Attack
+  m_Script: {fileID: 11500000, guid: f974f00fc3cece84f8c821e5b90b2cf9, type: 3}
+  m_Name: Wander Action
   m_EditorClassIdentifier: 
-  actions:
-  - {fileID: 11400000, guid: 72d0995921729b44989ab3734cf78244, type: 2}
-  - {fileID: 11400000, guid: a4ea6c2da8637644b865602f889c346d, type: 2}
+  wanderRange: 20
+  tolerance: 1
