@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace SRS.Statistics
 {
+	[Serializable]
 	public class Statistic
 	{
 		[SerializeField] private string name;
