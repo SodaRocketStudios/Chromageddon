@@ -109,9 +109,9 @@ namespace SRS.Combat
 			}
 		}
 
-		public void MakeImmune(float time)
+		public void TriggerImmunity()
 		{
-			lastHitTime = time.time - immunityTime + time;
+			lastHitTime = Time.time;
 		}
 
 		private void ApplyDamage(float amount, DamageType damageType)
