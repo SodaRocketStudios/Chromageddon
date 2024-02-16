@@ -29,7 +29,7 @@ namespace SRS.Statistics
 			Value = defaultValue;
 		}
 
-        public override string ToString()
+        public string ValueAsString()
         {
 			// TODO -- revisit this to make sure it is what I want.
             return Value.ToString("N" + decimalPlaces);
