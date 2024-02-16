@@ -26,6 +26,7 @@ MonoBehaviour:
   IgnoreRecycleRequests: 0
   Sprite: {fileID: 1358765120, guid: 82c507877f528b34480e1572004f6526, type: 3}
   Color: {r: 0.005894661, g: 0, b: 1, a: 1}
+  Scale: {x: 2, y: 2}
   stateTransitions:
   - criteria:
     - {fileID: 11400000, guid: 5881b9aa74db5e849aacf71d64939414, type: 2}

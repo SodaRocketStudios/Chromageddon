@@ -54,6 +54,8 @@ namespace SRS.EnemyManagement
 			spriteRenderer.sprite = data.Sprite;
 			spriteRenderer.color = data.Color;
 
+			transform.localScale = data.Scale;
+
 			xpValue = data.xpValue;
 
 			statContainer.ResetStats();
