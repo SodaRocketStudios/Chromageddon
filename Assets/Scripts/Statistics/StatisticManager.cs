@@ -18,6 +18,15 @@ namespace SRS.Statistics
 				{
 					Initialize();
 				}
+
+				if(statistics.ContainsKey(name))
+				{
+					return statistics[name];
+				}
+
+				Debug.LogWarning($"Statistic {name} not found, adding to dictionary");
+				statistics[name] = new Statistic(name);
+				
 				return statistics[name];
 			}
 		}
