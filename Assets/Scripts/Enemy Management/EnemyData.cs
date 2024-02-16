@@ -20,6 +20,7 @@ namespace SRS.EnemyManagement
 		public bool IgnoreRecycleRequests;
 		public Sprite Sprite;
 		public Color Color;
+		public Vector2 scale = Vector2.one;
 		public List<Transition> stateTransitions;
 	}
 }
