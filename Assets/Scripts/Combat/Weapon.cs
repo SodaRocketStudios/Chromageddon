@@ -1,6 +1,7 @@
 using UnityEngine;
 using SRS.Stats;
 using SRS.Utils.ObjectPooling;
+using SRS.Statistics;
 
 namespace SRS.Combat
 {
@@ -26,6 +27,11 @@ namespace SRS.Combat
 		{
             Attack attack = attackPool.Get(attacker.transform.position, attacker.transform.rotation) as Attack;
             attack.Initialize(attackData, attacker);
+
+            if(attacker.CompareTag("Player"))
+            {
+                StatisticManager.Instance["Shots Fired"].Value++;
+            }
 		}
 
         protected override void OnEquip(StatContainer container)
