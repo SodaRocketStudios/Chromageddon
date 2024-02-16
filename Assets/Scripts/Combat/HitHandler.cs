@@ -4,6 +4,7 @@ using SRS.Stats;
 using Cinemachine;
 using UnityEngine.Events;
 using SRS.Utils.VFX;
+using SRS.Statistics;
 
 namespace SRS.Combat
 {
@@ -74,6 +75,11 @@ namespace SRS.Combat
 			{
 				audioSource.PlayOneShot(critSound);
 				damage *= attackerStats["Critical Damage"].Value;
+
+				if(!gameObject.CompareTag("Player"))
+				{
+					StatisticManager.Instance["Criticals"].Value++;
+				}
 
 				critParticles?.PlayParticles(transform.position, Quaternion.identity, Color.red);
 			}
