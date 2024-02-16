@@ -5,6 +5,7 @@ using SRS.Utils.ObjectPooling;
 using SRS.Utils.VFX;
 using SRS.Progression;
 using SRS.Extensions.Random;
+using SRS.Statistics;
 
 namespace SRS.EnemyManagement
 {
@@ -123,8 +124,12 @@ namespace SRS.EnemyManagement
 		public void KillEnemy(Enemy enemy)
 		{
 			experienceSpawner.Spawn(enemy.transform.position, enemy.XPValue);
+			
 			audioSource.PlayOneShot(deathSound);
 			deathParticleManager.PlayParticles(enemy.transform.position, Quaternion.identity, enemy.Color);
+
+			StatisticManager.Instance["Enemies Killed"].Value++;
+
 			Despawn(enemy);
 		}
 

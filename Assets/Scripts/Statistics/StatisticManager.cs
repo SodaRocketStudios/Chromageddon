@@ -7,8 +7,8 @@ namespace SRS.Statistics
 	{
 		public static StatisticManager Instance;
 
-		[SerializeField] private List<Statistic> statisticList;
-		private Dictionary<string, Statistic> statistics;
+		[SerializeField] private List<Statistic> statisticList = new();
+		private Dictionary<string, Statistic> statistics = new();
 
 		public Statistic this[string name]
 		{
@@ -26,7 +26,7 @@ namespace SRS.Statistics
 
 				Debug.LogWarning($"Statistic {name} not found, adding to dictionary");
 				statistics[name] = new Statistic(name);
-				
+
 				return statistics[name];
 			}
 		}

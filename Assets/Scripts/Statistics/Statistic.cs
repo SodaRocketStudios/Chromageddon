@@ -12,7 +12,19 @@ namespace SRS.Statistics
 			get => name;
 		}
 
-		public float Value{get; set;}
+
+		private float value;
+		public float Value
+		{
+			get
+			{
+				return value;
+			}
+			set
+			{
+				this.value = value;
+			}
+		}
 
 		[SerializeField] private float defaultValue;
 
@@ -31,7 +43,7 @@ namespace SRS.Statistics
 			Value = defaultValue;
 		}
 
-        public string ValueAsString()
+        public string GetFormattedValue()
         {
 			// TODO -- revisit this to make sure it is what I want.
             return Value.ToString("N" + decimalPlaces);
