@@ -28,7 +28,7 @@ namespace SRS.Combat
 			if(hit.transform.TryGetComponent(out hitHandler))
 			{
 				hitHandler.Hit(attack.Stats, attack.DamageType);
-				hitHandler.GetComponent<PawnMover>()?.AddForce(-hit.normal*attack.Stats["Knockback"].Value);
+				hitHandler.GetComponent<PawnMover>()?.AddForce(attack.transform.right*attack.Stats["Knockback"].Value);
 				attack.HitParticleManager?.PlayParticles(hit.transform.position, hit.transform.rotation, hit.transform.GetComponent<SpriteRenderer>().color);
 			}
 

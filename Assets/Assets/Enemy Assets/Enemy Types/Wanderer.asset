@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4dc6449c709eee24fa54cde4be1673ac, type: 2}
   - {fileID: 11400000, guid: 4df44398ee83c5d41a153308a78ffe84, type: 2}
   - {fileID: 11400000, guid: 0e55dffca345f5940a99b1812de79871, type: 2}
-  - {fileID: 11400000, guid: 694c6f498b554384b9a984761e209978, type: 2}
+  - {fileID: 11400000, guid: 48b5c33249823ed4996d85d421682620, type: 2}
   EliteModifiers:
   - {fileID: 11400000, guid: f83d83e55bcf4f548b9c5d090286c072, type: 2}
   - {fileID: 11400000, guid: d4ceed71f6979d64d841bd30668c9e59, type: 2}
@@ -28,6 +28,7 @@ MonoBehaviour:
   IgnoreRecycleRequests: 0
   Sprite: {fileID: 504698423, guid: 82c507877f528b34480e1572004f6526, type: 3}
   Color: {r: 1, g: 1, b: 0, a: 1}
+  Scale: {x: 1, y: 1}
   stateTransitions:
   - criteria: []
     transitionState: {fileID: 11400000, guid: 85036b834a86a5c4daf199139a894a1e, type: 2}
