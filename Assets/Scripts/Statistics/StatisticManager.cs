@@ -7,31 +7,23 @@ namespace SRS.Statistics
 	{
 		public static StatisticManager Instance;
 
-		[SerializeField] private List<Statistic> statisticList = new();
 		private Dictionary<string, Statistic> statistics = new();
 
 		public Statistic this[string name]
 		{
 			get
 			{
-				if(!initialized)
-				{
-					Initialize();
-				}
-
 				if(statistics.ContainsKey(name))
 				{
 					return statistics[name];
 				}
 
 				Debug.LogWarning($"Statistic {name} not found, adding to dictionary");
-				statistics[name] = new Statistic(name);
+				AddStatistic(name);
 
 				return statistics[name];
 			}
 		}
-
-		private bool initialized;
 
 		private void Awake()
 		{
@@ -43,18 +35,17 @@ namespace SRS.Statistics
 			{
 				Destroy(this);
 			}
-
-			Initialize();
 		}
 
-		private void Initialize()
+		public void AddStatistic(string name, float defaultValue = 0, int decimalPlaces = 0)
 		{
-			foreach(Statistic statistic in statisticList)
+			if(statistics.ContainsKey(name))
 			{
-				statistics[statistic.Name] = statistic;
+				Debug.LogWarning($"Statistic {name} already exists");
+				return;
 			}
 
-			initialized = true;
+			statistics[name] = new(name, defaultValue, decimalPlaces);
 		}
 	}
 }
