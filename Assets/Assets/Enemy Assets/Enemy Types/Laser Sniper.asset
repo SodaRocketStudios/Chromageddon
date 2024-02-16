@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4dc6449c709eee24fa54cde4be1673ac, type: 2}
   - {fileID: 11400000, guid: 0ee17efe682b9c24da8c846377f1c27e, type: 2}
   - {fileID: 11400000, guid: a558323fce00cb44c866cd14c32eac5e, type: 2}
-  - {fileID: 11400000, guid: c08713fb116af92478f64f645723243a, type: 2}
+  - {fileID: 11400000, guid: b4f2f0b946ac11443968bc9560c58236, type: 2}
   EliteModifiers:
   - {fileID: 11400000, guid: f83d83e55bcf4f548b9c5d090286c072, type: 2}
   - {fileID: 11400000, guid: d4ceed71f6979d64d841bd30668c9e59, type: 2}
