@@ -7,27 +7,28 @@ namespace SRS.UI
 	{
 		[SerializeField] private string preText;
 		[SerializeField] private string postText;
+		[SerializeField] private int decimalPlaces = 1;
 
-		private TMP_Text text;
+		private TMP_Text textComponent;
 
 		private void Awake()
 		{
-			text = GetComponent<TMP_Text>();
+			textComponent = GetComponent<TMP_Text>();
 		}
 
 		private void Start()
 		{
-			text.text = $"{preText}0{postText}";
+			textComponent.text = $"{preText}0{postText}";
 		}
 
 		public void Draw(float value)
 		{
-			text.text = $"{preText}{value}{postText}";
+			textComponent.text = $"{preText}{value.ToString("N" + decimalPlaces)}{postText}";
 		}
 
 		public void Draw(int value)
 		{
-			text.text = $"{preText}{value}{postText}";
+			textComponent.text = $"{preText}{value.ToString("N" + decimalPlaces)}{postText}";
 		}
 	}
 }
