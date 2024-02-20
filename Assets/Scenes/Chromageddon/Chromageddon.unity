@@ -265,7 +265,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 10018069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee5c65f760200fb4bb6bca61e932e41c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f87445b40467304cb4efb1a9ddb5e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   preText: 
@@ -1742,6 +1742,7 @@ GameObject:
   - component: {fileID: 294832529}
   - component: {fileID: 294832531}
   - component: {fileID: 294832530}
+  - component: {fileID: 294832532}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -1867,6 +1868,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294832528}
   m_CullTransparentMesh: 1
+--- !u!114 &294832532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294832528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62af51b6b0376d4fad4d42632fe8f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statistic: Level
+  preText: 
+  postText: 
 --- !u!1 &296417994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,6 +2652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preText: 'Level: '
   postText: 
+  decimalPlaces: 1
 --- !u!1 &431693499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,7 +2745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &444687474
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3841,7 +3858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &693235143
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4671,6 +4688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 780693455}
+  - component: {fileID: 780693458}
   - component: {fileID: 780693457}
   - component: {fileID: 780693456}
   m_Layer: 5
@@ -4798,6 +4816,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780693454}
   m_CullTransparentMesh: 1
+--- !u!114 &780693458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780693454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62af51b6b0376d4fad4d42632fe8f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statistic: Time Survived
+  preText: 
+  postText: 
 --- !u!1 &798193098
 GameObject:
   m_ObjectHideFlags: 0
@@ -4815,7 +4848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &798193099
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10648,6 +10681,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 294832528}
+        m_TargetAssemblyTypeName: SRS.UI.DisplayedValue, UI
+        m_MethodName: Draw
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCurrentXPChange:
     m_PersistentCalls:
       m_Calls:
@@ -11069,6 +11114,7 @@ GameObject:
   - component: {fileID: 1646946521}
   - component: {fileID: 1646946523}
   - component: {fileID: 1646946522}
+  - component: {fileID: 1646946524}
   m_Layer: 5
   m_Name: Kills
   m_TagString: Untagged
@@ -11194,6 +11240,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646946520}
   m_CullTransparentMesh: 1
+--- !u!114 &1646946524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646946520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62af51b6b0376d4fad4d42632fe8f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statistic: Kills
+  preText: 
+  postText: 
 --- !u!1 &1647827909
 GameObject:
   m_ObjectHideFlags: 0
@@ -11435,7 +11496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7e00f46d2e4784eb4a3da9c5c00b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statisticList: []
 --- !u!1 &1714857007
 GameObject:
   m_ObjectHideFlags: 0
@@ -13545,8 +13605,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 10018073}
-        m_TargetAssemblyTypeName: SRS.UI.FloatDisplay, UIV1
-        m_MethodName: UpdateDisplay
+        m_TargetAssemblyTypeName: SRS.UI.DisplayedValue, UI
+        m_MethodName: Draw
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

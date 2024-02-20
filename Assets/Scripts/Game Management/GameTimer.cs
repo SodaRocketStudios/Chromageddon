@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using SRS.Statistics;
 
 namespace SRS.GameManagement
 {
@@ -60,6 +61,7 @@ namespace SRS.GameManagement
 			{
 				case TimerState.Running:
                     Time += UnityEngine.Time.deltaTime;
+					StatisticManager.Instance["Time Survived"].Value = Time;
 					break;
 				case TimerState.Paused:
 					break;
