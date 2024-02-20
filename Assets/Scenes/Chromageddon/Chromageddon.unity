@@ -2652,7 +2652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preText: 'Level: '
   postText: 
-  decimalPlaces: 1
+  decimalPlaces: 0
 --- !u!1 &431693499
 GameObject:
   m_ObjectHideFlags: 0
@@ -11240,7 +11240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62af51b6b0376d4fad4d42632fe8f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statistic: Kills
+  statistic: Enemies Killed
   preText: 
   postText: 
 --- !u!1 &1647827909
