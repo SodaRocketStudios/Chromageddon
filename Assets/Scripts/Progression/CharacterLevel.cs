@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using SRS.Statistics;
 
 namespace SRS.Progression
 {
@@ -64,6 +65,7 @@ namespace SRS.Progression
         {
             currentXP -= requiredXP;
             level++;
+            StatisticManager.Instance["Level"].Value++;
 
             CalculateRequiredXP();
 
