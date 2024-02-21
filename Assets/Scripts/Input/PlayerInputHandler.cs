@@ -27,7 +27,7 @@ namespace SRS.Input
             {
                 if(LookEnabled)
                 {
-                    if(IsUsingMouse)
+                    if(isUsingMouse)
                     {
                         HandleMouseLook();
                     }
@@ -59,7 +59,7 @@ namespace SRS.Input
 
         public bool AttackEnabled{get; set;}
 
-        private bool IsUsingMouse;
+        private bool isUsingMouse;
 
         private Camera mainCamera;
 
@@ -87,7 +87,16 @@ namespace SRS.Input
 
         public void OnSchemeChange(PlayerInput input)
         {
-            IsUsingMouse = string.Equals(input.currentControlScheme, "KBM");
+            isUsingMouse = string.Equals(input.currentControlScheme, "KBM");
+
+            if(isUsingMouse)
+            {
+                CursorManager.SwapToMouse();
+            }
+            else
+            {
+                CursorManager.SwapToController();
+            }
         }
 
         public void HandleMoveinput(InputAction.CallbackContext context)
@@ -97,12 +106,14 @@ namespace SRS.Input
 
         public void HandleLookInput(InputAction.CallbackContext context)
         {
-            if(IsUsingMouse)
+            if(isUsingMouse)
             {
                 return;
             }
 
             lookInput = context.ReadValue<Vector2>();
+
+            CursorManager.DrawAimGuide(transform.position, lookInput);
 
             // TODO -- make a separate script that controls the cursor for controllers.
             // mainCamera.WorldToScreenPoint(transform.position + (Vector3)lookInput);
@@ -116,7 +127,6 @@ namespace SRS.Input
         private void HandleMouseLook()
         {
             lookInput = (Vector2)(mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position).normalized;
-            Debug.DrawLine(transform.position, mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue()), Color.blue);
         }
     }
 }
