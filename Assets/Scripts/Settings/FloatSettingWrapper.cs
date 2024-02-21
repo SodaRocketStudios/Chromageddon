@@ -15,5 +15,10 @@ namespace SRS.Settings
         {
             setting.Load();
         }
+
+		public void Change(float value)
+		{
+			setting.Value = value;
+		}
     }
 }
