@@ -8,12 +8,12 @@ namespace SRS.Settings
 
         public override void Load()
         {
-            setting.Save();
+            setting.Load();
         }
 
         public override void Save()
         {
-            setting.Load();
+            setting.Save();
         }
 
 		public void Change(float value)
