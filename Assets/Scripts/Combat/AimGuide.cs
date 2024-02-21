@@ -21,7 +21,7 @@ namespace SRS.Combat
 		private void Update()
 		{
 			lineRenderer.SetPosition(0, transform.position);
-			lineRenderer.SetPosition(1, transform.right*playerStats["Range"].Value);
+			lineRenderer.SetPosition(1, transform.position + transform.right*playerStats["Range"].Value);
 		}
 	}
 }
