@@ -4,27 +4,19 @@ namespace SRS.Stats
 	{
 		public static string GetStat(StatContainer stats, string statName)
 		{
-			string statData;
-
 			Stat stat = stats[statName];
 
 			switch(stat.Format)
 			{
 				case StatFormat.Full:
-					statData = $"{statName}: {stat.BaseValue:0.0} x {stat.PercentageModifier*100:I} = {stat.Value}";
-					break;
+					return $"{statName}: {stat.BaseValue:0.0} x {stat.PercentageModifier*100:I} = {stat.Value}";
 				case StatFormat.BaseValue:
-					statData = $"";
-					break;
+					return $"{statName}: {stat.BaseValue:0.0}";
 				case StatFormat.Percentage:
-					statData = $"";
-					break;
+					return $"{statName}: {stat.PercentageModifier*100:I}";
 				default:
-					statData = "No format set";
-					break;
+					return "No format set";
 			}
-
-			return statData;
 		}
 	}
 
