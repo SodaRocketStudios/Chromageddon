@@ -14,7 +14,7 @@ namespace SRS.UI
 
 		public void Draw(string text, Vector3 position)
 		{
-			transform.position = (Vector2)position;
+			transform.position = (Vector2)position + Vector2.up*0.5f;
 
 			textBox.text = text;
 		}
