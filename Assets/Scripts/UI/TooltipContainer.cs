@@ -11,5 +11,12 @@ namespace SRS.UI
 		{
 			textBox = GetComponent<TMP_Text>();
 		}
+
+		public void Draw(string text, Vector3 position)
+		{
+			transform.position = position;
+
+			textBox.text = text;
+		}
 	}
 }
