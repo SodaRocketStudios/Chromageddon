@@ -46,7 +46,6 @@ namespace SRS.UI
 			if(intersectingLink != activeElement)
 			{
 				OnPointerExit?.Invoke();
-				Debug.Log("Exit");
 			}
 			else
 			{
@@ -63,8 +62,6 @@ namespace SRS.UI
 			TMP_LinkInfo linkInfo = textBox.textInfo.linkInfo[intersectingLink];
 
 			OnPointerEnter?.Invoke(linkInfo.GetLinkID(), mousePosition);
-			Debug.Log("Enter");
-
 		}
 	}
 }
