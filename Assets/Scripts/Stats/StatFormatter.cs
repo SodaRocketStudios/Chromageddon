@@ -9,11 +9,11 @@ namespace SRS.Stats
 			switch(stat.Format)
 			{
 				case StatFormat.Full:
-					return $"{statName}: {stat.BaseValue:0.0} x {stat.PercentageModifier*100:I} = {stat.Value}";
+					return $"{statName}: {stat.BaseValue:N1} x {stat.PercentageModifier:P} = {stat.Value}";
 				case StatFormat.BaseValue:
-					return $"{statName}: {stat.BaseValue:0.0}";
+					return $"{statName}: {stat.BaseValue:N1}";
 				case StatFormat.Percentage:
-					return $"{statName}: {stat.PercentageModifier*100:I}";
+					return $"{statName}: {stat.PercentageModifier:P}";
 				default:
 					return "No format set";
 			}
