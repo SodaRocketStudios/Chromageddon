@@ -16,7 +16,7 @@ namespace SRS.UI
 		public delegate void OnPointerEnterEvent(string keyword, Vector3 mousePosition);
 		public static event OnPointerEnterEvent OnPointerEnter;
 
-		public Action OnPointerExit;
+		public static Action OnPointerExit;
 
 		private void Awake()
 		{
