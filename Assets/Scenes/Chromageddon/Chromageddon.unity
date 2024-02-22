@@ -6274,6 +6274,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 1
   - name: Attack Arc
     baseValue: 0
     percentageModifier: 100
@@ -6281,6 +6282,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 0
   - name: Attack Delay
     baseValue: 1
     percentageModifier: 100
@@ -6288,6 +6290,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 0
   - name: Burn Chance
     baseValue: 1
     percentageModifier: 0
@@ -6295,6 +6298,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 0
     minimumValue: 0
+    format: 2
   - name: Critical Chance
     baseValue: 1
     percentageModifier: 0
@@ -6302,6 +6306,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 0
     minimumValue: 0
+    format: 2
   - name: Critical Damage
     baseValue: 1
     percentageModifier: 200
@@ -6309,6 +6314,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 2
   - name: Damage
     baseValue: 1
     percentageModifier: 100
@@ -6316,6 +6322,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 0
   - name: Freeze Chance
     baseValue: 1
     percentageModifier: 0
@@ -6323,6 +6330,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 0
     minimumValue: 0
+    format: 2
   - name: Health
     baseValue: 100
     percentageModifier: 100
@@ -6330,6 +6338,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 0
   - name: Health Regen
     baseValue: 0
     percentageModifier: 100
@@ -6337,6 +6346,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 1
   - name: Pickup Range
     baseValue: 2.5
     percentageModifier: 100
@@ -6344,6 +6354,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 1
     minimumValue: 0
+    format: 0
   - name: Poison Chance
     baseValue: 1
     percentageModifier: 0
@@ -6351,6 +6362,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 0
     minimumValue: 0
+    format: 2
   - name: Range
     baseValue: 5
     percentageModifier: 100
@@ -6358,6 +6370,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 1
   - name: Speed
     baseValue: 5
     percentageModifier: 100
@@ -6365,6 +6378,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 0
   - name: Bounces
     baseValue: 0
     percentageModifier: 100
@@ -6372,6 +6386,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 1
   - name: Pierces
     baseValue: 0
     percentageModifier: 100
@@ -6379,6 +6394,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 1
   - name: Luck
     baseValue: 0
     percentageModifier: 100
@@ -6386,6 +6402,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 1
   - name: Knockback
     baseValue: 0
     percentageModifier: 100
@@ -6393,6 +6410,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 1
     minimumValue: 0
+    format: 1
   - name: Mass
     baseValue: 1
     percentageModifier: 100
@@ -6400,6 +6418,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 0
   - name: Fire Resistance
     baseValue: 1
     percentageModifier: 0
@@ -6407,6 +6426,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 0
     minimumValue: 0
+    format: 1
   - name: Ice Resistance
     baseValue: 1
     percentageModifier: 0
@@ -6414,6 +6434,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 0
     minimumValue: 0
+    format: 1
   - name: Electric Resistance
     baseValue: 1
     percentageModifier: 0
@@ -6421,6 +6442,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 0
     minimumValue: 0
+    format: 1
   - name: Poison Resistance
     baseValue: 1
     percentageModifier: 0
@@ -6428,6 +6450,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 0
     minimumValue: 0
+    format: 1
   - name: Life Steal
     baseValue: 1
     percentageModifier: 0
@@ -6435,6 +6458,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 1
     minimumValue: 0
+    format: 2
   - name: Max Spread
     baseValue: 100
     percentageModifier: 100
@@ -6442,6 +6466,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
+    format: 0
   - name: Dodge
     baseValue: 0
     percentageModifier: 100
@@ -6449,6 +6474,7 @@ MonoBehaviour:
     maximumValue: 0.65
     hasMinimum: 0
     minimumValue: 0
+    format: 2
   - name: Accuracy
     baseValue: 1
     percentageModifier: 100
@@ -6456,6 +6482,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 1
     minimumValue: 0
+    format: 2
 --- !u!1 &997797054
 GameObject:
   m_ObjectHideFlags: 0

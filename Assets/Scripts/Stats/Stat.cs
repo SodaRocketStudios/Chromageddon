@@ -11,7 +11,7 @@ namespace SRS.Stats
         [SerializeField] private string name;
         public string Name
         {
-            get {return name;}
+            get => name;
         }
 
         private float value;
@@ -27,8 +27,8 @@ namespace SRS.Stats
                 if(isDirty)
                 {
                     calculateValue();
-                    LogStat.Log(Name);
                 }
+
 
                 return value;
             }
@@ -80,12 +80,14 @@ namespace SRS.Stats
 
         public Stat(Stat stat)
         {
+            name = stat.name;
             baseValue = stat.baseValue;
             percentageModifier = stat.percentageModifier;
             hasMaximum = stat.hasMaximum;
             maximumValue = stat.maximumValue;
             hasMinimum = stat.hasMinimum;
             minimumValue = stat.minimumValue;
+            format = stat.format;
         }
 
         public void SetMaximum(float max)

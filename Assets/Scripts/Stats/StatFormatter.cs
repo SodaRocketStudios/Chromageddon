@@ -2,18 +2,16 @@ namespace SRS.Stats
 {
 	public static class StatFormatter
 	{
-		public static string GetStat(StatContainer stats, string statName)
+		public static string GetStat(Stat stat)
 		{
-			Stat stat = stats[statName];
-
 			switch(stat.Format)
 			{
 				case StatFormat.Full:
-					return $"{statName}: {stat.BaseValue:N1} x {stat.PercentageModifier:P} = {stat.Value}";
+					return $"{stat.Name}: {stat.BaseValue:N1} x {stat.PercentageModifier:N0}% = {stat.Value}";
 				case StatFormat.BaseValue:
-					return $"{statName}: {stat.BaseValue:N1}";
+					return $"{stat.Name}: {stat.BaseValue:N1}";
 				case StatFormat.Percentage:
-					return $"{statName}: {stat.PercentageModifier:P}";
+					return $"{stat.Name}: {stat.PercentageModifier:N0}%";
 				default:
 					return "No format set";
 			}
