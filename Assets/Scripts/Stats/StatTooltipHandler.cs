@@ -24,11 +24,14 @@ namespace SRS.Stats
 		{
 			container.gameObject.SetActive(true);
 
+			Debug.Log("Show");
+
 			container.Draw(StatFormatter.GetStat(playerStats[stat]), position);
 		}
 
 		private void DisableTooltip()
 		{
+			Debug.Log("Hide");
 			container.gameObject.SetActive(false);
 		}
 	}

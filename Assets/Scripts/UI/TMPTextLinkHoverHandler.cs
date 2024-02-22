@@ -61,7 +61,7 @@ namespace SRS.UI
 
 			TMP_LinkInfo linkInfo = textBox.textInfo.linkInfo[intersectingLink];
 
-			OnPointerEnter?.Invoke(linkInfo.GetLinkID(), mousePosition);
+			OnPointerEnter?.Invoke(linkInfo.GetLinkID(), mainCamera.ScreenToWorldPoint(mousePosition));
 		}
 	}
 }

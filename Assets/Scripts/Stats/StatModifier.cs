@@ -38,7 +38,7 @@ namespace SRS.Stats
                 stringBuilder.Append("Decrease ");
             }
 
-            stringBuilder.Append($"<link=\"{affectedStat}\">{affectedStat}</link> by ");
+            stringBuilder.Append($"<u><link=\"{affectedStat}\">{affectedStat}</link></u> by ");
 
             if(isPositive)
             {
