@@ -7,9 +7,9 @@ namespace SRS.Stats
 			switch(stat.Format)
 			{
 				case StatFormat.Full:
-					return $"Current {stat.Name}: {stat.BaseValue:N1} x {stat.PercentageModifier:N0}% = {stat.Value}";
+					return $"Current {stat.Name}: {stat.BaseValue:N0} x {stat.PercentageModifier:N0}% = {stat.Value}";
 				case StatFormat.BaseValue:
-					return $"Current {stat.Name}: {stat.BaseValue:N1}";
+					return $"Current {stat.Name}: {stat.BaseValue:N2}";
 				case StatFormat.Percentage:
 					return $"Current {stat.Name}: {stat.PercentageModifier:N0}%";
 				default:
