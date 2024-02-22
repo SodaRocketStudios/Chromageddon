@@ -3,7 +3,7 @@ using SRS.UI;
 
 namespace SRS.Stats
 {
-	public class StatTooltip : MonoBehaviour
+	public class StatTooltipHandler : MonoBehaviour
 	{
 		[SerializeField] private TooltipContainer container;
 		[SerializeField] private StatContainer playerStats;

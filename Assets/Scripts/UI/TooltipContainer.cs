@@ -9,7 +9,7 @@ namespace SRS.UI
 
 		private void Awake()
 		{
-			textBox = GetComponent<TMP_Text>();
+			textBox = GetComponentInChildren<TMP_Text>();
 		}
 
 		public void Draw(string text, Vector3 position)
