@@ -27,6 +27,7 @@ namespace SRS.Stats
                 if(isDirty)
                 {
                     calculateValue();
+                    LogStat.Log(Name);
                 }
 
                 return value;
@@ -67,7 +68,13 @@ namespace SRS.Stats
         [SerializeField] private float maximumValue = 1;
         [SerializeField] private bool hasMinimum;
         [SerializeField] private float minimumValue;
-        
+
+        [SerializeField] private StatFormat format;
+        public StatFormat Format
+        {
+            get => format;
+        }
+
         private int zeroCount = 0;
         private bool isDirty = true;
 

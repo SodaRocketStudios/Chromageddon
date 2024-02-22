@@ -6,9 +6,16 @@ namespace SRS.Stats
 		{
 			string stat;
 
-			stat = $"statName: {stats[statName].BaseValue:0.#} x {stats[statName].PercentageModifier*100:I}";
+			stat = $"{statName}: {stats[statName].BaseValue:0.#} x {stats[statName].PercentageModifier*100:I}";
 
 			return stat;
 		}
+	}
+
+	public enum StatFormat
+	{
+		Full,
+		BaseValue,
+		Percentage
 	}
 }
