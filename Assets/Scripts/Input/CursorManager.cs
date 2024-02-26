@@ -4,12 +4,12 @@ namespace SRS.Input
 {
 	public static class CursorManager
 	{
-		public static void SwapToController()
+		public static void HideCursor()
 		{
 			Cursor.visible = false;
 		}
 
-		public static void SwapToMouse()
+		public static void ShowCursor()
 		{
 			Cursor.visible = true;
 		}
