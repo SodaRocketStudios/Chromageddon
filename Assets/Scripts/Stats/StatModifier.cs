@@ -6,6 +6,10 @@ namespace SRS.Stats
     public abstract class StatModifier: ScriptableObject
     {
         [SerializeField] protected string affectedStat;
+        public string AffectedStat
+        {
+            get => affectedStat;
+        }
 
         [SerializeField] protected float value;
 

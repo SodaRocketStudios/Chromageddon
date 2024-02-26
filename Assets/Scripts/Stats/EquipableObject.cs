@@ -20,6 +20,19 @@ namespace SRS.Stats
 
         [SerializeField] private List<StatModifier> modifiers;
 
+        public List<string> AffectedStats
+        {
+            get
+            {
+                List<string> stats = new();
+                foreach(StatModifier modifier in modifiers)
+                {
+                    stats.Add(modifier.AffectedStat);
+                }
+                return stats;
+            }
+        }
+
         // private string description;
         public string RichTextDescription
         {
