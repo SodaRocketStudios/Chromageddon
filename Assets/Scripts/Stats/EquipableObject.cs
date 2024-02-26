@@ -33,12 +33,6 @@ namespace SRS.Stats
             }
         }
 
-        // private string description;
-        public string RichTextDescription
-        {
-            get => BuildDescription();
-        }
-
         public void Equip(StatContainer container)
         {
             foreach(StatModifier modifier in modifiers)
@@ -64,13 +58,26 @@ namespace SRS.Stats
 
         public string BuildDescription()
         {
-            StringBuilder stringBuilder = new();
+            StringBuilder descriptionBuilder = new();
+
             foreach(StatModifier modifier in modifiers)
             {
-                stringBuilder.AppendLine(modifier.Description);
+                descriptionBuilder.AppendLine(modifier.Description);
             }
 
-            return stringBuilder.ToString();
+            return descriptionBuilder.ToString();
+        }
+
+        public string BuildDescription(StatContainer stats)
+        {
+            StringBuilder descriptionBuilder = new();
+
+            foreach(StatModifier modifier in modifiers)
+            {
+                descriptionBuilder.AppendLine(modifier.BuildRelativeDescription(stats));
+            }
+
+            return "";
         }
     }
 }

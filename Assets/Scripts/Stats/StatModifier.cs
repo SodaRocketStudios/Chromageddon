@@ -28,32 +28,61 @@ namespace SRS.Stats
 
         protected string BuildDescription()
         {
-            StringBuilder stringBuilder = new();
+            StringBuilder descriptionBuilder = new();
 
             // TODO -- make this make sense for multipliers
             if(value > 0)
             {
                 isPositive = invertFormatRules?false:true;
-                stringBuilder.Append("Increase ");
+                descriptionBuilder.Append("Increase ");
             }
             else
             {
                 isPositive = invertFormatRules?true:false;
-                stringBuilder.Append("Decrease ");
+                descriptionBuilder.Append("Decrease ");
             }
 
-            stringBuilder.Append($"<u><link=\"{affectedStat}\">{affectedStat}</link></u> by ");
+            descriptionBuilder.Append($"<u><link=\"{affectedStat}\">{affectedStat}</link></u> by ");
 
             if(isPositive)
             {
-                stringBuilder.Append($"<color=green>{Mathf.Abs(value)}{GetUnitSymbol()}</color>");
+                descriptionBuilder.Append($"<color=green>{Mathf.Abs(value)}{GetUnitSymbol()}</color>");
             }
             else
             {
-                stringBuilder.Append($"<color=red>{Mathf.Abs(value)}{GetUnitSymbol()}</color>");
+                descriptionBuilder.Append($"<color=red>{Mathf.Abs(value)}{GetUnitSymbol()}</color>");
             }
 
-            return stringBuilder.ToString();
+            return descriptionBuilder.ToString();
+        }
+
+        public string BuildRelativeDescription(StatContainer stats)
+        {
+            StringBuilder descriptionBuilder = new();
+
+            descriptionBuilder.Append($"{affectedStat} = {stats[AffectedStat].BaseValue} x {stats[AffectedStat].PercentageModifier}");
+
+            if(value > 0)
+            {
+                isPositive = invertFormatRules?false:true;
+                descriptionBuilder.Append(" + ");
+            }
+            else
+            {
+                isPositive = invertFormatRules?true:false;
+                descriptionBuilder.Append(" - ");
+            }
+
+            if(isPositive)
+            {
+                descriptionBuilder.Append($"<color=green>{Mathf.Abs(value)}{GetUnitSymbol()}</color>");
+            }
+            else
+            {
+                descriptionBuilder.Append($"<color=red>{Mathf.Abs(value)}{GetUnitSymbol()}</color>");
+            }
+
+            return descriptionBuilder.ToString();
         }
 
         protected abstract string GetUnitSymbol();

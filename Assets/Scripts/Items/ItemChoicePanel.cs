@@ -10,6 +10,7 @@ using SRS.Progression;
 using SRS.UI;
 using SRS.Utils.Curves;
 using SRS.Stats;
+using UnityEngine.InputSystem;
 
 namespace SRS.Items
 {
@@ -18,6 +19,20 @@ namespace SRS.Items
 		[SerializeField] private GameObject itemButtonPrefab;
 
 		[SerializeField] private ItemDatabase itemDatabase;
+
+		private DescriptionFormat descriptionFormat;
+		public DescriptionFormat DescriptionFormat
+		{
+			set
+			{
+				descriptionFormat = value;
+
+				foreach(ItemSelectionButton button in buttons)
+				{
+					button.Draw(targetInventory.GetComponent<StatContainer>(), descriptionFormat);
+				}
+			}
+		}
 
 		private List<ItemSelectionButton> buttons;
 
@@ -140,6 +155,8 @@ namespace SRS.Items
 
 				button.Item = possibleItems[randomGenerator.Next(possibleItems.Count)];
 
+				button.Draw(targetInventory.GetComponent<StatContainer>(), descriptionFormat);
+
 				selectedItems.Add(button.Item);
 			}
 		}
@@ -152,6 +169,17 @@ namespace SRS.Items
 			SetButtonsActive(false);
 
 			isActive = false;
+		}
+
+		public void ToggleFormat(InputAction.CallbackContext context)
+		{
+			if(context.performed)
+			{
+				if(isActive)
+				{
+					descriptionFormat = descriptionFormat == DescriptionFormat.Absolute ? DescriptionFormat.Relative : DescriptionFormat.Absolute;
+				}
+			}
 		}
 
 		private void OnItemSelect(Item item)
@@ -187,5 +215,11 @@ namespace SRS.Items
                 button.gameObject.SetActive(active);
             }
         }
+	}
+	
+	public enum DescriptionFormat
+	{
+		Absolute,
+		Relative
 	}
 }

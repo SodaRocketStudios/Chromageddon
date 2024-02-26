@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using SRS.Stats;
 
 namespace SRS.Items
 {
@@ -13,7 +14,6 @@ namespace SRS.Items
 			set
 			{
 				item = value;
-				Draw();
 			}
 		}
 
@@ -28,10 +28,17 @@ namespace SRS.Items
 			OnSelect?.Invoke(item);
 		}
 
-		private void Draw()
+		public void Draw(StatContainer playerStats, DescriptionFormat format)
 		{
 			nameText.text = item.Name;
-			descriptionText.text = item.RichTextDescription;
+
+			if(format == DescriptionFormat.Relative)
+			{
+				descriptionText.text = item.BuildDescription(playerStats);
+				return;
+			}
+
+			descriptionText.text = item.BuildDescription();
 		}
 	}
 }
