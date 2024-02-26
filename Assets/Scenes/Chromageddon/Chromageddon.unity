@@ -11733,6 +11733,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3abc34cf-f3f5-40e5-b03e-0ad17d3c3177
     m_ActionName: 'UI/Back[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1519798215}
+        m_TargetAssemblyTypeName: SRS.Items.ItemChoicePanel, Items
+        m_MethodName: ToggleFormat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a585c94b-3e4e-41b1-92b1-483106ce9d17
+    m_ActionName: 'UI/Info[/Keyboard/tab]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: KBM
   m_DefaultActionMap: UI

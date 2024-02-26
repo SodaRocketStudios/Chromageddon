@@ -60,7 +60,7 @@ namespace SRS.Stats
         {
             StringBuilder descriptionBuilder = new();
 
-            descriptionBuilder.Append($"{affectedStat} = {stats[AffectedStat].BaseValue} x {stats[AffectedStat].PercentageModifier}");
+            descriptionBuilder.Append($"{affectedStat} = {stats[AffectedStat].BaseValue} x {stats[AffectedStat].PercentageModifier}%");
 
             if(value > 0)
             {

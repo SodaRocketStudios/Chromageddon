@@ -77,7 +77,7 @@ namespace SRS.Stats
                 descriptionBuilder.AppendLine(modifier.BuildRelativeDescription(stats));
             }
 
-            return "";
+            return descriptionBuilder.ToString();
         }
     }
 }

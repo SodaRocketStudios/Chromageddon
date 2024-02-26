@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using SRS.Extensions.Random;
 using SRS.GameManagement;
@@ -10,7 +11,6 @@ using SRS.Progression;
 using SRS.UI;
 using SRS.Utils.Curves;
 using SRS.Stats;
-using UnityEngine.InputSystem;
 
 namespace SRS.Items
 {
@@ -177,7 +177,7 @@ namespace SRS.Items
 			{
 				if(isActive)
 				{
-					descriptionFormat = descriptionFormat == DescriptionFormat.Absolute ? DescriptionFormat.Relative : DescriptionFormat.Absolute;
+					DescriptionFormat = descriptionFormat == DescriptionFormat.Absolute ? DescriptionFormat.Relative : DescriptionFormat.Absolute;
 				}
 			}
 		}
