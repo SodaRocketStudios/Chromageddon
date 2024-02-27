@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace SRS.EnemyManagement
 {
@@ -23,7 +22,7 @@ namespace SRS.EnemyManagement
 
 			Debug.Log("elited");
 
-			int index = Mathf.Clamp(elitifications, 0, database.IndicatorImages.Count);
+			int index = Mathf.Clamp(elitifications-1, 0, database.IndicatorImages.Count);
 
 			spriteRenderer.sprite = database.IndicatorImages[index];
 			spriteRenderer.color = database.IndicatorColors[index];
