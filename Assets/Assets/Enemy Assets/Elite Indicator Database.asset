@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79256551fe6697e4c8e29df105dd86b7, type: 3}
   m_Name: Elite Indicator Database
   m_EditorClassIdentifier: 
-  indicatorImages: []
-  indicatorColors: []
+  indicatorImages:
+  - {fileID: 934772718, guid: 704a9f27542d10244a5f8db025010510, type: 3}
+  - {fileID: 766190738, guid: 704a9f27542d10244a5f8db025010510, type: 3}
+  - {fileID: 307138475, guid: 704a9f27542d10244a5f8db025010510, type: 3}
+  - {fileID: 2115199006, guid: 704a9f27542d10244a5f8db025010510, type: 3}
+  - {fileID: 1762812632, guid: 704a9f27542d10244a5f8db025010510, type: 3}
+  indicatorColors:
+  - {r: 0.50430155, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.8333334, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}

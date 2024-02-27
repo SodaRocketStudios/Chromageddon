@@ -68,6 +68,7 @@ namespace SRS.EnemyManagement
 			GetComponent<AttackManager>().Weapon = weapon;
 
 			ignoreRecycleRequests = data.IgnoreRecycleRequests;
+			elitifications = 1;
 
 			Elitify(data, elitifications);
 

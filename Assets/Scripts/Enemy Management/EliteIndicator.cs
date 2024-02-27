@@ -7,11 +7,11 @@ namespace SRS.EnemyManagement
 	{
 		[SerializeField] private EliteIndicatorDatabase database;
 
-		private Image image;
+		private SpriteRenderer spriteRenderer;
 
 		private void Awake()
 		{
-			image = GetComponent<Image>();
+			spriteRenderer = GetComponent<SpriteRenderer>();
 		}
 
 		public void Draw(int elitifications)
@@ -21,17 +21,19 @@ namespace SRS.EnemyManagement
 				return;
 			}
 
+			Debug.Log("elited");
+
 			int index = Mathf.Clamp(elitifications, 0, database.IndicatorImages.Count);
 
-			image.sprite = database.IndicatorImages[index];
-			image.color = database.IndicatorColors[index];
+			spriteRenderer.sprite = database.IndicatorImages[index];
+			spriteRenderer.color = database.IndicatorColors[index];
 
-			image.enabled = true;
+			spriteRenderer.enabled = true;
 		}
 
 		public void Reset()
 		{
-			image.enabled = false;
+			spriteRenderer.enabled = false;
 		}
 	}
 }
