@@ -76,6 +76,8 @@ namespace SRS.EnemyManagement
 
 		private void Elitify(EnemyData enemyData, int elitifications)
 		{
+			GetComponentInChildren<EliteIndicator>().Draw(elitifications);
+
 			while(elitifications > 0)
 			{
 				foreach(StatModifier modifier in enemyData.EliteModifiers)
