@@ -7,8 +7,8 @@ namespace SRS.EnemyManagement
 	[CreateAssetMenu(menuName = "Enemies/IndicatorDatabase", fileName = "New Elite Indicator Database")]
 	public class EliteIndicatorDatabase : ScriptableObject
 	{
-		[SerializeField] private List<Image> indicatorImages;
-		public List<Image> IndicatorImages
+		[SerializeField] private List<Sprite> indicatorImages;
+		public List<Sprite> IndicatorImages
 		{
 			get => indicatorImages;
 		}

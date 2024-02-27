@@ -5,6 +5,8 @@ namespace SRS.EnemyManagement
 {
 	public class EliteIndicator : MonoBehaviour
 	{
+		[SerializeField] private EliteIndicatorDatabase database;
+
 		private Image image;
 
 		private void Awake()
@@ -12,12 +14,17 @@ namespace SRS.EnemyManagement
 			image = GetComponent<Image>();
 		}
 
-		public void Draw(int Elitifications)
+		public void Draw(int elitifications)
 		{
-			if(Elitifications <= 0)
+			if(elitifications <= 0)
 			{
 				return;
 			}
+
+			int index = Mathf.Clamp(elitifications, 0, database.IndicatorImages.Count);
+
+			image.sprite = database.IndicatorImages[index];
+			image.color = database.IndicatorColors[index];
 
 			image.enabled = true;
 		}
