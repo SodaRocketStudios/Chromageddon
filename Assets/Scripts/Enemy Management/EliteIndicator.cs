@@ -20,8 +20,6 @@ namespace SRS.EnemyManagement
 				return;
 			}
 
-			Debug.Log("elited");
-
 			int index = Mathf.Clamp(elitifications-1, 0, database.IndicatorImages.Count-1);
 
 			spriteRenderer.sprite = database.IndicatorImages[index];
