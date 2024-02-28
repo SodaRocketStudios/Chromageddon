@@ -164,7 +164,7 @@ namespace SRS.Stats
                     unclampedValue = baseValue;
                     break;
                 case StatFormat.Percentage:
-                    unclampedValue = percentageModifier;
+                    unclampedValue = percentageModifier/100.0f;
                     break;
                 case StatFormat.Full:
                     unclampedValue = baseValue * percentageModifier / 100.0f;

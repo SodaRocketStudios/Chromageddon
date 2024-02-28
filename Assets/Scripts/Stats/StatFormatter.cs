@@ -14,7 +14,7 @@ namespace SRS.Stats
 					descriptionBuilder.Append($"Current {stat.Name}: {stat.BaseValue:N2}");
 					break;
 				case StatFormat.Percentage:
-					descriptionBuilder.Append($"Current {stat.Name}: {stat.PercentageModifier:N0}%");
+					descriptionBuilder.Append($"Current {stat.Name}: {stat.PercentageModifier:P}");
 					break;
 				case StatFormat.Full:
 					descriptionBuilder.Append($"Current {stat.Name}: {stat.BaseValue:N0} x {stat.PercentageModifier:N0}% = {stat.ValueUnclamped}");
