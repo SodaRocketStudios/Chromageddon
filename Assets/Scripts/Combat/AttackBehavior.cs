@@ -32,7 +32,6 @@ namespace SRS.Combat
 				attack.HitParticleManager?.PlayParticles(hit.transform.position, hit.transform.rotation, hit.transform.GetComponent<SpriteRenderer>().color);
 			}
 
-
 			OnHit(attack, hit);
 		}
     }

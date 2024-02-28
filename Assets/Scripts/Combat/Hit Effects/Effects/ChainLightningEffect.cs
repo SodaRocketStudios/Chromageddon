@@ -3,11 +3,12 @@ using UnityEngine;
 namespace SRS.Combat.HitEffects
 {
 	[CreateAssetMenu(fileName = "New Instant Damage Effect", menuName = "Combat/Hit Effects/Effects/Instant Damage Effect")]
-    public class InstantDamageEffect : Effect
+    public class ChainLightningEffect : Effect
     {
 		[SerializeField] private float damage;
-
 		[SerializeField] private DamageType damageType;
+
+		private LayerMask collisionMask;
 
         public override void Apply(GameObject target)
         {
@@ -18,7 +19,7 @@ namespace SRS.Combat.HitEffects
 				hitHandler.Hit(damage, damageType);
 			}
 
-            // TODO -- create chain lightning
+			collisionMask = LayerMask.GetMask(LayerMask.LayerToName(target.layer));
         }
     }
 }
