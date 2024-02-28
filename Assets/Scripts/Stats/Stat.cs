@@ -29,8 +29,15 @@ namespace SRS.Stats
                     calculateValue();
                 }
 
-
                 return value;
+            }
+        }
+
+        public float ValueUnclamped
+        {
+            get
+            {
+                return CalculateUnclamped();
             }
         }
 
@@ -65,9 +72,26 @@ namespace SRS.Stats
         }
         
         [SerializeField] private bool hasMaximum = false;
+        public bool HasMaximum
+        {
+            get => hasMaximum;
+        }
         [SerializeField] private float maximumValue = 1;
+        public float MaximumValue
+        {
+            get => maximumValue;
+        }
+
         [SerializeField] private bool hasMinimum;
+        public bool HasMinimum
+        {
+            get => hasMinimum;
+        }
         [SerializeField] private float minimumValue;
+        public float MinimumValue
+        {
+            get => minimumValue;
+        }
 
         [SerializeField] private StatFormat format;
         public StatFormat Format
@@ -130,16 +154,47 @@ namespace SRS.Stats
             return copy;
         }
 
+        private float CalculateUnclamped()
+        {
+            float unclampedValue = 0;
+            
+            switch(format)
+            {
+                case StatFormat.Flat:
+                    unclampedValue = baseValue;
+                    break;
+                case StatFormat.Percentage:
+                    unclampedValue = percentageModifier;
+                    break;
+                case StatFormat.Full:
+                    unclampedValue = baseValue * percentageModifier / 100.0f;
+                    break;
+            }
+
+            return unclampedValue;
+        }
+
         private void calculateValue()
         {
-            value = baseValue * percentageModifier / 100.0f;
+            value = CalculateUnclamped();
 
             if (hasMinimum)
+            {
                 value = Mathf.Max(value, minimumValue);
+            }
             if (hasMaximum)
+            {
                 value = Mathf.Min(value, maximumValue);
+            }
 
             isDirty = false;
         }
+    }
+
+    public enum StatFormat
+    {
+        Flat,
+        Percentage,
+        Full
     }
 }
