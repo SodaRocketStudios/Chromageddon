@@ -6612,7 +6612,7 @@ MonoBehaviour:
     format: 1
   - name: Critical Damage
     baseValue: 1
-    percentageModifier: 200
+    percentageModifier: 2
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6620,7 +6620,7 @@ MonoBehaviour:
     format: 1
   - name: Damage
     baseValue: 1
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6636,7 +6636,7 @@ MonoBehaviour:
     format: 1
   - name: Health
     baseValue: 100
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6644,7 +6644,7 @@ MonoBehaviour:
     format: 0
   - name: Health Regen
     baseValue: 0
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6652,7 +6652,7 @@ MonoBehaviour:
     format: 0
   - name: Pickup Range
     baseValue: 2.5
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 1
@@ -6668,7 +6668,7 @@ MonoBehaviour:
     format: 1
   - name: Range
     baseValue: 5
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6676,7 +6676,7 @@ MonoBehaviour:
     format: 2
   - name: Speed
     baseValue: 5
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6684,7 +6684,7 @@ MonoBehaviour:
     format: 2
   - name: Bounces
     baseValue: 0
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6692,7 +6692,7 @@ MonoBehaviour:
     format: 0
   - name: Pierces
     baseValue: 0
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6700,7 +6700,7 @@ MonoBehaviour:
     format: 0
   - name: Luck
     baseValue: 0
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6708,7 +6708,7 @@ MonoBehaviour:
     format: 0
   - name: Knockback
     baseValue: 0
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 1
@@ -6716,7 +6716,7 @@ MonoBehaviour:
     format: 0
   - name: Mass
     baseValue: 1
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6724,7 +6724,7 @@ MonoBehaviour:
     format: 0
   - name: Fire Resistance
     baseValue: 0
-    percentageModifier: 0
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 1
     hasMinimum: 0
@@ -6732,7 +6732,7 @@ MonoBehaviour:
     format: 0
   - name: Ice Resistance
     baseValue: 0
-    percentageModifier: 0
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 1
     hasMinimum: 0
@@ -6740,7 +6740,7 @@ MonoBehaviour:
     format: 0
   - name: Electric Resistance
     baseValue: 0
-    percentageModifier: 0
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 1
     hasMinimum: 0
@@ -6748,7 +6748,7 @@ MonoBehaviour:
     format: 0
   - name: Poison Resistance
     baseValue: 0
-    percentageModifier: 0
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 1
     hasMinimum: 0
