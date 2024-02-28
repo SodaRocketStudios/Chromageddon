@@ -30,7 +30,6 @@ namespace SRS.Stats
         {
             StringBuilder descriptionBuilder = new();
 
-            // TODO -- make this make sense for multipliers
             if(value > 0)
             {
                 isPositive = invertFormatRules?false:true;
@@ -60,7 +59,24 @@ namespace SRS.Stats
         {
             StringBuilder descriptionBuilder = new();
 
-            descriptionBuilder.Append($"{affectedStat} = {stats[AffectedStat].BaseValue} x {stats[AffectedStat].PercentageModifier}%");
+            descriptionBuilder.Append($"<u><link=\"{affectedStat}\">{affectedStat}: </link></u>");
+
+            Stat stat = stats[affectedStat];
+
+            switch(stat.Format)
+            {
+                case StatFormat.Flat:
+                    descriptionBuilder.Append($"{stat.BaseValue:0.##}");
+                    break;
+                case StatFormat.Percentage:
+                    descriptionBuilder.Append($"{stat.PercentageModifier:P0}");
+                    break;
+                case StatFormat.Full:
+                    descriptionBuilder.Append($"{stat.BaseValue:0.##} x {stat.PercentageModifier:P0} = {stat.ValueUnclamped}");
+                    break;
+            }
+
+            
 
             if(value > 0)
             {
