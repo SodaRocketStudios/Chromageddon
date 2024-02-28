@@ -7,12 +7,12 @@ namespace SRS.Stats
     {
         public override void Apply(StatContainer container)
         {
-            container[affectedStat].PercentageModifier += value;
+            container[affectedStat].PercentageModifier += value/100;
         }
 
         public override void Remove(StatContainer container)
         {
-            container[affectedStat].PercentageModifier -= value;
+            container[affectedStat].PercentageModifier -= value/100;
         }
 
         protected override string GetUnitSymbol()

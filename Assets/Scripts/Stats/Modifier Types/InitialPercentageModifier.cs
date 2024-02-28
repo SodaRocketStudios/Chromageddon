@@ -10,7 +10,7 @@ namespace SRS.Stats
         public override void Apply(StatContainer container)
         {
 			oldValue = container[affectedStat].PercentageModifier;
-			container[affectedStat].PercentageModifier = value;
+			container[affectedStat].PercentageModifier = value/100;
         }
 
         public override void Remove(StatContainer container)

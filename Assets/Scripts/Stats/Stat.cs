@@ -56,7 +56,7 @@ namespace SRS.Stats
             }
         }
 
-        [SerializeField] private float percentageModifier = 100;
+        [SerializeField] private float percentageModifier = 1;
         public float PercentageModifier
         {
             get
@@ -161,9 +161,9 @@ namespace SRS.Stats
                 case StatFormat.Flat:
                     return baseValue;
                 case StatFormat.Percentage:
-                    return percentageModifier/100.0f;
+                    return percentageModifier;
                 case StatFormat.Full:
-                    return baseValue * percentageModifier/100.0f;
+                    return baseValue * percentageModifier;
                 default:
                     return -1;
             }
