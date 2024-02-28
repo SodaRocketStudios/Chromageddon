@@ -6,6 +6,6 @@ namespace SRS.Combat.HitEffects
 	{
 		[SerializeField] private string description;
 
-		public abstract void Apply(GameObject target);
+		public abstract void Apply(GameObject source, GameObject target);
 	}
 }

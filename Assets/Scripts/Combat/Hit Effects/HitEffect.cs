@@ -23,11 +23,11 @@ namespace SRS.Combat.HitEffects
 
 		[SerializeField] private Color particleColor;
 
-		public void Trigger(GameObject target)
+		public void Trigger(GameObject source, GameObject target)
 		{
 			foreach(Effect effect in effects)
 			{
-				effect.Apply(target);
+				effect.Apply(source, target);
 			}
 			
 			ParticleSystem system = particleManager?.PlayParticles(target.transform.position, Quaternion.identity, particleColor);

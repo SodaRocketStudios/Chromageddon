@@ -87,7 +87,7 @@ namespace SRS.Combat.HitEffects
 
 				if(randomNumber <= effect.GetProcChance(attackerStats))
 				{
-					effect.Trigger(gameObject);
+					effect.Trigger(attackerStats.gameObject, gameObject);
 				}
 			}
 		}

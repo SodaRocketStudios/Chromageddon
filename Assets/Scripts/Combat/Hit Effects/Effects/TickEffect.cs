@@ -13,7 +13,7 @@ namespace SRS.Combat.HitEffects
 
         [SerializeField] private TickBehavior behavior;
 
-        public override void Apply(GameObject target)
+        public override void Apply(GameObject source, GameObject target)
         {
             EffectTracker tracker = target.GetComponent<EffectTracker>();
 

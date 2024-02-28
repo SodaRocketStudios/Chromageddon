@@ -6,11 +6,14 @@ namespace SRS.Combat.HitEffects
     public class ChainLightningEffect : Effect
     {
 		[SerializeField] private float damage;
-		[SerializeField] private DamageType damageType;
+
+		[SerializeField] private AttackData attackData;
+
+		private DamageType damageType = DamageType.Electric;
 
 		private LayerMask collisionMask;
 
-        public override void Apply(GameObject target)
+        public override void Apply(GameObject source, GameObject target)
         {
             HitHandler hitHandler;
 

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 
 namespace SRS.Combat.HitEffects
@@ -9,7 +10,7 @@ namespace SRS.Combat.HitEffects
 
 		[SerializeField] private DamageType damageType;
 
-        public override void Apply(GameObject target)
+        public override void Apply(GameObject source, GameObject target)
         {
             HitHandler hitHandler;
 
@@ -17,8 +18,6 @@ namespace SRS.Combat.HitEffects
 			{
 				hitHandler.Hit(damage, damageType);
 			}
-
-            // TODO -- create chain lightning
         }
     }
 }

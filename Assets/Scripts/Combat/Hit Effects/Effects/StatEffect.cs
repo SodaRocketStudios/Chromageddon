@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using SRS.Stats;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace SRS.Combat.HitEffects
     {
 		[SerializeField] private StatModifier statModifier;
 
-        public override void Apply(GameObject target)
+        public override void Apply(GameObject source, GameObject target)
         {
             StatContainer stats = target.GetComponent<StatContainer>();
             EffectTracker tracker = target.GetComponent<EffectTracker>();
