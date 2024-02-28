@@ -20,7 +20,7 @@ namespace SRS.Stats
 					maxValueFormat = "P0";
 					break;
 				case StatFormat.Full:
-					descriptionBuilder.Append($"Current {stat.Name}: {stat.BaseValue:0.##} x {stat.PercentageModifier:0.##}% = {stat.ValueUnclamped}");
+					descriptionBuilder.Append($"Current {stat.Name}: {stat.BaseValue:0.##} x {stat.PercentageModifier:P0} = {stat.ValueUnclamped}");
 					break;
 				default:
 					return $"No definition for format type {stat.Format}.";

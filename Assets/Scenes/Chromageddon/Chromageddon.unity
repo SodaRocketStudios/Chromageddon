@@ -6572,7 +6572,7 @@ MonoBehaviour:
   stats:
   - name: Armor
     baseValue: 0
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6580,7 +6580,7 @@ MonoBehaviour:
     format: 0
   - name: Attack Arc
     baseValue: 0
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6588,7 +6588,7 @@ MonoBehaviour:
     format: 0
   - name: Attack Delay
     baseValue: 1
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6764,7 +6764,7 @@ MonoBehaviour:
     format: 1
   - name: Max Spread
     baseValue: 100
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 0
     maximumValue: 0
     hasMinimum: 0
@@ -6780,7 +6780,7 @@ MonoBehaviour:
     format: 1
   - name: Accuracy
     baseValue: 1
-    percentageModifier: 100
+    percentageModifier: 1
     hasMaximum: 1
     maximumValue: 1
     hasMinimum: 1
