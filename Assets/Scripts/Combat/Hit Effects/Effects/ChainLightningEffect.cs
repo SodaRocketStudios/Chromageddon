@@ -1,4 +1,5 @@
 using UnityEngine;
+using SRS.Utils.ObjectPooling;
 
 namespace SRS.Combat.HitEffects
 {
@@ -9,9 +10,7 @@ namespace SRS.Combat.HitEffects
 
 		[SerializeField] private AttackData attackData;
 
-		private DamageType damageType = DamageType.Electric;
-
-		private LayerMask collisionMask;
+		[SerializeField] private ObjectPool attackPool;
 
         public override void Apply(GameObject source, GameObject target)
         {
@@ -19,10 +18,11 @@ namespace SRS.Combat.HitEffects
 
 			if(target.TryGetComponent(out hitHandler))
 			{
-				hitHandler.Hit(damage, damageType);
+				hitHandler.Hit(damage, attackData.DamageType);
 			}
 
-			collisionMask = LayerMask.GetMask(LayerMask.LayerToName(target.layer));
+			Attack attack = attackPool.Get(source.transform.position, source.transform.rotation) as Attack;
+            attack.Initialize(attackData, source);
         }
     }
 }
