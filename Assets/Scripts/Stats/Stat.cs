@@ -156,22 +156,17 @@ namespace SRS.Stats
 
         private float CalculateUnclamped()
         {
-            float unclampedValue = 0;
-            
             switch(format)
             {
                 case StatFormat.Flat:
-                    unclampedValue = baseValue;
-                    break;
+                    return baseValue;
                 case StatFormat.Percentage:
-                    unclampedValue = percentageModifier/100.0f;
-                    break;
+                    return percentageModifier/100.0f;
                 case StatFormat.Full:
-                    unclampedValue = baseValue * percentageModifier / 100.0f;
-                    break;
+                    return baseValue * percentageModifier/100.0f;
+                default:
+                    return -1;
             }
-
-            return unclampedValue;
         }
 
         private void calculateValue()

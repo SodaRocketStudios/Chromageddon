@@ -6781,7 +6781,7 @@ MonoBehaviour:
   - name: Accuracy
     baseValue: 1
     percentageModifier: 100
-    hasMaximum: 0
+    hasMaximum: 1
     maximumValue: 1
     hasMinimum: 1
     minimumValue: 0

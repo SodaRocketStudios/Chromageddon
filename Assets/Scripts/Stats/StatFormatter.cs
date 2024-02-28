@@ -8,13 +8,16 @@ namespace SRS.Stats
 		{
 			StringBuilder descriptionBuilder = new();
 
+			string maxValueFormat = "N0";
+
 			switch(stat.Format)
 			{
 				case StatFormat.Flat:
-					descriptionBuilder.Append($"Current {stat.Name}: {stat.BaseValue:N2}");
+					descriptionBuilder.Append($"Current {stat.Name}: {stat.BaseValue:N0}");
 					break;
 				case StatFormat.Percentage:
-					descriptionBuilder.Append($"Current {stat.Name}: {stat.PercentageModifier:P}");
+					descriptionBuilder.Append($"Current {stat.Name}: {stat.PercentageModifier:P0}");
+					maxValueFormat = "P0";
 					break;
 				case StatFormat.Full:
 					descriptionBuilder.Append($"Current {stat.Name}: {stat.BaseValue:N0} x {stat.PercentageModifier:N0}% = {stat.ValueUnclamped}");
@@ -25,11 +28,9 @@ namespace SRS.Stats
 
 			if(stat.HasMaximum)
 			{
-				descriptionBuilder.AppendLine($"Max: {stat.MaximumValue}");
-			}
-			if(stat.HasMaximum)
-			{
-				descriptionBuilder.AppendLine($"Min: {stat.MinimumValue}");
+				string.Format(maxValueFormat, stat.MaximumValue);
+				descriptionBuilder.AppendLine(string.Format("\nMax: {0}", stat.MaximumValue.ToString(maxValueFormat)));
+				// descriptionBuilder.AppendLine($"\nMax: {string.Format("{0:maxValueFormat}", stat.MaximumValue)}");
 			}
 
 			return descriptionBuilder.ToString();
