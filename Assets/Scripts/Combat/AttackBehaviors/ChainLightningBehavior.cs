@@ -8,13 +8,13 @@ namespace SRS.Combat
     {
 		[SerializeField] private float damage;
 
+		[SerializeField] private float bounceDistance;
+
         private int bounces;
 
         public override void OnStart(Attack attack)
         {
             bounces = (int)attack.Stats["Chain Lightning Bounces"].Value;
-
-			// Bounce to targets
 
 			Bounce(attack);
 
@@ -54,8 +54,18 @@ namespace SRS.Combat
 				return;
 			}
 
-			Vector2 hitPosition = attack.LastHitObject.position;
-            Collider2D[] hits = Physics2D.OverlapCircleAll(hitPosition, attack.Stats["Range"].Value, attack.CollisionMask & ~(1 << LayerMask.NameToLayer("Walls")));
+			Vector2 startPosition;
+
+			if(attack.LastHitObject == null)
+			{
+				startPosition = attack.transform.position;
+			}
+			else
+			{
+				startPosition = attack.LastHitObject.position;
+			}
+
+            Collider2D[] hits = Physics2D.OverlapCircleAll(startPosition, bounceDistance, attack.CollisionMask & ~(1 << LayerMask.NameToLayer("Walls")));
 
 			foreach(Collider2D hit in hits)
 			{
@@ -63,6 +73,8 @@ namespace SRS.Combat
 				{
 					continue;
 				}
+
+				// TODO -- draw lightning between targets;
 
 				hit.GetComponent<HitHandler>()?.Hit(damage, DamageType.Electric);
 

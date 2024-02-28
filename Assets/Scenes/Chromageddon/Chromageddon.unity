@@ -6786,6 +6786,22 @@ MonoBehaviour:
     hasMinimum: 1
     minimumValue: 0
     format: 1
+  - name: Chain Lightning Bounces
+    baseValue: 1
+    percentageModifier: 1
+    hasMaximum: 0
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+    format: 0
+  - name: Chain Lightning Chance
+    baseValue: 1
+    percentageModifier: 0
+    hasMaximum: 1
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+    format: 1
 --- !u!1 &997797054
 GameObject:
   m_ObjectHideFlags: 0

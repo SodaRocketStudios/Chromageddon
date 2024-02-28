@@ -3,25 +3,17 @@ using SRS.Utils.ObjectPooling;
 
 namespace SRS.Combat.HitEffects
 {
-	[CreateAssetMenu(fileName = "New Instant Damage Effect", menuName = "Combat/Hit Effects/Effects/Instant Damage Effect")]
+	[CreateAssetMenu(fileName = "New Chain Lightning Effect", menuName = "Combat/Hit Effects/Effects/Chain Lightning Effect")]
     public class ChainLightningEffect : Effect
     {
-		[SerializeField] private float damage;
-
 		[SerializeField] private AttackData attackData;
 
 		[SerializeField] private ObjectPool attackPool;
 
         public override void Apply(GameObject source, GameObject target)
         {
-            HitHandler hitHandler;
+			Attack attack = attackPool.Get(target.transform.position) as Attack;
 
-			if(target.TryGetComponent(out hitHandler))
-			{
-				hitHandler.Hit(damage, attackData.DamageType);
-			}
-
-			Attack attack = attackPool.Get(source.transform.position, source.transform.rotation) as Attack;
             attack.Initialize(attackData, source);
         }
     }
