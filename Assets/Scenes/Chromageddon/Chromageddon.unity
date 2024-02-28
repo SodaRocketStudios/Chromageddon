@@ -6771,8 +6771,8 @@ MonoBehaviour:
     minimumValue: 0
     format: 0
   - name: Dodge
-    baseValue: 0
-    percentageModifier: 100
+    baseValue: 1
+    percentageModifier: 0
     hasMaximum: 1
     maximumValue: 0.65
     hasMinimum: 0
