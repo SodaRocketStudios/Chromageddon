@@ -89,19 +89,10 @@ namespace SRS.Combat
 			TryHitEffects?.Invoke(attackerStats);
 		}
 
-		public void Hit(float damage, DamageType damageType, bool checkDodge = true)
+		public void Hit(float damage, DamageType damageType)
 		{
 			if(Time.time - lastHitTime > immunityTime)
 			{
-				if(checkDodge)
-				{
-					if(DamageCalculator.CheckDodge(stats["Dodge"].Value))
-					{
-						OnDodge?.Invoke();
-						return;
-					}
-				}
-
 				if(impulseSource != null)
 				{
 					impulseSource.m_ImpulseDefinition = hitImpulse;
