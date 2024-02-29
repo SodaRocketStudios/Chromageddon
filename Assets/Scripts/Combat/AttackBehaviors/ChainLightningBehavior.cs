@@ -1,7 +1,9 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 using SRS.Utils.ObjectPooling;
 using SRS.Utils.VFX;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SRS.Combat
 {
@@ -15,6 +17,8 @@ namespace SRS.Combat
 
         [SerializeField] private ObjectPool lightningPool;
 
+        private System.Random random = new(Guid.NewGuid().GetHashCode());
+
         private int bounces;
 
         public override void OnStart(Attack attack)
@@ -22,8 +26,6 @@ namespace SRS.Combat
             bounces = (int)attack.Stats["Chain Lightning Bounces"].Value;
 
 			Bounce(attack);
-
-			attack.Despawn();
         }
 
         public override void OnUpdate(Attack attack)
@@ -70,30 +72,42 @@ namespace SRS.Combat
 				startPosition = attack.LastHitObject.position;
 			}
 
-            Collider2D[] hits = Physics2D.OverlapCircleAll(startPosition, bounceDistance, attack.CollisionMask & ~(1 << LayerMask.NameToLayer("Walls")));
+            List<Collider2D> hits = Physics2D.OverlapCircleAll(startPosition, bounceDistance, attack.CollisionMask & ~(1 << LayerMask.NameToLayer("Walls"))).ToList();
 
-			foreach(Collider2D hit in hits)
-			{
-				if(hit.transform == attack.LastHitObject)
-				{
-					continue;
-				}
+            int removeIndex = -1;
 
-				// TODO -- jump to random target
+            foreach(Collider2D hit in hits)
+            {
+                if(hit.transform == attack.LastHitObject)
+                {
+                    removeIndex = hits.IndexOf(hit);
+                }
+            }
 
-                LineDrawer temp = lightningPool.Get() as LineDrawer;
+            if(removeIndex >= 0)
+            {   
+                hits.RemoveAt(removeIndex);
+            }
 
-                temp.Initialize(startPosition, hit.transform.position, 0.5f);
+            if(hits.Count <= 0)
+            {
+                return;
+            }
 
-				hit.GetComponent<HitHandler>()?.Hit(damage, DamageType.Electric);
+            Collider2D target = hits[random.Next(0, hits.Count)];
 
-                attack.LastHitObject = hit.transform;
+            LineDrawer lightningFX = lightningPool.Get() as LineDrawer;
 
-				bounces--;
+            lightningFX.Initialize(startPosition, target.transform.position, 0.5f);
 
-				Bounce(attack);
-				return;
-			}
+            target.GetComponent<HitHandler>()?.Hit(damage, DamageType.Electric);
+
+            attack.LastHitObject = target.transform;
+
+            bounces--;
+
+            Bounce(attack);
+            return;
         }
     }
 }
