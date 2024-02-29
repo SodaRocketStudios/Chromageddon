@@ -84,21 +84,23 @@ namespace SRS.Combat
 				critParticles?.PlayParticles(transform.position, Quaternion.identity, Color.red);
 			}
 			
-			Hit(damage, damageType);
+			Hit(damage, damageType, false);
 
 			TryHitEffects?.Invoke(attackerStats);
 		}
 
-		public void Hit(float damage, DamageType damageType)
+		public void Hit(float damage, DamageType damageType, bool checkDodge = true)
 		{
 			if(Time.time - lastHitTime > immunityTime)
 			{
-				// TODO -- make sure not to check dodge twice.
-				// if(DamageCalculator.CheckDodge(stats["Dodge"].Value))
-				// {
-				// 	OnDodge?.Invoke();
-				// 	return;
-				// }
+				if(checkDodge)
+				{
+					if(DamageCalculator.CheckDodge(stats["Dodge"].Value))
+					{
+						OnDodge?.Invoke();
+						return;
+					}
+				}
 
 				if(impulseSource != null)
 				{
