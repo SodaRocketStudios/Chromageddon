@@ -6796,7 +6796,7 @@ MonoBehaviour:
     format: 0
   - name: Chain Lightning Chance
     baseValue: 1
-    percentageModifier: 1
+    percentageModifier: 0
     hasMaximum: 1
     maximumValue: 1
     hasMinimum: 0
