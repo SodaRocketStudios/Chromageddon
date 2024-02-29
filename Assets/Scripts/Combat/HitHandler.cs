@@ -84,7 +84,7 @@ namespace SRS.Combat
 				critParticles?.PlayParticles(transform.position, Quaternion.identity, Color.red);
 			}
 			
-			Hit(damage, damageType, false);
+			Hit(damage, damageType);
 
 			TryHitEffects?.Invoke(attackerStats);
 		}
@@ -126,8 +126,15 @@ namespace SRS.Combat
 			{
 				health.FilledChange(1);
 			}
-			
-			health.FilledChange(newMax);
+
+			if(newMax > health.Value.Max)
+			{
+				health.FilledChange(newMax);
+			}
+			else
+			{
+				health.UnfilledChange(newMax);
+			}
 		}
 	}
 }
