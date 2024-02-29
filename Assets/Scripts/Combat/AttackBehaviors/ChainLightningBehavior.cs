@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UIElements;
+using SRS.Utils.ObjectPooling;
+using SRS.Utils.VFX;
 
 namespace SRS.Combat
 {
@@ -9,6 +12,8 @@ namespace SRS.Combat
 		[SerializeField] private float damage;
 
 		[SerializeField] private float bounceDistance;
+
+        [SerializeField] private ObjectPool lightningPool;
 
         private int bounces;
 
@@ -75,6 +80,10 @@ namespace SRS.Combat
 				}
 
 				// TODO -- draw lightning between targets;
+
+                LineDrawer temp = lightningPool.Get() as LineDrawer;
+
+                temp.Initialize(startPosition, hit.transform.position, 0.5f);
 
 				hit.GetComponent<HitHandler>()?.Hit(damage, DamageType.Electric);
 

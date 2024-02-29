@@ -6787,7 +6787,7 @@ MonoBehaviour:
     minimumValue: 0
     format: 1
   - name: Chain Lightning Bounces
-    baseValue: 1
+    baseValue: 2
     percentageModifier: 1
     hasMaximum: 0
     maximumValue: 1
@@ -6796,7 +6796,7 @@ MonoBehaviour:
     format: 0
   - name: Chain Lightning Chance
     baseValue: 1
-    percentageModifier: 0
+    percentageModifier: 1
     hasMaximum: 1
     maximumValue: 1
     hasMinimum: 0
