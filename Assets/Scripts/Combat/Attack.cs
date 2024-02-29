@@ -3,6 +3,7 @@ using SRS.Utils.ObjectPooling;
 using SRS.Stats;
 using System.Threading;
 using SRS.Utils.VFX;
+using Codice.CM.Client.Differences.Graphic;
 
 namespace SRS.Combat
 {
@@ -69,7 +70,7 @@ namespace SRS.Combat
 			animator = GetComponent<Animator>();
 		}
 
-		public void Initialize(AttackData data, GameObject attacker)
+		public void Initialize(AttackData data, GameObject attacker, Transform initialHitObject = null)
 		{
 			Behavior = data.Behavior;
 
@@ -93,7 +94,7 @@ namespace SRS.Combat
 
 			lifetime = Behavior.GetLifetime(this);
 
-			LastHitObject = null;
+			LastHitObject = initialHitObject;
 
 			Behavior.OnStart(this);
 

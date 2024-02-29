@@ -14,7 +14,7 @@ namespace SRS.Combat.HitEffects
         {
 			Attack attack = attackPool.Get(target.transform.position) as Attack;
 
-            attack.Initialize(attackData, source);
+            attack.Initialize(attackData, source, target.transform);
         }
     }
 }

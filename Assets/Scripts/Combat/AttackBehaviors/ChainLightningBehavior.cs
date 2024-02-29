@@ -79,13 +79,15 @@ namespace SRS.Combat
 					continue;
 				}
 
-				// TODO -- draw lightning between targets;
+				// TODO -- jump to random target
 
                 LineDrawer temp = lightningPool.Get() as LineDrawer;
 
                 temp.Initialize(startPosition, hit.transform.position, 0.5f);
 
 				hit.GetComponent<HitHandler>()?.Hit(damage, DamageType.Electric);
+
+                attack.LastHitObject = hit.transform;
 
 				bounces--;
 
