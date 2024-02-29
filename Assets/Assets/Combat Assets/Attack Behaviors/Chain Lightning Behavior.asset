@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chain Lightning Behavior
   m_EditorClassIdentifier: 
   damage: 5
-  bounceDistance: 10
+  bounceDistance: 7.5
   lightningPool: {fileID: 11400000, guid: e5b478be0a726fc4d90bb1c34f3f908c, type: 2}

@@ -17,6 +17,8 @@ namespace SRS.Combat
 
         [SerializeField] private ObjectPool lightningPool;
 
+        [SerializeField] private float VFXLifetime;
+
         private System.Random random = new(Guid.NewGuid().GetHashCode());
 
         private int bounces;
@@ -98,7 +100,7 @@ namespace SRS.Combat
 
             LineDrawer lightningFX = lightningPool.Get() as LineDrawer;
 
-            lightningFX.Initialize(startPosition, target.transform.position, 0.5f);
+            lightningFX.Initialize(startPosition, target.transform.position, VFXLifetime);
 
             target.GetComponent<HitHandler>()?.Hit(damage, DamageType.Electric);
 
