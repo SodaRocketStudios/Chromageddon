@@ -6593,7 +6593,7 @@ MonoBehaviour:
     maximumValue: 0
     hasMinimum: 0
     minimumValue: 0
-    format: 2
+    format: 0
   - name: Burn Chance
     baseValue: 1
     percentageModifier: 0
