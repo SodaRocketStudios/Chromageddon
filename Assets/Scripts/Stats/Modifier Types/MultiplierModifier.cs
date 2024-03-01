@@ -9,7 +9,13 @@ namespace SRS.Stats
         {
             if(value != 0)
             {
-                container[affectedStat].PercentageModifier *= value;
+                if(container[affectedStat].Format == StatFormat.Percentage)
+                {
+                    container.PercentageModifier *= value;
+                    return;
+                }
+
+                container[affectedStat].BaseValue *= value;
             }
             else
             {
@@ -21,7 +27,13 @@ namespace SRS.Stats
         {
             if(value != 0)
             {
-                container[affectedStat].PercentageModifier /= value;
+                if(container[affectedStat].Format == StatFormat.Percentage)
+                {
+                    container.PercentageModifier /= value;
+                    return;
+                }
+
+                container[affectedStat].BaseValue /= value;
             }
             else
             {
