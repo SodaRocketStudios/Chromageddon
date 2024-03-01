@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using SRS.Statistics;
+using SRS.Stats;
 
 namespace SRS.Progression
 {
@@ -43,7 +44,14 @@ namespace SRS.Progression
             }
         }
 
+        private StatContainer stats;
+
         private float requirementMultiplier = 1.2f;
+
+        private void Awake()
+        {
+            stats = GetComponent<StatContainer>();
+        }
 
         private void Start()
         {
@@ -53,7 +61,7 @@ namespace SRS.Progression
 
         public void AddXP(float amount)
         {
-            currentXP += amount;
+            currentXP += amount*stats["XP Gain"].Value;
 
             if(currentXP >= requiredXP)
             {

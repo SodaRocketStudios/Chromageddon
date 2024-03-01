@@ -6810,6 +6810,14 @@ MonoBehaviour:
     hasMinimum: 0
     minimumValue: 0
     format: 0
+  - name: XP Gain
+    baseValue: 1
+    percentageModifier: 1
+    hasMaximum: 0
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+    format: 0
 --- !u!1 &997797054
 GameObject:
   m_ObjectHideFlags: 0
