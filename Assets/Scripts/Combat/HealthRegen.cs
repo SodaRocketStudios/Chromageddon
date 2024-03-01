@@ -10,7 +10,7 @@ namespace SRS.Combat
 
 		[SerializeField] private float regenInterval;
 
-		private Health health;
+		private HitHandler hitHandler;
 
 		private StatContainer stats;
 
@@ -20,7 +20,7 @@ namespace SRS.Combat
 
 		private void Awake()
 		{
-			health = GetComponent<Health>();
+			hitHandler = GetComponent<HitHandler>();
 			stats = GetComponent<StatContainer>();
 		}
 
@@ -39,7 +39,7 @@ namespace SRS.Combat
 
 		private async void Regen(CancellationToken token)
 		{
-			while(health.Value.Current > 0)
+			while(hitHandler.Health.Value.Current > 0)
 			{
 				if(token.IsCancellationRequested)
 				{
@@ -48,7 +48,7 @@ namespace SRS.Combat
 
 				if(timer >= regenInterval)
 				{
-					health.Heal(stats["Health Regen"].Value*regenMultiplier);
+					hitHandler.Health.Heal(stats["Health Regen"].Value*regenMultiplier);
 					timer = 0;
 				}
 
