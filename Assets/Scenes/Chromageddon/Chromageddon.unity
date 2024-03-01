@@ -6803,7 +6803,7 @@ MonoBehaviour:
     minimumValue: 0
     format: 1
   - name: Health Regen
-    baseValue: 0
+    baseValue: 10
     percentageModifier: 1
     hasMaximum: 0
     maximumValue: 1
@@ -11455,6 +11455,7 @@ GameObject:
   - component: {fileID: 1632691828}
   - component: {fileID: 1632691836}
   - component: {fileID: 1632691831}
+  - component: {fileID: 1632691839}
   - component: {fileID: 1632691809}
   - component: {fileID: 1632691822}
   - component: {fileID: 1632691808}
@@ -12462,6 +12463,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb777b53597285488ac038b3811234c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1632691839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632691807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24f183b747588d46b29b6b26e733794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regenMultiplier: 0.1
+  regenInterval: 1
 --- !u!1 &1645049335
 GameObject:
   m_ObjectHideFlags: 0

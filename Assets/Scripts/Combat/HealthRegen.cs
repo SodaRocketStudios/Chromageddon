@@ -30,16 +30,25 @@ namespace SRS.Combat
 			tokenSource = new();
 
 			Regen(tokenSource.Token);
+
+			hitHandler.Health.OnDeath += Cancel;
 		}
 
 		private void OnDisable()
+		{
+			tokenSource.Cancel();
+
+			hitHandler.Health.OnDeath -= Cancel;
+		}
+
+		private void Cancel()
 		{
 			tokenSource.Cancel();
 		}
 
 		private async void Regen(CancellationToken token)
 		{
-			while(hitHandler.Health.Value.Current > 0)
+			while(true)
 			{
 				if(token.IsCancellationRequested)
 				{
@@ -48,6 +57,7 @@ namespace SRS.Combat
 
 				if(timer >= regenInterval)
 				{
+					Debug.Log("Heal");
 					hitHandler.Health.Heal(stats["Health Regen"].Value*regenMultiplier);
 					timer = 0;
 				}
