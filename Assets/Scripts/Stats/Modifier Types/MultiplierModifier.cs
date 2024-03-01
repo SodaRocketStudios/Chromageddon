@@ -11,7 +11,7 @@ namespace SRS.Stats
             {
                 if(container[affectedStat].Format == StatFormat.Percentage)
                 {
-                    container.PercentageModifier *= value;
+                    container[affectedStat].PercentageModifier *= value;
                     return;
                 }
 
@@ -29,7 +29,7 @@ namespace SRS.Stats
             {
                 if(container[affectedStat].Format == StatFormat.Percentage)
                 {
-                    container.PercentageModifier /= value;
+                    container[affectedStat].PercentageModifier /= value;
                     return;
                 }
 
