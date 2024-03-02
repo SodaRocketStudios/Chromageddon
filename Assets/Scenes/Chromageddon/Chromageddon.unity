@@ -6818,6 +6818,22 @@ MonoBehaviour:
     hasMinimum: 0
     minimumValue: 0
     format: 0
+  - name: Explosion Radius
+    baseValue: 2
+    percentageModifier: 1
+    hasMaximum: 0
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+    format: 2
+  - name: Explosion Chance
+    baseValue: 2
+    percentageModifier: 0
+    hasMaximum: 0
+    maximumValue: 1
+    hasMinimum: 0
+    minimumValue: 0
+    format: 1
 --- !u!1 &997797054
 GameObject:
   m_ObjectHideFlags: 0
