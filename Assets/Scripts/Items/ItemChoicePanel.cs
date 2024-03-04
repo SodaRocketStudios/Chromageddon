@@ -11,6 +11,7 @@ using SRS.Progression;
 using SRS.UI;
 using SRS.Utils.Curves;
 using SRS.Stats;
+using UnityEngine.Events;
 
 namespace SRS.Items
 {
@@ -19,6 +20,8 @@ namespace SRS.Items
 		[SerializeField] private GameObject itemButtonPrefab;
 
 		[SerializeField] private ItemDatabase itemDatabase;
+
+		public UnityEvent OnClose;
 
 		private DescriptionFormat descriptionFormat;
 		public DescriptionFormat DescriptionFormat
@@ -169,6 +172,8 @@ namespace SRS.Items
 			SetButtonsActive(false);
 
 			isActive = false;
+
+			OnClose?.Invoke();
 		}
 
 		public void ToggleFormat(InputAction.CallbackContext context)

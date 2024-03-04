@@ -6803,7 +6803,7 @@ MonoBehaviour:
     minimumValue: 0
     format: 1
   - name: Health Regen
-    baseValue: 0
+    baseValue: 10
     percentageModifier: 1
     hasMaximum: 0
     maximumValue: 1
@@ -10630,7 +10630,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1519798211}
   - component: {fileID: 1519798215}
-  - component: {fileID: 1519798218}
   - component: {fileID: 1519798216}
   - component: {fileID: 1519798217}
   - component: {fileID: 1519798214}
@@ -10717,6 +10716,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemButtonPrefab: {fileID: 2355201087118052938, guid: ebd8ca1bb39ab5d4b88e58815022a3d4, type: 3}
   itemDatabase: {fileID: 11400000, guid: a40069a06d827674ca9bb7383300064c, type: 2}
+  OnClose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 874804206}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1519798216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10757,18 +10771,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
---- !u!114 &1519798218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1519798210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d44d6014012aab49b4bf71184b90f90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1529035696
 GameObject:
   m_ObjectHideFlags: 0
