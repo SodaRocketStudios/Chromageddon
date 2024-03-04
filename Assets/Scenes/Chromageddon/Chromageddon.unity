@@ -6828,7 +6828,7 @@ MonoBehaviour:
     format: 2
   - name: Explosion Chance
     baseValue: 2
-    percentageModifier: 1
+    percentageModifier: 0
     hasMaximum: 0
     maximumValue: 1
     hasMinimum: 0
