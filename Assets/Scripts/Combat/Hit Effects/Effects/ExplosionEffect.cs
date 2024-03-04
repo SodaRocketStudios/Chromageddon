@@ -1,5 +1,6 @@
-using SRS.Stats;
 using UnityEngine;
+using SRS.Stats;
+using SRS.Utils.VFX;
 
 namespace SRS.Combat.HitEffects
 {
@@ -8,15 +9,22 @@ namespace SRS.Combat.HitEffects
     {
         [SerializeField] private float damage;
 
+        [SerializeField] private ParticleManager particleManager;
+
         public override void Apply(GameObject source, GameObject target)
         {
             float radius = source.GetComponent<StatContainer>()["Explosion Radius"].Value;
 
-            Collider2D[] hits = Physics2D.OverlapCircleAll(target.transform.position, radius);
+            ParticleSystem system = particleManager.PlayParticles(target.transform.position, Quaternion.identity);
+
+            ParticleSystem.MainModule mainModule = system.main;
+            mainModule.startSize = radius*2;
+
+            Collider2D[] hits = Physics2D.OverlapCircleAll(target.transform.position, radius, LayerMask.GetMask(LayerMask.LayerToName(target.layer)));
 
             foreach(Collider2D hit in hits)
             {
-                hit.GetComponent<HitHandler>().Hit(damage, DamageType.Physical);
+                hit.GetComponent<HitHandler>()?.Hit(damage, DamageType.Physical);
             }
         }
     }

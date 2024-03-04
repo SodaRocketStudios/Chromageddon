@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
   damage: 10
+  particleManager: {fileID: 11400000, guid: 988265c22be0c7947ae04662b92acf00, type: 2}

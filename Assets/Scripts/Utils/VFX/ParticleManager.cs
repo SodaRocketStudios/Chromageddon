@@ -8,10 +8,11 @@ namespace SRS.Utils.VFX
 	{
 		[SerializeField] private ObjectPool pool;
 
-		public void PlayParticles(Vector3 position, Quaternion rotation)
+		public ParticleSystem PlayParticles(Vector3 position, Quaternion rotation)
 		{
 			ParticleSystem system = GetSystem(position, rotation);
 			StartParticles(system);
+			return system;
 		}
 
 		public ParticleSystem PlayParticles(Vector3 position, Quaternion rotation, Color color)
