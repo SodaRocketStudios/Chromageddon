@@ -31,25 +31,32 @@ namespace SRS.UI
 			CheckForLinkAtMousePosition();
 		}
 
+		private void OnDisable()
+		{
+			activeElement = -1;
+		}
+
 		private void CheckForLinkAtMousePosition()
 		{
 			Vector3 mousePosition = Mouse.current.position.ReadValue();
 
 			if(!TMP_TextUtilities.IsIntersectingRectTransform(textBoxTransform, mousePosition, mainCamera))
 			{
+				if(activeElement < 0)
+				{
+					return;
+				}
+
 				activeElement = -1;
+				OnPointerExit?.Invoke();
 				return;
 			}
 
 			int intersectingLink = TMP_TextUtilities.FindIntersectingLink(textBox, mousePosition, mainCamera);
 
-			if(intersectingLink != activeElement)
+			if(intersectingLink != activeElement && activeElement >= 0)
 			{
 				OnPointerExit?.Invoke();
-			}
-			else
-			{
-				return;
 			}
 
 			activeElement = intersectingLink;

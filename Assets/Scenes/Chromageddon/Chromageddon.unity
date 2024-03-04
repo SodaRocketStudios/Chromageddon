@@ -6817,7 +6817,7 @@ MonoBehaviour:
     maximumValue: 1
     hasMinimum: 0
     minimumValue: 0
-    format: 2
+    format: 0
   - name: Explosion Radius
     baseValue: 2
     percentageModifier: 1
