@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00c0f7a0fa11504eb0d2b8ea32bfcc5, type: 3}
   m_Name: Explosion Particle Manager
   m_EditorClassIdentifier: 
-  pool: {fileID: 11400000, guid: 0e1e0fba682aee64ea51d649b1ae2d5c, type: 2}
+  pool: {fileID: 11400000, guid: 5f000f712fceb5f47aacfefa11681b84, type: 2}

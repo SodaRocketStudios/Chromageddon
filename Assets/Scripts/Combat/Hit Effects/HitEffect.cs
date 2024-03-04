@@ -33,7 +33,12 @@ namespace SRS.Combat.HitEffects
 			ParticleSystem system = particleManager?.PlayParticles(target.transform.position, Quaternion.identity, particleColor);
 			if(system != null)
 			{
-				system.GetComponent<TargetFollower>().Target = target.transform;
+				TargetFollower follower = system.GetComponent<TargetFollower>();
+				if(follower != null)
+				{
+					follower.Target = target.transform;
+				}
+				
 				target.GetComponent<HitHandler>().Health.OnDeath += system.GetComponent<PooledObject>().ReturnToPool;
 			}
 		}

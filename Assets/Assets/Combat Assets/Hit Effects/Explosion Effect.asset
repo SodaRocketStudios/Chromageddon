@@ -17,5 +17,5 @@ MonoBehaviour:
   procStat: Explosion Chance
   effects:
   - {fileID: 11400000, guid: a2a1fedbebfd6e74da0f8556ca590bbb, type: 2}
-  particleManager: {fileID: 0}
-  particleColor: {r: 0, g: 0, b: 0, a: 0}
+  particleManager: {fileID: 11400000, guid: 988265c22be0c7947ae04662b92acf00, type: 2}
+  particleColor: {r: 1, g: 1, b: 1, a: 1}
