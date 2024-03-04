@@ -3,7 +3,6 @@ using SRS.Utils.ObjectPooling;
 using SRS.Stats;
 using System.Threading;
 using SRS.Utils.VFX;
-using Codice.CM.Client.Differences.Graphic;
 
 namespace SRS.Combat
 {

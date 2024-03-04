@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
+  m_Name: Balanced Macros
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  modifiers:
+  - {fileID: 11400000, guid: 2865dffc99cf8ca4b9a675888c5db931, type: 2}
+  - {fileID: 11400000, guid: 733728d65fda5554eb675a0d49e9c83e, type: 2}
+  - {fileID: 11400000, guid: 9595452bb9cc4a247986d201f0b1e995, type: 2}
+  - {fileID: 11400000, guid: 6dda23509a8a8794bb2997f5dfd52860, type: 2}
+  behaviors: []
+  rarity: {fileID: 11400000, guid: 14204308272b8f943ae27b7b9ace7ad6, type: 2}
+  tags:
+  - Health
+  - Damage
+  - Speed
+  - Health Regen

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
+  m_Name: Comically Large Bomb
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  modifiers:
+  - {fileID: 11400000, guid: 4a8e789b4bf8ab94b8c08bec8928bae9, type: 2}
+  - {fileID: 11400000, guid: df1f1b337aef9d14397a1ad7dab1aadc, type: 2}
+  - {fileID: 11400000, guid: 284b615a8cf6f4b40856b0f085232be3, type: 2}
+  behaviors: []
+  rarity: {fileID: 11400000, guid: 476db63f95ebbaf46bda5df332072d00, type: 2}
+  tags:
+  - Explosion

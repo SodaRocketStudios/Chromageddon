@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
+  m_Name: Ritalin
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  modifiers:
+  - {fileID: 11400000, guid: f5f00d031386f62499ed41193ecf7a3a, type: 2}
+  - {fileID: 11400000, guid: 60d7f940d1a328346b00123992f12a8d, type: 2}
+  - {fileID: 11400000, guid: 7ca84aa02177fbc419ce9b2a3189a8fc, type: 2}
+  behaviors: []
+  rarity: {fileID: 11400000, guid: 476db63f95ebbaf46bda5df332072d00, type: 2}
+  tags:
+  - XP Gain
+  - Dodge

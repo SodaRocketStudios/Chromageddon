@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dedd30cc11f6b46bfaba3275a721a8, type: 3}
+  m_Name: Demolition Expert
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  modifiers:
+  - {fileID: 11400000, guid: a9b0247fe467c0b4c9dde2d40281c009, type: 2}
+  - {fileID: 11400000, guid: 20af4597b3c9a7a47a32fc8cff684ad3, type: 2}
+  behaviors: []
+  rarity: {fileID: 11400000, guid: 14204308272b8f943ae27b7b9ace7ad6, type: 2}
+  tags:
+  - Explosion
