@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SRS.Achievements
 {
-	public class Condition : ScriptableObject
+	public abstract class Condition : ScriptableObject
 	{
 		public string Name;
 
