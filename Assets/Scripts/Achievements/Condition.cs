@@ -13,6 +13,6 @@ namespace SRS.Achievements
 			get => isSatisfied;
 		}
 
-		public Action<Condition> OnMet;
+		public static Action<Condition> OnMet;
 	}
 }

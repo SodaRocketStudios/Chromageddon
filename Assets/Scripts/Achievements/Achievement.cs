@@ -14,13 +14,18 @@ namespace SRS.Achievements
 
 		private bool hasBeenAwarded = false;
 
-		public void CheckConditions()
+		public void Initialize()
+		{
+			Condition.OnMet += CheckConditions;
+		}
+
+		public void CheckConditions(Condition triggeringCondition)
 		{
 			if(hasBeenAwarded)
 			{
 				return;
 			}
-			
+
 			foreach(Condition condition in conditions)
 			{
 				if(condition.IsSatisfied == false)
@@ -36,6 +41,8 @@ namespace SRS.Achievements
 		{
 			hasBeenAwarded = true;
 			AchievementAwarded?.Invoke(this);
+
+			Condition.OnMet -= CheckConditions;
 
 			// TODO -- save this achievement.
 		}
