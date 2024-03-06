@@ -16,6 +16,11 @@ namespace SRS.Achievements
 
 		public void CheckConditions()
 		{
+			if(hasBeenAwarded)
+			{
+				return;
+			}
+			
 			foreach(Condition condition in conditions)
 			{
 				if(condition.IsSatisfied == false)
