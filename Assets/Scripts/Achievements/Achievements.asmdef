@@ -1,7 +1,9 @@
 {
     "name": "Achievements",
     "rootNamespace": "SRS.Achievements",
-    "references": [],
+    "references": [
+        "GUID:911bcfa7c7c0f334085fa7ab70548e4e"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

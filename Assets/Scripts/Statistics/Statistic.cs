@@ -12,7 +12,6 @@ namespace SRS.Statistics
 			get => name;
 		}
 
-
 		private float value;
 		public float Value
 		{
@@ -23,8 +22,11 @@ namespace SRS.Statistics
 			set
 			{
 				this.value = value;
+				OnValueChange?.Invoke(value);
 			}
 		}
+
+		public Action<float> OnValueChange;
 
 		[SerializeField] private float defaultValue;
 
