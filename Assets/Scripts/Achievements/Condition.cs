@@ -5,7 +5,11 @@ namespace SRS.Achievements
 {
 	public abstract class Condition : ScriptableObject
 	{
-		public string Name;
+		[SerializeField] private new string name;
+		public string Name
+		{
+			get => name;
+		}
 
 		private bool isSatisfied;
 		public bool IsSatisfied

@@ -5,8 +5,17 @@ namespace SRS.Achievements
 {
 	public class Achievement : ScriptableObject
 	{
-		public string Name;
-		public string Description;
+		[SerializeField] private new string name;
+		public string Name
+		{
+			get => name;
+		}
+
+		[SerializeField] private string description;
+		public string Description
+		{
+			get => description;
+		}
 
 		public static Action<Achievement> AchievementAwarded;
 
@@ -17,6 +26,7 @@ namespace SRS.Achievements
 		public void Initialize()
 		{
 			Condition.OnMet += CheckConditions;
+			Load();
 		}
 
 		public void CheckConditions(Condition triggeringCondition)
@@ -44,9 +54,17 @@ namespace SRS.Achievements
 
 			Condition.OnMet -= CheckConditions;
 
-			// TODO -- save this achievement.
+			Save();
 		}
 
-		// TODO --  add save and load.
+		private void Save()
+		{
+			// TODO -- Save
+		}
+
+		private void Load()
+		{
+			// TODO -- Load
+		}
 	}
 }
