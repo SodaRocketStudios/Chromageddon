@@ -3,14 +3,9 @@ using UnityEngine;
 
 namespace SRS.Achievements
 {
+	[CreateAssetMenu(menuName = "Achievement", fileName = "New Achievement")]
 	public class Achievement : ScriptableObject
 	{
-		[SerializeField] private new string name;
-		public string Name
-		{
-			get => name;
-		}
-
 		[SerializeField] private string description;
 		public string Description
 		{
