@@ -5,23 +5,25 @@ namespace SRS.Achievements
 {
 	public abstract class Condition : ScriptableObject
 	{
-		private bool isSatisfied;
+		private bool isSatisfied = false;
 		public bool IsSatisfied
 		{
 			get => isSatisfied;
 			set
 			{
+				Debug.Log($"Satisfied: {value}, {isSatisfied}");
 				if(isSatisfied == value)
 				{
 					return;
 				}
 
-				if(value == true)
+				isSatisfied = value;
+
+				if(isSatisfied == true)
 				{
+					Debug.Log("Condition Met");
 					OnMet?.Invoke(this);
 				}
-				
-				isSatisfied = value;
 			}
 		}
 
@@ -31,9 +33,15 @@ namespace SRS.Achievements
 
 		public static Action<Condition> OnMet;
 
-		public abstract void Initialize();
+		public void Initialize()
+		{
+			isSatisfied = false;
+			Init();
+		}
 
 		public abstract void Test(float value);
+		
+		protected abstract void Init();
 	}
 
 	public enum ComparisonOperator

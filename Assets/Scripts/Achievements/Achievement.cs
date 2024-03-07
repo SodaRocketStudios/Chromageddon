@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SRS.Achievements
 {
-	[CreateAssetMenu(menuName = "Achievement", fileName = "New Achievement")]
+	[CreateAssetMenu(menuName = "Achievements/Achievement", fileName = "New Achievement")]
 	public class Achievement : ScriptableObject
 	{
 		[SerializeField] private string description;
@@ -20,12 +20,26 @@ namespace SRS.Achievements
 
 		public void Initialize()
 		{
-			Condition.OnMet += CheckConditions;
+			hasBeenAwarded = false;
+			
 			Load();
+
+			if(hasBeenAwarded)
+			{
+				return;
+			}
+
+			Condition.OnMet += CheckConditions;
+			
+			foreach(Condition condition in conditions)
+			{
+				condition.Initialize();
+			}
 		}
 
 		public void CheckConditions(Condition triggeringCondition)
 		{
+			Debug.Log("Checking Achievement");
 			if(hasBeenAwarded)
 			{
 				return;
@@ -44,6 +58,7 @@ namespace SRS.Achievements
 
 		private void Award()
 		{
+			Debug.Log("Awarded");
 			hasBeenAwarded = true;
 			AchievementAwarded?.Invoke(this);
 
