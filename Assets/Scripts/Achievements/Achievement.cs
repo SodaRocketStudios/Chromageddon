@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
+using SRS.DataPersistence;
 
 namespace SRS.Achievements
 {
 	[CreateAssetMenu(menuName = "Achievements/Achievement", fileName = "New Achievement")]
-	public class Achievement : ScriptableObject
+	public class Achievement : ScriptableObject, IPersist
 	{
 		[SerializeField] private string description;
 		public string Description
@@ -21,8 +22,6 @@ namespace SRS.Achievements
 		public void Initialize()
 		{
 			hasBeenAwarded = false;
-			
-			Load();
 
 			if(hasBeenAwarded)
 			{
@@ -39,7 +38,6 @@ namespace SRS.Achievements
 
 		public void CheckConditions(Condition triggeringCondition)
 		{
-			Debug.Log("Checking Achievement");
 			if(hasBeenAwarded)
 			{
 				return;
@@ -64,17 +62,29 @@ namespace SRS.Achievements
 
 			Condition.OnMet -= CheckConditions;
 
-			Save();
+			PersistenceSystem.Instance.Save("Save");
 		}
 
-		private void Save()
-		{
-			// TODO -- Save
-		}
+        public object CaptureState()
+        {
+            return new AchievementData(hasBeenAwarded);
+        }
 
-		private void Load()
+        public void RestoreState(object state)
+        {
+            AchievementData data = (AchievementData)state;
+
+			hasBeenAwarded = data.IsAwarded;
+        }
+    }
+
+	public struct AchievementData
+	{
+		public bool IsAwarded;
+
+		public AchievementData(bool isAwarded)
 		{
-			// TODO -- Load
+			IsAwarded = isAwarded;
 		}
 	}
 }

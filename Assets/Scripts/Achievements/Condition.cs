@@ -11,7 +11,6 @@ namespace SRS.Achievements
 			get => isSatisfied;
 			set
 			{
-				Debug.Log($"Satisfied: {value}, {isSatisfied}");
 				if(isSatisfied == value)
 				{
 					return;
@@ -21,7 +20,6 @@ namespace SRS.Achievements
 
 				if(isSatisfied == true)
 				{
-					Debug.Log("Condition Met");
 					OnMet?.Invoke(this);
 				}
 			}

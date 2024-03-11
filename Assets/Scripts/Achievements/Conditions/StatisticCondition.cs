@@ -10,7 +10,6 @@ namespace SRS.Achievements
 
         public override void Test(float value)
         {
-			Debug.Log("Testing Condition");
 			switch(comparison)
 			{
 				case ComparisonOperator.Less:

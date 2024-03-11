@@ -57,7 +57,7 @@ namespace SRS.DataPersistence
 
 		private string BuildPath(string fileName)
 		{
-			return Path.Combine(Application.persistentDataPath, fileName);
+			return Path.Combine(Application.persistentDataPath, $"{fileName}.sav");
 		}
     }
 }

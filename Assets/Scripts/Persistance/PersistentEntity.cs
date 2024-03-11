@@ -29,7 +29,8 @@ namespace SRS.DataPersistence
 
 		public void RestoreState(object state)
 		{
-			Dictionary<string, object> stateDict = (Dictionary<string, object>)state;
+			Dictionary<string, object> stateDict = state as Dictionary<string, object>;
+			
             foreach (IPersist saveable in GetComponents<IPersist>())
             {
                 string typeString = saveable.GetType().ToString();
@@ -62,7 +63,7 @@ namespace SRS.DataPersistence
         }
 
 #if UNITY_EDITOR
-        private void Update()
+        private void OnValidate()
 		{
             if (Application.IsPlaying(gameObject)) return;
             if (string.IsNullOrEmpty(gameObject.scene.path)) return;
