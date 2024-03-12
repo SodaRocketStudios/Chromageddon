@@ -38,17 +38,13 @@ namespace SRS.DataPersistence
 
 		public void Save(string saveFile)
 		{
-			Debug.Log("Saving");
 			Dictionary<string, object> state = new();
 			CaptureState(state);
 			
 			string data = serializer.Serialize(state);
 
-			Debug.Log(data);
-
 			if(encryptData)
 			{
-				Debug.Log("encrypt");
 				data = EncryptDecrypt(data);
 			}
 
@@ -57,7 +53,6 @@ namespace SRS.DataPersistence
 
 		public void Load(string saveFile)
 		{
-			Debug.Log("Load");
 			string data = dataHandler.Read(saveFile);
 
 			if(string.IsNullOrEmpty(data))
@@ -67,7 +62,6 @@ namespace SRS.DataPersistence
 
 			if(encryptData)
 			{
-				Debug.Log("decrypt");
 				data = EncryptDecrypt(data);
 			}
 
@@ -90,7 +84,6 @@ namespace SRS.DataPersistence
 		{
 			if(state == null)
 			{
-				Debug.Log("Null");
 				return;
 			}
 
