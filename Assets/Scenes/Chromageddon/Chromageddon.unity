@@ -8613,6 +8613,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameTextBox: {fileID: 938870771}
   DescriptionTextBox: {fileID: 234853260}
+  travelTime: 0.5
+  dwellTime: 2
 --- !u!1 &1118091713
 GameObject:
   m_ObjectHideFlags: 0
