@@ -65,8 +65,6 @@ namespace SRS.DataPersistence
 				data = EncryptDecrypt(data);
 			}
 
-			Debug.Log(data);
-
 			Dictionary<string, object> state = serializer.Deserialize(data);
 
 			RestoreState(state);
