@@ -102,7 +102,7 @@ namespace SRS.DataPersistence
 
 			for(int i = 0; i < data.Length; i++)
 			{
-				dataBuilder.Append(data[i] ^ encryptionKeyword[i % encryptionKeyword.Length]);
+				dataBuilder.Append((char)((uint)data[i] ^ (uint)encryptionKeyword[i % encryptionKeyword.Length]));
 			}
 
 			return dataBuilder.ToString();
