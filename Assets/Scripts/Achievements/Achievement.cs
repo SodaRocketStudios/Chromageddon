@@ -56,7 +56,6 @@ namespace SRS.Achievements
 
 		private void Award()
 		{
-			Debug.Log("Awarded");
 			hasBeenAwarded = true;
 			AchievementAwarded?.Invoke(this);
 

@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9a96e724cccf33479e8f433715c8df3, type: 3}
-  m_Name: Enemies Killed 1
+  m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
+  m_Name: Run Kills 25
   m_EditorClassIdentifier: 
-  comparison: 3
-  targetValue: 1
-  statistic: Enemies Killed
+  description: 
+  conditions: []
