@@ -12,6 +12,8 @@ namespace SRS.UI
 		[SerializeField] private float travelTime;
 		[SerializeField] private float dwellTime;
 
+		[SerializeField] private Vector2 moveDistance;
+
 		private Vector3 startPosition;
 		private Vector3 showPosition;
 
@@ -26,8 +28,8 @@ namespace SRS.UI
 
 		private void Start()
 		{
-			startPosition = rectTransform.position;
-			showPosition = Vector3.down*(GetComponentInParent<RectTransform>().sizeDelta.y - rectTransform.sizeDelta.y);
+			startPosition = rectTransform.anchoredPosition;
+			showPosition = startPosition + (Vector3)moveDistance;
 		}
 
 		private void OnEnable()
@@ -57,7 +59,7 @@ namespace SRS.UI
 			{
 				timer += Time.deltaTime;
 				t = timer / travelTime;
-				rectTransform.position = Vector3.Lerp(startPosition, showPosition, t);
+				rectTransform.anchoredPosition = Vector3.Lerp(startPosition, showPosition, t);
 				await Awaitable.NextFrameAsync();
 			}
 
@@ -75,7 +77,7 @@ namespace SRS.UI
 			{
 				timer += Time.deltaTime;
 				t = timer / travelTime;
-				rectTransform.position = Vector3.Lerp(showPosition, startPosition, t);
+				rectTransform.anchoredPosition = Vector3.Lerp(showPosition, startPosition, t);
 				await Awaitable.NextFrameAsync();
 			}
 		}
