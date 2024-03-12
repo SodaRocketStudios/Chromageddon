@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SRS.DataPersistence;
+using SRS.Utils;
 using UnityEngine;
 
 namespace SRS.Achievements
@@ -29,7 +30,7 @@ namespace SRS.Achievements
 
         public void RestoreState(object state)
         {
-			Dictionary<string, object> data = state as Dictionary<string, object>;
+			Dictionary<string, object> data = state.ToDictionary<object>();
 
             foreach(Achievement achievement in achievements)
 			{

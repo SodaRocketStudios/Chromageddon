@@ -9367,6 +9367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340889140}
   - component: {fileID: 1340889141}
+  - component: {fileID: 1340889142}
   m_Layer: 0
   m_Name: Achievement Manager
   m_TagString: Untagged
@@ -9403,6 +9404,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievements:
   - {fileID: 11400000, guid: 75c4c92f2a0a663448f405e8f7d4893d, type: 2}
+--- !u!114 &1340889142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340889139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7b95ff6f0297d48a3c5a1942db9a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 69448b44-46d8-4603-a61f-3aaf3dfa7b2c
 --- !u!1001 &1348366072
 PrefabInstance:
   m_ObjectHideFlags: 0

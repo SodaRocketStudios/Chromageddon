@@ -3,7 +3,8 @@
     "rootNamespace": "SRS.Achievements",
     "references": [
         "GUID:911bcfa7c7c0f334085fa7ab70548e4e",
-        "GUID:76d8666f73013dd4d952604a203ffd9f"
+        "GUID:76d8666f73013dd4d952604a203ffd9f",
+        "GUID:3d3bf88e20410054fa7014912fbd1b69"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

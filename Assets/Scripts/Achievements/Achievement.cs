@@ -67,24 +67,14 @@ namespace SRS.Achievements
 
         public object CaptureState()
         {
-            return new AchievementData(hasBeenAwarded);
+            return hasBeenAwarded;
         }
 
         public void RestoreState(object state)
         {
-            AchievementData data = (AchievementData)state;
+            bool data = (bool)state;
 
-			hasBeenAwarded = data.IsAwarded;
+			hasBeenAwarded = data;
         }
     }
-
-	public struct AchievementData
-	{
-		public bool IsAwarded;
-
-		public AchievementData(bool isAwarded)
-		{
-			IsAwarded = isAwarded;
-		}
-	}
 }

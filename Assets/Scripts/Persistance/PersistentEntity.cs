@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using SRS.Utils;
 
 namespace SRS.DataPersistence
 {
@@ -29,7 +30,7 @@ namespace SRS.DataPersistence
 
 		public void RestoreState(object state)
 		{
-			Dictionary<string, object> stateDict = state as Dictionary<string, object>;
+			Dictionary<string, object> stateDict = state.ToDictionary<object>();
 			
             foreach (IPersist saveable in GetComponents<IPersist>())
             {
