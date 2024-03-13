@@ -6,14 +6,6 @@ namespace SRS.Achievements
 	[CreateAssetMenu(menuName = "Achievements/Conditions/LevelCondition", fileName = "New Level Condition")]
     public class LevelCondition : Condition
     {
-		
-        public override void Test(float value)
-        {
-            if(value >= targetValue)
-            {
-                IsSatisfied = true;
-            }
-        }
 
         protected override void Init()
         {

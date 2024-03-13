@@ -37,7 +37,67 @@ namespace SRS.Achievements
 			Init();
 		}
 
-		public abstract void Test(float value);
+		public void Test(float value)
+		{
+			switch(comparison)
+			{
+				case ComparisonOperator.Less:
+
+					if(value < targetValue)
+					{
+						IsSatisfied = true;
+						break;
+					}
+
+					IsSatisfied = false;
+
+					break;
+				case ComparisonOperator.LessOrEqual:
+								
+					if(value <= targetValue)
+					{
+						IsSatisfied = true;
+						break;
+					}
+
+					IsSatisfied = false;
+
+					break;
+				case ComparisonOperator.Equal:
+								
+					if(value == targetValue)
+					{
+						IsSatisfied = true;
+						break;
+					}
+
+					IsSatisfied = false;
+
+					break;
+				case ComparisonOperator.GreaterOrEqual:
+								
+					if(value >= targetValue)
+					{
+						IsSatisfied = true;
+						break;
+					}
+
+					IsSatisfied = false;
+
+					break;
+				case ComparisonOperator.Greater:
+								
+					if(value > targetValue)
+					{
+						IsSatisfied = true;
+						break;
+					}
+
+					IsSatisfied = false;
+
+					break;
+			}
+		}
 		
 		protected abstract void Init();
 	}
