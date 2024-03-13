@@ -16,47 +16,74 @@ namespace SRS.UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            audioSource.PlayOneShot(pointerClickAudio);
+            if(pointerClickAudio != null)
+            {
+                audioSource.PlayOneShot(pointerClickAudio);
+            }
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            audioSource.PlayOneShot(pointerDownAudio);
+            if(pointerDownAudio != null)
+            {
+                audioSource.PlayOneShot(pointerDownAudio);
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            audioSource.PlayOneShot(pointerEnterAudio);
+            if(pointerEnterAudio != null)
+            {
+                audioSource.PlayOneShot(pointerEnterAudio);
+            }
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            audioSource.PlayOneShot(pointerExitAudio);
+            if(pointerExitAudio != null)
+            {
+                audioSource.PlayOneShot(pointerExitAudio);
+            }
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            audioSource.PlayOneShot(pointerUpAudio);
+            if(pointerUpAudio != null)
+            {
+                audioSource.PlayOneShot(pointerUpAudio);
+            }
         }
 
         public void OnSelect(BaseEventData eventData)
         {
-            audioSource.PlayOneShot(pointerEnterAudio);
+            if(pointerEnterAudio != null)
+            {
+                audioSource.PlayOneShot(pointerEnterAudio);
+            }
         }
 
         public void OnSubmit(BaseEventData eventData)
         {
-            audioSource.PlayOneShot(pointerClickAudio);
+            if(pointerClickAudio != null)
+            {
+                audioSource.PlayOneShot(pointerClickAudio);
+            }
         }
 
         public void OnCancel(BaseEventData eventData)
         {
-            audioSource.PlayOneShot(pointerUpAudio);
+            if(pointerUpAudio != null)
+            {
+                audioSource.PlayOneShot(pointerUpAudio);
+            }
         }
 
         public void OnDeselect(BaseEventData eventData)
         {
-            audioSource.PlayOneShot(pointerExitAudio);
+            if(pointerExitAudio != null)
+            {
+                audioSource.PlayOneShot(pointerExitAudio);
+            }
         }
     }
 }

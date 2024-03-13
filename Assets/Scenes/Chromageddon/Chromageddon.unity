@@ -9741,7 +9741,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievements:
   - {fileID: 11400000, guid: 75c4c92f2a0a663448f405e8f7d4893d, type: 2}
-  - {fileID: 11400000, guid: fa31ea0112da2e648bc4b13715329079, type: 2}
   display: {fileID: 1113776793}
 --- !u!114 &1340889142
 MonoBehaviour:
