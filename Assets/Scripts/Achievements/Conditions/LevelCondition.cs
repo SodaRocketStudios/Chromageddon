@@ -1,4 +1,5 @@
 using UnityEngine;
+using SRS.Progression;
 
 namespace SRS.Achievements
 {
@@ -13,7 +14,12 @@ namespace SRS.Achievements
 
         protected override void Init()
         {
-			// GameObject.FindGameObjectsWithTag("Player").CharacterLevel;
+			GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterLevel>().OnLevelChange.AddListener(OnLevelUp);
+        }
+
+        private void OnLevelUp(int level)
+        {
+            Test(level);
         }
     }
 }
