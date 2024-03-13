@@ -9,7 +9,10 @@ namespace SRS.Achievements
 		
         public override void Test(float value)
         {
-            
+            if(value >= targetValue)
+            {
+                IsSatisfied = true;
+            }
         }
 
         protected override void Init()
