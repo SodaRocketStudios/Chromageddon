@@ -99,7 +99,10 @@ namespace SRS.Combat
 					impulseSource.GenerateImpulse(impulseMagnitude);
 				}
 
-				audioSource?.PlayOneShot(hitSound);
+				if(hitSound != null)
+				{
+					audioSource?.PlayOneShot(hitSound);
+				}
 
 				damage = DamageCalculator.Calculate(damage, stats, damageType);
 
