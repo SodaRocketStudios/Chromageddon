@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
-  m_Name: Level 1
+  m_Name: Time Survived 10 min
   m_EditorClassIdentifier: 
-  description: Reach level 1
+  description: Survive for 10 minutes.
   conditions:
-  - {fileID: 11400000, guid: b78f45e71fe8af24d878a95dd375b422, type: 2}
+  - {fileID: 11400000, guid: a077002f84d371f4297f4a544bd86ba3, type: 2}

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
-  m_Name: Test
+  m_Name: Winning the Battle
   m_EditorClassIdentifier: 
-  description: Kill a single enemy
+  description: Kill 25 enemies in a single run.
   conditions:
-  - {fileID: 11400000, guid: f90dd198b2f4b5740a880a566024ca1d, type: 2}
+  - {fileID: 11400000, guid: 8b927962c5260e646b581161dacbddba, type: 2}

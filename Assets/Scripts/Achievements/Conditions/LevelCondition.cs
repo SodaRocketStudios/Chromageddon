@@ -3,7 +3,7 @@ using SRS.Progression;
 
 namespace SRS.Achievements
 {
-	[CreateAssetMenu(menuName = "Achievements/Conditions/LevelCondition", fileName = "New Level Condition")]
+	[CreateAssetMenu(menuName = "Achievements/Conditions/Level Condition", fileName = "New Level Condition")]
     public class LevelCondition : Condition
     {
 

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
   m_Name: Kills 10000
   m_EditorClassIdentifier: 
-  description: Kill an enemy.
+  description: Kill 10000 enemies.
   conditions:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 644ec74aff166c34eb13dda0ea8a1394, type: 2}

@@ -9740,7 +9740,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievements:
-  - {fileID: 11400000, guid: 75c4c92f2a0a663448f405e8f7d4893d, type: 2}
+  - {fileID: 11400000, guid: a6d4d6f3eff339b42bb7d743491dc3ff, type: 2}
+  - {fileID: 11400000, guid: 0f5d53fc2c44b544d9e730bcf7b8541f, type: 2}
+  - {fileID: 11400000, guid: 13e6f9e93058553499bb736cd6a641f5, type: 2}
+  - {fileID: 11400000, guid: f6c6c8733b971bd498d016cf987ebffc, type: 2}
   display: {fileID: 1113776793}
 --- !u!114 &1340889142
 MonoBehaviour:
