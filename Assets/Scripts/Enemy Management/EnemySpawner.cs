@@ -129,6 +129,7 @@ namespace SRS.EnemyManagement
 			deathParticleManager.PlayParticles(enemy.transform.position, Quaternion.identity, enemy.Color);
 
 			StatisticManager.Instance["Enemies Killed"].Value++;
+			StatisticManager.Instance["Total Enemies Killed"].Value++;
 
 			Despawn(enemy);
 		}
