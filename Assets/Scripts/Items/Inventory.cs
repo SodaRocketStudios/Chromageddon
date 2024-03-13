@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using SRS.Stats;
-using System.Collections.Generic;
+using SRS.Statistics;
 
 namespace SRS.Items
 {
@@ -24,6 +25,8 @@ namespace SRS.Items
 			
 			items.Add(item);
 			item.Apply(stats);
+
+			StatisticManager.Instance["Number of Items"].Value++;
 		}
 
 		private void Remove(Item item)
