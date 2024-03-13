@@ -1,5 +1,4 @@
 using UnityEngine;
-using SRS.Achievements;
 using TMPro;
 
 namespace SRS.UI
@@ -24,28 +23,14 @@ namespace SRS.UI
 		private void Awake()
 		{
 			rectTransform = GetComponent<RectTransform>();
-		}
-
-		private void Start()
-		{
 			startPosition = rectTransform.anchoredPosition;
 			showPosition = startPosition + (Vector3)moveDistance;
 		}
 
-		private void OnEnable()
-		{
-			Achievement.AchievementAwarded += Show;
-		}
-
-		private void OnDisable()
-		{
-			Achievement.AchievementAwarded -= Show;
-		}
-
-        private void Show(Achievement achievement)
+        public void Show(string name, string description)
         {
-			NameTextBox.text = achievement.name;
-			DescriptionTextBox.text = achievement.Description;
+			NameTextBox.text = name;
+			DescriptionTextBox.text = description;
 			PlayAnimation();
         }
 

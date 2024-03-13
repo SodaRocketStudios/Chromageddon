@@ -23,11 +23,6 @@ namespace SRS.Achievements
 		{
 			hasBeenAwarded = false;
 
-			if(hasBeenAwarded)
-			{
-				return;
-			}
-
 			Condition.OnMet += CheckConditions;
 			
 			foreach(Condition condition in conditions)
@@ -74,6 +69,11 @@ namespace SRS.Achievements
             bool data = (bool)state;
 
 			hasBeenAwarded = data;
+
+			if(hasBeenAwarded)
+			{
+				Condition.OnMet -= CheckConditions;
+			}
         }
     }
 }

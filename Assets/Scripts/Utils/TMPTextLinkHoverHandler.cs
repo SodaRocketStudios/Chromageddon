@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using System;
 
-namespace SRS.UI
+namespace SRS.Utils
 {
 	public class TMPTextLinkHoverHandler : MonoBehaviour
 	{

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
   m_Name: Run Kills 100
   m_EditorClassIdentifier: 
-  description: 
-  conditions: []
+  description: Kill 100 enemies in a single run.
+  conditions:
+  - {fileID: 11400000, guid: bff7025a33fa40445914af9ec001d925, type: 2}

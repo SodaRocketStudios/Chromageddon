@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SRS.DataPersistence;
+using SRS.UI;
 using SRS.Utils;
 using UnityEngine;
 
@@ -9,12 +10,25 @@ namespace SRS.Achievements
 	{
 		[SerializeField] private Achievement[] achievements;
 
+		[SerializeField] private AchievementDisplay display;
+
         private void Start()
 		{
 			foreach(Achievement achievement in achievements)
 			{
 				achievement.Initialize();
 			}
+		}
+
+		private void OnEnable()
+		{
+			Achievement.AchievementAwarded += ShowAchievement;
+		}
+
+
+        private void OnDisable()
+		{
+			Achievement.AchievementAwarded -= ShowAchievement;
 		}
 
         public object CaptureState()
@@ -37,6 +51,11 @@ namespace SRS.Achievements
 				if(data.ContainsKey(achievement.name))
 					achievement.RestoreState(data[achievement.name]);
 			}
+        }
+
+        public void ShowAchievement(Achievement achievement)
+        {
+            display.Show(achievement.name, achievement.Description);
         }
 	}
 }
