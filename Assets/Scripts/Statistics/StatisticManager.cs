@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using SRS.Utils;
+using SRS.DataPersistence;
 
 namespace SRS.Statistics
 {
-	public class StatisticManager : MonoBehaviour
+	public class StatisticManager : MonoBehaviour, IPersist
 	{
 		public static StatisticManager Instance;
 
@@ -37,15 +39,42 @@ namespace SRS.Statistics
 			}
 		}
 
-		public void AddStatistic(string name, float defaultValue = 0, int decimalPlaces = 0)
+		public bool AddStatistic(string name, float defaultValue = 0, int decimalPlaces = 0, bool isPersistent = false)
 		{
 			if(statistics.ContainsKey(name))
 			{
 				Debug.LogWarning($"Statistic {name} already exists");
-				return;
+				return false;
 			}
 
-			statistics[name] = new(name, defaultValue, decimalPlaces);
+			statistics[name] = new(name, defaultValue, decimalPlaces, isPersistent);
+
+			return true;
 		}
-	}
+
+        public object CaptureState()
+        {
+            Dictionary<string, object> data = new();
+            foreach(Statistic statistic in statistics.Values)
+			{
+				data[statistic.Name] = statistic.CaptureState();
+			}
+
+			return data;
+        }
+
+        public void RestoreState(object state)
+        {
+            Dictionary<string, object> data = state.ToDictionary<object>();
+
+			foreach(string statistic in data.Keys)
+			{
+				if(statistics.ContainsKey(statistic) == false)
+				{
+					statistics[statistic] = new(statistic);
+				}
+					statistics[statistic].RestoreState(data[statistic]);
+			}
+        }
+    }
 }

@@ -1,7 +1,10 @@
 {
     "name": "Statistics",
     "rootNamespace": "SRS.Statistics",
-    "references": [],
+    "references": [
+        "GUID:3d3bf88e20410054fa7014912fbd1b69",
+        "GUID:76d8666f73013dd4d952604a203ffd9f"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

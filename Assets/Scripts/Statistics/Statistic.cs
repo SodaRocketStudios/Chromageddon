@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
+using SRS.DataPersistence;
 
 namespace SRS.Statistics
 {
 	[Serializable]
-	public class Statistic
+	public class Statistic : IPersist
 	{
 		[SerializeField] private string name;
 		public string Name
@@ -32,11 +33,14 @@ namespace SRS.Statistics
 
 		[SerializeField] private int decimalPlaces;
 
-		public Statistic(string name, float defaultValue = 0, int decimalPlaces = 0)
+		[SerializeField] private bool isPersistent; 
+
+		public Statistic(string name, float defaultValue = 0, int decimalPlaces = 0, bool isPersistent = false)
 		{
 			this.defaultValue = defaultValue;
 			this.decimalPlaces = decimalPlaces;
 			this.name = name;
+			this.isPersistent = isPersistent;
 			Reset();
 		}
 
@@ -45,10 +49,52 @@ namespace SRS.Statistics
 			Value = defaultValue;
 		}
 
+		public void SetPersistence(bool persist)
+		{
+			isPersistent = persist;
+		}
+
         public string GetFormattedValue()
         {
 			// TODO -- revisit this to make sure it is what I want.
             return Value.ToString("N" + decimalPlaces);
         }
+
+        public object CaptureState()
+        {
+            return new StatisticData()
+			{
+				Name = name,
+				Value = value,
+				DefaultValue = defaultValue,
+				DecimalPlaces = decimalPlaces,
+				IsPersistent = isPersistent
+			};
+        }
+
+        public void RestoreState(object state)
+        {
+			StatisticData data = (StatisticData)state;
+			
+			name = data.Name;
+			Value = data.Value;
+			defaultValue = data.DefaultValue;
+			decimalPlaces = data.DecimalPlaces;
+			isPersistent = data.IsPersistent;
+
+			if(isPersistent == false)
+			{
+				Reset();
+			}
+        }
+
+		private struct StatisticData
+		{
+			public string Name;
+			public float Value;
+			public float DefaultValue;
+			public int DecimalPlaces;
+			public bool IsPersistent;
+		}
     }
 }
