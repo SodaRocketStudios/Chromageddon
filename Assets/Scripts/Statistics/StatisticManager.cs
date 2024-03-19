@@ -20,7 +20,7 @@ namespace SRS.Statistics
 					return statistics[name];
 				}
 
-				Debug.LogWarning($"Statistic {name} not found, adding to dictionary");
+				// Debug.LogWarning($"Statistic {name} not found, adding to dictionary");
 				AddStatistic(name);
 
 				return statistics[name];
@@ -55,9 +55,10 @@ namespace SRS.Statistics
         public object CaptureState()
         {
             Dictionary<string, object> data = new();
+
             foreach(Statistic statistic in statistics.Values)
 			{
-				data[statistic.Name] = statistic.CaptureState();
+				data.Add(statistic.Name, statistic.CaptureState());
 			}
 
 			return data;
@@ -65,15 +66,16 @@ namespace SRS.Statistics
 
         public void RestoreState(object state)
         {
-            Dictionary<string, object> data = state.ToDictionary<object>();
+            Dictionary<string, object> data = state.ToDictionary();
 
-			foreach(string statistic in data.Keys)
+			foreach(string name in data.Keys)
 			{
-				if(statistics.ContainsKey(statistic) == false)
+				if(statistics.ContainsKey(name) == false)
 				{
-					statistics[statistic] = new(statistic);
+					AddStatistic(name);
 				}
-					statistics[statistic].RestoreState(data[statistic]);
+
+				statistics[name].RestoreState(data[name]);
 			}
         }
     }

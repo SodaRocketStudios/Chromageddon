@@ -1,11 +1,11 @@
 using System;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
-using SRS.DataPersistence;
 
 namespace SRS.Statistics
 {
 	[Serializable]
-	public class Statistic : IPersist
+	public class Statistic
 	{
 		[SerializeField] private string name;
 		public string Name
@@ -60,11 +60,10 @@ namespace SRS.Statistics
             return Value.ToString("N" + decimalPlaces);
         }
 
-        public object CaptureState()
+        public StatisticData CaptureState()
         {
-            return new StatisticData()
+			return new StatisticData()
 			{
-				Name = name,
 				Value = value,
 				DefaultValue = defaultValue,
 				DecimalPlaces = decimalPlaces,
@@ -74,9 +73,15 @@ namespace SRS.Statistics
 
         public void RestoreState(object state)
         {
-			StatisticData data = (StatisticData)state;
+			JObject jObject = state as JObject;
+
+			StatisticData data = jObject.ToObject<StatisticData>();
 			
-			name = data.Name;
+			if(data == null)
+			{
+				return;
+			}
+
 			Value = data.Value;
 			defaultValue = data.DefaultValue;
 			decimalPlaces = data.DecimalPlaces;
@@ -88,9 +93,8 @@ namespace SRS.Statistics
 			}
         }
 
-		private struct StatisticData
+		public class StatisticData
 		{
-			public string Name;
 			public float Value;
 			public float DefaultValue;
 			public int DecimalPlaces;

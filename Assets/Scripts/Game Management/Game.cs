@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using SRS.DataPersistence;
 
 namespace SRS.GameManagement
 {
@@ -65,6 +66,7 @@ namespace SRS.GameManagement
 		public void GameOver()
 		{
 			OnGameOver?.Invoke();
+			PersistenceSystem.Instance.Save("Save");
 			Pause();
 		}
 

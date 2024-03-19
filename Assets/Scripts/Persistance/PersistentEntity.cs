@@ -30,14 +30,14 @@ namespace SRS.DataPersistence
 
 		public void RestoreState(object state)
 		{
-			Dictionary<string, object> stateDict = state.ToDictionary<object>();
+			Dictionary<string, object> stateDict = state.ToDictionary();
 			
-            foreach (IPersist saveable in GetComponents<IPersist>())
+            foreach (IPersist persistable in GetComponents<IPersist>())
             {
-                string typeString = saveable.GetType().ToString();
+                string typeString = persistable.GetType().ToString();
                 if (stateDict.ContainsKey(typeString))
                 {
-                    saveable.RestoreState(stateDict[typeString]);
+                    persistable.RestoreState(stateDict[typeString]);
                 }
             }
 		}

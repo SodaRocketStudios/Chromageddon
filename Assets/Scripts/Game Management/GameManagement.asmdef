@@ -3,7 +3,8 @@
     "rootNamespace": "SRS.GameManagement",
     "references": [
         "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:911bcfa7c7c0f334085fa7ab70548e4e"
+        "GUID:911bcfa7c7c0f334085fa7ab70548e4e",
+        "GUID:76d8666f73013dd4d952604a203ffd9f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

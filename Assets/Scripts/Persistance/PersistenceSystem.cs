@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using SRS.Utils;
 using UnityEngine;
 
 namespace SRS.DataPersistence
@@ -65,7 +66,7 @@ namespace SRS.DataPersistence
 				data = EncryptDecrypt(data);
 			}
 
-			Dictionary<string, object> state = serializer.Deserialize(data);
+			Dictionary<string, object> state = serializer.Deserialize(data).ToDictionary();
 
 			RestoreState(state);
 		}
@@ -79,7 +80,7 @@ namespace SRS.DataPersistence
 		}
 
 		private void RestoreState(Dictionary<string, object> state)
-		{
+		{			
 			if(state == null)
 			{
 				return;
@@ -100,7 +101,7 @@ namespace SRS.DataPersistence
 
 			for(int i = 0; i < data.Length; i++)
 			{
-				dataBuilder.Append((char)((uint)data[i] ^ (uint)encryptionKeyword[i % encryptionKeyword.Length]));
+				dataBuilder.Append((char)(data[i] ^ encryptionKeyword[i % encryptionKeyword.Length]));
 			}
 
 			return dataBuilder.ToString();

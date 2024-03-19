@@ -1,48 +1,50 @@
+using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace SRS.Utils
 {
 	public static class DictionaryConverter
 	{
-		public static Dictionary<string, T> ToDictionary<T>(this object obj)
+		// public static Dictionary<string, T> ToDictionary<T>(this object obj)
+		// {
+		// 	// TODO -- find a more performant way to do this.
+		// 	string json = JsonConvert.SerializeObject(obj);
+		// 	return JsonConvert.DeserializeObject<Dictionary<string, T>>(json);
+		// }
+
+		public static Dictionary<string, object> ToDictionary(this object source)
 		{
-			// TODO -- find a more performant way to do this.
-			string json = JsonConvert.SerializeObject(obj);
-			return JsonConvert.DeserializeObject<Dictionary<string, T>>(json);
+			return source.ToDictionary<object>();
+		}
 
-			/*
-			public static IDictionary<string, object> ToDictionary(this object source)
+		public static Dictionary<string, T> ToDictionary<T>(this object source)
+		{
+			if (source == null) ThrowExceptionWhenSourceArgumentIsNull();
+
+			var dictionary = new Dictionary<string, T>();
+
+			foreach (PropertyDescriptor property in TypeDescriptor.GetProperties(source))
 			{
-				return source.ToDictionary<object>();
-			}
-
-			public static IDictionary<string, T> ToDictionary<T>(this object source)
-			{
-				if (source == null) ThrowExceptionWhenSourceArgumentIsNull();
-
-				var dictionary = new Dictionary<string, T>();
-				foreach (PropertyDescriptor property in TypeDescriptor.GetProperties(source))
-				{
 				object value = property.GetValue(source);
+
 				if (IsOfType<T>(value))
 				{
 					dictionary.Add(property.Name, (T)value);
 				}
-				}
-				return dictionary;
 			}
 
-			private static bool IsOfType<T>(object value)
-			{
-				return value is T;
-			}
+			return dictionary;
+		}
 
-			private static void ThrowExceptionWhenSourceArgumentIsNull()
-			{
-				throw new NullReferenceException("Unable to convert anonymous object to a dictionary. The source anonymous object is null.");
-			}
-			*/
+		private static bool IsOfType<T>(object value)
+		{
+			return value is T;
+		}
+
+		private static void ThrowExceptionWhenSourceArgumentIsNull()
+		{
+			throw new NullReferenceException("Unable to convert anonymous object to a dictionary. The source anonymous object is null.");
 		}
 	}
 }

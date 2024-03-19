@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using SRS.DataPersistence;
+using Newtonsoft.Json.Linq;
 
 namespace SRS.Achievements
 {
@@ -66,9 +67,9 @@ namespace SRS.Achievements
 
         public void RestoreState(object state)
         {
-            bool data = (bool)state;
+            JValue data = state as JValue;
 
-			hasBeenAwarded = data;
+			hasBeenAwarded = (bool)data.Value;
 
 			if(hasBeenAwarded)
 			{

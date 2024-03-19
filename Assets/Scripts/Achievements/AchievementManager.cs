@@ -44,12 +44,14 @@ namespace SRS.Achievements
 
         public void RestoreState(object state)
         {
-			Dictionary<string, object> data = state.ToDictionary<object>();
+			Dictionary<string, object> data = state.ToDictionary();
 
             foreach(Achievement achievement in achievements)
 			{
 				if(data.ContainsKey(achievement.name))
+				{
 					achievement.RestoreState(data[achievement.name]);
+				}
 			}
         }
 

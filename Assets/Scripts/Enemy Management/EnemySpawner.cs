@@ -6,6 +6,7 @@ using SRS.Utils.VFX;
 using SRS.Progression;
 using SRS.Extensions.Random;
 using SRS.Statistics;
+using Codice.Client.BaseCommands.Changelist;
 
 namespace SRS.EnemyManagement
 {
@@ -53,6 +54,7 @@ namespace SRS.EnemyManagement
 		private void Start()
 		{
 			FindPlayer();
+			StatisticManager.Instance["Total Enemies Killed"].SetPersistence(true);
         }
 
 		private void Update()

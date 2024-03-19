@@ -15856,7 +15856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35acaa4e47eb3248b0102e8a4a2769d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  encryptData: 1
+  encryptData: 0
 --- !u!1 &2045500910
 GameObject:
   m_ObjectHideFlags: 0
