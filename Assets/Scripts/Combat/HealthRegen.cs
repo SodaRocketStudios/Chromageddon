@@ -57,7 +57,7 @@ namespace SRS.Combat
 
 				if(timer >= regenInterval)
 				{
-					hitHandler.Health.Heal(stats["Health Regen"].Value*regenMultiplier);
+					hitHandler.Health.Heal(Mathf.Min(stats["Health Regen"].Value*regenMultiplier, 0));
 					timer = 0;
 				}
 

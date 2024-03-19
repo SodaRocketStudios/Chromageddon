@@ -49,10 +49,5 @@ namespace SRS.Combat
 		{
 			Value.Max = newMax;
 		}
-
-        private void Regenerate()
-        {
-            // Regenerate health over time.
-        }
     }
 }
