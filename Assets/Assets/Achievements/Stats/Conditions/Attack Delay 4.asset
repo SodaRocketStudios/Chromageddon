@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
-  m_Name: Max Dodge
+  m_Script: {fileID: 11500000, guid: 442645fae05d0924397b4b14bc50033c, type: 3}
+  m_Name: Attack Delay 4
   m_EditorClassIdentifier: 
-  description: Reach maximum dodge chance
-  conditions:
-  - {fileID: 11400000, guid: dd7b01782f876a54cb79c2ba891aafdc, type: 2}
+  comparison: 3
+  targetValue: 4
+  stat: Attack Delay

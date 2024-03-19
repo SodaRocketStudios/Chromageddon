@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
-  m_Name: Max Dodge
+  m_Name: Spray and Pray
   m_EditorClassIdentifier: 
-  description: Reach maximum dodge chance
+  description: Have an attack speed of 5 attacks per second
   conditions:
-  - {fileID: 11400000, guid: dd7b01782f876a54cb79c2ba891aafdc, type: 2}
+  - {fileID: 11400000, guid: d4beeaff75c5d5b46a69e4af2ceab2e4, type: 2}

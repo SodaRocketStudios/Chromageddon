@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
-  m_Name: Max Dodge
+  m_Name: Ice To Meet You
   m_EditorClassIdentifier: 
-  description: Reach maximum dodge chance
+  description: Have a freeze chance of 100%
   conditions:
-  - {fileID: 11400000, guid: dd7b01782f876a54cb79c2ba891aafdc, type: 2}
+  - {fileID: 11400000, guid: 125df8b3dea90ff429ff95f07c2a5372, type: 2}
