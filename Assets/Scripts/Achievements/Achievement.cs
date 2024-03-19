@@ -52,6 +52,12 @@ namespace SRS.Achievements
 
 		private void Award()
 		{
+			if(hasBeenAwarded)
+			{
+				Condition.OnMet -= CheckConditions;
+				return;
+			}
+
 			hasBeenAwarded = true;
 			AchievementAwarded?.Invoke(this);
 
