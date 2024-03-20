@@ -64,6 +64,11 @@ namespace SRS.Combat
 
 		public void Hit(StatContainer attackerStats, DamageType damageType)
 		{
+			if(Time.time - lastHitTime < immunityTime)
+			{
+				return;
+			}
+
 			if(DamageCalculator.CheckDodge(stats["Dodge"].Value))
 			{
 				OnDodge?.Invoke();
@@ -94,24 +99,26 @@ namespace SRS.Combat
 
 		public void Hit(float damage, DamageType damageType)
 		{
-			if(Time.time - lastHitTime > immunityTime)
+			if(Time.time - lastHitTime < immunityTime)
 			{
-				if(impulseSource != null)
-				{
-					impulseSource.m_ImpulseDefinition = hitImpulse;
-					impulseSource.GenerateImpulse(impulseMagnitude);
-				}
-
-				if(hitSound != null)
-				{
-					audioSource?.PlayOneShot(hitSound);
-				}
-
-				damage = DamageCalculator.Calculate(damage, stats, damageType);
-
-				ApplyDamage(damage, damageType);
-				lastHitTime = Time.time;
+				return;
 			}
+			
+			if(impulseSource != null)
+			{
+				impulseSource.m_ImpulseDefinition = hitImpulse;
+				impulseSource.GenerateImpulse(impulseMagnitude);
+			}
+
+			if(hitSound != null)
+			{
+				audioSource?.PlayOneShot(hitSound);
+			}
+
+			damage = DamageCalculator.Calculate(damage, stats, damageType);
+
+			ApplyDamage(damage, damageType);
+			lastHitTime = Time.time;
 		}
 
 		public void TriggerImmunity()

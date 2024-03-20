@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
-  m_Name: Level 10
+  m_Name: Tough Guy
   m_EditorClassIdentifier: 
-  description: Reach level 10.
+  description: Have 50 armor
   conditions:
-  - {fileID: 11400000, guid: b1acfa90b15b43a4bb4901b81e464bba, type: 2}
+  - {fileID: 11400000, guid: 535aa3dab817b8745bce1604d147cad2, type: 2}
