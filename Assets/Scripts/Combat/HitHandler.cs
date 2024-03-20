@@ -25,6 +25,7 @@ namespace SRS.Combat
 		[SerializeField] private AudioClip critSound;
 
 		[SerializeField] private ParticleManager critParticles;
+		[SerializeField] private ParticleManager dodgeParticles;
 
 		[SerializeField] private CinemachineImpulseDefinition hitImpulse;
 		[SerializeField] private float impulseMagnitude;
@@ -66,6 +67,7 @@ namespace SRS.Combat
 			if(DamageCalculator.CheckDodge(stats["Dodge"].Value))
 			{
 				OnDodge?.Invoke();
+				dodgeParticles?.PlayParticles(transform.position, Quaternion.identity);
 				return;
 			}
 
