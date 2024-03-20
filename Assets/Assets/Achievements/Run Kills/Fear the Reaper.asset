@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
-  m_Name: Max Dodge
+  m_Name: Fear the Reaper
   m_EditorClassIdentifier: 
-  description: Reach maximum dodge chance
+  description: Kill 1000 enemies in a single run.
   conditions:
-  - {fileID: 11400000, guid: dd7b01782f876a54cb79c2ba891aafdc, type: 2}
+  - {fileID: 11400000, guid: 8b927962c5260e646b581161dacbddba, type: 2}

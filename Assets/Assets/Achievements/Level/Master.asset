@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
   m_Name: Master
   m_EditorClassIdentifier: 
-  description: Reach level 25.
+  description: Reach level 50.
   conditions:
-  - {fileID: 11400000, guid: 0d13bcdf09734294ebdcca57e8414892, type: 2}
+  - {fileID: 11400000, guid: 90d882c9bcbf7f548b943fdb446902f2, type: 2}

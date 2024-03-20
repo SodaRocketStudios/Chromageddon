@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9a96e724cccf33479e8f433715c8df3, type: 3}
-  m_Name: Lifetime Kills 100000
+  m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
+  m_Name: Kills 500
   m_EditorClassIdentifier: 
-  comparison: 3
-  targetValue: 100000
-  statistic: Total Enemies Killed
+  description: Kill 500 enemies.
+  conditions:
+  - {fileID: 11400000, guid: 1807bbe22ee2e4f4d8d3e04774917272, type: 2}
