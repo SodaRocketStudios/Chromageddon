@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Armor 50
   m_EditorClassIdentifier: 
   comparison: 3
-  targetValue: 0.65
-  stat: Dodge
+  targetValue: 50
+  stat: Armor

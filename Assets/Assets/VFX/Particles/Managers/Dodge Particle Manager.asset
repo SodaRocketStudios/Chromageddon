@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00c0f7a0fa11504eb0d2b8ea32bfcc5, type: 3}
   m_Name: Dodge Particle Manager
   m_EditorClassIdentifier: 
-  pool: {fileID: 11400000, guid: c3c5db823a1de9d4195eba7218f589e0, type: 2}
+  pool: {fileID: 11400000, guid: 7822e6a5702e3fe4c80f794b4c8c85e0, type: 2}

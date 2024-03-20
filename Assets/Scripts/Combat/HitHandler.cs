@@ -68,6 +68,7 @@ namespace SRS.Combat
 			{
 				OnDodge?.Invoke();
 				dodgeParticles?.PlayParticles(transform.position, Quaternion.identity);
+				lastHitTime = Time.time;
 				return;
 			}
 

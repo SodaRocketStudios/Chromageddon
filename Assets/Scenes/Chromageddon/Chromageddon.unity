@@ -12620,6 +12620,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: ed58bb83e6a49414f9dc706342241a6e, type: 3}
   critSound: {fileID: 0}
   critParticles: {fileID: 0}
+  dodgeParticles: {fileID: 11400000, guid: 39ebab7f2782bf34ea6d13ee8a1e6838, type: 2}
   hitImpulse:
     m_ImpulseChannel: 1
     m_ImpulseShape: 0

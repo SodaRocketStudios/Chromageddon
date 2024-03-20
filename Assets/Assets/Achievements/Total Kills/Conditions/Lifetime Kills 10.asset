@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Lifetime Kills 10
   m_EditorClassIdentifier: 
   comparison: 3
-  targetValue: 1
+  targetValue: 10
   statistic: Total Enemies Killed
