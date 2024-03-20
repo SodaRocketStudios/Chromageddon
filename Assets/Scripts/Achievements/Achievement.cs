@@ -34,7 +34,6 @@ namespace SRS.Achievements
 
 		public void CheckConditions(Condition triggeringCondition)
 		{
-			Debug.Log($"Checking conditions for {name}: \n Has been awarded {hasBeenAwarded}");
 			if(hasBeenAwarded)
 			{
 				return;

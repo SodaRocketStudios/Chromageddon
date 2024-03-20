@@ -27,9 +27,9 @@
      inkscape:document-units="in"
      showgrid="false"
      units="in"
-     inkscape:zoom="3.4604836"
-     inkscape:cx="181.18855"
-     inkscape:cy="65.453279"
+     inkscape:zoom="1.2234657"
+     inkscape:cx="222.72794"
+     inkscape:cy="78.056949"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -101,5 +101,19 @@
          x="50.627914"
          y="15.788959"
          id="tspan1">CRIT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.60434px;line-height:1.25;font-family:'Protest Strike';-inkscape-font-specification:'Protest Strike';fill:#ffffff;fill-opacity:1;stroke-width:0.358514"
+       x="71.195244"
+       y="15.767447"
+       id="text2"
+       inkscape:export-filename="Dodge Particle.png"
+       inkscape:export-xdpi="256"
+       inkscape:export-ydpi="256"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.60434px;font-family:'Fugaz One';-inkscape-font-specification:'Fugaz One';fill:#ffffff;fill-opacity:1;stroke-width:0.358514"
+         x="71.195244"
+         y="15.767447"
+         id="tspan2">DODGE</tspan></text>
   </g>
 </svg>

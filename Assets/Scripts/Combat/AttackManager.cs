@@ -95,7 +95,10 @@ namespace SRS.Combat
 
 			if(numOfAttacks > 0)
 			{
-				audioSource?.PlayOneShot(weapon.Sound);
+				if(weapon.Sound != null)
+				{
+					audioSource?.PlayOneShot(weapon.Sound);
+				}
 				GenerateRecoil();
 			}
 
