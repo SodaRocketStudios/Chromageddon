@@ -12,14 +12,6 @@ namespace SRS.Achievements
 
 		[SerializeField] private AchievementDisplay display;
 
-        private void Start()
-		{
-			foreach(Achievement achievement in achievements)
-			{
-				achievement.Initialize();
-			}
-		}
-
 		private void OnEnable()
 		{
 			Achievement.AchievementAwarded += ShowAchievement;
@@ -44,6 +36,11 @@ namespace SRS.Achievements
 
         public void RestoreState(object state)
         {
+			foreach(Achievement achievement in achievements)
+			{
+				achievement.Initialize();
+			}
+
 			Dictionary<string, object> data = state.ToDictionary();
 
             foreach(Achievement achievement in achievements)
