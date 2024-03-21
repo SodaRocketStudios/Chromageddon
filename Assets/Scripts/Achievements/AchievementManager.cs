@@ -9,6 +9,10 @@ namespace SRS.Achievements
 	public class AchievementManager : MonoBehaviour, IPersist
 	{
 		[SerializeField] private Achievement[] achievements;
+		public Achievement[] Achievements
+		{
+			get => achievements;
+		}
 
 		[SerializeField] private AchievementDisplay display;
 
