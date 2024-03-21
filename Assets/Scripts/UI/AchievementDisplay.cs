@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -13,10 +14,14 @@ namespace SRS.UI
 
 		[SerializeField] private Vector2 moveDistance;
 
+		private Queue<string[]> achievements;
+
 		private Vector3 startPosition;
 		private Vector3 showPosition;
 
 		private float timer = 0;
+
+		private bool isShowing;
 
 		private RectTransform rectTransform;
 
@@ -29,6 +34,12 @@ namespace SRS.UI
 
         public void Show(string name, string description)
         {
+			if(isShowing)
+			{
+				achievements.Enqueue(new string[2]{name, description});
+				return;
+			}
+
 			NameTextBox.text = name;
 			DescriptionTextBox.text = description;
 			PlayAnimation();
@@ -36,6 +47,7 @@ namespace SRS.UI
 
 		private async void PlayAnimation()
 		{
+			isShowing = true;
 			timer = 0;
 
 			float t;
@@ -64,6 +76,14 @@ namespace SRS.UI
 				t = timer / travelTime;
 				rectTransform.anchoredPosition = Vector3.Lerp(showPosition, startPosition, t);
 				await Awaitable.NextFrameAsync();
+			}
+			
+			isShowing = false;
+
+			if(achievements.Count > 0)
+			{
+				string[] info = achievements.Dequeue();
+				Show(info[0], info[1]);
 			}
 		}
     }
