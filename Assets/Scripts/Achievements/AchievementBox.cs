@@ -15,8 +15,6 @@ namespace SRS.Achievements
 			nameTextBox.text = achievement.name;
 			descriptionTextBox.text = achievement.Description;
 
-			Debug.Log($"{achievement.name}: {achievement.IsAwarded}");
-
 			if(achievement.IsAwarded)
 			{
 				checkMark.enabled = true;

@@ -884,5 +884,20 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bungee Inline';-inkscape-font-specification:'Bungee Inline';fill:#ffff00;fill-opacity:1;stroke-width:0.264583"
          x="109.85955"
          y="-13.488577">STATS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.7px;line-height:1.25;font-family:'Bungee Inline';-inkscape-font-specification:'Bungee Inline';mix-blend-mode:normal;fill:#00ffff;fill-opacity:1;stroke-width:0.264583;filter:url(#filter3)"
+       x="109.85955"
+       y="-13.488577"
+       id="text3"
+       inkscape:export-filename="Stats Title.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"
+       transform="matrix(1.1321156,0,0,1.1321156,92.501554,301.03685)"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bungee Inline';-inkscape-font-specification:'Bungee Inline';fill:#00ffff;fill-opacity:1;stroke-width:0.264583"
+         x="109.85955"
+         y="-13.488577">Achievements</tspan></text>
   </g>
 </svg>
