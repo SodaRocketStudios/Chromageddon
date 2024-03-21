@@ -26,8 +26,6 @@ namespace SRS.Achievements
 
 		public void Initialize()
 		{
-			hasBeenAwarded = false;
-
 			Condition.OnMet += CheckConditions;
 			
 			foreach(Condition condition in conditions)

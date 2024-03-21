@@ -10,6 +10,11 @@ namespace SRS.Statistics
 
 		private TMP_Text textBox;
 
+		private void Awake()
+		{
+			textBox = GetComponent<TMP_Text>();
+		}
+
 		private void OnEnable()
 		{
 			Draw();
