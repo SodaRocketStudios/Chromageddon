@@ -14,7 +14,7 @@ namespace SRS.UI
 
 		[SerializeField] private Vector2 moveDistance;
 
-		private Queue<string[]> achievements;
+		private Queue<string[]> achievements = new();
 
 		private Vector3 startPosition;
 		private Vector3 showPosition;
