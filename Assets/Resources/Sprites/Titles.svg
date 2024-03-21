@@ -25,8 +25,8 @@
      showgrid="false"
      units="in"
      inkscape:zoom="1.0809567"
-     inkscape:cx="441.73832"
-     inkscape:cy="643.41153"
+     inkscape:cx="604.55706"
+     inkscape:cy="918.16814"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -326,17 +326,17 @@
          id="feBlend3542" />
     </filter>
     <filter
-       y="-0.70597507"
-       height="2.4119501"
+       y="-0.70533566"
+       height="2.4106713"
        inkscape:menu-tooltip="Darkens the edge with an inner blur and adds a flexible glow"
        inkscape:menu="Shadows and Glows"
        inkscape:label="Dark and Glow"
        style="color-interpolation-filters:sRGB;"
        id="filter4430"
-       x="-0.096985716"
-       width="1.1939714">
+       x="-0.096897875"
+       width="1.1937957">
       <feGaussianBlur
-         stdDeviation="2.6897649"
+         stdDeviation="2.6873289"
          result="result6"
          id="feGaussianBlur4420" />
       <feComposite
@@ -457,15 +457,15 @@
          id="feBlend64" />
     </filter>
     <filter
-       y="-0.35406665"
-       height="1.7081333"
+       y="-0.25518317"
+       height="1.5103663"
        inkscape:menu-tooltip="Darkens the edge with an inner blur and adds a flexible glow"
        inkscape:menu="Shadows and Glows"
        inkscape:label="Dark and Glow"
        style="color-interpolation-filters:sRGB;"
        id="filter113"
-       x="-0.025745102"
-       width="1.0514902">
+       x="-0.05503627"
+       width="1.1100725">
       <feGaussianBlur
          stdDeviation="1.3489939"
          result="result6"
@@ -527,6 +527,42 @@
          mode="normal"
          id="feBlend173"
          in2="result8" />
+    </filter>
+    <filter
+       y="-0.67545198"
+       height="2.350904"
+       inkscape:menu-tooltip="Darkens the edge with an inner blur and adds a flexible glow"
+       inkscape:menu="Shadows and Glows"
+       inkscape:label="Dark and Glow"
+       style="color-interpolation-filters:sRGB;"
+       id="filter3"
+       x="-0.1538519"
+       width="1.3077038">
+      <feGaussianBlur
+         stdDeviation="2.5734721"
+         result="result6"
+         id="feGaussianBlur2" />
+      <feComposite
+         result="result8"
+         in="SourceGraphic"
+         operator="atop"
+         in2="result6"
+         id="feComposite2" />
+      <feComposite
+         result="result9"
+         operator="over"
+         in2="SourceAlpha"
+         in="result8"
+         id="feComposite3" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 "
+         result="result10"
+         id="feColorMatrix3" />
+      <feBlend
+         in="result10"
+         mode="normal"
+         in2="result6"
+         id="feBlend3" />
     </filter>
   </defs>
   <g
@@ -833,5 +869,20 @@
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:Orbitron;-inkscape-font-specification:'Orbitron Heavy';fill:#fb00ff;fill-opacity:1;stroke-width:0.264583"
          x="115.22524"
          y="276.90399">Settings</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.7px;line-height:1.25;font-family:'Bungee Inline';-inkscape-font-specification:'Bungee Inline';mix-blend-mode:normal;fill:#ffff00;fill-opacity:1;stroke-width:0.264583;filter:url(#filter3)"
+       x="109.85955"
+       y="-13.488577"
+       id="text2"
+       inkscape:export-filename="Stats Title.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"
+       transform="matrix(1.1321156,0,0,1.1321156,92.501554,274.35717)"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bungee Inline';-inkscape-font-specification:'Bungee Inline';fill:#ffff00;fill-opacity:1;stroke-width:0.264583"
+         x="109.85955"
+         y="-13.488577">STATS</tspan></text>
   </g>
 </svg>

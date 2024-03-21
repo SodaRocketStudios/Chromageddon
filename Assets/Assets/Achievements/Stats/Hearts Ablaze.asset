@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
   m_Name: Hearts Ablaze
   m_EditorClassIdentifier: 
-  description: Have a freeze chance of 100%
+  description: Have a burn chance of 100%
   conditions:
   - {fileID: 11400000, guid: 05ad8900d7e70d04c892881c0752b263, type: 2}
