@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SRS.Achievements
 {
@@ -7,11 +8,21 @@ namespace SRS.Achievements
 	{
 		[SerializeField] private TMP_Text nameTextBox;
 		[SerializeField] private TMP_Text descriptionTextBox;
+		[SerializeField] private Image checkMark;
 
 		public void Draw(Achievement achievement)
 		{
 			nameTextBox.text = achievement.name;
 			descriptionTextBox.text = achievement.Description;
+
+			if(achievement.IsAwarded)
+			{
+				checkMark.enabled = true;
+			}
+			else
+			{
+				checkMark.enabled = false;
+			}
 		}
 	}
 }

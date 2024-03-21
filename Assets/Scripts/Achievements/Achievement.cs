@@ -19,6 +19,10 @@ namespace SRS.Achievements
 		[SerializeField] private Condition[] conditions;
 
 		private bool hasBeenAwarded = false;
+		public bool IsAwarded
+		{
+			get => hasBeenAwarded;
+		}
 
 		public void Initialize()
 		{
