@@ -31,10 +31,19 @@ namespace SRS.Achievements
 
 		public static Action<Condition> OnMet;
 
+		private bool initialized;
+
 		public void Initialize()
 		{
+			if(initialized)
+			{
+				return;
+			}
+			
 			isSatisfied = false;
 			Init();
+
+			initialized = true;
 		}
 
 		public void Test(float value)
