@@ -27,7 +27,6 @@ namespace SRS.Statistics
 		{
 			if(testValue > recordValue)
 			{
-				Debug.Log("Record");
 				recordValue = testValue;
 			}
 		}
