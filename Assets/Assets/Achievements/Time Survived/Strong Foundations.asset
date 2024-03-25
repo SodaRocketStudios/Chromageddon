@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
-  m_Name: Spray and Pray
+  m_Name: Strong Foundations
   m_EditorClassIdentifier: 
-  description: Have an attack speed of 4 attacks per second with accuracy less than
-    50%
+  description: Survive for 10 minutes.
   conditions:
-  - {fileID: 11400000, guid: d4beeaff75c5d5b46a69e4af2ceab2e4, type: 2}
-  - {fileID: 11400000, guid: fac32d63144ecc446af5d184aaf3cc69, type: 2}
+  - {fileID: 11400000, guid: a077002f84d371f4297f4a544bd86ba3, type: 2}

@@ -117,6 +117,34 @@ namespace SRS.Combat
 
 			damage = DamageCalculator.Calculate(damage, stats, damageType);
 
+			if(CompareTag("Player"))
+			{
+				StatisticManager.Instance["Damage Recieved"].Value += damage;
+			}
+			else
+			{
+				StatisticManager.Instance["Damage Dealt"].Value += damage;
+				
+				switch(damageType)
+				{
+					case DamageType.Physical:
+						StatisticManager.Instance["Physical Damage Dealt"].Value += damage;
+						break;
+					case DamageType.Fire:
+						StatisticManager.Instance["Fire Damage Dealt"].Value += damage;
+						break;
+					case DamageType.Ice:
+						StatisticManager.Instance["Ice Damage Dealt"].Value += damage;
+						break;
+					case DamageType.Electric:
+						StatisticManager.Instance["Electric Damage Dealt"].Value += damage;
+						break;
+					case DamageType.Poison:
+						StatisticManager.Instance["Poison Damage Dealt"].Value += damage;
+						break;
+				}
+			}
+
 			ApplyDamage(damage, damageType);
 			lastHitTime = Time.time;
 		}
