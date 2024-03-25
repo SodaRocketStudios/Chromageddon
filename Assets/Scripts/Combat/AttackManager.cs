@@ -2,6 +2,7 @@ using UnityEngine;
 using Cinemachine;
 using SRS.Input;
 using SRS.Stats;
+using SRS.Statistics;
 
 namespace SRS.Combat
 {
@@ -48,6 +49,11 @@ namespace SRS.Combat
 			if(weapon != null)
 			{
 				weapon.Equip(stats);
+			}
+
+			if(CompareTag("Player"))
+			{
+				StatisticManager.Instance["Total Shots Fired"].SetPersistence(true);
 			}
 		}
 

@@ -31,6 +31,7 @@ namespace SRS.Combat
             if(attacker.CompareTag("Player"))
             {
                 StatisticManager.Instance["Shots Fired"].Value++;
+                StatisticManager.Instance["Total Shots Fired"].Value++;
             }
 		}
 
