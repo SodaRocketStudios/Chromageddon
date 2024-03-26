@@ -23,7 +23,7 @@ namespace SRS.Statistics
 		private void Draw()
 		{
 			string name = string.IsNullOrEmpty(alternativeStatName) ? statName : alternativeStatName;
-			textBox.text = $"{name}: {RecordStatisticManager.Instance[statName].Value}";
+			textBox.text = $"{name}: {RecordStatisticManager.Instance[statName].Value:N0}";
 		}
 	}
 }
