@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace SRS.Audio
+namespace SRS.AudioV1
 {
 	public class AudioManager : MonoBehaviour
 	{

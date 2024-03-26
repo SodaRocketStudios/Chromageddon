@@ -5,7 +5,7 @@ using SRS.Health;
 using SRS.Extensions;
 using SRS.GameManager;
 using SRS.LevelSystem;
-using SRS.Audio;
+using SRS.AudioV1;
 
 namespace SRS.EnemySpawner
 {

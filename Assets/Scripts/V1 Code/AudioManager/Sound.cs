@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace SRS.Audio
+namespace SRS.AudioV1
 {
     [System.Serializable]
     public class Sound

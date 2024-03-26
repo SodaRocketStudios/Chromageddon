@@ -1,5 +1,5 @@
 using UnityEngine;
-using SRS.Audio;
+using SRS.AudioV1;
 
 namespace SRS.AttackSystem
 {
