@@ -1,5 +1,6 @@
 using UnityEngine;
 using SRS.Utils.ObjectPooling;
+using System.Collections.Generic;
 
 namespace SRS.Audio
 {
@@ -11,7 +12,7 @@ namespace SRS.Audio
 
 		[SerializeField] private ObjectPool pool;
 
-		private int activeSounds;
+		private List<SoundSource> activeSounds = new();
 
 		private void Awake()
 		{
@@ -23,16 +24,25 @@ namespace SRS.Audio
 			{
 				Destroy(this);
 			}
+
+			SoundSource.OnComplete += OnSoundEnd;
 		}
 
 		public void Play(Sound sound)
 		{
-			if(activeSounds >= soundCap)
+			if(activeSounds.Count >= soundCap)
 			{
 				return;
 			}
 
-			pool.Get().GetComponent<SoundSource>().Play(sound);
+			SoundSource source = pool.Get().GetComponent<SoundSource>();
+			activeSounds.Add(source);
+			source.Play(sound);
+		}
+
+		private void OnSoundEnd(SoundSource source)
+		{
+			activeSounds.Remove(source);
 		}
 	}
 }
