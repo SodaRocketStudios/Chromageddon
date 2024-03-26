@@ -1,5 +1,6 @@
-using SRS.Utils.ObjectPooling;
 using UnityEngine;
+using SRS.Utils.ObjectPooling;
+using System.Collections;
 
 namespace SRS.Audio
 {
@@ -7,37 +8,31 @@ namespace SRS.Audio
 	{
 		private AudioSource source;
 
-		public void Play(Sound sound)
+		private void Awake()
 		{
-			if(sound == null)
-			{
-				return;
-			}
-			
 			source = GetComponent<AudioSource>();
-			source.clip = sound.Clip;
-			source.outputAudioMixerGroup = sound.MixerGroup;
-			source.Play();
-
-			Monitor();
 		}
 
-		private async void Monitor()
+		public void Play(Sound sound)
 		{
-			if(source == null)
+			if(sound == null || sound.Clip == null)
 			{
 				ReturnToPool();
 				return;
 			}
 
-			while(source.isPlaying)
-			{
-				await Awaitable.EndOfFrameAsync();
-			}
+			source.clip = sound.Clip;
+			source.outputAudioMixerGroup = sound.MixerGroup;
+			source.Play();
+
+			StartCoroutine(ReturnWhenComplete());
+		}
+
+		private IEnumerator ReturnWhenComplete()
+		{
+			yield return new WaitForSecondsRealtime(source.clip.length);
 
 			ReturnToPool();
-
-			return;
 		}
 	}
 }
