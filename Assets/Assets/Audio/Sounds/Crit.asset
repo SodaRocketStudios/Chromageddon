@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66b5c405050a784459c7c36bf2d4bdc5, type: 3}
-  m_Name: Attack
+  m_Name: Crit
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: f70d9c4722fd5a34b81a48f9dd4dfe03, type: 3}
+  clip: {fileID: 8300000, guid: a648eab4836655e4687fe60389fa4b3b, type: 3}
   mixerGroup: {fileID: -5425374816022560572, guid: 198294307ba40074cae36b77b1a67627, type: 2}

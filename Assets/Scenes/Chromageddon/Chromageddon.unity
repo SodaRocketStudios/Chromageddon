@@ -5881,6 +5881,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693235142}
   m_CullTransparentMesh: 1
+--- !u!1 &699117671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699117672}
+  - component: {fileID: 699117673}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &699117672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699117671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1168674332}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &699117673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699117671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba12a416230254b40b6035d11869818e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundCap: 5
+  pool: {fileID: 11400000, guid: ba74a3829ca02cb40af2ea4d489ce0dc, type: 2}
 --- !u!1 &714607352
 GameObject:
   m_ObjectHideFlags: 0
@@ -8387,8 +8433,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 25}
+  m_AnchoredPosition: {x: 175, y: 0}
+  m_SizeDelta: {x: 350, y: 25}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &938870771
 MonoBehaviour:
@@ -10908,6 +10954,7 @@ Transform:
   - {fileID: 886597439}
   - {fileID: 1688278364}
   - {fileID: 1340889140}
+  - {fileID: 699117672}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1169739586
@@ -15539,8 +15586,8 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
   immunityTime: 0.5
-  hitSound: {fileID: 8300000, guid: ed58bb83e6a49414f9dc706342241a6e, type: 3}
-  critSound: {fileID: 0}
+  hitSound: {fileID: 11400000, guid: b879b66cd6ab9184cab345b9b6b78ca9, type: 2}
+  critSound: {fileID: 11400000, guid: 6a48439c02f0ff040a2606e6276d1fdc, type: 2}
   critParticles: {fileID: 0}
   dodgeParticles: {fileID: 11400000, guid: 39ebab7f2782bf34ea6d13ee8a1e6838, type: 2}
   hitImpulse:

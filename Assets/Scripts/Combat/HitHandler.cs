@@ -5,6 +5,7 @@ using Cinemachine;
 using UnityEngine.Events;
 using SRS.Utils.VFX;
 using SRS.Statistics;
+using SRS.Audio;
 
 namespace SRS.Combat
 {
@@ -21,8 +22,11 @@ namespace SRS.Combat
 		[SerializeField] private float immunityTime;
 		private float lastHitTime = 0;
 
-		[SerializeField] private AudioClip hitSound;
-		[SerializeField] private AudioClip critSound;
+		// [SerializeField] private AudioClip hitSound;
+		// [SerializeField] private AudioClip critSound;
+
+		[SerializeField] private Sound hitSound;
+		[SerializeField] private Sound critSound;
 
 		[SerializeField] private ParticleManager critParticles;
 		[SerializeField] private ParticleManager dodgeParticles;
@@ -81,7 +85,8 @@ namespace SRS.Combat
 
 			if(DamageCalculator.CheckCritical(attackerStats["Critical Chance"].Value))
 			{
-				audioSource.PlayOneShot(critSound);
+				AudioManager.Instance.Play(critSound);
+				// audioSource.PlayOneShot(critSound);
 				damage *= attackerStats["Critical Damage"].Value;
 
 				if(!gameObject.CompareTag("Player"))
@@ -112,7 +117,8 @@ namespace SRS.Combat
 
 			if(hitSound != null)
 			{
-				audioSource?.PlayOneShot(hitSound);
+				AudioManager.Instance.Play(hitSound);
+				// audioSource?.PlayOneShot(hitSound);
 			}
 
 			damage = DamageCalculator.Calculate(damage, stats, damageType);
