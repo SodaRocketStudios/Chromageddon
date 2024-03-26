@@ -6,7 +6,6 @@ using SRS.Utils.VFX;
 using SRS.Progression;
 using SRS.Extensions.Random;
 using SRS.Statistics;
-using Codice.Client.BaseCommands.Changelist;
 
 namespace SRS.EnemyManagement
 {
