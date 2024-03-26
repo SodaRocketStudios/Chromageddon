@@ -1,89 +1,66 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using SRS.Audio;
 
 namespace SRS.UI
 {
     public class UIAudioPlayer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler, ISubmitHandler, ICancelHandler
     {
-		[SerializeField] private AudioSource audioSource;
-
-		[SerializeField] private AudioClip pointerEnterAudio;
-		[SerializeField] private AudioClip pointerExitAudio;
-		[SerializeField] private AudioClip pointerDownAudio;
-		[SerializeField] private AudioClip pointerUpAudio;
-		[SerializeField] private AudioClip pointerClickAudio;
-
+        
+		[SerializeField] private Sound pointerEnterSound;
+		[SerializeField] private Sound pointerExitSound;
+		[SerializeField] private Sound pointerDownSound;
+		[SerializeField] private Sound pointerUpSound;
+		[SerializeField] private Sound pointerClickSound;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if(pointerClickAudio != null)
-            {
-                audioSource.PlayOneShot(pointerClickAudio);
-            }
+            Play(pointerClickSound);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if(pointerDownAudio != null)
-            {
-                audioSource.PlayOneShot(pointerDownAudio);
-            }
+            Play(pointerDownSound);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if(pointerEnterAudio != null)
-            {
-                audioSource.PlayOneShot(pointerEnterAudio);
-            }
+            Play(pointerEnterSound);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if(pointerExitAudio != null)
-            {
-                audioSource.PlayOneShot(pointerExitAudio);
-            }
+            Play(pointerExitSound);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if(pointerUpAudio != null)
-            {
-                audioSource.PlayOneShot(pointerUpAudio);
-            }
+            Play(pointerUpSound);
         }
 
         public void OnSelect(BaseEventData eventData)
         {
-            if(pointerEnterAudio != null)
-            {
-                audioSource.PlayOneShot(pointerEnterAudio);
-            }
+            Play(pointerEnterSound);
         }
 
         public void OnSubmit(BaseEventData eventData)
         {
-            if(pointerClickAudio != null)
-            {
-                audioSource.PlayOneShot(pointerClickAudio);
-            }
+            Play(pointerClickSound);
         }
 
         public void OnCancel(BaseEventData eventData)
         {
-            if(pointerUpAudio != null)
-            {
-                audioSource.PlayOneShot(pointerUpAudio);
-            }
+            Play(pointerUpSound);
         }
 
         public void OnDeselect(BaseEventData eventData)
         {
-            if(pointerExitAudio != null)
-            {
-                audioSource.PlayOneShot(pointerExitAudio);
-            }
+            Play(pointerExitSound);
+        }
+
+        private void Play(Sound sound)
+        {
+            AudioManager.Instance.Play(sound);
         }
     }
 }

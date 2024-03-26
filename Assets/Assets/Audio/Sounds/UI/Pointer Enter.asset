@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b5c405050a784459c7c36bf2d4bdc5, type: 3}
   m_Name: Pointer Enter
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: f70d9c4722fd5a34b81a48f9dd4dfe03, type: 3}
-  mixerGroup: {fileID: -5425374816022560572, guid: 198294307ba40074cae36b77b1a67627, type: 2}
+  clip: {fileID: 8300000, guid: 62161f9b66c24a24c9853c53fff96e46, type: 3}
+  mixerGroup: {fileID: 771320290309367273, guid: 198294307ba40074cae36b77b1a67627, type: 2}
