@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d5f0b5e2d8fec042b56eb7a34ea56bb, type: 2}
   attackData:
     Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
-    Sound: {fileID: 8300000, guid: f70d9c4722fd5a34b81a48f9dd4dfe03, type: 3}
+    Sound: {fileID: 11400000, guid: d3debddfc743858469f8e1f86da45914, type: 2}
     AttackParticleManager: {fileID: 11400000, guid: 50ab3e40c7b510543bfa6ffab93c8802, type: 2}
     HitParticleManager: {fileID: 11400000, guid: 084bc7eff7774894b9665c7570531776, type: 2}
     DamageType: 0

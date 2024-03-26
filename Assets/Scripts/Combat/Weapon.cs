@@ -2,6 +2,7 @@ using UnityEngine;
 using SRS.Stats;
 using SRS.Utils.ObjectPooling;
 using SRS.Statistics;
+using SRS.Audio;
 
 namespace SRS.Combat
 {
@@ -12,7 +13,7 @@ namespace SRS.Combat
 
 		[SerializeField] private ObjectPool attackPool;
 
-        public AudioClip Sound
+        public Sound Sound
         {
             get => attackData.Sound;
         }

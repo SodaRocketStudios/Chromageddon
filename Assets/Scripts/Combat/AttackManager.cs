@@ -3,6 +3,7 @@ using Cinemachine;
 using SRS.Input;
 using SRS.Stats;
 using SRS.Statistics;
+using SRS.Audio;
 
 namespace SRS.Combat
 {
@@ -34,14 +35,11 @@ namespace SRS.Combat
 
 		private CinemachineImpulseSource impulseSource;
 
-		private AudioSource audioSource;
-
 		private void Awake()
 		{
             stats = GetComponent<StatContainer>();
 			input = GetComponent<IInputSource>();
 			impulseSource = GetComponent<CinemachineImpulseSource>();
-			audioSource = GetComponent<AudioSource>();
 		}
 
 		private void Start()
@@ -103,7 +101,7 @@ namespace SRS.Combat
 			{
 				if(weapon.Sound != null)
 				{
-					audioSource?.PlayOneShot(weapon.Sound);
+					AudioManager.Instance.Play(weapon.Sound);
 				}
 				GenerateRecoil();
 			}
