@@ -36,8 +36,6 @@ namespace SRS.EnemyManagement
 
 		[SerializeField] private ExperienceSpawner experienceSpawner;
 
-		private AudioSource audioSource;
-
 		private List<Enemy> activeEnemies = new();
 		
 		private Transform player;
@@ -47,8 +45,6 @@ namespace SRS.EnemyManagement
 		private void Awake()
 		{
 			minDistanceFromPlayer += spawnAreaRadius;
-
-			audioSource = GetComponent<AudioSource>();
 		}
 
 		private void Start()
@@ -127,7 +123,7 @@ namespace SRS.EnemyManagement
 		{
 			experienceSpawner.Spawn(enemy.transform.position, enemy.XPValue);
 			
-			audioSource.PlayOneShot(deathSound);
+			AudioManager.Instance.Play(deathSound);
 			deathParticleManager.PlayParticles(enemy.transform.position, Quaternion.identity, enemy.Color);
 
 			StatisticManager.Instance["Enemies Killed"].Value++;
