@@ -6,6 +6,7 @@ using SRS.Utils.VFX;
 using SRS.Progression;
 using SRS.Extensions.Random;
 using SRS.Statistics;
+using SRS.Audio;
 
 namespace SRS.EnemyManagement
 {
@@ -15,7 +16,7 @@ namespace SRS.EnemyManagement
 
 		[SerializeField] private ObjectPool enemyPool;
 
-		[SerializeField] private AudioClip deathSound;
+		[SerializeField] private Sound deathSound;
 
 		[SerializeField] private ParticleManager deathParticleManager;
 
