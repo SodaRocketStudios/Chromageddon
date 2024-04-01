@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -205}
+  m_AnchoredPosition: {x: 50, y: -295}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &420539
@@ -607,18 +607,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 160437730}
-        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-        m_MethodName: SetSelectedGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 201608911}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &16723102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,6 +801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousMenu: {fileID: 59828025}
   closeOnBack: 0
+  FirstSelectedObject: {fileID: 1625812563}
 --- !u!114 &51020854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,6 +1017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousMenu: {fileID: 1519423076}
   closeOnBack: 0
+  FirstSelectedObject: {fileID: 1902263515}
 --- !u!114 &59828026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4947,18 +4937,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 160437730}
-        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-        m_MethodName: SetSelectedGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 759086513}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &561913295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5105,6 +5083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousMenu: {fileID: 822890291}
   closeOnBack: 0
+  FirstSelectedObject: {fileID: 714607352}
 --- !u!1 &613091398
 GameObject:
   m_ObjectHideFlags: 0
@@ -5457,6 +5436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousMenu: {fileID: 0}
   closeOnBack: 0
+  FirstSelectedObject: {fileID: 0}
 --- !u!1 &674138503
 GameObject:
   m_ObjectHideFlags: 0
@@ -6887,6 +6867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousMenu: {fileID: 0}
   closeOnBack: 1
+  FirstSelectedObject: {fileID: 201608911}
 --- !u!1 &829772033
 GameObject:
   m_ObjectHideFlags: 0
@@ -7860,18 +7841,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 160437730}
-        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-        m_MethodName: set_firstSelectedGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 714607352}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 886597440}
         m_TargetAssemblyTypeName: SRS.Settings.SettingsManager, Settings
         m_MethodName: Load
@@ -8246,8 +8215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 175, y: 0}
-  m_SizeDelta: {x: 350, y: 25}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 25}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &938870771
 MonoBehaviour:
@@ -10416,18 +10385,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 160437730}
-        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-        m_MethodName: SetSelectedGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 759086513}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1105410189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11624,7 +11581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -250}
+  m_AnchoredPosition: {x: 50, y: -340}
   m_SizeDelta: {x: 320, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1334623402
@@ -11693,7 +11650,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283197439
+    rgba: 4278190335
   m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -12492,7 +12449,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283557478
+    rgba: 4278255360
   m_fontColor: {r: 0, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -12823,7 +12780,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 959.76917, y: -96}
+  m_AnchoredPosition: {x: 959.9651, y: -96}
   m_SizeDelta: {x: 663, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1431686361
@@ -13030,18 +12987,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1740516849}
           m_ObjectArgumentAssemblyTypeName: SRS.UI.MenuManagement.Menu, MenuManagement
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 160437730}
-        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-        m_MethodName: set_firstSelectedGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1771697368}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -13502,6 +13447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousMenu: {fileID: 0}
   closeOnBack: 0
+  FirstSelectedObject: {fileID: 759086513}
 --- !u!1 &1519798210
 GameObject:
   m_ObjectHideFlags: 0
@@ -14063,7 +14009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 959.76917, y: -840.8397}
+  m_AnchoredPosition: {x: 959.9651, y: -840.6929}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1551447091
@@ -14221,18 +14167,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 59828025}
           m_ObjectArgumentAssemblyTypeName: SRS.UI.MenuManagement.Menu, MenuManagement
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 160437730}
-        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-        m_MethodName: set_firstSelectedGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1902263515}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14596,18 +14530,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 160437730}
-        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-        m_MethodName: SetSelectedGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1902263515}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -16804,6 +16726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousMenu: {fileID: 1519423076}
   closeOnBack: 0
+  FirstSelectedObject: {fileID: 1771697368}
 --- !u!1 &1756026681
 GameObject:
   m_ObjectHideFlags: 0
@@ -17132,7 +17055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 959.76917, y: -466.41986}
+  m_AnchoredPosition: {x: 959.9651, y: -466.34644}
   m_SizeDelta: {x: 100, y: 270}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1790210939
@@ -17787,18 +17710,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 51020853}
           m_ObjectArgumentAssemblyTypeName: SRS.UI.MenuManagement.Menu, MenuManagement
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 160437730}
-        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-        m_MethodName: set_firstSelectedGameObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1625812563}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
