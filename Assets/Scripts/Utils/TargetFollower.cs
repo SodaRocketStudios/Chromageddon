@@ -5,6 +5,9 @@ namespace SRS.Utils
 	public class TargetFollower : MonoBehaviour
 	{
 		[SerializeField] private Transform target;
+
+		[SerializeField] private Vector3 offset;
+
 		public Transform Target
 		{
 			get => target;
@@ -13,7 +16,7 @@ namespace SRS.Utils
 
 		private void Update()
 		{
-			transform.position = target.position;
+			transform.position = target.position + offset;
 		}
 	}
 }
