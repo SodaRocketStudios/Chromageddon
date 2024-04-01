@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace SRS.UI.MenuManagement
 {
@@ -16,9 +17,12 @@ namespace SRS.UI.MenuManagement
 			get => closeOnBack;
 		}
 
+		[SerializeField] private GameObject FirstSelectedObject;
+
 		public void Enable()
 		{
 			gameObject.SetActive(true);
+			EventSystem.current.SetSelectedGameObject(FirstSelectedObject);
 		}
 
 		public void Disable()

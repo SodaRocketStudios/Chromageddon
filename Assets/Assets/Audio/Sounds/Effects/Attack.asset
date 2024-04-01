@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b5c405050a784459c7c36bf2d4bdc5, type: 3}
   m_Name: Attack
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 92ab4279195b0d948b4ec272cfe98f7c, type: 3}
+  clip: {fileID: 8300000, guid: 250fe237e7cfa8046a37c0399eb6c144, type: 3}
   mixerGroup: {fileID: -5425374816022560572, guid: 198294307ba40074cae36b77b1a67627, type: 2}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b5c405050a784459c7c36bf2d4bdc5, type: 3}
   m_Name: Death
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: dbc041b3c4f20e7499ce4424d2c78f6e, type: 3}
+  clip: {fileID: 8300000, guid: 171de1137dd4a224f934ec1494e3a271, type: 3}
   mixerGroup: {fileID: -5425374816022560572, guid: 198294307ba40074cae36b77b1a67627, type: 2}
