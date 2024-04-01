@@ -89,7 +89,8 @@ namespace SRS.PawnController
         {
             if(inputSource.LookInput.magnitude > 0)
             {
-                transform.right = inputSource.LookInput;
+                transform.eulerAngles = Vector3.forward*Vector2.SignedAngle(Vector2.right, inputSource.LookInput);
+                // transform.right = inputSource.LookInput;
             }
         }
 
