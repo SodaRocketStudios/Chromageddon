@@ -26,18 +26,21 @@ namespace SRS.Achievements
 
 		public void Initialize()
 		{
-			Condition.OnMet += CheckConditions;
+			hasBeenAwarded = false;
 			
 			foreach(Condition condition in conditions)
 			{
 				condition.Initialize();
 			}
+
+			Condition.OnMet += CheckConditions;
 		}
 
 		public void CheckConditions(Condition triggeringCondition)
 		{
 			if(hasBeenAwarded)
 			{
+				Condition.OnMet -= CheckConditions;
 				return;
 			}
 
@@ -75,14 +78,11 @@ namespace SRS.Achievements
 
         public void RestoreState(object state)
         {
+			Initialize();
+
             JValue data = state as JValue;
 
 			hasBeenAwarded = (bool)data.Value;
-
-			if(hasBeenAwarded)
-			{
-				Condition.OnMet -= CheckConditions;
-			}
         }
     }
 }

@@ -82,7 +82,7 @@ namespace SRS.Statistics
 				return;
 			}
 
-			Value = data.Value;
+			value = data.Value;
 			defaultValue = data.DefaultValue;
 			decimalPlaces = data.DecimalPlaces;
 			isPersistent = data.IsPersistent;

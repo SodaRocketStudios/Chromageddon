@@ -47,7 +47,7 @@ namespace SRS.Achievements
         public void RestoreState(object state)
         {
 			Initialize();
-
+			
 			Dictionary<string, object> data = state.ToDictionary();
 
             foreach(Achievement achievement in achievements)
