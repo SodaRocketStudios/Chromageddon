@@ -15,11 +15,12 @@ MonoBehaviour:
   sprite: {fileID: 0}
   modifiers:
   - {fileID: 11400000, guid: f1093d587d842544b84ccd078fd9eb66, type: 2}
-  - {fileID: 11400000, guid: 5e7dc7af3156c3543817ead2554aa3c4, type: 2}
-  - {fileID: 11400000, guid: e97b14d650cae7f41801cac14f93dc48, type: 2}
+  - {fileID: 11400000, guid: a35f4402d5ddc4440be598cf30e73629, type: 2}
+  - {fileID: 11400000, guid: 03d691a542dc9d94f83953d30b73c62e, type: 2}
   - {fileID: 11400000, guid: b6b4045600ecfb045b5c0c2769abd24b, type: 2}
   - {fileID: 11400000, guid: 20c2546ac7ee59e448f8acb1f46867c6, type: 2}
-  - {fileID: 11400000, guid: 3d5f0b5e2d8fec042b56eb7a34ea56bb, type: 2}
+  - {fileID: 11400000, guid: 00bde8b24d6e38548854cf4cf144a2ea, type: 2}
+  - {fileID: 11400000, guid: 91fbfa0ae35e39f4590bc494d24f6ea0, type: 2}
   attackData:
     Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
     Sound: {fileID: 11400000, guid: d3debddfc743858469f8e1f86da45914, type: 2}

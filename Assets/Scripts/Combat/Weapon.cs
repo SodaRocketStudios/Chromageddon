@@ -26,8 +26,11 @@ namespace SRS.Combat
 
 		public void Attack(GameObject attacker)
 		{
-            Attack attack = attackPool.Get(attacker.transform.position, attacker.transform.rotation) as Attack;
-            attack.Initialize(attackData, attacker);
+            for(int i = 0; i < attacker.GetComponent<StatContainer>()["Projectiles"].Value; i++)
+            {
+                Attack attack = attackPool.Get(attacker.transform.position, attacker.transform.rotation) as Attack;
+                attack.Initialize(attackData, attacker);
+            }
 
             if(attacker.CompareTag("Player"))
             {
