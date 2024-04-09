@@ -25,8 +25,8 @@
      showgrid="false"
      units="in"
      inkscape:zoom="1.0809567"
-     inkscape:cx="604.55706"
-     inkscape:cy="918.16814"
+     inkscape:cx="657.28812"
+     inkscape:cy="820.10686"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -899,5 +899,20 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bungee Inline';-inkscape-font-specification:'Bungee Inline';fill:#00ffff;fill-opacity:1;stroke-width:0.264583"
          x="109.85955"
          y="-13.488577">Achievements</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.7px;line-height:1.25;font-family:'Bungee Inline';-inkscape-font-specification:'Bungee Inline';mix-blend-mode:normal;fill:#ff6a00;fill-opacity:1;stroke-width:0.264583;filter:url(#filter3)"
+       x="109.85955"
+       y="-13.488577"
+       id="text4"
+       inkscape:export-filename="Weapons Title.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"
+       transform="matrix(1.1321156,0,0,1.1321156,84.179447,242.29259)"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bungee Inline';-inkscape-font-specification:'Bungee Inline';fill:#ff6a00;fill-opacity:1;stroke-width:0.264583"
+         x="109.85955"
+         y="-13.488577">Weapons</tspan></text>
   </g>
 </svg>
