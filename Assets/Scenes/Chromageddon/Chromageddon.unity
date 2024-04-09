@@ -9522,7 +9522,7 @@ MonoBehaviour:
     minimumValue: 0
     format: 1
   - name: Projectiles
-    baseValue: 2
+    baseValue: 1
     percentageModifier: 0
     hasMaximum: 0
     maximumValue: 1
@@ -21006,6 +21006,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon Button (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5968974581232112365, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ca19058c5d8f8446b9584c24a522062, type: 2}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

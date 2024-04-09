@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
+  m_Name: Laser Rifle
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  modifiers:
+  - {fileID: 11400000, guid: ae4053e4886583d4f8fa0afade0403b7, type: 2}
+  - {fileID: 11400000, guid: a35f4402d5ddc4440be598cf30e73629, type: 2}
+  - {fileID: 11400000, guid: e97b14d650cae7f41801cac14f93dc48, type: 2}
+  - {fileID: 11400000, guid: 6d0a5207c94a75f4587dc143659f8f0b, type: 2}
+  - {fileID: 11400000, guid: 3d5f0b5e2d8fec042b56eb7a34ea56bb, type: 2}
+  attackData:
+    Behavior: {fileID: 11400000, guid: cb8a4f3ec2df7d045bebc812bebecbed, type: 2}
+    Sound: {fileID: 11400000, guid: d3debddfc743858469f8e1f86da45914, type: 2}
+    AttackParticleManager: {fileID: 11400000, guid: 50ab3e40c7b510543bfa6ffab93c8802, type: 2}
+    HitParticleManager: {fileID: 11400000, guid: 084bc7eff7774894b9665c7570531776, type: 2}
+    DamageType: 0
+    AnimatorController: {fileID: 9100000, guid: 4713fd2a6b9171c41867374e520b255c, type: 2}
+    DefaultSprite: {fileID: 21300000, guid: 2ea5fc4ec598c1a40b3c678145b79fdf, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}
+  recoilStrength: 0
