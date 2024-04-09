@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
+  m_Name: Shotgun
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  modifiers:
+  - {fileID: 11400000, guid: f1093d587d842544b84ccd078fd9eb66, type: 2}
+  - {fileID: 11400000, guid: 5e7dc7af3156c3543817ead2554aa3c4, type: 2}
+  - {fileID: 11400000, guid: e97b14d650cae7f41801cac14f93dc48, type: 2}
+  - {fileID: 11400000, guid: b6b4045600ecfb045b5c0c2769abd24b, type: 2}
+  - {fileID: 11400000, guid: 20c2546ac7ee59e448f8acb1f46867c6, type: 2}
+  - {fileID: 11400000, guid: 3d5f0b5e2d8fec042b56eb7a34ea56bb, type: 2}
+  attackData:
+    Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
+    Sound: {fileID: 11400000, guid: d3debddfc743858469f8e1f86da45914, type: 2}
+    AttackParticleManager: {fileID: 11400000, guid: 50ab3e40c7b510543bfa6ffab93c8802, type: 2}
+    HitParticleManager: {fileID: 11400000, guid: 084bc7eff7774894b9665c7570531776, type: 2}
+    DamageType: 0
+    AnimatorController: {fileID: 9100000, guid: badd9af6bee6cdc409c503abb88b5047, type: 2}
+    DefaultSprite: {fileID: -790504360, guid: a7815cb0648b2e84bab631687c7fe2e2, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  attackPool: {fileID: 11400000, guid: acf97830a903cd64382fc79a0adef715, type: 2}
+  recoilStrength: 0.25
