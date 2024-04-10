@@ -29,13 +29,17 @@ namespace SRS.GameManagement
 			{
 				Destroy(this);
 			}
+		}
 
+		private void Start()
+		{
 			Pause();
 		}
 
 		public void Pause()
 		{
 			Time.timeScale = 0;
+			GameTimer.Instance.PauseTimer();
 			Running = false;
 			OnPlayPause?.Invoke(Running);
 			OnPause.Invoke();
@@ -44,6 +48,7 @@ namespace SRS.GameManagement
 		public void Play()
 		{
 			Time.timeScale = 1;
+			GameTimer.Instance.StartTimer();
 			Running = true;
 			OnPlayPause?.Invoke(Running);
 			OnPlay?.Invoke();
@@ -66,6 +71,7 @@ namespace SRS.GameManagement
 		public void GameOver()
 		{
 			OnGameOver?.Invoke();
+			GameTimer.Instance.PauseTimer();
 			PersistenceSystem.Instance.Save("Save");
 			Pause();
 		}

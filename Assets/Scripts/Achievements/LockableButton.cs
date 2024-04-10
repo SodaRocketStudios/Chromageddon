@@ -55,7 +55,8 @@ namespace SRS.Achievements
 
 		private void CheckConditions(Condition triggeringCondition)
 		{
-			if(isUnlocked == false)
+			Debug.Log("Checking Conditions", gameObject);
+			if(isUnlocked == true)
 			{
 				Condition.OnMet -= CheckConditions;
 				return;
@@ -65,9 +66,12 @@ namespace SRS.Achievements
 			{
 				if(condition.IsSatisfied == false)
 				{
+					Debug.Log("Not Satisfied", gameObject);
 					return;
 				}
 			}
+
+			Debug.Log("Satisfied", gameObject);
 
 			isUnlocked = true;
 			toggleButton.interactable = true;

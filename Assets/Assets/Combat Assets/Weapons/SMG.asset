@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c56c19457dbbb84449433d0bc36a96c6, type: 3}
-  m_Name: Shotgun
+  m_Name: SMG
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   modifiers:
-  - {fileID: 11400000, guid: 2dbf5aef340d9d340bd070b06358c32b, type: 2}
+  - {fileID: 11400000, guid: 4c1acab8afcffb64484364d6d4bc2af7, type: 2}
   - {fileID: 11400000, guid: a35f4402d5ddc4440be598cf30e73629, type: 2}
-  - {fileID: 11400000, guid: 03d691a542dc9d94f83953d30b73c62e, type: 2}
+  - {fileID: 11400000, guid: e97b14d650cae7f41801cac14f93dc48, type: 2}
   - {fileID: 11400000, guid: b6b4045600ecfb045b5c0c2769abd24b, type: 2}
   - {fileID: 11400000, guid: 20c2546ac7ee59e448f8acb1f46867c6, type: 2}
-  - {fileID: 11400000, guid: 00bde8b24d6e38548854cf4cf144a2ea, type: 2}
-  - {fileID: 11400000, guid: 91fbfa0ae35e39f4590bc494d24f6ea0, type: 2}
+  - {fileID: 11400000, guid: 63b5d59a0627e3c4088714507a64a2dc, type: 2}
   attackData:
     Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
     Sound: {fileID: 11400000, guid: d3debddfc743858469f8e1f86da45914, type: 2}
