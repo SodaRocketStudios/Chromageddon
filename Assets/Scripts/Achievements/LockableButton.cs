@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text;
 using Newtonsoft.Json.Linq;
 using SRS.DataPersistence;
 using UnityEngine;
@@ -38,6 +39,18 @@ namespace SRS.Achievements
 				isUnlocked = true;
 				toggleButton.interactable = true;
 			}
+		}
+
+		public string GetUnlockCriteria()
+		{
+			StringBuilder criteriaBuilder = new();
+
+			foreach (var condition in conditions)
+			{
+				criteriaBuilder.AppendLine(condition.name);
+			}
+
+			return criteriaBuilder.ToString();
 		}
 
 		private void CheckConditions(Condition triggeringCondition)

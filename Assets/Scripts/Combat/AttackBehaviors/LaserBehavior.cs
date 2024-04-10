@@ -5,13 +5,17 @@ namespace SRS.Combat
     [CreateAssetMenu(fileName = "New Laser Behavior", menuName = "Combat/Attack Behavior/Laser Behavior")]
     public class LaserBehavior : AttackBehavior
     {
-        private float chargeTime;
+        [SerializeField] private float chargeTime;
+        [SerializeField] private bool overrideChargeTime;
 
         private Vector2 size;
 
         public override void OnStart(Attack attack)
         {
-            chargeTime = attack.Stats["Attack Delay"].Value/2;
+            if(overrideChargeTime == false)
+            {
+                chargeTime = attack.Stats["Attack Delay"].Value/2;
+            }
 
             size = attack.spriteSize;
             size.x = attack.Stats["Range"].Value;

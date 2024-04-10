@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using SRS.Achievements;
 
 namespace SRS.Combat
 {
@@ -13,6 +14,7 @@ namespace SRS.Combat
 		}
 
 		[SerializeField] private TMP_Text nameTextBox;
+		[SerializeField] private TMP_Text descriptionTextBox;
 		
 		private Toggle toggleButton;
 
@@ -22,6 +24,7 @@ namespace SRS.Combat
 			toggleButton.onValueChanged.AddListener(OnValueChange);
 
 			nameTextBox.text = weapon.name;
+			descriptionTextBox.text = GetComponent<LockableButton>().GetUnlockCriteria();
 		}
 
 		public void Deselect()

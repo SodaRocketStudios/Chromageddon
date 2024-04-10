@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 5604530e5754aeb42954b4dd8259d77c, type: 2}
   nameTextBox: {fileID: 2612199765442068867}
+  descriptionTextBox: {fileID: 5919734710788500206}
 --- !u!114 &-2214367508667091589
 MonoBehaviour:
   m_ObjectHideFlags: 0
