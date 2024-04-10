@@ -670,6 +670,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: conditions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: 'conditions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: afd5347b0d7159e4d83658cdb531015d, type: 2}
+    - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: uniqueIdentifier
+      value: a260b34a-86e8-4a05-8175-12024bfd8b1d
+      objectReference: {fileID: 0}
     - target: {fileID: 5867708040350483995, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_Name
       value: Weapon Button (4)
@@ -6410,6 +6422,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2021412572}
+        m_TargetAssemblyTypeName: SRS.DataPersistence.PersistenceSystem, DataPersistence
+        m_MethodName: Save
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Save
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &751275728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6559,6 +6583,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2021412572}
+        m_TargetAssemblyTypeName: SRS.DataPersistence.PersistenceSystem, DataPersistence
+        m_MethodName: Load
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Save
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &759086516
@@ -12061,6 +12097,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: conditions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: 'conditions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: afd5347b0d7159e4d83658cdb531015d, type: 2}
+    - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: uniqueIdentifier
+      value: 1b0c7589-311a-4579-8006-cf2b8bc04fe9
+      objectReference: {fileID: 0}
     - target: {fileID: 5867708040350483995, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_Name
       value: Weapon Button (3)
@@ -20764,6 +20812,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: conditions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: 'conditions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: afd5347b0d7159e4d83658cdb531015d, type: 2}
+    - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: uniqueIdentifier
+      value: d5a2587b-12ac-4bfa-bb3d-d2aafaab0c09
+      objectReference: {fileID: 0}
     - target: {fileID: 5867708040350483995, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_Name
       value: Weapon Button (5)
@@ -21002,6 +21062,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
+    - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: uniqueIdentifier
+      value: 829cf36b-a4eb-40b1-bfdb-cf8711e2521c
+      objectReference: {fileID: 0}
     - target: {fileID: 5867708040350483995, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_Name
       value: Weapon Button (2)
@@ -21275,6 +21339,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
+    - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: uniqueIdentifier
+      value: 057019bf-0105-4fcd-a88d-3a0638d50b74
+      objectReference: {fileID: 0}
     - target: {fileID: 5867708040350483995, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_Name
       value: Weapon Button (1)
@@ -21857,10 +21925,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
+    - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: uniqueIdentifier
+      value: f93b9baa-f134-4773-8e24-cc7606d0e35d
+      objectReference: {fileID: 0}
     - target: {fileID: 5867708040350483995, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_Name
       value: Weapon Button
       objectReference: {fileID: 0}
+    - target: {fileID: 5968974581232112365, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ab6479ec88f3f748a45c2fc09a1f8ca, type: 2}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
