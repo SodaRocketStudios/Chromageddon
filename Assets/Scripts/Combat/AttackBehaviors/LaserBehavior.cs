@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace SRS.Combat
@@ -62,7 +63,7 @@ namespace SRS.Combat
 
         public override float GetLifetime(Attack attack)
         {
-            return chargeTime*1.5f;
+            return Mathf.Max(chargeTime*1.5f, 1);
         }
     }
 }
