@@ -22,9 +22,12 @@ namespace SRS.Combat
 		{
 			toggleButton = GetComponent<Toggle>();
 			toggleButton.onValueChanged.AddListener(OnValueChange);
+		}
 
+		private void OnEnable()
+		{
 			nameTextBox.text = weapon.name;
-			descriptionTextBox.text = GetComponent<LockableButton>().GetUnlockCriteria();
+			descriptionTextBox.text = GetComponent<LockableButton>().GetDescription();
 		}
 
 		public void Deselect()

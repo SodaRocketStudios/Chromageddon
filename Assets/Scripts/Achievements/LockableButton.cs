@@ -15,6 +15,9 @@ namespace SRS.Achievements
 
 		[SerializeField] private List<Condition> conditions = new List<Condition>();
 
+		[SerializeField] private string unlockCriteria;
+		[SerializeField] private string description;
+
 		private void Awake()
 		{
 			toggleButton = GetComponent<Toggle>();
@@ -46,16 +49,9 @@ namespace SRS.Achievements
 			Condition.OnMet -= CheckConditions;
 		}
 
-		public string GetUnlockCriteria()
+		public string GetDescription()
 		{
-			StringBuilder criteriaBuilder = new();
-
-			foreach (var condition in conditions)
-			{
-				criteriaBuilder.AppendLine(condition.name);
-			}
-
-			return criteriaBuilder.ToString();
+			return isUnlocked?description:unlockCriteria;
 		}
 
 		private void CheckConditions(Condition triggeringCondition)

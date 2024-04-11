@@ -12111,12 +12111,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: conditions.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: 'conditions.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: afd5347b0d7159e4d83658cdb531015d, type: 2}
+      objectReference: {fileID: 11400000, guid: d4beeaff75c5d5b46a69e4af2ceab2e4, type: 2}
     - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: uniqueIdentifier
       value: 1b0c7589-311a-4579-8006-cf2b8bc04fe9
@@ -20295,7 +20295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35acaa4e47eb3248b0102e8a4a2769d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  encryptData: 0
+  encryptData: 1
 --- !u!1 &2039603765
 GameObject:
   m_ObjectHideFlags: 0
@@ -21085,7 +21085,7 @@ PrefabInstance:
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: 'conditions.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: dca36bb7e51c7c6458424ec9792895aa, type: 2}
+      objectReference: {fileID: 11400000, guid: efc4670275c77d94c9bc575a3d10e6b7, type: 2}
     - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: uniqueIdentifier
       value: 829cf36b-a4eb-40b1-bfdb-cf8711e2521c
@@ -21363,6 +21363,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: conditions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: 'conditions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fac32d63144ecc446af5d184aaf3cc69, type: 2}
     - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: uniqueIdentifier
       value: 057019bf-0105-4fcd-a88d-3a0638d50b74
