@@ -748,11 +748,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 375
+      value: 525
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -300
+      value: -375
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9616,8 +9616,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960.0349, y: -487.9869}
-  m_SizeDelta: {x: 750, y: 400}
+  m_AnchoredPosition: {x: 960.0349, y: -504.65356}
+  m_SizeDelta: {x: 1050, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &981893292
 MonoBehaviour:
@@ -9639,7 +9639,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 150}
+  m_CellSize: {x: 300, y: 200}
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -12110,6 +12110,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: description
+      value: Low damage with a high fire rate.
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: unlockCriteria
+      value: Have a fire rate of 4 shots per second
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: conditions.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -12191,11 +12199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -300
+      value: -375
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13655,7 +13663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960.0349, y: -883.9738}
+  m_AnchoredPosition: {x: 960.0349, y: -917.3071}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1416681487
@@ -20906,11 +20914,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 625
+      value: 875
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -300
+      value: -375
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21079,6 +21087,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: description
+      value: A long range laser that can pierce through all enemies
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: unlockCriteria
+      value: Have a pirece count of 5 or more.
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: conditions.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -21160,11 +21176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 625
+      value: 875
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -125
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21364,6 +21380,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: description
+      value: Low damage and fire rate, but increased projectile count
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: unlockCriteria
+      value: Have accuracy of 50% or less
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: conditions.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -21445,11 +21469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 375
+      value: 525
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -125
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21957,6 +21981,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: description
+      value: A balance between damage and fire rate
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: unlockCriteria
+      value: N/A
+      objectReference: {fileID: 0}
     - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: uniqueIdentifier
       value: f93b9baa-f134-4773-8e24-cc7606d0e35d
@@ -22031,11 +22063,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -125
       objectReference: {fileID: 0}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

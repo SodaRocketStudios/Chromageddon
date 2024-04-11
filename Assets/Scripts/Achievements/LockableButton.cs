@@ -1,5 +1,5 @@
+using System;
 using System.Collections.Generic;
-using System.Text;
 using Newtonsoft.Json.Linq;
 using SRS.DataPersistence;
 using UnityEngine;
@@ -9,14 +9,26 @@ namespace SRS.Achievements
 {
 	public class LockableButton : MonoBehaviour, IPersist
 	{
-		private Toggle toggleButton;
-
-		private bool isUnlocked = false;
-
 		[SerializeField] private List<Condition> conditions = new List<Condition>();
 
 		[SerializeField] private string unlockCriteria;
 		[SerializeField] private string description;
+
+		public Action OnStateChange;
+
+		private Toggle toggleButton;
+
+		private bool isUnlocked = false;
+
+		public bool IsUnlocked
+		{
+			get => isUnlocked;
+			private set
+			{
+				isUnlocked = value;
+				OnStateChange?.Invoke();
+			}
+		}
 
 		private void Awake()
 		{
@@ -35,13 +47,14 @@ namespace SRS.Achievements
 
 		private void OnEnable()
 		{
-			toggleButton.interactable = isUnlocked;
-
+			OnStateChange?.Invoke();
+			
 			if(conditions.Count <= 0)
 			{
-				isUnlocked = true;
-				toggleButton.interactable = true;
+				IsUnlocked = true;
 			}
+
+			toggleButton.interactable = IsUnlocked;
 		}
 
 		private void OnDestroy()
@@ -51,12 +64,12 @@ namespace SRS.Achievements
 
 		public string GetDescription()
 		{
-			return isUnlocked?description:unlockCriteria;
+			return IsUnlocked?description:unlockCriteria;
 		}
 
 		private void CheckConditions(Condition triggeringCondition)
 		{
-			if(isUnlocked == true)
+			if(IsUnlocked == true)
 			{
 				Condition.OnMet -= CheckConditions;
 				return;
@@ -74,23 +87,23 @@ namespace SRS.Achievements
 
 			PersistenceSystem.Instance.Save("Save");
 
-			isUnlocked = true;
+			IsUnlocked = true;
 			toggleButton.interactable = true;
 		}
 
         public object CaptureState()
         {
-            return isUnlocked;
+            return IsUnlocked;
         }
 
         public void RestoreState(object state)
         {
 			Debug.Log("Restore");
-            isUnlocked = (bool)(state as JValue);
+            IsUnlocked = (bool)(state as JValue);
 
 			if(toggleButton != null)
 			{
-				toggleButton.interactable = isUnlocked;
+				toggleButton.interactable = IsUnlocked;
 			}
         }
     }

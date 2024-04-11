@@ -22,9 +22,11 @@ namespace SRS.Combat
 		{
 			toggleButton = GetComponent<Toggle>();
 			toggleButton.onValueChanged.AddListener(OnValueChange);
+			
+			GetComponent<LockableButton>().OnStateChange += PopulateText;
 		}
 
-		private void OnEnable()
+		private void PopulateText()
 		{
 			nameTextBox.text = weapon.name;
 			descriptionTextBox.text = GetComponent<LockableButton>().GetDescription();
