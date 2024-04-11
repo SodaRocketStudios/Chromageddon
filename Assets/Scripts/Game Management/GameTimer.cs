@@ -24,7 +24,7 @@ namespace SRS.GameManagement
 			}
 		}
 
-		private TimerState state;
+		private TimerState state = TimerState.Stopped;
 
 		private void Awake()
 		{
@@ -37,7 +37,7 @@ namespace SRS.GameManagement
 				Destroy(gameObject);
 			}
 
-			state = TimerState.Running;
+			state = TimerState.Stopped;
 		}
 
 		public void StartTimer()
@@ -66,7 +66,7 @@ namespace SRS.GameManagement
 				case TimerState.Paused:
 					break;
 				case TimerState.Stopped:
-					Time = 0;
+					time = 0;
 					break;
 				default:
 					break;

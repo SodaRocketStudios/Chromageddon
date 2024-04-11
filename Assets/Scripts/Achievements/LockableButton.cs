@@ -41,6 +41,11 @@ namespace SRS.Achievements
 			}
 		}
 
+		private void OnDestroy()
+		{
+			Condition.OnMet -= CheckConditions;
+		}
+
 		public string GetUnlockCriteria()
 		{
 			StringBuilder criteriaBuilder = new();
