@@ -83,8 +83,6 @@ namespace SRS.Achievements
 				}
 			}
 
-			Debug.Log("Satisfied", gameObject);
-
 			PersistenceSystem.Instance.Save("Save");
 
 			IsUnlocked = true;
@@ -98,7 +96,6 @@ namespace SRS.Achievements
 
         public void RestoreState(object state)
         {
-			Debug.Log("Restore");
             IsUnlocked = (bool)(state as JValue);
 
 			if(toggleButton != null)
