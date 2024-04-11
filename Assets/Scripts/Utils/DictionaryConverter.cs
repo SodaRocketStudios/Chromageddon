@@ -6,13 +6,6 @@ namespace SRS.Utils
 {
 	public static class DictionaryConverter
 	{
-		// public static Dictionary<string, T> ToDictionary<T>(this object obj)
-		// {
-		// 	// TODO -- find a more performant way to do this.
-		// 	string json = JsonConvert.SerializeObject(obj);
-		// 	return JsonConvert.DeserializeObject<Dictionary<string, T>>(json);
-		// }
-
 		public static Dictionary<string, object> ToDictionary(this object source)
 		{
 			return source.ToDictionary<object>();

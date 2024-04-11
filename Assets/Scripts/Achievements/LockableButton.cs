@@ -60,7 +60,6 @@ namespace SRS.Achievements
 
 		private void CheckConditions(Condition triggeringCondition)
 		{
-			Debug.Log("Checking Conditions", gameObject);
 			if(isUnlocked == true)
 			{
 				Condition.OnMet -= CheckConditions;
@@ -71,12 +70,13 @@ namespace SRS.Achievements
 			{
 				if(condition.IsSatisfied == false)
 				{
-					Debug.Log("Not Satisfied", gameObject);
 					return;
 				}
 			}
 
 			Debug.Log("Satisfied", gameObject);
+
+			PersistenceSystem.Instance.Save("Save");
 
 			isUnlocked = true;
 			toggleButton.interactable = true;
@@ -89,8 +89,13 @@ namespace SRS.Achievements
 
         public void RestoreState(object state)
         {
+			Debug.Log("Restore");
             isUnlocked = (bool)(state as JValue);
-			toggleButton.interactable = isUnlocked;
+
+			if(toggleButton != null)
+			{
+				toggleButton.interactable = isUnlocked;
+			}
         }
     }
 }

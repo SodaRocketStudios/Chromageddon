@@ -6585,18 +6585,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674138511}
-        m_TargetAssemblyTypeName: SRS.UI.MenuManagement.MenuManager, MenuManagement
-        m_MethodName: Switch
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 269812029}
-          m_ObjectArgumentAssemblyTypeName: SRS.UI.MenuManagement.Menu, MenuManagement
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2021412572}
         m_TargetAssemblyTypeName: SRS.DataPersistence.PersistenceSystem, DataPersistence
         m_MethodName: Load
@@ -6607,6 +6595,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Save
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 674138511}
+        m_TargetAssemblyTypeName: SRS.UI.MenuManagement.MenuManager, MenuManagement
+        m_MethodName: Switch
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 269812029}
+          m_ObjectArgumentAssemblyTypeName: SRS.UI.MenuManagement.Menu, MenuManagement
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &759086516
@@ -20295,7 +20295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35acaa4e47eb3248b0102e8a4a2769d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  encryptData: 1
+  encryptData: 0
 --- !u!1 &2039603765
 GameObject:
   m_ObjectHideFlags: 0

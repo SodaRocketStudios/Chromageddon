@@ -72,7 +72,7 @@ namespace SRS.DataPersistence
 
 		private void CaptureState(Dictionary<string, object> state)
 		{
-			foreach(PersistentEntity entity in FindObjectsByType<PersistentEntity>(FindObjectsSortMode.None))
+			foreach(PersistentEntity entity in FindObjectsByType<PersistentEntity>(FindObjectsInactive.Include, FindObjectsSortMode.None))
 			{
 				state[entity.UniqueIdentifier] = entity.CaptureState();
 			}
@@ -85,7 +85,7 @@ namespace SRS.DataPersistence
 				return;
 			}
 
-			foreach(PersistentEntity entity in FindObjectsByType<PersistentEntity>(FindObjectsSortMode.None))
+			foreach(PersistentEntity entity in FindObjectsByType<PersistentEntity>(FindObjectsInactive.Include, FindObjectsSortMode.None))
 			{
 				if(state.ContainsKey(entity.UniqueIdentifier))
 				{
