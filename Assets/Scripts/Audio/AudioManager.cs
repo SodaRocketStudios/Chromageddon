@@ -12,7 +12,7 @@ namespace SRS.Audio
 
 		[SerializeField] private ObjectPool pool;
 
-		private List<SoundSource> activeSounds = new();
+		private Dictionary<string, int> soundCount = new();
 
 		private void Awake()
 		{
@@ -30,19 +30,27 @@ namespace SRS.Audio
 
 		public void Play(Sound sound)
 		{
-			if(activeSounds.Count >= soundCap)
+			if(sound == null)
 			{
 				return;
 			}
+			
+			if(soundCount.ContainsKey(sound.name) == false)
+			{
+				soundCount[sound.name] = 0;
+			}
 
-			SoundSource source = pool.Get().GetComponent<SoundSource>();
-			activeSounds.Add(source);
-			source.Play(sound);
+			if(soundCount[sound.name] < sound.SoundCap)
+			{
+				SoundSource source = pool.Get().GetComponent<SoundSource>();
+				soundCount[sound.name]++;
+				source.Play(sound);
+			}
 		}
 
-		private void OnSoundEnd(SoundSource source)
+		private void OnSoundEnd(Sound sound)
 		{
-			activeSounds.Remove(source);
+			soundCount[sound.name]--;
 		}
 	}
 }

@@ -7,9 +7,11 @@ namespace SRS.Audio
 {
 	public class SoundSource : PooledObject
 	{
-		public static Action<SoundSource> OnComplete;
+		public static Action<Sound> OnComplete;
 
 		private AudioSource source;
+
+		private Sound sound;
 
 		private void Awake()
 		{
@@ -18,9 +20,11 @@ namespace SRS.Audio
 
 		public void Play(Sound sound)
 		{
+			this.sound = sound;
+
 			if(sound == null || sound.Clip == null)
 			{
-				OnComplete?.Invoke(this);
+				OnComplete?.Invoke(sound);
 				ReturnToPool();
 				return;
 			}
@@ -36,7 +40,7 @@ namespace SRS.Audio
 		{
 			yield return new WaitForSecondsRealtime(source.clip.length);
 
-			OnComplete?.Invoke(this);
+			OnComplete?.Invoke(sound);
 
 			ReturnToPool();
 		}

@@ -17,5 +17,11 @@ namespace SRS.Audio
 		{
 			get => mixerGroup;
 		}
+
+		[SerializeField, Min(0)] private int soundCap;
+		public int SoundCap
+		{
+			get => soundCap;
+		}
 	}
 }
