@@ -26,6 +26,11 @@ namespace SRS.Combat
 			GetComponent<LockableButton>().OnStateChange += PopulateText;
 		}
 
+		private void OnEnable()
+		{
+			PopulateText();
+		}
+
 		private void PopulateText()
 		{
 			nameTextBox.text = weapon.name;

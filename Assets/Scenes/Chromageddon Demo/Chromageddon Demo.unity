@@ -12115,16 +12115,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: unlockCriteria
-      value: Have a fire rate of 4 shots per second
+      value: Only available in full game.
       objectReference: {fileID: 0}
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: conditions.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: 'conditions.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: d4beeaff75c5d5b46a69e4af2ceab2e4, type: 2}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: 'conditions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: afd5347b0d7159e4d83658cdb531015d, type: 2}
     - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: uniqueIdentifier
       value: 1b0c7589-311a-4579-8006-cf2b8bc04fe9
@@ -21092,16 +21096,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: unlockCriteria
-      value: Have a pirece count of 5 or more.
+      value: Only available in full game.
       objectReference: {fileID: 0}
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: conditions.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: 'conditions.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: efc4670275c77d94c9bc575a3d10e6b7, type: 2}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: 'conditions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: afd5347b0d7159e4d83658cdb531015d, type: 2}
     - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: uniqueIdentifier
       value: 829cf36b-a4eb-40b1-bfdb-cf8711e2521c

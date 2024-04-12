@@ -48,7 +48,7 @@ namespace SRS.Achievements
 		private void OnEnable()
 		{
 			OnStateChange?.Invoke();
-			
+
 			if(conditions.Count <= 0)
 			{
 				IsUnlocked = true;
