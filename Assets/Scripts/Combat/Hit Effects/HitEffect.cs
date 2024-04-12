@@ -25,11 +25,6 @@ namespace SRS.Combat.HitEffects
 
 		public void Trigger(GameObject source, GameObject target)
 		{
-			foreach(Effect effect in effects)
-			{
-				effect.Apply(source, target);
-			}
-			
 			ParticleSystem system = particleManager?.PlayParticles(target.transform.position, Quaternion.identity, particleColor);
 			if(system != null)
 			{
@@ -38,8 +33,14 @@ namespace SRS.Combat.HitEffects
 				{
 					follower.Target = target.transform;
 				}
-				
-				target.GetComponent<HitHandler>().Health.OnDeath += system.GetComponent<PooledObject>().ReturnToPool;
+
+				HitHandler hitHandler = target.GetComponent<HitHandler>();
+				hitHandler.Health.OnDeath += system.GetComponent<PooledObject>().ReturnToPool;
+			}
+
+			foreach(Effect effect in effects)
+			{
+				effect.Apply(source, target);
 			}
 		}
 
