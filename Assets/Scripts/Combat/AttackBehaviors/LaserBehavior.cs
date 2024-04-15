@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using SRS.Extensions.Random;
 
 namespace SRS.Combat
 {
@@ -11,12 +12,18 @@ namespace SRS.Combat
 
         private Vector2 size;
 
+        private System.Random random = new(Guid.NewGuid().GetHashCode());
+
         public override void OnStart(Attack attack)
         {
             if(overrideChargeTime == false)
             {
                 chargeTime = attack.Stats["Attack Delay"].Value/2;
             }
+
+            float spreadAngle = attack.Stats["Max Spread"].Value * (1 - attack.Stats["Accuracy"].Value)/2;
+            Vector3 rotation = new(0, 0, random.NextFloat(-spreadAngle, spreadAngle));
+            attack.transform.Rotate(rotation);
 
             size = attack.spriteSize;
             size.x = attack.Stats["Range"].Value;
