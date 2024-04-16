@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4807f3f75e524c24cb6d3a3f73629e70, type: 3}
-  m_Name: Damage Multiplier 1.1
+  m_Name: Damage Multiplier 1.5
   m_EditorClassIdentifier: 
   affectedStat: Damage
-  value: 1.1
+  value: 1.5
   invertFormatRules: 0
