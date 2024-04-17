@@ -671,13 +671,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 981893291}
     m_Modifications:
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: description
+      value: High accuracy, long range, and high damage.
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: unlockCriteria
+      value: Have a range of 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: conditions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: 'conditions.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: afd5347b0d7159e4d83658cdb531015d, type: 2}
+      objectReference: {fileID: 11400000, guid: 523392f6169a5d842ba036834b1033da, type: 2}
     - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: uniqueIdentifier
       value: a260b34a-86e8-4a05-8175-12024bfd8b1d
@@ -686,6 +694,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon Button (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5968974581232112365, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: b2862b766de03a54ab8cceab78c47c2f, type: 2}
     - target: {fileID: 8928696731973595479, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -50,6 +50,11 @@ namespace SRS.Audio
 
 		private void OnSoundEnd(Sound sound)
 		{
+			if(soundCount.ContainsKey(sound.name) == false)
+			{
+				soundCount[sound.name] = 0;
+			}
+			
 			soundCount[sound.name]--;
 		}
 	}
