@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Accuracy 50%
   m_EditorClassIdentifier: 
   affectedStat: Accuracy
-  value: 70
+  value: 50
   invertFormatRules: 0

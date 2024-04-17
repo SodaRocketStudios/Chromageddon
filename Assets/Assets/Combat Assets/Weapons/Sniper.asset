@@ -20,6 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6b4045600ecfb045b5c0c2769abd24b, type: 2}
   - {fileID: 11400000, guid: 8c1a74f679d435d4fa72a9a4c2a66688, type: 2}
   - {fileID: 11400000, guid: 498e0e851654ccf488e695738c36743e, type: 2}
+  - {fileID: 11400000, guid: b28ed45efb156f2449b87e5ec7ece51a, type: 2}
   attackData:
     Behavior: {fileID: 11400000, guid: fb388f3f7887e504e8d1dd8b5aba1f8f, type: 2}
     Sound: {fileID: 11400000, guid: d3debddfc743858469f8e1f86da45914, type: 2}

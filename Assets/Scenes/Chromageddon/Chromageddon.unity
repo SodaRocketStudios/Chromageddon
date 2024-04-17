@@ -21403,7 +21403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: unlockCriteria
-      value: Have accuracy of 50% or less
+      value: Have an accuracy of 60% or less
       objectReference: {fileID: 0}
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: conditions.Array.size
@@ -21412,7 +21412,7 @@ PrefabInstance:
     - target: {fileID: -2214367508667091589, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: 'conditions.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: fac32d63144ecc446af5d184aaf3cc69, type: 2}
+      objectReference: {fileID: 11400000, guid: 5ab7c732404517148a864ddf92e5e624, type: 2}
     - target: {fileID: 3253847534984581376, guid: d3a1e5d9d09123a49bf976b0581bb046, type: 3}
       propertyPath: uniqueIdentifier
       value: 057019bf-0105-4fcd-a88d-3a0638d50b74

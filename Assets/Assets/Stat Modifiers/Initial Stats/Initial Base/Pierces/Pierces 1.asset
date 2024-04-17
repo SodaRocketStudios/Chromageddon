@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc62fee6cd8516448a3312cf31b68ba2, type: 3}
   m_Name: Pierces 1
   m_EditorClassIdentifier: 
-  affectedStat: 
-  value: 0
+  affectedStat: Pierces
+  value: 1
   invertFormatRules: 0

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Electric Damage 3000
   m_EditorClassIdentifier: 
   comparison: 3
-  targetValue: 1000
-  statistic: Ice Damage Dealt
+  targetValue: 3000
+  statistic: Electric Damage Dealt

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79be615b54285c544b7576c745e19a0e, type: 3}
   m_Name: Bug Zapper
   m_EditorClassIdentifier: 
-  description: Deal 1000 ice damage in a single run
+  description: Deal 3000 Electric damage in a single run
   conditions:
-  - {fileID: 11400000, guid: b6eafbf8168c275409b5c786eb7307a6, type: 2}
+  - {fileID: 11400000, guid: 3a5f0315fd91b824eb98df37debb381f, type: 2}
